@@ -22,7 +22,7 @@ function dcvSong() {
     Notification.requestPermission();
   else {
     var media = API.getMedia()
-    var notification = new Notification(Now playing), {
+    var notification = new Notification(data.dj.username + "is playing", {
       icon: 'http://i.imgur.com/joWEdip.png',
       body: (media.author+" - "+media.title),
     });
