@@ -1,3 +1,4 @@
+var currentdj = data.dj.username
 var media = API.getMedia();
 
 API.on(API.ADVANCE, function(data) {
