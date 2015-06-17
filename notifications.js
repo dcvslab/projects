@@ -2,7 +2,7 @@ var media = API.getMedia();
 
 API.on(API.ADVANCE, function(data) {
         var media = API.getMedia();
-        setTimeout(function(){ notifyDCV(); }, 3000);
+        setTimeout(function(){ dcvSong(); }, 3000);
 });
  
 
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-function notifyDCV() {
+function dcvSong() {
   if (!Notification) {
     alert('Desktop notifications not available in your browser. Try Chromium.'); 
     return;
@@ -22,7 +22,7 @@ function notifyDCV() {
     Notification.requestPermission();
   else {
     var media = API.getMedia()
-    var notification = new Notification('Now Playing', {
+    var notification = new Notification(data.dj.username + "is playing", {
       icon: 'http://i.imgur.com/joWEdip.png',
       body: (media.author+" - "+media.title),
     });
