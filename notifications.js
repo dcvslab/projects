@@ -25,7 +25,7 @@ function dcvSong() {
     var notification = new Notification('Now Playing', {
       icon: 'http://cdn.sstatic.net/stackexchange/img/logos/so/so-icon.png',
       body: (media.author+ "-" +media.title),
-    });;
+    });
 
    notification.onclick = function(){
     window.focus();
