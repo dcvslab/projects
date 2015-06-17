@@ -1,7 +1,9 @@
 var media = API.getMedia();
+var currentdj = API.getDJ().username;
 
 API.on(API.ADVANCE, function(data) {
         var media = API.getMedia();
+        var currentdj = API.getDJ().username;
         setTimeout(function(){ dcvSong(); }, 3000);
 });
  
@@ -21,8 +23,7 @@ function dcvSong() {
   if (Notification.permission !== "granted")
     Notification.requestPermission();
   else {
-    var media = API.getMedia()
-    var notification = new Notification('Now Playing', {
+    var notification = new Notification("@" + currentdj + " is playing", {
       icon: 'http://cdn.sstatic.net/stackexchange/img/logos/so/so-icon.png',
       body: (media.author+ "-" +media.title),
     });
