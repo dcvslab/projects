@@ -38,7 +38,7 @@ API.on(API.ADVANCE, function(data) {
         setTimeout(function(){ dcvPos(); }, 7000);
        
         //songHistorytf to songHistoryPresent by making the true/false into better statements//
-              if (songHistorytf = true) {
+              if (songHistorytf == true) {
                      var songHistoryPresent = "is in the room history, change it quick!";
               } else {
                       //if it is false//
