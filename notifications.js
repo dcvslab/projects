@@ -96,9 +96,9 @@ function dcvPos() {
     Notification.requestPermission();
   else {
         var currentpos = API.getWaitListPosistion(userid)
-        if (var currentpos = 0) {
+        if (currentpos = 0) {
         var userid = API.getUser().id
-        if (var songHistorytf = true) {
+        if (songHistorytf = true) {
                      var songHistoryPresent = "is in the room history, change it quick!";
               } else {
                       //if it is false//
