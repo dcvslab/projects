@@ -5,17 +5,8 @@
 var media = API.getMedia();
 var currentdj = API.getDJ().username;
 var userid = API.getUser().id;
-var currentpos = API.getWaitListPosition(userid) + 1
-var songHistorytf = API.getNextedia().inHistory
-
-//songHistorytf to songHistoryPresent by making the true/false into better statements//
-if (songHistorytf = true) {
-       var songHistoryPresent = is in the room history, change it quick!
-} else {
-        //if it is false//
-       var songHistoryPresent = is not in the room history.
-}
-
+var currentpos = API.getWaitListPosition(userid)
+var songHistorytf = API.getNextMedia().inHistory
 
 //function running//
 window.onload = dcvStart();
@@ -24,10 +15,18 @@ window.onload = dcvStart();
 API.on(API.ADVANCE, function(data) {
         var media = API.getMedia();
         var currentdj = API.getDJ().username;
-        var currentpos = API.getWaitListPosition(userid) + 1
-        var songHistorytf = API.getNextedia().inHistory
+        var currentpos = API.getWaitListPosition(userid)
+        var songHistorytf = API.getNextMedia().inHistory
         setTimeout(function(){ dcvSong(); }, 3000);
         setTimeout(function(){ dcvPos(); }, 6000);
+       
+        //songHistorytf to songHistoryPresent by making the true/false into better statements//
+              if (songHistorytf = true) {
+                     var songHistoryPresent = "is in the room history, change it quick!";
+              } else {
+                      //if it is false//
+                     var songHistoryPresent = "is not in the room history.";
+              }
 });
  
 //permission gainer//
@@ -71,7 +70,7 @@ function dcvSong() {
         var currentdj = API.getDJ().username;
     var notification = new Notification(currentdj + " is playing:", {
       icon: 'http://cdn.sstatic.net/stackexchange/img/logos/so/so-icon.png',
-      body: (media.author+ " - " +media.title),
+      body: (media.author + " - " +mea.title),
     });
 
    notification.onclick = function(){
