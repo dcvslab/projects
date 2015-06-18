@@ -16,14 +16,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function dcvSong() {
   if (!Notification) {
-    alert('Desktop notifications not available in your browser. Try Chromium.'); 
+    alert('Desktop notifications are not availible. Are you using the right script?'); 
     return;
   }
 
   if (Notification.permission !== "granted")
     Notification.requestPermission();
   else {
-    var notification = new Notification("@" + currentdj + " is playing", {
+    var notification = new Notification(currentdj + " is playing", {
       icon: 'http://cdn.sstatic.net/stackexchange/img/logos/so/so-icon.png',
       body: (media.author+ "-" +media.title),
       setTimeout(function(){close('notification')},3000);
