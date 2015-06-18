@@ -109,7 +109,7 @@ function dcvPos() {
         }
     var notification = new Notification("You're up next!", {
       icon: 'http://i.imgur.com/joWEdip.png',
-      body: ("Your next song is" + songHistoryPresent),
+      body: ("Your next song " + songHistoryPresent),
     });
 
    notification.onclick = function(){
