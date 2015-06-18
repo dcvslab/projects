@@ -20,8 +20,8 @@ API.on(API.ADVANCE, function(data) {
         var media = API.getMedia();
         var currentdj = API.getDJ().username;
         var poscurrent = API.getWaitList();
-        var poscurrentid = poscurrent[0].id
-        var songHistorytf = API.getNextMedia().inHistory
+        var poscurrentid = poscurrent[0].id;
+        var songHistorytf = API.getNextMedia().inHistory;
         setTimeout(function(){ dcvSong(); }, 3000);
         setTimeout(function(){ dcvPos(); }, 7000);
        
