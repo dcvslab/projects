@@ -2,6 +2,7 @@
 //COPYRIGHT DCVSLAB 2015, DO NOT EDIT WITHOUT GIVING ME CREDIT//
 
 //variables//
+var dummy = "useless"
 var media = API.getMedia();
 var currentdj = API.getDJ().username;
 var userid = API.getUser().id;
@@ -9,7 +10,8 @@ var username = API.getUser().username;
 var currentpos = API.getWaitListPosition(userid)
 var songHistoryPresent = "undefined"
 var songHistorytf = API.getNextMedia().inHistory
-
+var poscurrent = API.getWaitList();
+var poscurrentid = poscurrent[0].id
 
 //function start//
 window.onload = dcvStart();
@@ -50,7 +52,7 @@ function dcvStart() {
   else {
     var notification = new Notification("DCV's Notifications", {
       icon: 'http://i.imgur.com/joWEdip.png',
-      body: ("Successfully started version 0.2, click here for change logs."),
+      body: ("Hey " + username +", you've started version 0.2, click here for change logs."),
     });
 
    notification.onclick = function(){
@@ -95,9 +97,10 @@ function dcvPos() {
   if (Notification.permission !== "granted")
     Notification.requestPermission();
   else {
-        var currentpos = API.getWaitListPosistion(userid)
-        if (currentpos = 0) {
+        var poscurrent = API.getWaitList();
+        var poscurrentid = poscurrent[0].id
         var userid = API.getUser().id
+        if posscurrentid = userid {
         if (songHistorytf = true) {
                      var songHistoryPresent = "is in the room history, change it quick!";
               } else {
@@ -112,10 +115,8 @@ function dcvPos() {
    notification.onclick = function(){
     window.focus();
 };
-        } else {
-                console.log("currentpos is " + currentpos)
-        }
-
+} else {
+        var dummy = "you found my secret"
+}
   }
-
 }
