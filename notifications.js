@@ -20,7 +20,7 @@ setInterval(function(){ dcvHistoryCheck(); }, 1000);
 
 function dcvHistoryCheck() {
         var SongHistorytf = API.getNextMedia().inHistory;
-                if (SongHistorytf = true) {
+                if (SongHistorytf == true) {
                         var songHistoryPresent = "is in the room history, change it quick!";
                 } else {
                   var songHistoryPresent = "is not in the room history.";     
