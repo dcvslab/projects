@@ -7,7 +7,6 @@ var media = API.getMedia();
 var currentdj = API.getDJ().username;
 var userid = API.getUser().id;
 var username = API.getUser().username;
-var currentpos = API.getWaitListPosition(userid)
 var songHistoryPresent = "undefined"
 var songHistorytf = API.getNextMedia().inHistory
 var poscurrent = API.getWaitList();
@@ -20,7 +19,8 @@ window.onload = dcvStart();
 API.on(API.ADVANCE, function(data) {
         var media = API.getMedia();
         var currentdj = API.getDJ().username;
-        var currentpos = API.getWaitListPosition(userid)
+        var poscurrent = API.getWaitList();
+        var poscurrentid = poscurrent[0].id
         var songHistorytf = API.getNextMedia().inHistory
         setTimeout(function(){ dcvSong(); }, 3000);
         setTimeout(function(){ dcvPos(); }, 6000);
