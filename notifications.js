@@ -6,14 +6,26 @@ var media = API.getMedia();
 var currentdj = API.getDJ().username;
 var userid = API.getUser().id;
 var currentpos = API.getWaitListPosition(userid) + 1
+var songHistorytf = API.getNextedia().inHistory
+
+//songHistorytf to songHistoryPresent by making the true/false into better statements//
+if (songHistorytf = true) {
+       var songHistoryPresent = is in the room history, change it quick!
+} else {
+        //if it is false//
+       var songHistoryPresent = is not in the room history.
+}
+
 
 //function running//
 window.onload = dcvStart();
 
+//variables are here to update them//
 API.on(API.ADVANCE, function(data) {
         var media = API.getMedia();
         var currentdj = API.getDJ().username;
         var currentpos = API.getWaitListPosition(userid) + 1
+        var songHistorytf = API.getNextedia().inHistory
         setTimeout(function(){ dcvSong(); }, 3000);
         setTimeout(function(){ dcvPos(); }, 6000);
 });
@@ -47,7 +59,7 @@ function dcvStart() {
 }
 
 //song advance notifiaction//
-function dcvPos() {
+function dcvSong() {
   if (!Notification) {
     alert('Desktop notifications are not availible. Are you using the right script?'); 
     return;
@@ -82,9 +94,9 @@ function dcvPos() {
     Notification.requestPermission();
   else {
         var userid = API.getUser().id
-    var notification = new Notification("Booth Alert", {
+    var notification = new Notification("You're up next!", {
       icon: 'http://cdn.sstatic.net/stackexchange/img/logos/so/so-icon.png',
-      body: ("You are up next!"),
+      body: ("Your next song is" + songHistoryPresent),
     });
 
    notification.onclick = function(){
