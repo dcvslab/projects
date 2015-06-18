@@ -23,7 +23,7 @@ API.on(API.ADVANCE, function(data) {
         var poscurrentid = poscurrent[0].id
         var songHistorytf = API.getNextMedia().inHistory
         setTimeout(function(){ dcvSong(); }, 3000);
-        setTimeout(function(){ dcvPos(); }, 6000);
+        setTimeout(function(){ dcvPos(); }, 7000);
        
         //songHistorytf to songHistoryPresent by making the true/false into better statements//
               if (songHistorytf = true) {
