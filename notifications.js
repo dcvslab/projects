@@ -26,7 +26,6 @@ function dcvSong() {
     var notification = new Notification(currentdj + " is playing", {
       icon: 'http://cdn.sstatic.net/stackexchange/img/logos/so/so-icon.png',
       body: (media.author+ "-" +media.title),
-      setTimeout(function(){close('notification')},3000);
     });
 
    notification.onclick = function(){
