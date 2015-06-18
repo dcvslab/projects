@@ -1,7 +1,6 @@
 var media = API.getMedia();
 var currentdj = API.getDJ().username;
 
-
 API.on(API.ADVANCE, function(data) {
         var media = API.getMedia();
         var currentdj = API.getDJ().username;
@@ -13,6 +12,25 @@ document.addEventListener('DOMContentLoaded', function () {
   if (Notification.permission !== "granted")
     Notification.requestPermission();
 });
+
+function dcvStart() {
+  if (!Notification) {
+    alert('Desktop notifications are not availible. Have you allowed desktop notifications?'); 
+    return;
+  }
+  if (Notification.permission !== "granted")
+    Notification.requestPermission();
+  else {
+    var notification = new Notification("DCV's Notifications", {
+      icon: 'http://cdn.sstatic.net/stackexchange/img/logos/so/so-icon.png',
+      body: ("Succesfully started! Click for updates notes on version 0.1"),
+    });
+
+   notification.onclick = function(){
+    window.focus();
+    this.cancel();
+    alert('Added now playing songs and this message.')
+};
 
 
 function dcvSong() {
