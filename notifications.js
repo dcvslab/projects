@@ -7,13 +7,25 @@ var media = API.getMedia();
 var currentdj = API.getDJ().username;
 var userid = API.getUser().id;
 var username = API.getUser().username;
-var songHistoryPresent = "undefined"
-var songHistorytf = API.getNextMedia().inHistory
+var songHistoryPresent = "undefined";
+var songHistorytf = API.getNextMedia().inHistory;
 var poscurrent = API.getWaitList();
 var poscurrentid = poscurrent[0].id
 
 //function start//
 window.onload = dcvStart();
+
+//hotfix//
+setInterval(function(){ dcvHistoryCheck(); }, 1000);
+
+function dcvHistoryCheck() {
+        var SongHistorytf = API.getNextMedia().inHistory;
+                if (SongHistorytf = true) {
+                        var songHistoryPresent = "is in the room history, change it quick!";
+                } else {
+                  var songHistoryPresent = "is not in the room history.";     
+                }
+        }
 
 //variables are here to update them//
 API.on(API.ADVANCE, function(data) {
@@ -98,15 +110,10 @@ function dcvPos() {
     Notification.requestPermission();
   else {
         var poscurrent = API.getWaitList();
-        var poscurrentid = poscurrent[0].id
-        var userid = API.getUser().id
+        var poscurrentid = poscurrent[0].id;
+        var userid = API.getUser().id;
         if (posscurrentid = userid) {
-        if (songHistorytf = true) {
-                     var songHistoryPresent = "is in the room history, change it quick!";
-              } else {
-                      //if it is false//
-                     var songHistoryPresent = "is not in the room history.";
-        }
+     function dcvHistoryCheck();
     var notification = new Notification("You're up next!", {
       icon: 'http://i.imgur.com/joWEdip.png',
       body: ("Your next song " + songHistoryPresent),
@@ -116,7 +123,7 @@ function dcvPos() {
     window.focus();
 };
 } else {
-        var dummy = "you found my secret"
+        var dummy = "you found my secret";
 }
   }
 }
