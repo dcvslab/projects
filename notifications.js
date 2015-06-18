@@ -10,7 +10,7 @@ var username = API.getUser().username;
 var songHistoryPresent = "undefined";
 var songHistorytf = API.getNextMedia().inHistory;
 var poscurrent = API.getWaitList();
-var poscurrentid = poscurrent[0].id
+var poscurrentid = "undefined until song is played"
 
 //function start//
 window.onload = dcvStart();
