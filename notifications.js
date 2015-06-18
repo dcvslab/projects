@@ -13,24 +13,29 @@ document.addEventListener('DOMContentLoaded', function () {
     Notification.requestPermission();
 });
 
+//start up notification//
 function dcvStart() {
   if (!Notification) {
-    alert('Desktop notifications are not availible. Have you allowed desktop notifications?'); 
+    alert('Desktop notifications are not availible. Are you using the right script?'); 
     return;
   }
+
   if (Notification.permission !== "granted")
     Notification.requestPermission();
   else {
     var notification = new Notification("DCV's Notifications", {
       icon: 'http://cdn.sstatic.net/stackexchange/img/logos/so/so-icon.png',
-      body: ("Succesfully started! Click for updates notes on version 0.1"),
+      body: ("Successfully started version0.1, click here for change logs."),
     });
 
    notification.onclick = function(){
-    window.focus();
-    this.cancel();
-    alert('Added now playing songs and this message.')
+    window.open("http://dcvslab.github.io/changelog");
+}
 };
+
+  }
+
+}
 
 
 function dcvSong() {
