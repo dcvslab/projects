@@ -1,5 +1,6 @@
 var media = API.getMedia();
 var currentdj = API.getDJ().username;
+window.onload = dcvStart();
 
 API.on(API.ADVANCE, function(data) {
         var media = API.getMedia();
