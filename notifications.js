@@ -4,13 +4,13 @@
 //variables//
 var dummy = "useless"
 var media = API.getMedia();
-var currentdj = "undefined until song is played";
+var currentdj = API.getDJ().username;
 var userid = API.getUser().id;
 var username = API.getUser().username;
 var songHistoryPresent = "undefined";
 var songHistorytf = API.getNextMedia().inHistory;
 var poscurrent = API.getWaitList();
-var poscurrentid = "undefined until song is played"
+var poscurrentid = poscurrent[0].id;
 
 //function start//
 window.onload = dcvStart();
