@@ -19,14 +19,14 @@ window.onload = dcvStart();
 setInterval(function(){ dcvHistoryCheck(); }, 1000);
 
 function dcvHistoryCheck() {
-        var SongHistorytf = API.getNextMedia().inHistory;
+       var songHistoryPresent = ""; var SongHistorytf = API.getNextMedia().inHistory;
                 if (SongHistorytf == true) {
-                        var songHistoryPresent = "is in the room history, change it quick!";
+                        songHistoryPresent = "is in the room history, change it quick!";
                 } else {
-                  var songHistoryPresent = "is not in the room history.";     
+                  songHistoryPresent = "is not in the room history.";     
                 }
         }
-
+ 
 //variables are here to update them//
 API.on(API.ADVANCE, function(data) {
         var media = API.getMedia();
@@ -87,7 +87,7 @@ function dcvSong() {
         var media = API.getMedia();
         var currentdj = API.getDJ().username;
     var notification = new Notification(currentdj + " is playing:", {
-      icon: 'http://i.imgur.com/joWEdip.png',
+      icon: 'http://i.imgur.com/pMR567X.png',
       body: (media.author + " - " + media.title),
     });
 
