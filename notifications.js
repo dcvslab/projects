@@ -4,7 +4,7 @@
 //variables//
 var dummy = "useless"
 var media = API.getMedia();
-var currentdj = API.getDJ().username;
+var currentdj = "undefined until song is played";
 var userid = API.getUser().id;
 var username = API.getUser().username;
 var songHistoryPresent = "undefined";
