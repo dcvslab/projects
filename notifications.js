@@ -36,7 +36,7 @@ function dcvStart() {
   else {
     var notification = new Notification("DCV's Notifications", {
       icon: 'http://cdn.sstatic.net/stackexchange/img/logos/so/so-icon.png',
-      body: ("Successfully started version0.1, click here for change logs."),
+      body: ("Successfully started version 0.2, click here for change logs."),
     });
 
    notification.onclick = function(){
