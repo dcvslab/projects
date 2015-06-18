@@ -30,13 +30,9 @@ function dcvStart() {
 
    notification.onclick = function(){
     window.open("http://dcvslab.github.io/changelog");
+                }
+        };
 }
-};
-
-  }
-
-}
-
 
 function dcvSong() {
   if (!Notification) {
