@@ -6,6 +6,7 @@ var media = API.getMedia();
 var currentdj = API.getDJ().username;
 var userid = API.getUser().id;
 var currentpos = API.getWaitListPosition(userid)
+var songHistoryPresent = "is in the room history, change it quick!"
 var songHistorytf = API.getNextMedia().inHistory
 
 //function running//
@@ -67,10 +68,11 @@ function dcvSong() {
   if (Notification.permission !== "granted")
     Notification.requestPermission();
   else {
+        var media = API.getMedia();
         var currentdj = API.getDJ().username;
     var notification = new Notification(currentdj + " is playing:", {
       icon: 'http://cdn.sstatic.net/stackexchange/img/logos/so/so-icon.png',
-      body: (media.author + " - " +mea.title),
+      body: (media.author + " - " + media.title),
     });
 
    notification.onclick = function(){
@@ -93,6 +95,12 @@ function dcvPos() {
     Notification.requestPermission();
   else {
         var userid = API.getUser().id
+        if (songHistorytf = true) {
+                     var songHistoryPresent = "is in the room history, change it quick!";
+              } else {
+                      //if it is false//
+                     var songHistoryPresent = "is not in the room history.";
+        }
     var notification = new Notification("You're up next!", {
       icon: 'http://cdn.sstatic.net/stackexchange/img/logos/so/so-icon.png',
       body: ("Your next song is" + songHistoryPresent),
