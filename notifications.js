@@ -100,7 +100,7 @@ function dcvPos() {
         var poscurrent = API.getWaitList();
         var poscurrentid = poscurrent[0].id
         var userid = API.getUser().id
-        if posscurrentid = userid {
+        if (posscurrentid = userid) {
         if (songHistorytf = true) {
                      var songHistoryPresent = "is in the room history, change it quick!";
               } else {
