@@ -5,19 +5,21 @@
 var dummy = "useless"
 var media = API.getMedia();
 var currentdj = API.getDJ().username;
+var currentdjid = API.getDJ().id;
 var userid = API.getUser().id;
 var username = API.getUser().username;
 var songHistoryPresent = "undefined";
 var songHistorytf = API.getNextMedia().inHistory;
 var poscurrent = API.getWaitList();
 var poscurrentid = poscurrent[0].id;
+var pastdj = API.getHistory();
+var pastdjid = pastdj[0].user.id;
 
 //function start//
 window.onload = dcvStart();
-
-//hotfix//
 setInterval(function(){ dcvHistoryCheck(); }, 1000);
 
+//hotfix//
 function dcvHistoryCheck() {
        var songHistoryPresent = ""; var SongHistorytf = API.getNextMedia().inHistory;
                 if (SongHistorytf == true) {
@@ -31,9 +33,12 @@ function dcvHistoryCheck() {
 API.on(API.ADVANCE, function(data) {
         var media = API.getMedia();
         var currentdj = API.getDJ().username;
+        var currentdjid = API.getDJ().id;
         var poscurrent = API.getWaitList();
         var poscurrentid = poscurrent[0].id;
         var songHistorytf = API.getNextMedia().inHistory;
+        var pastdj = API.getHistory();
+        var pastdjid = pastdj[0].user.id;
         setTimeout(function(){ dcvSong(); }, 3000);
         setTimeout(function(){ dcvPos(); }, 7000);
        
@@ -86,10 +91,21 @@ function dcvSong() {
   else {
         var media = API.getMedia();
         var currentdj = API.getDJ().username;
-    var notification = new Notification(currentdj + " is playing:", {
-      icon: 'http://i.imgur.com/pMR567X.png',
+        var currentdjid = API.getDJ().id;
+        var userid = API.getUser().id;
+        var pastdj = API.getHistory();
+        var pastdjid = pastdj[0].user.id;
+       if (pastdjid = currentdjid) { 
+     var notification = new Notification(currentdj + " is playing:", {
+      icon: 'http://i.imgur.com/6iZyZ5u.png',
       body: (media.author + " - " + media.title),
     });
+       } else {
+    var notification = new Notification(currentdj + " is playing:", {
+      icon: 'http://i.imgur.com/6iZyZ5u.png',
+      body: (media.author + " - " + media.title),
+    });
+       }
 
    notification.onclick = function(){
     window.focus();
