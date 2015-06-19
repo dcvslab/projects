@@ -3,11 +3,19 @@
 
 //variables//
 var dummy = "useless"
-var media = API.getMedia();
-var currentdj = API.getDJ().username;
 var userid = API.getUser().id;
 var username = API.getUser().username;
 var waitlist = API.getWaitList();
+var media = API.getMedia();
+if (waitlist.length == 0) {
+         if (media == undefined) {
+                  var currentdj = "No DJ"
+         } else 
+         { var currentdj = API.getDJ();
+         }
+} else {
+         var currentdj = API.getDJ().username;
+}
 if (waitlist.length == 0) {
          var waitlistone = 0
 } else {
@@ -18,7 +26,9 @@ var woots = score.positive;
 var mehs = score.negative;
 var grabs = score.grabs;
 var timeleft = API.getTimeRemaining();
-var grabgrammar = "Grab"
+var grabgrammar = "Grab";
+var mehgrammar = "Meh";
+var wootgrammar = "Woot";
 
 //time left | dcvTimeleft() //
 function dcvTimeleft() {
@@ -37,13 +47,21 @@ function dcvTimeleft() {
         var woots = score.positive;
         var mehs = score.negative;
         var grabs = score.grabs;  
-         if (grabs > 1) {
-                  var grabgrammar = "Grabs"
-         } else { var grabgrammar = "Grab"
-         }
-    var notification = new Notification("Song Stats", {
+         if (grabs == 1) {
+                  var grabgrammar = "Grab"
+         } else { var grabgrammar = "Grabs"
+         };
+         if (woots == 1) {
+                  var wootgrammar = "Woot"
+         } else { var wootgrammar = "Woots"
+         };
+         if (mehs == 1) {
+                  var mehgrammar = "Meh"
+         } else { var mehgrammar = "Mehs"
+         };
+    var notification = new Notification(media.author + " - " + media.title), {
       icon: 'http://i.imgur.com/joWEdip.png',
-      body: (woots + " Woots | " + mehs + " Mehs | " + grabs + " " + grabgrammar),
+      body: (woots + wootgrammar + " | " + mehs + " " + mehgrammar " | " grabs + " " + grabgrammar),
     });
 
    notification.onclick = function(){
