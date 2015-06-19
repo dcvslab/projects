@@ -86,8 +86,8 @@ var waitlist = API.getWaitList();
 var waitlistone = waitlist[0].id
 
 if (waitlistone == userid) {
-  if (Notification.permission !== "granted")
-    Notification.requestPermission();
+  if (Notification.permission !== "granted") {
+    Notification.requestPermission(); }
   else {
         var media = API.getMedia();
         var currentdj = API.getDJ().username;
@@ -106,4 +106,6 @@ if (waitlistone == userid) {
         var dummy = "dumbdumb";
 }
 };
+
+
 
