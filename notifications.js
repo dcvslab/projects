@@ -13,6 +13,7 @@ var score = API.getScore();
 var woots = score.positive;
 var mehs = score.negative;
 var grabs = score.grabs;
+var timeleft = API.getTimeRemaining();
 
 //function start//
 window.onload = dcvStart();
@@ -110,7 +111,10 @@ if (waitlistone == userid) {
 };
 
 //time left//
-
+function dcvTimeLeft() {
+        var timeleft = var timeleft = API.getTimeRemaining();
+        console.log(timeleft)
+}
 //song stats//
 
 
