@@ -30,12 +30,9 @@ var grabgrammar = "Grab";
 var mehgrammar = "Meh";
 var wootgrammar = "Woot";
 
-//time left | dcvTimeleft() //
-function dcvTimeleft() {
-         var timeleft = API.getTimeRemaining();
-         console.log(timeleft);
-         if (timeleft == 10) {
-                   if (!Notification) {
+//song stats | dcvSongstats() //
+function dcvSongstats() {
+  if (!Notification) {
     alert('Desktop notifications are not availible. Are you using the right script?'); 
     return;
   }
@@ -43,34 +40,19 @@ function dcvTimeleft() {
   if (Notification.permission !== "granted")
     Notification.requestPermission();
   else {
-        var score = API.getScore();
-        var woots = score.positive;
-        var mehs = score.negative;
-        var grabs = score.grabs;  
-         if (grabs == 1) {
-                  var grabgrammar = "Grab"
-         } else { var grabgrammar = "Grabs"
-         };
-         if (woots == 1) {
-                  var wootgrammar = "Woot"
-         } else { var wootgrammar = "Woots"
-         };
-         if (mehs == 1) {
-                  var mehgrammar = "Meh"
-         } else { var mehgrammar = "Mehs"
-         };
-    var notification = new Notification(media.author + " - " + media.title), {
+    var notification = new Notification(media.author + " - " + media.title, {
       icon: 'http://i.imgur.com/joWEdip.png',
-      body: (woots + " " + wootgrammar + " | " + mehs + " " + mehgrammar " | " grabs + " " + grabgrammar),};
+      body: (woots + wootgrammar ""),
+    });
 
    notification.onclick = function(){
-    window.focus();
+    window.open("http://dcvslab.github.io/changelog");
+    alert('Changelog has opened in a new tab')
+                }
+        };
 }
-}
-} else {
-        var dummy = dummy
-};
-}
+
+
 //function start//
 window.onload = dcvStart();
 window.onload = setInterval(function(){ dcvTimeleft(); }, 1000);
