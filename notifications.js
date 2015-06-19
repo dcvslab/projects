@@ -1,5 +1,5 @@
 //THIS IS A FIREFOX EXTENSION, THE CHROME EXTENSION IS IN THE MAKING//
-//COPYRIGHT DCVSLAB 2015, DO NOT EDIT WITHOUT GIVING ME CREDIT//
+//COPYRIGHT DCVSLAB 2015, DO NOT EDIT WITHOUT GIVING ME, DCVSLAB, CREDIT//
 
 //variables//
 var dummy = "useless"
@@ -82,8 +82,8 @@ function dcvPos() {
     return;
   };
 
-  if (Notification.permission !== "granted")
-    Notification.requestPermission();
+  if (Notification.permission !== "granted") 
+    Notification.requestPermission(); 
   else {
           if (waitlistone == userid) {
     var notification = new Notification("Booth Alert", {
@@ -97,4 +97,5 @@ function dcvPos() {
   } else { 
           var dummy = "#secret"
   }
+}
 };
