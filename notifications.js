@@ -4,47 +4,29 @@
 //variables//
 var dummy = "useless"
 var media = API.getMedia();
-var currentdj = "currentdj";
-var currentdjid = "1234567";
+var currentdj = API.getDJ().username;
 var userid = API.getUser().id;
 var username = API.getUser().username;
-var songHistoryPresent = "undefined";
-var songHistorytf = API.getNextMedia().inHistory;
-var poscurrent = "50";
-var poscurrentid = "7654321";
-var pastdj = API.getHistory();
-var pastdjid = pastdj[0].user.id;
+var songHistoryPresent = "undefined"
+var songHistorytf = API.getNextMedia().inHistory
+var poscurrent = API.getWaitList();
+var poscurrentid = poscurrent[0].id
 
 //function start//
 window.onload = dcvStart();
-setInterval(function(){ dcvHistoryCheck(); }, 1000);
 
-//hotfix//
-function dcvHistoryCheck() {
-       var songHistoryPresent = ""; var SongHistorytf = API.getNextMedia().inHistory;
-                if (SongHistorytf == true) {
-                        songHistoryPresent = "is in the room history, change it quick!";
-                } else {
-                  songHistoryPresent = "is not in the room history.";     
-                }
-        }
- 
 //variables are here to update them//
 API.on(API.ADVANCE, function(data) {
-        setTimeout(function(){ dcvSong(); }, 3000);
         var media = API.getMedia();
         var currentdj = API.getDJ().username;
-        var currentdjid = API.getDJ().id;
         var poscurrent = API.getWaitList();
-        var poscurrentid = poscurrent[0].id;
-        var songHistorytf = API.getNextMedia().inHistory;
-        var pastdj = API.getHistory();
-        var pastdjid = pastdj[0].user.id;
+        var poscurrentid = poscurrent[0].id
+        var songHistorytf = API.getNextMedia().inHistory
         setTimeout(function(){ dcvSong(); }, 3000);
         setTimeout(function(){ dcvPos(); }, 7000);
        
         //songHistorytf to songHistoryPresent by making the true/false into better statements//
-              if (songHistorytf == true) {
+              if (songHistorytf = true) {
                      var songHistoryPresent = "is in the room history, change it quick!";
               } else {
                       //if it is false//
@@ -92,21 +74,10 @@ function dcvSong() {
   else {
         var media = API.getMedia();
         var currentdj = API.getDJ().username;
-        var currentdjid = API.getDJ().id;
-        var userid = API.getUser().id;
-        var pastdj = API.getHistory();
-        var pastdjid = pastdj[0].user.id;
-       if (pastdjid = currentdjid) { 
-     var notification = new Notification(currentdj + " is playing:", {
-      icon: 'http://i.imgur.com/6iZyZ5u.png',
-      body: (media.author + " - " + media.title),
-    });
-       } else {
     var notification = new Notification(currentdj + " is playing:", {
-      icon: 'http://i.imgur.com/6iZyZ5u.png',
+      icon: 'http://i.imgur.com/joWEdip.png',
       body: (media.author + " - " + media.title),
     });
-       }
 
    notification.onclick = function(){
     window.focus();
@@ -127,10 +98,15 @@ function dcvPos() {
     Notification.requestPermission();
   else {
         var poscurrent = API.getWaitList();
-        var poscurrentid = poscurrent[0].id;
-        var userid = API.getUser().id;
+        var poscurrentid = poscurrent[0].id
+        var userid = API.getUser().id
         if (posscurrentid = userid) {
-     setTimeout(function(){ dcvHistoryCheck(); }, 1);
+        if (songHistorytf = true) {
+                     var songHistoryPresent = "is in the room history, change it quick!";
+              } else {
+                      //if it is false//
+                     var songHistoryPresent = "is not in the room history.";
+        }
     var notification = new Notification("You're up next!", {
       icon: 'http://i.imgur.com/joWEdip.png',
       body: ("Your next song " + songHistoryPresent),
@@ -140,7 +116,7 @@ function dcvPos() {
     window.focus();
 };
 } else {
-        var dummy = "you found my secret";
+        var dummy = "you found my secret"
 }
   }
 }
