@@ -26,9 +26,9 @@ var woots = score.positive;
 var mehs = score.negative;
 var grabs = score.grabs;
 var timeleft = API.getTimeRemaining();
-var grabgrammar = "Grab";
-var mehgrammar = "Meh";
-var wootgrammar = "Woot";
+var grabgrammar = " Grabs";
+var mehgrammar = " Mehs";
+var wootgrammar = " Woots";
 
 //song stats | dcvSongstats() //
 function dcvSongstats() {
@@ -40,9 +40,28 @@ function dcvSongstats() {
   if (Notification.permission !== "granted")
     Notification.requestPermission();
   else {
+         var score = API.getScore();
+         var woots = score.positive;
+         var mehs = score.negative;
+         var grabs = score.grabs;
+if (woots == 1) {
+         var wootgrammar = " Woot"
+} else {
+         var wootgrammar = " Woots"
+}
+if (mehs == 1) {
+         var mehgrammar = " Meh"
+} else {
+         var mehgrammar = " Mehs"
+}
+if (grabs == 1) {
+         var grabgrammar = " Grab"
+} else {
+         var grabgrammar = " Grabs"
+}
     var notification = new Notification(media.author + " - " + media.title, {
       icon: 'http://i.imgur.com/joWEdip.png',
-      body: (woots + wootgrammar ""),
+      body: (woots + wootgrammar " | " + mehs + mehgrammar + " | " + grabs + grabgrammar ),
     });
 
    notification.onclick = function(){
