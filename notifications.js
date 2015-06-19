@@ -112,8 +112,15 @@ if (waitlistone == userid) {
 
 //time left//
 function dcvTimeleft() {
-        var timeleft = API.getTimeRemaining(); }
-//song stats//
+        var timeleft = API.getTimeRemaining(); 
+                if (timeleft == 15) {
+                        console.log(score.grab +"grab " + score.woot +"woot " + score.meh + "meh")
+                } else {
+                        var dummy = dummy
+                }
+                
+};
+
 
 
 
