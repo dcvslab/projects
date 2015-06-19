@@ -4,14 +4,14 @@
 //variables//
 var dummy = "useless"
 var media = API.getMedia();
-var currentdj = API.getDJ().username;
-var currentdjid = API.getDJ().id;
+var currentdj = "currentdj";
+var currentdjid = "1234567";
 var userid = API.getUser().id;
 var username = API.getUser().username;
 var songHistoryPresent = "undefined";
 var songHistorytf = API.getNextMedia().inHistory;
-var poscurrent = API.getWaitList();
-var poscurrentid = poscurrent[0].id;
+var poscurrent = "50";
+var poscurrentid = "7654321";
 var pastdj = API.getHistory();
 var pastdjid = pastdj[0].user.id;
 
@@ -31,6 +31,7 @@ function dcvHistoryCheck() {
  
 //variables are here to update them//
 API.on(API.ADVANCE, function(data) {
+        setTimeout(function(){ dcvSong(); }, 3000);
         var media = API.getMedia();
         var currentdj = API.getDJ().username;
         var currentdjid = API.getDJ().id;
