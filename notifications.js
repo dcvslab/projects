@@ -8,12 +8,17 @@ var currentdj = API.getDJ().username;
 var userid = API.getUser().id;
 var username = API.getUser().username;
 var waitlist = API.getWaitList();
+if (waitlist.length == 0) {
+         var waitlistone = 0
+} else {
 var waitlistone = waitlist[0].id;
+}
 var score = API.getScore();
 var woots = score.positive;
 var mehs = score.negative;
 var grabs = score.grabs;
 var timeleft = API.getTimeRemaining();
+var grabgrammar = "Grab"
 
 //time left | dcvTimeleft() //
 function dcvTimeleft() {
@@ -31,10 +36,14 @@ function dcvTimeleft() {
         var score = API.getScore();
         var woots = score.positive;
         var mehs = score.negative;
-        var grabs = score.grabs;   
+        var grabs = score.grabs;  
+         if (grabs > 1) {
+                  var grabgrammar = "Grabs"
+         } else { var grabgrammar = "Grab"
+         }
     var notification = new Notification("Song Stats", {
       icon: 'http://i.imgur.com/joWEdip.png',
-      body: (woots + " Woots | " + mehs + " Mehs | " + grabs + " Grabs"),
+      body: (woots + " Woots | " + mehs + " Mehs | " + grabs + " " + grabgrammar),
     });
 
    notification.onclick = function(){
