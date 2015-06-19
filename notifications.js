@@ -9,9 +9,14 @@ var userid = API.getUser().id;
 var username = API.getUser().username;
 var waitlist = API.getWaitList();
 var waitlistone = waitlist[0].id;
+var score = API.getScore();
+var woots = score.positive;
+var mehs = score.negative;
+var grabs = score.grabs;
 
 //function start//
 window.onload = dcvStart();
+setInterval(function(){ dcvSong(); }, 3000);
 
 //variables are here to update them//
 API.on(API.ADVANCE, function(data) {
@@ -21,7 +26,7 @@ API.on(API.ADVANCE, function(data) {
         var waitlistone = waitlist[0].id
         setTimeout(function(){ dcvSong(); }, 3000);
         setTimeout(function(){ dcvPos(); }, 7000);
-       
+});     
 //permission gainer//
 document.addEventListener('DOMContentLoaded', function () {
   if (Notification.permission !== "granted")
@@ -91,9 +96,9 @@ if (waitlistone == userid) {
   else {
         var media = API.getMedia();
         var currentdj = API.getDJ().username;
-    var notification = new Notification(currentdj + " is playing:", {
+    var notification = new Notification("Booth Notification", {
       icon: 'http://i.imgur.com/joWEdip.png',
-      body: (media.author + " - " + media.title),
+      body: ("You're up next, get ready to play!"),
     });
 
    notification.onclick = function(){
@@ -102,10 +107,11 @@ if (waitlistone == userid) {
 
   }
 
-} else {
-        var dummy = "dumbdumb";
-}
 };
+
+//song stats//
+
+
 
 
 
