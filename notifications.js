@@ -16,7 +16,7 @@ var grabs = score.grabs;
 
 //function start//
 window.onload = dcvStart();
-setInterval(function(){ dcvSong(); }, 3000);
+setInterval(function(){ dcvTimeleft(); }, 1000);
 
 //variables are here to update them//
 API.on(API.ADVANCE, function(data) {
@@ -108,6 +108,8 @@ if (waitlistone == userid) {
   }
 
 };
+
+//time left//
 
 //song stats//
 
