@@ -7,10 +7,8 @@ var media = API.getMedia();
 var currentdj = API.getDJ().username;
 var userid = API.getUser().id;
 var username = API.getUser().username;
-var songHistoryPresent = "undefined"
-var songHistorytf = API.getNextMedia().inHistory
-var poscurrent = API.getWaitList();
-var poscurrentid = poscurrent[0].id
+var waitlist = API.getWaitList();
+var waitlistone = waitlist[0].id
 
 //function start//
 window.onload = dcvStart();
@@ -19,21 +17,11 @@ window.onload = dcvStart();
 API.on(API.ADVANCE, function(data) {
         var media = API.getMedia();
         var currentdj = API.getDJ().username;
-        var poscurrent = API.getWaitList();
-        var poscurrentid = poscurrent[0].id
-        var songHistorytf = API.getNextMedia().inHistory
+        var waitlist = API.getWaitList();
+        var waitlistone = waitlist[0].id
         setTimeout(function(){ dcvSong(); }, 3000);
         setTimeout(function(){ dcvPos(); }, 7000);
        
-        //songHistorytf to songHistoryPresent by making the true/false into better statements//
-              if (songHistorytf = true) {
-                     var songHistoryPresent = "is in the room history, change it quick!";
-              } else {
-                      //if it is false//
-                     var songHistoryPresent = "is not in the room history.";
-              }
-});
- 
 //permission gainer//
 document.addEventListener('DOMContentLoaded', function () {
   if (Notification.permission !== "granted")
@@ -92,31 +80,21 @@ function dcvPos() {
   if (!Notification) {
     alert('Desktop notifications are not availible. Are you using the right script?'); 
     return;
-  }
+  };
 
   if (Notification.permission !== "granted")
     Notification.requestPermission();
   else {
-        var poscurrent = API.getWaitList();
-        var poscurrentid = poscurrent[0].id
-        var userid = API.getUser().id
-        if (posscurrentid = userid) {
-        if (songHistorytf = true) {
-                     var songHistoryPresent = "is in the room history, change it quick!";
-              } else {
-                      //if it is false//
-                     var songHistoryPresent = "is not in the room history.";
-        }
-    var notification = new Notification("You're up next!", {
+          if (waitlistone == userid) {
+    var notification = new Notification("Booth Alert", {
       icon: 'http://i.imgur.com/joWEdip.png',
-      body: ("Your next song " + songHistoryPresent),
+      body: (username + ", you're up next!"),
     });
 
    notification.onclick = function(){
-    window.focus();
-};
-} else {
-        var dummy = "you found my secret"
-}
+    window.focus()
+                }
+  } else { 
+          var dummy = "#secret"
   }
-}
+};
