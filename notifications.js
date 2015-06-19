@@ -111,10 +111,8 @@ if (waitlistone == userid) {
 };
 
 //time left//
-function dcvTimeLeft() {
-        var timeleft = API.getTimeRemaining();
-        console.log(timeleft)
-}
+function dcvTimeleft() {
+        var timeleft = API.getTimeRemaining(); }
 //song stats//
 
 
