@@ -112,7 +112,7 @@ if (waitlistone == userid) {
 
 //time left//
 function dcvTimeLeft() {
-        var timeleft = var timeleft = API.getTimeRemaining();
+        var timeleft = API.getTimeRemaining();
         console.log(timeleft)
 }
 //song stats//
