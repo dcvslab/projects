@@ -15,10 +15,39 @@ var mehs = score.negative;
 var grabs = score.grabs;
 var timeleft = API.getTimeRemaining();
 
+//time left | dcvTimeleft() //
+function dcvTimeleft() {
+         var timeleft = API.getTimeRemaining();
+         console.log(timeleft);
+         if (timeleft == 10) {
+                   if (!Notification) {
+    alert('Desktop notifications are not availible. Are you using the right script?'); 
+    return;
+  }
+
+  if (Notification.permission !== "granted")
+    Notification.requestPermission();
+  else {
+        var score = API.getScore();
+        var woots = score.positive;
+        var mehs = score.negative;
+        var grabs = score.grabs;   
+    var notification = new Notification("Song Stats", {
+      icon: 'http://i.imgur.com/joWEdip.png',
+      body: (woots + " Woots | " + mehs + " Mehs | " + grabs + " Grabs"),
+    });
+
+   notification.onclick = function(){
+    window.focus();
+}
+}
+} else {
+        var dummy = dummy
+};
+}
 //function start//
 window.onload = dcvStart();
-setInterval(function(){ dcvTimeleft(); }, 1000);
-
+window.onload = setInterval(function(){ dcvTimeleft(); }, 1000);
 //variables are here to update them//
 API.on(API.ADVANCE, function(data) {
         var media = API.getMedia();
@@ -108,18 +137,11 @@ if (waitlistone == userid) {
 
   }
 
-};
+}};
 
-//time left//
-function dcvTimeleft() {
-        var timeleft = API.getTimeRemaining(); }};
-        
-if (timeleft == 15) {
-        API.sendChat(score.woots)
-} else {
-        var dummy = dummy
-}
-}
+
+
+
 
 
 
