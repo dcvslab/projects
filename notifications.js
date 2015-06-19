@@ -62,7 +62,7 @@ function dcvTimeleft() {
     var notification = new Notification(media.author + " - " + media.title), {
       icon: 'http://i.imgur.com/joWEdip.png',
       body: (woots + wootgrammar + " | " + mehs + " " + mehgrammar " | " grabs + " " + grabgrammar),
-    });
+    };
 
    notification.onclick = function(){
     window.focus();
