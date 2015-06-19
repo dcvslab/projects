@@ -8,7 +8,7 @@ var currentdj = API.getDJ().username;
 var userid = API.getUser().id;
 var username = API.getUser().username;
 var waitlist = API.getWaitList();
-var waitlistone = waitlist[0].id
+var waitlistone = waitlist[0].id;
 
 //function start//
 window.onload = dcvStart();
@@ -77,29 +77,33 @@ function dcvSong() {
 
 //you are posistion 1 | dcvPos()//
 function dcvPos() {
-        var userid = API.getUser().id;
-        var waitlist = API.getWaitList();
-        var waitlistone = waitlist[0].id
-if (waitlistone == userid) {
-   if (!Notification) {
+  if (!Notification) {
     alert('Desktop notifications are not availible. Are you using the right script?'); 
     return;
   }
+var userid = API.getUser().id;
+var waitlist = API.getWaitList();
+var waitlistone = waitlist[0].id
 
+if (waitlistone == userid) {
   if (Notification.permission !== "granted")
     Notification.requestPermission();
   else {
-        var userid = API.getUser().id;
-        var waitlist = API.getWaitList();
-        var waitlistone = waitlist[0].id
-    var notification = new Notification("Booth Alert", {
+        var media = API.getMedia();
+        var currentdj = API.getDJ().username;
+    var notification = new Notification(currentdj + " is playing:", {
       icon: 'http://i.imgur.com/joWEdip.png',
       body: (media.author + " - " + media.title),
     });
 
    notification.onclick = function(){
     window.focus();
+}
+
+  }
+
 } else {
-        console.log(dcv.proof)
+        var dummy = "dumbdumb";
 }
 };
+
