@@ -77,25 +77,29 @@ function dcvSong() {
 
 //you are posistion 1 | dcvPos()//
 function dcvPos() {
-  if (!Notification) {
+        var userid = API.getUser().id;
+        var waitlist = API.getWaitList();
+        var waitlistone = waitlist[0].id
+if (waitlistone == userid) {
+   if (!Notification) {
     alert('Desktop notifications are not availible. Are you using the right script?'); 
     return;
-  };
+  }
 
-  if (Notification.permission !== "granted") 
-    Notification.requestPermission(); 
+  if (Notification.permission !== "granted")
+    Notification.requestPermission();
   else {
-          if (waitlistone == userid) {
+        var userid = API.getUser().id;
+        var waitlist = API.getWaitList();
+        var waitlistone = waitlist[0].id
     var notification = new Notification("Booth Alert", {
       icon: 'http://i.imgur.com/joWEdip.png',
-      body: (username + ", you're up next!"),
+      body: (media.author + " - " + media.title),
     });
 
    notification.onclick = function(){
-    window.focus()
-                }
-  } else { 
-          var dummy = "#secret"
-  }
+    window.focus();
+} else {
+        console.log(dcv.proof)
 }
 };
