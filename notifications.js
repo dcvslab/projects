@@ -26,9 +26,6 @@ var woots = score.positive;
 var mehs = score.negative;
 var grabs = score.grabs;
 var timeleft = API.getTimeRemaining();
-var grabgrammar = " Grabs";
-var mehgrammar = " Mehs";
-var wootgrammar = " Woots";
 
 //song stats | dcvSongstats() //
 function dcvSongstats() {
@@ -46,29 +43,13 @@ if (timeleft == 10) {
          var woots = score.positive;
          var mehs = score.negative;
          var grabs = score.grabs;
-if (woots == 1) {
-         var wootgrammar = " Woot"
-} else {
-         var wootgrammar = " Woots"
-}
-if (mehs == 1) {
-         var mehgrammar = " Meh"
-} else {
-         var mehgrammar = " Mehs"
-}
-if (grabs == 1) {
-         var grabgrammar = " Grab"
-} else {
-         var grabgrammar = " Grabs"
-}
     var notification = new Notification("Song Stats", {
       icon: 'http://i.imgur.com/joWEdip.png',
-      body: (grabs + " " + woots + " " + mehs),
+      body: ("Woots: " + score.positive + " | " + "Mehs: " + score.negative + " | " + "Grabs: " + socre.grabs),
     });
 
    notification.onclick = function(){
-    window.open("http://dcvslab.github.io/changelog");
-    alert('Changelog has opened in a new tab')
+    window.focus();
                 }
         }
 } else {
@@ -81,14 +62,7 @@ if (grabs == 1) {
 window.onload = dcvStart();
 window.onload = setInterval(function(){ dcvSongstats(); }, 1000);
 //variables are here to update them//
-API.on(API.ADVANCE, function(data) {
-        var media = API.getMedia();
-        var currentdj = API.getDJ().username;
-        var waitlist = API.getWaitList();
-        var waitlistone = waitlist[0].id
-        setTimeout(function(){ dcvSong(); }, 3000);
-        setTimeout(function(){ dcvPos(); }, 7000);
-});     
+    
 //permission gainer//
 document.addEventListener('DOMContentLoaded', function () {
   if (Notification.permission !== "granted")
@@ -170,6 +144,14 @@ if (waitlistone == userid) {
   }
 
 }};
+API.on(API.ADVANCE, function(data) {
+        var media = API.getMedia();
+        var currentdj = API.getDJ().username;
+        var waitlist = API.getWaitList();
+        var waitlistone = waitlist[0].id
+        setTimeout(function(){ dcvSong(); }, 3000);
+        setTimeout(function(){ dcvPos(); }, 7000);
+}); 
 
 
 
