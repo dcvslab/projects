@@ -26,11 +26,12 @@ var woots = score.positive;
 var mehs = score.negative;
 var grabs = score.grabs;
 var timeleft = API.getTimeRemaining();
+var grabgrammar = " Grabs";
+var mehgrammar = " Mehs";
+var wootgrammar = " Woots";
 
 //song stats | dcvSongstats() //
 function dcvSongstats() {
-var timeleft = API.getTimeRemaining();
-if (timeleft == 10) {
   if (!Notification) {
     alert('Desktop notifications are not availible. Are you using the right script?'); 
     return;
@@ -43,26 +44,46 @@ if (timeleft == 10) {
          var woots = score.positive;
          var mehs = score.negative;
          var grabs = score.grabs;
-    var notification = new Notification("Song Stats", {
+if (woots == 1) {
+         var wootgrammar = " Woot"
+} else {
+         var wootgrammar = " Woots"
+}
+if (mehs == 1) {
+         var mehgrammar = " Meh"
+} else {
+         var mehgrammar = " Mehs"
+}
+if (grabs == 1) {
+         var grabgrammar = " Grab"
+} else {
+         var grabgrammar = " Grabs"
+}
+    var notification = new Notification(media.author + " - " + media.title, {
       icon: 'http://i.imgur.com/joWEdip.png',
-      body: ("Woots: " + score.positive + " | " + "Mehs: " + score.negative + " | " + "Grabs: " + socre.grabs),
+      body: (woots + wootgrammar " | " + mehs + mehgrammar + " | " + grabs + grabgrammar ),
     });
 
    notification.onclick = function(){
-    window.focus();
+    window.open("http://dcvslab.github.io/changelog");
+    alert('Changelog has opened in a new tab')
                 }
-        }
-} else {
-         var dummy = "you've found my secret"
-} 
+        };
 }
 
 
 //function start//
 window.onload = dcvStart();
-window.onload = setInterval(function(){ dcvSongstats(); }, 1000);
+window.onload = setInterval(function(){ dcvTimeleft(); }, 1000);
 //variables are here to update them//
-    
+API.on(API.ADVANCE, function(data) {
+        var media = API.getMedia();
+        var currentdj = API.getDJ().username;
+        var waitlist = API.getWaitList();
+        var waitlistone = waitlist[0].id
+        setTimeout(function(){ dcvSong(); }, 3000);
+        setTimeout(function(){ dcvPos(); }, 7000);
+});     
 //permission gainer//
 document.addEventListener('DOMContentLoaded', function () {
   if (Notification.permission !== "granted")
@@ -144,14 +165,6 @@ if (waitlistone == userid) {
   }
 
 }};
-API.on(API.ADVANCE, function(data) {
-        var media = API.getMedia();
-        var currentdj = API.getDJ().username;
-        var waitlist = API.getWaitList();
-        var waitlistone = waitlist[0].id
-        setTimeout(function(){ dcvSong(); }, 3000);
-        setTimeout(function(){ dcvPos(); }, 7000);
-}); 
 
 
 
