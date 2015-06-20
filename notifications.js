@@ -33,7 +33,7 @@ var wootgrammar = " Woots";
 //song stats | dcvSongstats() //
 function dcvSongstats() {
 var timeleft = API.getTimeRemaining();
-if (time left == 10) {
+if (timeleft == 10) {
   if (!Notification) {
     alert('Desktop notifications are not availible. Are you using the right script?'); 
     return;
