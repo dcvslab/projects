@@ -32,6 +32,8 @@ var wootgrammar = " Woots";
 
 //song stats | dcvSongstats() //
 function dcvSongstats() {
+var timeleft = API.getTimeRemaining();
+if (time left == 10) {
   if (!Notification) {
     alert('Desktop notifications are not availible. Are you using the right script?'); 
     return;
@@ -59,22 +61,25 @@ if (grabs == 1) {
 } else {
          var grabgrammar = " Grabs"
 }
-    var notification = new Notification(media.author + " - " + media.title, {
+    var notification = new Notification("Song Stats", {
       icon: 'http://i.imgur.com/joWEdip.png',
-      body: (woots + wootgrammar " | " + mehs + mehgrammar + " | " + grabs + grabgrammar ),
+      body: (grabs + " " + woots + " " + mehs),
     });
 
    notification.onclick = function(){
     window.open("http://dcvslab.github.io/changelog");
     alert('Changelog has opened in a new tab')
                 }
-        };
+        }
+} else {
+         var dummy = "you've found my secret"
+} 
 }
 
 
 //function start//
 window.onload = dcvStart();
-window.onload = setInterval(function(){ dcvTimeleft(); }, 1000);
+window.onload = setInterval(function(){ dcvSongstats(); }, 1000);
 //variables are here to update them//
 API.on(API.ADVANCE, function(data) {
         var media = API.getMedia();
