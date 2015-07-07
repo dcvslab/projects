@@ -31,7 +31,7 @@ for (var i = 0; i < childrenmeh.length; i++) {
 //stuff to make it work on dj advance //
 function crapFix() {
 var timeleft = API.getTimeRemaining();
-if timeleft == 5 {
+if (timeleft == 5) {
   setTimeout(function(){ hooDini(); }, 10000);
 }}
 setInterval(function(){ crapFix(); }, 1000);
