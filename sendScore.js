@@ -1,28 +1,23 @@
-//define your variables//
+//define variables
 var woots = API.getScore().positive;
 var mehs = API.getScore().negative;
 var grabs = API.getScore().grabs;
-var timeleft = API.getTimeRemaining();
 
-//make a function to get the time//
-function getTime() {
-var timeleft = API.getTimeRemaining();
-}
+//this gets the score
+function getScore() {
+woots = API.getScore().positive;
+mehs = API.getScore().negative;
+grabs = API.getScore().grabs;
+console.log("SCORE_LOGGED")
 
-//check the time every second//
-setInterval(function(){ getTime(); }, 1000);
+//this updates the score every 10 seconds
+setInterval(function(){ getScore(); }, 10000);
 
-//what to do if it gets to a certain amount of seconds left (I'm using 5 seconds)
+//this sends the score
 function sendScore() {
-//tell it to do this when it reaches that second amount//
-if (timeleft == 5) {
-//redefine variables to get the current score//
-var woots = API.getScore().positive;
-var mehs = API.getScore().negative;
-var grabs = API.getScore().grabs;
-console.log("Woots: " + woots + " | Mehs: " + mehs + " | Grabs: " + grabs);
-//remember, you need to put spaces because the variables don't have them :P//
-//also, don't put a variable first if you want to customize this message, it won't work!
-
-//run the function every second as well, so it can test if timeleft == 5
-setInterval(function(){ sendScore()); }, 1000);
+API.sendChat("Woots: " + woots + " | Mehs: " + mehs + " | Grabs: " + grabs);
+}
+//this sends the score on the song advance for the previous song
+API.on(API.ADVANCE, function(data) {
+        setTimeout(function(){ sendScore(); }, 1000);
+});
