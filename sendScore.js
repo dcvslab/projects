@@ -20,8 +20,9 @@ if (timeleft == 5) {
 var woots = API.getScore().positive;
 var mehs = API.getScore().negative;
 var grabs = API.getScore().grabs;
-console.log(woots + " woots | "mehs + " mehs | "grabs + " grabs");
+console.log("Woots: " + woots + " | Mehs: " + mehs + " | Grabs: " + grabs);
 //remember, you need to put spaces because the variables don't have them :P//
+//also, don't put a variable first if you want to customize this message, it won't work!
 
 //run the function every second as well, so it can test if timeleft == 5
 setInterval(function(){ sendScore()); }, 1000);
