@@ -1,4 +1,7 @@
 //by http://plug.dj/@/dcv with help from chip //
+function sendWhois() {
+  API.sendChat("/whois " + this.id);
+}
 function hooDini() {
 var listwoot = document.getElementById("woot-rs-list")
 var childrenwoot = listwoot.children;
@@ -10,9 +13,7 @@ var childrenmeh = listmeh.children;
 //woot list//
 for (var i = 0; i < childrenwoot.length; i++) {
   var wootclick = childrenwoot[i];
-  wootclick.addEventListener("click", function(){
-    API.sendChat("/whois " + this.id);
-});
+  wootclick.addEventListener("click", sendWhois)
 }
 //grab list//
 for (var i = 0; i < childrengrab.length; i++) {
@@ -28,3 +29,8 @@ for (var i = 0; i < childrenmeh.length; i++) {
     API.sendChat("/whois " + this.id);
 });
 }};
+//remove stuff thanks//
+for (var r = 0; r < childrenwoot.length; r++) {
+  var wootrmv = childrenwoot[r];
+  wootrmv.removeEventListener("click", sendWhois)
+}
