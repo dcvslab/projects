@@ -10,7 +10,7 @@ var timeleft = API.getTimeRemaining()
 }
 
 //check the time every second//
-setInterval(function(){ getTime()); }, 1000);
+setInterval(function(){ getTime(); }, 1000);
 
 //what to do if it gets to a certain amount of seconds left (I'm using 5 seconds)
 function sendScore {
