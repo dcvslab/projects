@@ -56,4 +56,4 @@ for (var i = 0; i < childrenmeh.length; i++) {
   wootmeh.addEventListener("click", function(){
     API.sendChat("/whois " + this.id);
 });
-}
+}}
