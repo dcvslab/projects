@@ -2,6 +2,7 @@
 function sendWhois() {
   API.sendChat("/whois " + this.id);
 }
+//define variables, cause was having trouble//
 var listwoot = document.getElementById("woot-rs-list")
 var childrenwoot = listwoot.children;
 var listgrab = document.getElementById("grab-rs-list")
@@ -9,6 +10,7 @@ var childrengrab = listgrab.children;
 var listmeh = document.getElementById("meh-rs-list")
 var childrenmeh = listmeh.children;
 
+//function is to activate, so i can activate when i want//
 function hooDini() {
 var listwoot = document.getElementById("woot-rs-list")
 var childrenwoot = listwoot.children;
