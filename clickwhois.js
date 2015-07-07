@@ -1,4 +1,4 @@
-//by http://plug.dj/@/dcv with help from chip //
+//by http://plug.dj/@/dcv | thanks to chip for pointing me in the right direction | encadyma sorry for bugging you with a problem i fixed myself and didn't realize it//
 function sendWhois() {
   API.sendChat("/whois " + this.id);
 }
