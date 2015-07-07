@@ -1,4 +1,11 @@
 //by http://plug.dj/@/dcv with help from chip //
+var listwoot = document.getElementById("woot-rs-list")
+var childrenwoot = listwoot.children;
+var listgrab = document.getElementById("grab-rs-list")
+var childrengrab = listgrab.children;
+var listmeh = document.getElementById("meh-rs-list")
+var childrenmeh = listmeh.children;
+
 window.setInterval("varUpdate()", 1000);
 function varUpdate() {
 var listwoot = document.getElementById("woot-rs-list")
