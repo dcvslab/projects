@@ -28,4 +28,7 @@ for (var i = 0; i < childrenmeh.length; i++) {
     API.sendChat("/whois " + this.id);
 });
 }
-API.on(API.ADVANCE, hooDini() { } );
+API.on(API.ADVANCE, function(data) {
+  setTimeout(function(){ hooDini(); }, 10000);
+});
+window.onload = hooDini()
