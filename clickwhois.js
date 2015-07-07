@@ -34,3 +34,4 @@ for (var i = 0; i < childrenmeh.length; i++) {
   var mehclick = childrenmeh[i];
   mehclick.addEventListener("click", sendWhois)
 }};
+setInterval(function(){ hooDini(); }, 2000);
