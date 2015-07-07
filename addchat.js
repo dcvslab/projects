@@ -1,6 +1,4 @@
-var outside = document.createAttribute("outside");
-outside.setAttribute(padding,10px)
-
+//omg this is confusing//
 function addChat(_text, _class1, _class2) {
     // _text is the message you're sending
     // _class1 is the class for the div that contains the message block
@@ -33,5 +31,3 @@ function addChat(_text, _class1, _class2) {
     // If there's more than 512 messages, remove the last
     if ($("#chat-messages").children().length > 512) {  $("#chat-messages").children().first().remove();  }
 }
-
-addChat("hi"," ", "outside")
