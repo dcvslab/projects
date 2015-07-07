@@ -5,7 +5,7 @@ var grabs = API.getScore().grabs
 var timeleft = API.getTimeRemaining()
 
 //make a function to get the time//
-function getTime {
+function getTime() {
 var timeleft = API.getTimeRemaining()
 }
 
