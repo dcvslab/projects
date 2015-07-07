@@ -14,7 +14,6 @@ for (var i = 0; i < childrenwoot.length; i++) {
   var wootclick = childrenwoot[i];
   wootclick.addEventListener("click", whoIs);
 };
-}
 //grab list//
 for (var i = 0; i < childrengrab.length; i++) {
   var wootgrab = childrengrab[i];
@@ -28,7 +27,7 @@ for (var i = 0; i < childrenmeh.length; i++) {
   wootmeh.addEventListener("click", function(){
     API.sendChat("/whois " + this.id);
 });
-}}
+};
 //bootleg fix//
 function reMove() {
 wootclick.removeEventListener("click", whoIs)
