@@ -2,6 +2,13 @@
 function sendWhois() {
   API.sendChat("/whois " + this.id);
 }
+var listwoot = document.getElementById("woot-rs-list")
+var childrenwoot = listwoot.children;
+var listgrab = document.getElementById("grab-rs-list")
+var childrengrab = listgrab.children;
+var listmeh = document.getElementById("meh-rs-list")
+var childrenmeh = listmeh.children;
+
 function hooDini() {
 var listwoot = document.getElementById("woot-rs-list")
 var childrenwoot = listwoot.children;
@@ -18,18 +25,10 @@ for (var i = 0; i < childrenwoot.length; i++) {
 //grab list//
 for (var i = 0; i < childrengrab.length; i++) {
   var grabclick = childrengrab[i];
-  grabclick.addEventListener("click", function(){
-    API.sendChat("/whois " + this.id);
-});
+  grabclick.addEventListener("click", sendWhois)
 }
 //meh list//
 for (var i = 0; i < childrenmeh.length; i++) {
   var mehclick = childrenmeh[i];
-  mehclick.addEventListener("click", function(){
-    API.sendChat("/whois " + this.id);
-});
+  mehclick.addEventListener("click", sendWhois)
 }};
-//remove stuff thanks//
-function reMove() {
-  wootclick.removeEventListener('click', sendWhois);
-}
