@@ -30,7 +30,6 @@ for (var i = 0; i < childrenmeh.length; i++) {
 });
 }};
 //remove stuff thanks//
-for (var r = 0; r < childrenwoot.length; r++) {
-  var wootrmv = childrenwoot[r];
-  wootrmv.removeEventListener("click", sendWhois)
+function reMove() {
+  wootclick.removeEventListener('click', sendWhois);
 }
