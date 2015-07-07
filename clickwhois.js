@@ -1,4 +1,5 @@
 //by http://plug.dj/@/dcv with help from chip //
+function hooDini() {
 var listwoot = document.getElementById("woot-rs-list")
 var childrenwoot = listwoot.children;
 var listgrab = document.getElementById("grab-rs-list")
@@ -27,3 +28,4 @@ for (var i = 0; i < childrenmeh.length; i++) {
     API.sendChat("/whois " + this.id);
 });
 }
+API.on(API.ADVANCE, setTimeout(function(){ hooDini(); }, 3000);
