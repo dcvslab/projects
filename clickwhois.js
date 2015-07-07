@@ -1,4 +1,6 @@
-//by http://plug.dj/@/dcv | thanks to chip (pointing me in the right direction) and encadyma (for trying to help me with a bug I had already fixed myself XD)
+//by http://plug.dj/@/dcv | thanks to chip (pointing me in the right direction) and encadyma (for trying to help me with a bug I had already fixed myself XD)//
+
+//to load: javascript:(function(){$.getScript('https://raw.githubusercontent.com/dcvslab/projects/master/clickwhois.js');}());//
 function sendWhois() {
   API.sendChat("/whois " + this.id);
 }
