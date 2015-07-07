@@ -13,7 +13,7 @@ var timeleft = API.getTimeRemaining()
 setInterval(function(){ getTime(); }, 1000);
 
 //what to do if it gets to a certain amount of seconds left (I'm using 5 seconds)
-function sendScore {
+function sendScore() {
 //tell it to do this when it reaches that second amount//
 if (timeleft == 5) {
 //redefine variables to get the current score//
