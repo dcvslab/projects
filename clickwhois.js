@@ -9,21 +9,3 @@ for (var i = 0; i < childrenwoot.length; i++) {
     API.sendChat("/whois " + this.id);
 });
 }
-//grab list//
-var listgrab = document.getElementById("grab-rs-list")
-var childrengrab = listgrab.children;
-for (var i = 0; i < childrengrab.length; i++) {
-  var wootgrab = childrengrab[i];
-  wootgrab.addEventListener("click", function(){
-    API.sendChat("/whois " + this.id);
-});
-}
-//meh list//
-var listmeh = document.getElementById("meh-rs-list")
-var childrenmeh = listmeh.children;
-for (var i = 0; i < childrenmeh.length; i++) {
-  var wootmeh = childrenmeh[i];
-  wootmeh.addEventListener("click", function(){
-    API.sendChat("/whois " + this.id);
-});
-}
