@@ -6,7 +6,7 @@ var user = API.getUser().id
 window.onload = API.setVolume(0)
 
 //magic function
-function dcvMagic {
+function dcvMagic() {
 dj = API.getDJ().id
 
 if (dj == user) {
