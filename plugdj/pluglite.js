@@ -18,3 +18,5 @@ wlbtn.style.width = "50%";
 bg1.style.backgroundColor = "rgba(10,10,10,.2)"
 //click on another option//
 ubtn.click();
+//cap avatars//
+API.sendChat("/cap 1")
