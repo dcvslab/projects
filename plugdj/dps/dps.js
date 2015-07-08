@@ -19,7 +19,7 @@ pbtn.style.width = "16.6666666%";
 sebtn.style.width = "16.6666666%";
 ibtn.style.left = "16.6666666%"; //move all the buttons over
 bbtn.style.left = "16.6666666%";
-stbtn.style.width = "16.6666666%";
+stbtn.style.left = "16.6666666%";
 pbtn.style.left = "16.6666666%";
 sebtn.style.left = "16.6666666%";
 var dcvbtn = document.createElement("div"); //create dcv button
@@ -48,4 +48,17 @@ infobar.className = "info showing"; //make the profile info show all the time
 infobar.style.left = "17%"; //put the profile info where the buttons are
 infobar.style.top = "1px";
 infobar.style.zIndex = "1000";
-
+//show/hide buttons//
+function showButtons() {
+ ibtn.style.top = "-54px";//move buttons up
+ bbtn.style.top = "-54px";
+ stbtn.style.top = "-54px";
+ pbtn.style.top = "-54px";
+ sebtn.style.top = "-54px";
+ ibtn.addEventListener("onmouseover", showButtons)
+ bbtn.addEventListener("onmouseover", showButtons)
+ stbtn.addEventListener("onmouseover", showButtons)
+ pbtn.addEventListener("onmouseover", showButtons)
+ sebtn.addEventListener("onmouseover", showButtons)
+}
+infobar.addEventListener("onmouseover", showButtons)
