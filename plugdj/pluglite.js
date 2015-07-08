@@ -1,8 +1,9 @@
 //this is something kinda pointless, but :P
 
-//remove chat/friends buttons//
+//remove chat/friends buttons and the chat itself//
 document.getElementById("chat-button").style.display = "none";
 document.getElementById("friends-button").style.display = "none";
+document.getElementById("chat").style.display = "none"
 
 //define buttons//
 var ubtn = document.getElementById("users-button");
