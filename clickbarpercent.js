@@ -1,13 +1,6 @@
-//ADDON FOR PLUGDJ | HTTP://PLUG.DJ //
-document.querySelector('div.bar').id = 'bar';
-var bar = document.getElementById("bar")
+// ADDON FOR PLUGDJ | HTTP://PLUG.DJ | BY DCV | HTTP://PLUG.DJ/@/DCV | HTTP://GITHUB.COM/DCVSLAB //
 document.querySelector('div.progress').id = 'progress';
 var progress = document.getElementById("progress");
 var percent = progress.style.width;
-var value = document.getElementsByClassName("value")[4];
-var inner = value.innerHTML;
-
-function cP {
-  inner = percent
-}
- setInterval(function(){ alert("cP"); }, 10000);
+function cP() { document.getElementsByClassName("value")[4].innerHTML = percent; percent = progress.style.width;}
+setInterval(function(){ cP(); }, 10000);
