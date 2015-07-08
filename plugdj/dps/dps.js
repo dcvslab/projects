@@ -28,5 +28,5 @@ var dcvlogo = document.createElement("IMG"); //create dcv logo
 document.getElementById("dcv-button").appendChild(dcvlogo);
 document.getElementsByClassName("buttons")[0].appendChild(dcvbtn);
 dcvbtn.addEventListener("click", function(){
-    alert("Soon™"),
+    alert("Soon™");
 })
