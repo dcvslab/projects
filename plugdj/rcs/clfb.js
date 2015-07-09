@@ -139,4 +139,4 @@ function anotherdcvTest() {
     coptse.style.display = "block"
   }
 }
-ftropt.addEventListener("click", dcvTest);
+ftropt.addEventListener("click", anotherdcvTest);
