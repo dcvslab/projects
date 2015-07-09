@@ -125,18 +125,20 @@ function dcvTest() { //check if the footer is checked
 rcsbtn = document.getElementById("rcs-appright-button")
 rcsbtn.addEventListener("click", dcvTest);
 function anotherdcvTest() {
-  if (ftroptc == "notselected") { 
+  if (ftroptc == "notselected") {
+      ftroptc == "selected"
+      copta.style.display = "block"
+      coptb.style.display = "block"
+      coptsh.style.display = "block"
+      coptp.style.display = "block"
+      coptse.style.display = "block"
+  } else {
+    ftroptc == "notselected"
     copta.style.display = "none"
     coptb.style.display = "none"
     coptsh.style.display = "none"
     coptp.style.display = "none"
     coptse.style.display = "none"
-  } else {
-    copta.style.display = "block"
-    coptb.style.display = "block"
-    coptsh.style.display = "block"
-    coptp.style.display = "block"
-    coptse.style.display = "block"
   }
 }
 ftropt.addEventListener("click", anotherdcvTest);
