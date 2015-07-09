@@ -148,39 +148,39 @@ function anotherdcvTest() {
 }
 ftropt.addEventListener("click", anotherdcvTest);
 function showA() { //show avatar
-    ibtn.style.display = "block";
-    bbtn.style.display = "none";
-    stbtn.style.display = "none";
-    pbtn.style.display = "none";
-    sebtn.style.display = "none";
+    ibtn.style.display = "block !important";
+    bbtn.style.display = "none !important";
+    stbtn.style.display = "none !important";
+    pbtn.style.display = "none !important";
+    sebtn.style.display = "none !important";
 }
 function showB() { //show badge
-    ibtn.style.display = "none";
-    bbtn.style.display = "block";
-    stbtn.style.display = "none";
-    pbtn.style.display = "none";
-    sebtn.style.display = "none";
+    ibtn.style.display = "none !important";
+    bbtn.style.display = "block !important";
+    stbtn.style.display = "none !important";
+    pbtn.style.display = "none !important";
+    sebtn.style.display = "none !important";
 }
 function showSh() { //show shop
-    ibtn.style.display = "none";
-    bbtn.style.display = "none";
-    stbtn.style.display = "block";
-    pbtn.style.display = "none";
-    sebtn.style.display = "none";
+    ibtn.style.display = "none !important";
+    bbtn.style.display = "none !important";
+    stbtn.style.display = "block !important";
+    pbtn.style.display = "none !important";
+    sebtn.style.display = "none !important";
 }
 function showP() { //show profile
-    ibtn.style.display = "none";
-    bbtn.style.display = "none";
-    stbtn.style.display = "none";
-    pbtn.style.display = "block";
-    sebtn.style.display = "none";
+    ibtn.style.display = "none !important";
+    bbtn.style.display = "none !important";
+    stbtn.style.display = "none !important";
+    pbtn.style.display = "block !important";
+    sebtn.style.display = "none !important";
 }
 function showSe() { //show settings
-    ibtn.style.display = "none";
-    bbtn.style.display = "none";
-    stbtn.style.display = "none";
-    pbtn.style.display = "none";
-    sebtn.style.display = "block";
+    ibtn.style.display = "none !important";
+    bbtn.style.display = "none !important";
+    stbtn.style.display = "none !important";
+    pbtn.style.display = "none !important";
+    sebtn.style.display = "block !important";
 }
 copta.addEventListener("click", showA)
 coptB.addEventListener("click", showB)
