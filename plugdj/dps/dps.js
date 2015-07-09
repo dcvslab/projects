@@ -44,13 +44,8 @@ function hidedcvBtn() { dcvbtn.style.display = "none" }
 plbtn.addEventListener("click", hidedcvBtn)
 var plbtnx = document.getElementById("playlist-button")
 function showdcvBtn() { dcvbtn.style.display = "block" }
-function showDcvbtn() { setTimeout(function(){ showdcvBtn(); }, 1000); }
+function showDcvbtn() { setTimeout(function(){ showdcvBtn(); }, 0200); }
 plbtnx.addEventListener("click", showDcvbtn)
-dcvbtn.addEventListener("click", function(){
-    alert("Soon™");
-});
-API.on(API.ADVANCE, function(data) { document.getElementById("woot").click();}); //autowoot//
-API.on(API.ADVANCE, function(data) { API.djJoin();}); //autojoin//
 var infobarclass = document.getElementsByClassName("info")[0]; //change the footer//
 infobarclass.id = "infobar";
 var infobar = document.getElementById("infobar");
@@ -63,6 +58,12 @@ function showInfo() { infobar.style.display = "block" }
 var btnsect = document.getElementsByClassName("buttons")[0]
 infobar.addEventListener("mouseenter", hideInfo)
 btnsect.addEventListener("mouseleave", showInfo)
+
+dcvbtn.addEventListener("click", function(){ //here comes the actual script stuff
+    alert("Soon™");
+});
+API.on(API.ADVANCE, function(data) { document.getElementById("woot").click();}); //autowoot//
+API.on(API.ADVANCE, function(data) { API.djJoin();}); //autojoin//
 document.querySelector('div.progress').id = 'progress'; //change the xp bar to %
 var progress = document.getElementById("progress");
 var percent = progress.style.width;
