@@ -105,11 +105,6 @@ function dcvTest() { //check if the footer is checked
     pbtn.style.display = "block";
     sebtn.style.display = "block";
   } else { 
-    copta.style.display = "block"
-    coptb.style.display = "block"
-    coptsh.style.display = "block"
-    coptp.style.display = "block"
-    coptse.style.display = "block"
     ibtn.style.width = "54px !important";//change the width of all the buttons
     bbtn.style.width = "54px !important";
     stbtn.style.width = "54px !important";
@@ -120,20 +115,25 @@ function dcvTest() { //check if the footer is checked
     stbtn.style.display = "none";
     pbtn.style.display = "none";
     sebtn.style.display = "block";
+    copta.style.display = "block"
+    coptb.style.display = "block"
+    coptsh.style.display = "block"
+    coptp.style.display = "block"
+    coptse.style.display = "block"
   }
 }
 rcsbtn = document.getElementById("rcs-appright-button")
 rcsbtn.addEventListener("click", dcvTest);
 function anotherdcvTest() {
   if (ftroptc == "notselected") {
-      ftroptc == "selected"
+      ftroptc = "selected"
       copta.style.display = "block"
       coptb.style.display = "block"
       coptsh.style.display = "block"
       coptp.style.display = "block"
       coptse.style.display = "block"
   } else {
-    ftroptc == "notselected"
+    ftroptc = "notselected"
     copta.style.display = "none"
     coptb.style.display = "none"
     coptsh.style.display = "none"
