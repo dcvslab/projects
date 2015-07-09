@@ -139,6 +139,51 @@ function anotherdcvTest() {
     coptsh.style.display = "none"
     coptp.style.display = "none"
     coptse.style.display = "none"
+    ibtn.style.display = "block";
+    bbtn.style.display = "block";
+    stbtn.style.display = "block";
+    pbtn.style.display = "block";
+    sebtn.style.display = "block";
   }
 }
 ftropt.addEventListener("click", anotherdcvTest);
+function showA() { //show avatar
+    ibtn.style.display = "block";
+    bbtn.style.display = "none";
+    stbtn.style.display = "none";
+    pbtn.style.display = "none";
+    sebtn.style.display = "none";
+}
+function showB() { //show badge
+    ibtn.style.display = "none";
+    bbtn.style.display = "block";
+    stbtn.style.display = "none";
+    pbtn.style.display = "none";
+    sebtn.style.display = "none";
+}
+function showSh() { //show shop
+    ibtn.style.display = "none";
+    bbtn.style.display = "none";
+    stbtn.style.display = "block";
+    pbtn.style.display = "none";
+    sebtn.style.display = "none";
+}
+function showP() { //show profile
+    ibtn.style.display = "none";
+    bbtn.style.display = "none";
+    stbtn.style.display = "none";
+    pbtn.style.display = "block";
+    sebtn.style.display = "none";
+}
+function showSe() { //show settings
+    ibtn.style.display = "none";
+    bbtn.style.display = "none";
+    stbtn.style.display = "none";
+    pbtn.style.display = "none";
+    sebtn.style.display = "block";
+}
+copta.addEventListener("click", showA)
+coptB.addEventListener("click", showB)
+coptSh.addEventListener("click", showSh)
+coptP.addEventListener("click", showP)
+coptSe.addEventListener("click", showSe)
