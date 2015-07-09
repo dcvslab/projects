@@ -22,6 +22,9 @@ bbtn.style.left = "16.6666666%";
 stbtn.style.left = "16.6666666%";
 pbtn.style.left = "16.6666666%";
 sebtn.style.left = "16.6666666%";
+var backbtn = document.getElementsByClassName("back")[0] //fix the back button
+backbtn.style.width = "83.333333%"
+backbtn.style.left = "16.666666%"
 var dcvbtn = document.createElement("div"); //create dcv button
 dcvbtn.id = "dcv-button";
 dcvbtn.className = "dcv button";
@@ -48,17 +51,13 @@ infobar.className = "info showing"; //make the profile info show all the time
 infobar.style.left = "17%"; //put the profile info where the buttons are
 infobar.style.top = "1px";
 infobar.style.zIndex = "1000";
-//show/hide buttons//
-function showButtons() {
- ibtn.style.top = "-54px";//move buttons up
- bbtn.style.top = "-54px";
- stbtn.style.top = "-54px";
- pbtn.style.top = "-54px";
- sebtn.style.top = "-54px";
- ibtn.addEventListener("onmouseover", showButtons)
- bbtn.addEventListener("onmouseover", showButtons)
- stbtn.addEventListener("onmouseover", showButtons)
- pbtn.addEventListener("onmouseover", showButtons)
- sebtn.addEventListener("onmouseover", showButtons)
-}
-infobar.addEventListener("onmouseover", showButtons)
+function hideInfo() { infobar.style.display = "none" } //show/hide buttons//
+function showInfo() { infobar.style.display = "block" }
+var btnsect = document.getElementsByClassName("buttons")[0]
+infobar.addEventListener("mouseenter", hideInfo)
+btnsect.addEventListener("mouseleave", showInfo)
+document.querySelector('div.progress').id = 'progress'; //change the xp bar to %
+var progress = document.getElementById("progress");
+var percent = progress.style.width;
+function cP() { document.getElementsByClassName("value")[4].innerHTML = percent; percent = progress.style.width;}
+setInterval(function(){ cP(); }, 10000);
