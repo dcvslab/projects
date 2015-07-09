@@ -183,7 +183,7 @@ function showSe() { //show settings
     sebtn.style.display = "block !important";
 }
 copta.addEventListener("click", showA)
-coptB.addEventListener("click", showB)
-coptSh.addEventListener("click", showSh)
-coptP.addEventListener("click", showP)
-coptSe.addEventListener("click", showSe)
+coptb.addEventListener("click", showB)
+coptsh.addEventListener("click", showSh)
+coptp.addEventListener("click", showP)
+coptse.addEventListener("click", showSe)
