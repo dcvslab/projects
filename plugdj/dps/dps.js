@@ -39,6 +39,13 @@ var dcvlogo = document.createElement("IMG"); //create dcv logo
     dcvlogo.setAttribute("alt", "dcvlogo");
 document.getElementById("dcv-button").appendChild(dcvlogo);
 document.getElementsByClassName("buttons")[0].appendChild(dcvbtn);
+var plbtn = document.getElementsByClassName("bar-button")[1] //to hide button when this is clicked
+function hidedcvBtn() { dcvbtn.style.display = "none" }
+plbtn.addEventListener("click", hidedcvBtn)
+var plbtnx = document.getElementById("playlist-button")
+function showdcvBtn() { dcvbtn.style.display = "block" }
+function showDcvbtn() { setTimeout(function(){ showdcvBtn(); }, 1000); }
+plbtnx.addEventListener("click", showDcvbtn)
 dcvbtn.addEventListener("click", function(){
     alert("Soon™");
 });
@@ -61,3 +68,5 @@ var progress = document.getElementById("progress");
 var percent = progress.style.width;
 function cP() { document.getElementsByClassName("value")[4].innerHTML = percent; percent = progress.style.width;}
 setInterval(function(){ cP(); }, 10000);
+cP()
+
