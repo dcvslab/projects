@@ -1,5 +1,6 @@
 //DCV'S PLUGDJ SCRIPT//
 //SETTING UP THE BUTTON//
+//HIHI//
 var ibtn = document.getElementsByClassName("inventory button")[0];
 var bbtn = document.getElementsByClassName("badge button")[0];
 var stbtn = document.getElementsByClassName("store button")[0];
