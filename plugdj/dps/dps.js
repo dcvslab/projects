@@ -94,11 +94,13 @@ var togglemenu = "no" //is needed
 var menuclicked = "no" //testing until it's clicked
 function menuClicked() { //to set up the menu
  if (menuclicked == "no") {
+  setTimeout(function(){  
   var dpsmclass = document.getElementsByClassName('dpsmrow'); //change row properties
   for(var i = 0; i < dpsmclass.length; i++) { dpsmclass[i].style.paddingTop = "10px" }
   var dpsmclass = document.getElementsByClassName('dpsmrow'); //change row properties
   for(var i = 0; i < dpsmclass.length; i++) { dpsmclass[i].style.paddingLeft = "10px" }
   menuclicked = "yes"
+  }, 0100);
 }}
 function toggleMenu() { //toggle menu
 if (togglemenu == "no") {
@@ -112,6 +114,8 @@ dpslogo.style.display = "block";
 dpslogox.style.display = "none";
 togglemenu = "no"
 }}
+dpsbtn.addEventListener("click", toggleMenu) 
+dpsbtn.addEventListener("click", menuClicked) 
 var dpsopt = localStorage.getItem("dpsopt")
 if (! dpsopt){
  
@@ -120,7 +124,6 @@ var wootopt = localStorage.getItem("dpswootopt");//load the options
 var autojoinopt = localStorage.getItem("dpsautojoinopt")
 var xppercentopt = localStorage.getItem("dpsxppercentopt")
 var infoshowingopt = localStorage.getItem("dpswootopt")
-dpsbtn.addEventListener("click", toggleMenu) 
 API.on(API.ADVANCE, function(data) { document.getElementById("woot").click();}); //autowoot//
 API.on(API.ADVANCE, function(data) { API.djJoin();}); //autojoin//
 var progress = document.getElementsByClassName("progress")[0]; //change the xp bar to %
