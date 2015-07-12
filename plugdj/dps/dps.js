@@ -53,6 +53,8 @@ dpsmenu.style.width = "345px";
 dpsmenu.style.zIndex = "10000";
 dpsmenu.style.position = "absolute";
 dpsmenu.style.borderBottom = "1px solid #0A0A0A";
+var dpsoptt = document.createElement("div"); //option toggle element (is fancy)
+
 var dpsmwoot = document.createElement("div"); //DPS MENU OPTIONS | woot option
 var dpsmwoottxt = document.createTextNode("Auto-Woot")
 dpsmwoot.className = "dpsmrow"
@@ -69,15 +71,14 @@ dpsmxppercent.className = "dpsmrow"
 dpsmxppercent.appendChild(dpsmxppercenttxt);
 dpsmenu.appendChild(dpsmxppercent);
 var dpsmfooterchange = document.createElement("div"); //changed footer option
-var dpsmfooterchangetxt = document.createTextNode("Auto-Join")
+var dpsmfooterchangetxt = document.createTextNode("DPS Footer")
 dpsmfooterchange.className = "dpsmrow"
 dpsmfooterchange.appendChild(dpsmfooterchangetxt);
-dpsmenu.appendChild(dpsmchangedfooter);
+dpsmenu.appendChild(dpsmfooterchange);
 var dpsmclass = document.getElementsByClassName('dpsmrow'); //change row properties
-for(var i = 0; i < dpsmclass.length; i++) { 
-  dpsmclass[i].style.paddingTop = "10px"
-  dpsmclass[i].style.paddingBottom = "10px"
-}
+for(var i = 0; i < dpsmclass.length; i++) { dpsmclass[i].style.paddingTop = "10px" }
+var dpsmclass = document.getElementsByClassName('dpsmrow'); //change row properties
+for(var i = 0; i < dpsmclass.length; i++) { dpsmclass[i].style.paddingLeft = "10px" }
 document.getElementsByClassName("app-right")[0].style.zIndex = "20" //make it so it's in front
 var plugmenu = document.getElementById("app-menu")
 document.getElementById("chat").appendChild(dpsmenu);
