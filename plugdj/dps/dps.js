@@ -1,6 +1,5 @@
 //DCV'S PLUGDJ SCRIPT//
 //SETTING UP THE BUTTON//
-//HIHI//
 var ibtn = document.getElementsByClassName("inventory button")[0];
 var bbtn = document.getElementsByClassName("badge button")[0];
 var stbtn = document.getElementsByClassName("store button")[0];
@@ -54,20 +53,17 @@ function showdcvBtn() { dcvbtn.style.display = "block" }
 function showDcvbtn() { setTimeout(function(){ showdcvBtn(); }, 0200); }
 plbtnx.addEventListener("click", showDcvbtn)
 var dcvmenu = document.createElement("div"); //create the onclick menu
-var appwidthele = document.getElementById("app"); //width
-var appwidth = appwidthele.style.width
-appwidth = appwidth.replace(/\D/g,'');
-var dcvmenuwidth = appwidth - "345";
-var appheightele = document.getElementById("app"); //height
+document.getElementsByClassName("app-right")[0].id = "app-right" //height
+var appheightele = document.getElementById("app-right"); 
 var appheight = appheightele.style.height
 appheight = appheight.replace(/\D/g,'');
-var dcvmenuheight = appheight - "54";
-dcvmenu.style.backgroundColor = "#282C35";
-dcvmenu.style.width = dcvmenuwidth + "px";
-dcvmenu.style.left = "0px";
+appheight = appheight + "3"
+dcvmenu.style.backgroundColor = "#282C35"; //styling
+dcvmenu.style.width = "345px";
+dcvmenu.style.right = "345px";
 dcvmenu.style.display = "none";
 dcvmenu.id = "dcvmenu";
-dcvmenu.style.height = dcvmenuheight + "px";
+dcvmenu.style.height = appheight + "px";
 dcvmenu.style.zIndex = "10000";
 dcvmenu.style.position = "absolute";
 dcvmenu.style.bottom = "54px"
@@ -86,17 +82,26 @@ function showInfo() { infobar.style.display = "block" }
 var btnsect = document.getElementsByClassName("buttons")[0]
 infobar.addEventListener("mouseenter", hideInfo)
 btnsect.addEventListener("mouseleave", showInfo)
-function showMenu() { //show menu
-dcvmenu.style.display = "block";
+var togglemenu = "no" //is needed
+function toggleMenu() { //toggle menu
+if (togglemenu == "no") {
+dcvmenu.style.display = "block"; //toggle some stuff
 dcvlogo.style.display = "none";
 dcvlogox.style.display = "block";
 plugmenu.style.display = "none";
-}
+togglemenu = "yes"
+} else {
+dcvmenu.style.display = "none"; //toggle some stuff
+dcvlogo.style.display = "block";
+dcvlogox.style.display = "none";
+plugmenu.style.display = "block";
+togglemenu = "no"
+}}
 var wootopt = localStorage['wootopt'] || 'true'//load the options
 var autojoinopt = localStorage['autojoinopt'] || 'true'
 var xppercentopt = localStorage['xppercentopt'] || 'false'
 var infoshowingopt = localStorage['infoshowingopt'] || 'true'
-dcvbtn.addEventListener("click", showMenu) 
+dcvbtn.addEventListener("click", toggleMenu) 
 API.on(API.ADVANCE, function(data) { document.getElementById("woot").click();}); //autowoot//
 API.on(API.ADVANCE, function(data) { API.djJoin();}); //autojoin//
 var progress = document.getElementsByClassName("progress")[0]; //change the xp bar to %
