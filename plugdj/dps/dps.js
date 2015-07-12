@@ -78,7 +78,7 @@ function showMenu() { //show menu
 dcvmenu.style.display = "block";
 dcvlogo.style.display = "none";
 dcvlogox.style.display = "block";
-
+}
 var wootopt = localStorage['wootopt'] || 'true'//load the options
 var autojoinopt = localStorage['autojoinopt'] || 'true'
 var xppercentopt = localStorage['xppercentopt'] || 'false'
