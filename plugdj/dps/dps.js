@@ -53,23 +53,17 @@ function showdcvBtn() { dcvbtn.style.display = "block" }
 function showDcvbtn() { setTimeout(function(){ showdcvBtn(); }, 0200); }
 plbtnx.addEventListener("click", showDcvbtn)
 var dcvmenu = document.createElement("div"); //create the onclick menu
-document.getElementsByClassName("app-right")[0].id = "app-right" //height
-var appheightele = document.getElementById("app-right"); 
-var appheight = appheightele.style.height
-appheight = appheight.replace(/\D/g,'');
-appheight = appheight + "3"
 dcvmenu.style.backgroundColor = "#282C35"; //styling
-dcvmenu.style.width = "345px";
 dcvmenu.style.right = "345px";
 dcvmenu.style.display = "none";
 dcvmenu.id = "dcvmenu";
-dcvmenu.style.height = appheight + "px";
+dcvmenu.style.height = "inherit";
+dcvmenu.style.width = "345px";
 dcvmenu.style.zIndex = "10000";
 dcvmenu.style.position = "absolute";
-dcvmenu.style.bottom = "54px"
 dcvmenu.style.borderBottom = "1px solid #0A0A0A"
 var plugmenu = document.getElementById("app-menu")
-document.getElementById("app").appendChild(dcvmenu);
+document.getElementById("chat").appendChild(dcvmenu);
 var infobarclass = document.getElementsByClassName("info")[0]; //change the footer//
 infobarclass.id = "infobar";
 var infobar = document.getElementById("infobar");
@@ -88,13 +82,11 @@ if (togglemenu == "no") {
 dcvmenu.style.display = "block"; //toggle some stuff
 dcvlogo.style.display = "none";
 dcvlogox.style.display = "block";
-plugmenu.style.display = "none";
 togglemenu = "yes"
 } else {
 dcvmenu.style.display = "none"; //toggle some stuff
 dcvlogo.style.display = "block";
 dcvlogox.style.display = "none";
-plugmenu.style.display = "block";
 togglemenu = "no"
 }}
 var wootopt = localStorage['wootopt'] || 'true'//load the options
