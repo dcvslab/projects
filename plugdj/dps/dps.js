@@ -69,10 +69,10 @@ function showInfo() { infobar.style.display = "block" }
 var btnsect = document.getElementsByClassName("buttons")[0]
 infobar.addEventListener("mouseenter", hideInfo)
 btnsect.addEventListener("mouseleave", showInfo)
-var wootopt = localStorage.['wootopt'] || 'true'//load the options
-var autojoinopt = localStorage.['autojoinopt'] || 'true'
-var xppercentopt = localStorage.['xppercentopt'] || 'false'
-var infoshowingopt = localStorage.['infoshowingopt'] || 'true'
+var wootopt = localStorage['wootopt'] || 'true'//load the options
+var autojoinopt = localStorage['autojoinopt'] || 'true'
+var xppercentopt = localStorage['xppercentopt'] || 'false'
+var infoshowingopt = localStorage['infoshowingopt'] || 'true'
 dcvbtn.addEventListener("click", function(){ 
     dcvmenu.style.display = "none";
 });
