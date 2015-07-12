@@ -39,6 +39,9 @@ var dcvlogo = document.createElement("IMG"); //create dcv logo
     dcvlogo.setAttribute("height", "53");
     dcvlogo.setAttribute("alt", "dcvlogo");
 document.getElementById("dcv-button").appendChild(dcvlogo);
+    var dcvlogox = document.createElement("i"); //create the x
+    dcvlogox.className = "icon icon-x-white"
+    document.getElementById("dcv-button").appendChild(dcvlogox);
 document.getElementsByClassName("buttons")[0].appendChild(dcvbtn);
 var plbtn = document.getElementsByClassName("bar-button")[1] //to hide button when this is clicked
 function hidedcvBtn() { dcvbtn.style.display = "none" }
@@ -53,10 +56,11 @@ var appwidth = appwidthele.style.width
 appwidth = appwidth.replace(/\D/g,'');
 var dcvmenuwidth = appwidth - "345";
 dcvmenu.style.backgroundColor = "#282C35";
-dcvmenu.style.width = dcvmenuwidth;
+dcvmenu.style.width = dcvmenuwidth + "px";
 dcvmenu.style.left = "0px";
 dcvmenu.style.display = "none";
-dcvmenu.id = "dcvmenu"
+dcvmenu.id = "dcvmenu";
+dcvmenu.height = "100%"
 document.getElementById("app").appendChild(dcvmenu);
 var infobarclass = document.getElementsByClassName("info")[0]; //change the footer//
 infobarclass.id = "infobar";
@@ -70,13 +74,16 @@ function showInfo() { infobar.style.display = "block" }
 var btnsect = document.getElementsByClassName("buttons")[0]
 infobar.addEventListener("mouseenter", hideInfo)
 btnsect.addEventListener("mouseleave", showInfo)
+function showMenu() { //show menu
+dcvmenu.style.display = "block";
+dcvlogo.style.display = "none";
+dcvlogox.style.display = "block";
+
 var wootopt = localStorage['wootopt'] || 'true'//load the options
 var autojoinopt = localStorage['autojoinopt'] || 'true'
 var xppercentopt = localStorage['xppercentopt'] || 'false'
 var infoshowingopt = localStorage['infoshowingopt'] || 'true'
-dcvbtn.addEventListener("click", function(){ 
-    dcvmenu.style.display = "none";
-});
+dcvbtn.addEventListener("click", showMenu) 
 API.on(API.ADVANCE, function(data) { document.getElementById("woot").click();}); //autowoot//
 API.on(API.ADVANCE, function(data) { API.djJoin();}); //autojoin//
 var progress = document.getElementsByClassName("progress")[0]; //change the xp bar to %
