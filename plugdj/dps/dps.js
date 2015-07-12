@@ -47,6 +47,16 @@ var plbtnx = document.getElementById("playlist-button")
 function showdcvBtn() { dcvbtn.style.display = "block" }
 function showDcvbtn() { setTimeout(function(){ showdcvBtn(); }, 0200); }
 plbtnx.addEventListener("click", showDcvbtn)
+var dcvmenu = document.createElement("div"); //create the onclick menu
+var appwidthele = "document.getElementById("app");
+var appwidth = appwidthele.style.width
+appwidth = appwidth.replace(/\D/g,'');
+var dcvmenuwidth = appwidth - "345";
+dcvmenu.style.backgroundColor = "#282C35";
+dcvmenu.style.width = dcvmenuwidth;
+dcvmenu.style.left = "0px";
+dcvmenu.style.display = "none";
+document.getElementById("app").appendChild(dcvmenu);
 var infobarclass = document.getElementsByClassName("info")[0]; //change the footer//
 infobarclass.id = "infobar";
 var infobar = document.getElementById("infobar");
@@ -61,12 +71,10 @@ infobar.addEventListener("mouseenter", hideInfo)
 btnsect.addEventListener("mouseleave", showInfo)
 var wootopt = localStorage['wootopt'] || 'true'//load the options
 var autojoinopt = localStorage.['autojoinopt'] || 'true'
-var xppercentopt = localStorage.['xppercentopt'] || 'true'
+var xppercentopt = localStorage.['xppercentopt'] || 'false'
 var infoshowingopt = localStorage.['infoshowingopt'] || 'true'
-var custombgopt = localStorage.['custombgopt'] || 'false'
-
 dcvbtn.addEventListener("click", function(){ 
-    alert("Soon™");
+    dcvmenu.style.display = "none";
 });
 API.on(API.ADVANCE, function(data) { document.getElementById("woot").click();}); //autowoot//
 API.on(API.ADVANCE, function(data) { API.djJoin();}); //autojoin//
