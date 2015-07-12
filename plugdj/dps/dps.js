@@ -39,8 +39,11 @@ var dcvlogo = document.createElement("IMG"); //create dcv logo
     dcvlogo.setAttribute("height", "53");
     dcvlogo.setAttribute("alt", "dcvlogo");
 document.getElementById("dcv-button").appendChild(dcvlogo);
-    var dcvlogox = document.createElement("i"); //create the x
-    dcvlogox.className = "icon icon-x-white"
+var dcvlogox = document.createElement("IMG"); //create dcv logo
+    dcvlogox.setAttribute("src", "http://i.imgur.com/m8QFUVD.png");
+    dcvlogox.setAttribute("width", "69");
+    dcvlogox.setAttribute("height", "53");
+    dcvlogox.setAttribute("alt", "dcvlogox");
     document.getElementById("dcv-button").appendChild(dcvlogox);
 document.getElementsByClassName("buttons")[0].appendChild(dcvbtn);
 var plbtn = document.getElementsByClassName("bar-button")[1] //to hide button when this is clicked
