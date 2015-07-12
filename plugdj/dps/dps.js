@@ -51,16 +51,23 @@ function showdcvBtn() { dcvbtn.style.display = "block" }
 function showDcvbtn() { setTimeout(function(){ showdcvBtn(); }, 0200); }
 plbtnx.addEventListener("click", showDcvbtn)
 var dcvmenu = document.createElement("div"); //create the onclick menu
-var appwidthele = document.getElementById("app");
+var appwidthele = document.getElementById("app"); //width
 var appwidth = appwidthele.style.width
 appwidth = appwidth.replace(/\D/g,'');
 var dcvmenuwidth = appwidth - "345";
+var appheightele = document.getElementById("app"); //height
+var appheight = appheightele.style.height
+appheight = appheight.replace(/\D/g,'');
+var dcvmenuheight = appheight - "54";
 dcvmenu.style.backgroundColor = "#282C35";
 dcvmenu.style.width = dcvmenuwidth + "px";
 dcvmenu.style.left = "0px";
 dcvmenu.style.display = "none";
 dcvmenu.id = "dcvmenu";
-dcvmenu.height = "100%"
+dcvmenu.style.height = dcvmenuheight + "px";
+dcvmenu.style.zIndex = "10000";
+dcvmenu.style.position = "absolute";
+var pluglogo = document.getElementById("app-menu")
 document.getElementById("app").appendChild(dcvmenu);
 var infobarclass = document.getElementsByClassName("info")[0]; //change the footer//
 infobarclass.id = "infobar";
@@ -78,6 +85,7 @@ function showMenu() { //show menu
 dcvmenu.style.display = "block";
 dcvlogo.style.display = "none";
 dcvlogox.style.display = "block";
+plugmenu.style.display = "none";
 }
 var wootopt = localStorage['wootopt'] || 'true'//load the options
 var autojoinopt = localStorage['autojoinopt'] || 'true'
