@@ -67,7 +67,9 @@ dcvmenu.id = "dcvmenu";
 dcvmenu.style.height = dcvmenuheight + "px";
 dcvmenu.style.zIndex = "10000";
 dcvmenu.style.position = "absolute";
-var pluglogo = document.getElementById("app-menu")
+dcvmenu.style.bottom = "54px"
+dcvmenu.style.borderBottom = "1px solid #0A0A0A"
+var plugmenu = document.getElementById("app-menu")
 document.getElementById("app").appendChild(dcvmenu);
 var infobarclass = document.getElementsByClassName("info")[0]; //change the footer//
 infobarclass.id = "infobar";
