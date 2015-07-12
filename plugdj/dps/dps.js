@@ -56,6 +56,7 @@ dcvmenu.style.backgroundColor = "#282C35";
 dcvmenu.style.width = dcvmenuwidth;
 dcvmenu.style.left = "0px";
 dcvmenu.style.display = "none";
+dcvmenu.id = "dcvmenu"
 document.getElementById("app").appendChild(dcvmenu);
 var infobarclass = document.getElementsByClassName("info")[0]; //change the footer//
 infobarclass.id = "infobar";
