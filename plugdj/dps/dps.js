@@ -75,10 +75,6 @@ var dpsmfooterchangetxt = document.createTextNode("DPS Footer")
 dpsmfooterchange.className = "dpsmrow"
 dpsmfooterchange.appendChild(dpsmfooterchangetxt);
 dpsmenu.appendChild(dpsmfooterchange);
-var dpsmclass = document.getElementsByClassName('dpsmrow'); //change row properties
-for(var i = 0; i < dpsmclass.length; i++) { dpsmclass[i].style.paddingTop = "10px" }
-var dpsmclass = document.getElementsByClassName('dpsmrow'); //change row properties
-for(var i = 0; i < dpsmclass.length; i++) { dpsmclass[i].style.paddingLeft = "10px" }
 document.getElementsByClassName("app-right")[0].style.zIndex = "20" //make it so it's in front
 var plugmenu = document.getElementById("app-menu")
 document.getElementById("chat").appendChild(dpsmenu);
@@ -95,6 +91,15 @@ var btnsect = document.getElementsByClassName("buttons")[0]
 infobar.addEventListener("mouseenter", hideInfo)
 btnsect.addEventListener("mouseleave", showInfo)
 var togglemenu = "no" //is needed
+var menuclicked = "no" //testing until it's clicked
+function menuClicked() { //to set up the menu
+ if (menuclicked == "no") {
+  var dpsmclass = document.getElementsByClassName('dpsmrow'); //change row properties
+  for(var i = 0; i < dpsmclass.length; i++) { dpsmclass[i].style.paddingTop = "10px" }
+  var dpsmclass = document.getElementsByClassName('dpsmrow'); //change row properties
+  for(var i = 0; i < dpsmclass.length; i++) { dpsmclass[i].style.paddingLeft = "10px" }
+  menuclicked = "yes"
+}}
 function toggleMenu() { //toggle menu
 if (togglemenu == "no") {
 dpsmenu.style.display = "block"; //toggle some stuff
