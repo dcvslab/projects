@@ -59,8 +59,13 @@ function showInfo() { infobar.style.display = "block" }
 var btnsect = document.getElementsByClassName("buttons")[0]
 infobar.addEventListener("mouseenter", hideInfo)
 btnsect.addEventListener("mouseleave", showInfo)
+var wootopt = localStorage['wootopt'] || 'true'//load the options
+var autojoinopt = localStorage.['autojoinopt'] || 'true'
+var xppercentopt = localStorage.['xppercentopt'] || 'true'
+var infoshowingopt = localStorage.['infoshowingopt'] || 'true'
+var custombgopt = localStorage.['custombgopt'] || 'false'
 
-dcvbtn.addEventListener("click", function(){ //here comes the actual script stuff
+dcvbtn.addEventListener("click", function(){ 
     alert("Soon™");
 });
 API.on(API.ADVANCE, function(data) { document.getElementById("woot").click();}); //autowoot//
