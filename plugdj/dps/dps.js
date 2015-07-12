@@ -48,7 +48,7 @@ function showdcvBtn() { dcvbtn.style.display = "block" }
 function showDcvbtn() { setTimeout(function(){ showdcvBtn(); }, 0200); }
 plbtnx.addEventListener("click", showDcvbtn)
 var dcvmenu = document.createElement("div"); //create the onclick menu
-var appwidthele = "document.getElementById("app");
+var appwidthele = document.getElementById("app");
 var appwidth = appwidthele.style.width
 appwidth = appwidth.replace(/\D/g,'');
 var dcvmenuwidth = appwidth - "345";
