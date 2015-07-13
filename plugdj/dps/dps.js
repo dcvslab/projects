@@ -63,8 +63,8 @@ var dpsmcheckdpsftr = document.createElement("i") //create dps footer check
 dpsmcheckdpsftr.style.left = "0px"; dpsmcheckdpsftr.className = "icon icon-check-purple"; dpsmcheckdpsftr.id = "dpsmcheckdpsftr";
 var dpsmwoot = document.createElement("div"); //DPS MENU OPTIONS | woot option
 dpsmwoot.style.width = "30px"; dpsmwoot.style.paddingLeft = "30px"
-var dpsmwoottxt = document.createElement("span");
-dpsmwoottxt.innerHTML = "Auto-Woot"; dpsmwoottxt.style.lineHeight = "30px"
+var dpsmwoottxt = document.createElement("span"); 
+dpsmwoottxt.textContent="Auto Woot"; dpsmwoottxt.style.lineHeight = "30px"
 dpsmwoot.className = "dpsmrow";
 dpsmwoot.appendChild(dpsmwoottxt); dpsmwoot.appendChild(dpsmcheckwoot); dpsmenu.appendChild(dpsmwoot);
 var dpsmaj = document.createElement("div"); //autojoin option
