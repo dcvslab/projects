@@ -53,38 +53,32 @@ dpsmenu.style.width = "345px";
 dpsmenu.style.zIndex = "10000";
 dpsmenu.style.position = "absolute";
 dpsmenu.style.borderBottom = "1px solid #0A0A0A";
-var dpsoptt = document.createElement("div"); //option toggle element (is fancy)
-dpsoptt.style.height = "inherit"; dpsoptt.style.width = "20%";
-dpsoptt.style.float = "left"
-dpsoptt.style.left = "0px"
-dpsoptt.style.backgroundColor = "#323742"
-var dpsoptts = document.createElement("div"); //the switch
-dpsoptts.style.height = "inherit"; dpsoptts.style.width = "50%";
-dpsoptts.style.float = "left"
-dpsoptts.style.backgroundColor = "#00ffff"
-dpsoptt.appendChild(dpsoptts)
+var dpsmcheck = document.createElement("i") //create the check
+dpsmcheck.style.left = "0px"; dpsmcheck.className = "icon icon-check-purple"
 var dpsmwoot = document.createElement("div"); //DPS MENU OPTIONS | woot option
-var dpsmwoottxt = document.createElement("span")
-dpsmwoottxt.innerHTML = "Auto-Woot"
-dpsmwoot.className = "dpsmrow"
-dpsmwoot.appendChild(dpsmwoottxt);
-dpsmwoot.appendChild(dpsoptt);
-dpsmenu.appendChild(dpsmwoot);
-var dpsmautojoin = document.createElement("div"); //autojoin option
-var dpsmautojointxt = document.createTextNode("Auto-Join")
-dpsmautojoin.className = "dpsmrow"
-dpsmautojoin.appendChild(dpsmautojointxt);
-dpsmenu.appendChild(dpsmautojoin);
-var dpsmxppercent = document.createElement("div"); //xp to percent option
-var dpsmxppercenttxt = document.createTextNode("Show XP As A Percent")
-dpsmxppercent.className = "dpsmrow"
-dpsmxppercent.appendChild(dpsmxppercenttxt);
-dpsmenu.appendChild(dpsmxppercent);
-var dpsmfooterchange = document.createElement("div"); //changed footer option
-var dpsmfooterchangetxt = document.createTextNode("DPS Footer")
-dpsmfooterchange.className = "dpsmrow"
-dpsmfooterchange.appendChild(dpsmfooterchangetxt);
-dpsmenu.appendChild(dpsmfooterchange);
+dpsmwoot.style.width = "30px"; dpsmwoot.style.paddingLeft = "10px"
+var dpsmwoottxt = document.createElement("span");
+dpsmwoottxt.innerHTML = "Auto-Woot"; dpsmwoottxt.style.lineHeight = "30px"
+dpsmwoot.className = "dpsmrow";
+dpsmwoot.appendChild(dpsmwoottxt); dpsmwoot.appendChild(dpsmcheck); dpsmenu.appendChild(dpsmwoot);
+var dpsmaj = document.createElement("div"); //autojoin option
+dpsmaj.style.width = "30px"; dpsmaj.style.paddingLeft = "10px"
+var dpsmajtxt = document.createElement("span");
+dpsmajtxt.innerHTML = "Auto-Join"; dpsmajtxt.style.lineHeight = "30px"
+dpsmaj.className = "dpsmrow";
+dpsmaj.appendChild(dpsmajtxt); dpsmaj.appendChild(dpsmcheck); dpsmenu.appendChild(dpsmaj);
+var dpsmxpp = document.createElement("div"); // xp to percent option
+dpsmxpp.style.width = "30px"; dpsmxpp.style.paddingLeft = "10px"
+var dpsmxpptxt = document.createElement("span");
+dpsmxpptxt.innerHTML = "Auto-Join"; dpsmxpptxt.style.lineHeight = "30px"
+dpsmxpp.className = "dpsmrow";
+dpsmxpp.appendChild(dpsmxpptxt); dpsmxpp.appendChild(dpsmcheck); dpsmenu.appendChild(dpsmxpp);
+var dpsmdpsftr = document.createElement("div"); //dps footer option
+dpsmdpsftr.style.width = "30px"; dpsmdpsftr.style.paddingLeft = "10px"
+var dpsmdpsftrtxt = document.createElement("span");
+dpsmdpsftrtxt.innerHTML = "Auto-Join"; dpsmdpsftrtxt.style.lineHeight = "30px"
+dpsmdpsftr.className = "dpsmrow";
+dpsmdpsftr.appendChild(dpsmdpsftrtxt); dpsmdpsftr.appendChild(dpsmcheck); dpsmenu.appendChild(dpsmdpsftr);
 document.getElementsByClassName("app-right")[0].style.zIndex = "20" //make it so it's in front
 var plugmenu = document.getElementById("app-menu")
 document.getElementById("chat").appendChild(dpsmenu);
