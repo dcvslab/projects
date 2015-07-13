@@ -53,32 +53,38 @@ dpsmenu.style.width = "345px";
 dpsmenu.style.zIndex = "10000";
 dpsmenu.style.position = "absolute";
 dpsmenu.style.borderBottom = "1px solid #0A0A0A";
-var dpsmcheck = document.createElement("i") //create the check
-dpsmcheck.style.left = "0px"; dpsmcheck.className = "icon icon-check-purple"
+var dpsmcheckwoot = document.createElement("i") //create woot check
+dpsmcheckwoot.style.left = "0px"; dpsmcheckwoot.className = "icon icon-check-purple"; dpsmcheckwoot.id = "dpsmcheckwoot";
+var dpsmcheckaj = document.createElement("i") //create autojoin check
+dpsmcheckaj.style.left = "0px"; dpsmcheckaj.className = "icon icon-check-purple"; dpsmcheckaj.id = "dpsmcheckaj";
+var dpsmcheckxpp = document.createElement("i") //create xp to percent check
+dpsmcheckxpp.style.left = "0px"; dpsmcheckxpp.className = "icon icon-check-purple"; dpsmcheckxpp.id = "dpsmcheckxpp";
+var dpsmcheckdpsftr = document.createElement("i") //create dps footer check
+dpsmcheckdpsftr.style.left = "0px"; dpsmcheckdpsftr.className = "icon icon-check-purple"; dpsmcheckdpsftr.id = "dpsmcheckdpsftr";
 var dpsmwoot = document.createElement("div"); //DPS MENU OPTIONS | woot option
-dpsmwoot.style.width = "30px"; dpsmwoot.style.paddingLeft = "10px"
+dpsmwoot.style.width = "30px"; dpsmwoot.style.paddingLeft = "30px"
 var dpsmwoottxt = document.createElement("span");
 dpsmwoottxt.innerHTML = "Auto-Woot"; dpsmwoottxt.style.lineHeight = "30px"
 dpsmwoot.className = "dpsmrow";
-dpsmwoot.appendChild(dpsmwoottxt); dpsmwoot.appendChild(dpsmcheck); dpsmenu.appendChild(dpsmwoot);
+dpsmwoot.appendChild(dpsmwoottxt); dpsmwoot.appendChild(dpsmcheckwoot); dpsmenu.appendChild(dpsmwoot);
 var dpsmaj = document.createElement("div"); //autojoin option
-dpsmaj.style.width = "30px"; dpsmaj.style.paddingLeft = "10px"
+dpsmaj.style.width = "30px"; dpsmaj.style.paddingLeft = "30px"
 var dpsmajtxt = document.createElement("span");
 dpsmajtxt.innerHTML = "Auto-Join"; dpsmajtxt.style.lineHeight = "30px"
 dpsmaj.className = "dpsmrow";
-dpsmaj.appendChild(dpsmajtxt); dpsmaj.appendChild(dpsmcheck); dpsmenu.appendChild(dpsmaj);
+dpsmaj.appendChild(dpsmajtxt); dpsmaj.appendChild(dpsmcheckaj); dpsmenu.appendChild(dpsmaj);
 var dpsmxpp = document.createElement("div"); // xp to percent option
-dpsmxpp.style.width = "30px"; dpsmxpp.style.paddingLeft = "10px"
+dpsmxpp.style.width = "30px"; dpsmxpp.style.paddingLeft = "30px"
 var dpsmxpptxt = document.createElement("span");
-dpsmxpptxt.innerHTML = "Auto-Join"; dpsmxpptxt.style.lineHeight = "30px"
+dpsmxpptxt.innerHTML = "Change XP To Percent"; dpsmxpptxt.style.lineHeight = "30px"
 dpsmxpp.className = "dpsmrow";
-dpsmxpp.appendChild(dpsmxpptxt); dpsmxpp.appendChild(dpsmcheck); dpsmenu.appendChild(dpsmxpp);
+dpsmxpp.appendChild(dpsmxpptxt); dpsmxpp.appendChild(dpsmcheckxpp); dpsmenu.appendChild(dpsmxpp);
 var dpsmdpsftr = document.createElement("div"); //dps footer option
-dpsmdpsftr.style.width = "30px"; dpsmdpsftr.style.paddingLeft = "10px"
+dpsmdpsftr.style.width = "30px"; dpsmdpsftr.style.paddingLeft = "30px"
 var dpsmdpsftrtxt = document.createElement("span");
-dpsmdpsftrtxt.innerHTML = "Auto-Join"; dpsmdpsftrtxt.style.lineHeight = "30px"
+dpsmdpsftrtxt.innerHTML = "DPS Footer"; dpsmdpsftrtxt.style.lineHeight = "30px"
 dpsmdpsftr.className = "dpsmrow";
-dpsmdpsftr.appendChild(dpsmdpsftrtxt); dpsmdpsftr.appendChild(dpsmcheck); dpsmenu.appendChild(dpsmdpsftr);
+dpsmdpsftr.appendChild(dpsmdpsftrtxt); dpsmdpsftr.appendChild(dpsmcheckdpsftr); dpsmenu.appendChild(dpsmdpsftr);
 document.getElementsByClassName("app-right")[0].style.zIndex = "20" //make it so it's in front
 var plugmenu = document.getElementById("app-menu")
 document.getElementById("chat").appendChild(dpsmenu);
@@ -101,7 +107,7 @@ function menuClicked() { //to set up the menu
   setTimeout(function(){  
   var dpsmclass = document.getElementsByClassName('dpsmrow'); //change row properties
   for(var i = 0; i < dpsmclass.length; i++) { dpsmclass[i].style.paddingTop = "10px" }
-  for(var i = 0; i < dpsmclass.length; i++) { dpsmclass[i].style.paddingLeft = "10px" }
+  for(var i = 0; i < dpsmclass.length; i++) { dpsmclass[i].style.paddingLeft = "20px" }
   menuclicked = "yes"
   }, 0100);
 }}
