@@ -54,11 +54,21 @@ dpsmenu.style.zIndex = "10000";
 dpsmenu.style.position = "absolute";
 dpsmenu.style.borderBottom = "1px solid #0A0A0A";
 var dpsoptt = document.createElement("div"); //option toggle element (is fancy)
-
+dpsoptt.style.height = "inherit"; dpsoptt.style.width = "20%";
+dpsoptt.style.float = "left"
+dpsoptt.style.left = "0px"
+dpsoptt.style.backgroundColor = "#323742"
+var dpsoptts = document.createElement("div"); //the switch
+dpsoptts.style.height = "inherit"; dpsoptts.style.width = "50%";
+dpsoptts.style.float = "left"
+dpsoptts.style.backgroundColor = "#00ffff"
+dpsoptt.appendChild(dpsoptts)
 var dpsmwoot = document.createElement("div"); //DPS MENU OPTIONS | woot option
-var dpsmwoottxt = document.createTextNode("Auto-Woot")
+var dpsmwoottxt = document.createElement("span")
+dpsmwoottxt.innerHTML = "Auto-Woot"
 dpsmwoot.className = "dpsmrow"
 dpsmwoot.appendChild(dpsmwoottxt);
+dpsmwoot.appendChild(dpsoptt);
 dpsmenu.appendChild(dpsmwoot);
 var dpsmautojoin = document.createElement("div"); //autojoin option
 var dpsmautojointxt = document.createTextNode("Auto-Join")
@@ -97,7 +107,6 @@ function menuClicked() { //to set up the menu
   setTimeout(function(){  
   var dpsmclass = document.getElementsByClassName('dpsmrow'); //change row properties
   for(var i = 0; i < dpsmclass.length; i++) { dpsmclass[i].style.paddingTop = "10px" }
-  var dpsmclass = document.getElementsByClassName('dpsmrow'); //change row properties
   for(var i = 0; i < dpsmclass.length; i++) { dpsmclass[i].style.paddingLeft = "10px" }
   menuclicked = "yes"
   }, 0100);
