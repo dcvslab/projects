@@ -54,14 +54,14 @@ dpsmenu.style.zIndex = "10000";
 dpsmenu.style.position = "absolute";
 dpsmenu.style.borderBottom = "1px solid #0A0A0A";
 var dpsmcheckwoot = document.createElement("i") //create woot check
-dpsmcheckwoot.style.left = "0px"; dpsmcheckwoot.className = "icon icon-check-purple"; dpsmcheckwoot.id = "dpsmcheckwoot";
+dpsmcheckwoot.style.left = "0px"; dpsmcheckwoot.className = "icon icon-check-purple"; dpsmcheckwoot.id = "dpsmcheckaw";
 var dpsmcheckaj = document.createElement("i") //create autojoin check
 dpsmcheckaj.style.left = "0px"; dpsmcheckaj.className = "icon icon-check-purple"; dpsmcheckaj.id = "dpsmcheckaj";
 var dpsmcheckxpp = document.createElement("i") //create xp to percent check
 dpsmcheckxpp.style.left = "0px"; dpsmcheckxpp.className = "icon icon-check-purple"; dpsmcheckxpp.id = "dpsmcheckxpp";
 var dpsmcheckdpsftr = document.createElement("i") //create dps footer check
 dpsmcheckdpsftr.style.left = "0px"; dpsmcheckdpsftr.className = "icon icon-check-purple"; dpsmcheckdpsftr.id = "dpsmcheckdpsftr";
-var dpsmaw = document.createElement("div"); //DPS MENU OPTIONS | woot option
+var dpsmaw = document.createElement("div"); //DPS MENU OPTIONS | autowoot option
 var dpsmawtxt = document.createElement("span"); 
 dpsmawtxt.innerHTML = "Auto-Woot"; dpsmawtxt.className = "dpsmrowtext"
 dpsmaw.className = "dpsmrow";
@@ -84,16 +84,7 @@ dpsmdpsftr.appendChild(dpsmdpsftrtxt); dpsmdpsftr.appendChild(dpsmcheckdpsftr); 
 document.getElementsByClassName("app-right")[0].style.zIndex = "20" //make it so it's in front
 var plugmenu = document.getElementById("app-menu")
 document.getElementById("chat").appendChild(dpsmenu);
-var infobarclass = document.getElementsByClassName("info")[0]; //change the footer//
-infobarclass.id = "infobar";
-var infobar = document.getElementById("infobar");
-infobar.className = "info showing"; //make the profile info show all the time
-infobar.style.left = "17%"; infobar.style.top = "1px"; infobar.style.zIndex = "1000"; //put the profile info where the buttons are
-function hideInfo() { infobar.style.display = "none" } //show/hide buttons//
-function showInfo() { infobar.style.display = "block" }
-var btnsect = document.getElementsByClassName("buttons")[0]
-infobar.addEventListener("mouseenter", hideInfo)
-btnsect.addEventListener("mouseleave", showInfo)
+//FOOTER CHANGE WAS HERE
 var togglemenu = "no" //is needed
 var menuclicked = "no" //testing until it's clicked
 function menuClicked() { //to set up the menu
@@ -124,14 +115,24 @@ togglemenu = "no"
 }}
 dpsbtn.addEventListener("click", toggleMenu) 
 dpsbtn.addEventListener("click", menuClicked) 
-var dpsopt = localStorage.getItem("dpsopt")
+var dpsopt = localStorage.getItem("dpsOpt");
 if (! dpsopt){
- 
+var dpsOpt = { "awopt": "true", "ajopt": "true", "xppopt": "false", "dpsftropt": "false" };
+localStorage.setItem('dpsOpt', JSON.stringify(dpsOpt));
+var ldpsOpt = localStorage.getItem('dpsOpt');
+var getopt = JSON.parse(ldpsOpt);
+var awopt = getopt.awopt;//load the options
+var ajopt = getopt.ajopt;
+var xppopt = getopt.xppopt;
+var dpsftropt = getopt.dpsftropt;
+} else {
+var ldpsOpt = localStorage.getItem('dpsOpt');
+var getopt = JSON.parse(ldpsOpt);
+var awopt = getopt.awopt;//load the options
+var ajopt = getopt.ajopt;
+var xppopt = getopt.xppopt;
+var dpsftropt = getopt.dpsftropt;
 }
-var wootopt = localStorage.getItem("dpswootopt");//load the options
-var autojoinopt = localStorage.getItem("dpsautojoinopt")
-var xppercentopt = localStorage.getItem("dpsxppercentopt")
-var infoshowingopt = localStorage.getItem("dpswootopt")
 API.on(API.ADVANCE, function(data) { document.getElementById("woot").click();}); //autowoot//
 API.on(API.ADVANCE, function(data) { API.djJoin();}); //autojoin//
 var progress = document.getElementsByClassName("progress")[0]; //change the xp bar to %
@@ -145,3 +146,26 @@ function cP() {
 setInterval(function(){ cP(); }, 10000);
 cP()
 
+var infobarclass = document.getElementsByClassName("info")[0];//change the footer//
+if (infobarclass == "info is-staff") { var is-staff = " is-staff" } else { var is-staff = "" }
+infobarclass.id = "infobar"; //var stuff
+var infobar = document.getElementById("infobar");
+var btnsect = document.getElementsByClassName("buttons")[0]
+function dpsftrChange() {
+if (dpsftropt == "true") {
+infobar.className = "info" + is-staff + " showing"; //make the profile info show all the time
+infobar.style.left = "17%"; infobar.style.top = "1px"; infobar.style.zIndex = "1000"; //put the profile info where the buttons are
+function hideInfo() { infobar.style.display = "none" } //show/hide buttons//
+function showInfo() { infobar.style.display = "block" }
+infobar.addEventListener("mouseenter", hideInfo)
+dcvbtn.addEventListener("mouseenter", hideInfo)
+btnsect.addEventListener("mouseleave", showInfo)
+} else {
+ infobar.style.left = "17%"; infobar.style.top = "1px";
+ infobar.className = "info" + is-staff + "";
+ infobar.removeEventListener("mouseenter", hideInfo)
+ dcvbtn.removeEventListener("mouseenter", hideInfo)
+ btnsect.removeEventListener("mouseleave", showInfo) }}
+ 
+dpsmdpsftr.addEventListener("onclick", function() { if (dpsftropt == "true") { dpsftropt = "false"} else { dpsftropt = "true"}}
+dpsmdpsftr.addEventListener("onclick", dpsftrChange)
