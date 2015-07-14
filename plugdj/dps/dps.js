@@ -62,27 +62,23 @@ dpsmcheckxpp.style.left = "0px"; dpsmcheckxpp.className = "icon icon-check-purpl
 var dpsmcheckdpsftr = document.createElement("i") //create dps footer check
 dpsmcheckdpsftr.style.left = "0px"; dpsmcheckdpsftr.className = "icon icon-check-purple"; dpsmcheckdpsftr.id = "dpsmcheckdpsftr";
 var dpsmwoot = document.createElement("div"); //DPS MENU OPTIONS | woot option
-dpsmwoot.style.width = "30px"; dpsmwoot.style.paddingLeft = "30px"
 var dpsmwoottxt = document.createElement("span"); 
-dpsmwoottxt.textContent="Auto Woot"; dpsmwoottxt.style.lineHeight = "30px"
+dpsmwoottxt.textContent="Auto Woot"; dpsmxpptxt.className = "dpsmrowtext"
 dpsmwoot.className = "dpsmrow";
 dpsmwoot.appendChild(dpsmwoottxt); dpsmwoot.appendChild(dpsmcheckwoot); dpsmenu.appendChild(dpsmwoot);
 var dpsmaj = document.createElement("div"); //autojoin option
-dpsmaj.style.width = "30px"; dpsmaj.style.paddingLeft = "30px"
 var dpsmajtxt = document.createElement("span");
-dpsmajtxt.innerHTML = "Auto-Join"; dpsmajtxt.style.lineHeight = "30px"
+dpsmajtxt.innerHTML = "Auto-Join"; dpsmxpptxt.className = "dpsmrowtext"
 dpsmaj.className = "dpsmrow";
 dpsmaj.appendChild(dpsmajtxt); dpsmaj.appendChild(dpsmcheckaj); dpsmenu.appendChild(dpsmaj);
 var dpsmxpp = document.createElement("div"); // xp to percent option
-dpsmxpp.style.width = "30px"; dpsmxpp.style.paddingLeft = "30px"
 var dpsmxpptxt = document.createElement("span");
-dpsmxpptxt.innerHTML = "Change XP To Percent"; dpsmxpptxt.style.lineHeight = "30px"
+dpsmxpptxt.innerHTML = "Change XP To Percent"; dpsmxpptxt.className = "dpsmrowtext"
 dpsmxpp.className = "dpsmrow";
 dpsmxpp.appendChild(dpsmxpptxt); dpsmxpp.appendChild(dpsmcheckxpp); dpsmenu.appendChild(dpsmxpp);
 var dpsmdpsftr = document.createElement("div"); //dps footer option
-dpsmdpsftr.style.width = "30px"; dpsmdpsftr.style.paddingLeft = "30px"
 var dpsmdpsftrtxt = document.createElement("span");
-dpsmdpsftrtxt.innerHTML = "DPS Footer"; dpsmdpsftrtxt.style.lineHeight = "30px"
+dpsmdpsftrtxt.innerHTML = "DPS Footer"; dpsmxpptxt.className = "dpsmrowtext"
 dpsmdpsftr.className = "dpsmrow";
 dpsmdpsftr.appendChild(dpsmdpsftrtxt); dpsmdpsftr.appendChild(dpsmcheckdpsftr); dpsmenu.appendChild(dpsmdpsftr);
 document.getElementsByClassName("app-right")[0].style.zIndex = "20" //make it so it's in front
@@ -105,12 +101,11 @@ var menuclicked = "no" //testing until it's clicked
 function menuClicked() { //to set up the menu
  if (menuclicked == "no") {
   setTimeout(function(){  
-  var dpsmclass = document.getElementsByClassName('dpsmrow'); //change row properties
-  for(var i = 0; i < dpsmclass.length; i++) { dpsmclass[i].style.paddingTop = "10px" }
-  for(var i = 0; i < dpsmclass.length; i++) { dpsmclass[i].style.paddingLeft = "20px" }
-  menuclicked = "yes"
-  }, 0100);
-}}
+  var dpsmrowclass = document.getElementsByClassName('dpsmrow'); //change row properties
+  for(var i = 0; i < dpsmrowclass.length; i++) { dpsmrowclass[i].style.paddingTop = "10px"; dpsmrowclass[i].style.paddingLeft = "30px"; dpsmclass[i].style.width = "100%"; }
+  var dpsmrowtxtclass = document.getElementsByClassName('dpsmrow'); //change row properties
+  for(var i = 0; i < dpsmrowtxtclass.length; i++) { dpsmrowtxtclass[i].style.paddingTop = "10px"; dpsmrowtxtclass[i].style.lineHeight = "30px" }
+  menuclicked = "yes" }, 0100);}}
 function toggleMenu() { //toggle menu
 if (togglemenu == "no") {
 dpsmenu.style.display = "block"; //toggle some stuff
