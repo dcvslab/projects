@@ -17,7 +17,7 @@ var backbtn = document.getElementsByClassName("back")[0] //fix the back button
 backbtn.style.width = "83.333333%"
 backbtn.style.left = "16.666666%"
 var dpsbtn = document.createElement("div"); //create dps button
-dpsbtn.id = "dps-button";
+dpsbtn.id = "dpsbutton";
 dpsbtn.className = "dps button";
 dpsbtn.style.right = "83.3333333%"; //a bit of styling
 dpsbtn.style.width = "16.66666666%";
@@ -148,27 +148,31 @@ cP();
 
 var infobarclass = document.getElementsByClassName("info")[0];//change the footer//
 if (infobarclass == "info is-staff") { 
- var isstaff = " is-staff" 
+ var isstaffshow = "info is-staff showing"
+ var isstaff = "info is-staff"
 } else { 
- var isstaff = "" 
+ var isstaffshow = "info showing"
+ var isstaff = "info"
 };
 infobarclass.id = "infobar"; //var stuff
 var infobar = document.getElementById("infobar");
 var btnsect = document.getElementsByClassName("buttons")[0];
 function dpsftrChange() {
 if (dpsftropt == "true") {
-infobar.className = "info" + isstaff + " showing"; //make the profile info show all the time
+infobar.className = isstaffshow; //make the profile info show all the time
 infobar.style.left = "17%"; infobar.style.top = "1px"; infobar.style.zIndex = "1000"; //put the profile info where the buttons are
 function hideInfo() { infobar.style.display = "none" } //show/hide buttons//
 function showInfo() { infobar.style.display = "block" }
 infobar.addEventListener("mouseenter", hideInfo)
-dcvbtn.addEventListener("mouseenter", hideInfo)
+dpsbtn.addEventListener("mouseenter", hideInfo)
 btnsect.addEventListener("mouseleave", showInfo)
 } else {
  infobar.style.left = "17%"; infobar.style.top = "1px";
- infobar.className = "info" + isstaff + "";
+ infobar.className = isstaff;
+ function hideInfo() { infobar.style.display = "none" } //show/hide buttons//
+ function showInfo() { infobar.style.display = "block" }
  infobar.removeEventListener("mouseenter", hideInfo)
- dcvbtn.removeEventListener("mouseenter", hideInfo)
+ dpsbtn.removeEventListener("mouseenter", hideInfo)
  btnsect.removeEventListener("mouseleave", showInfo) }}
  
 dpsmdpsftr.addEventListener("onclick", function() { if (dpsftropt == "true") { dpsftropt = "false"} else { dpsftropt = "true"}})
