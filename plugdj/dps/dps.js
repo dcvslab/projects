@@ -148,16 +148,16 @@ cP();
 
 var infobarclass = document.getElementsByClassName("info")[0];//change the footer//
 if (infobarclass == "info is-staff") { 
- var is-staff = " is-staff" 
+ var isstaff = " is-staff" 
 } else { 
- var is-staff = "" 
+ var isstaff = "" 
 };
 infobarclass.id = "infobar"; //var stuff
 var infobar = document.getElementById("infobar");
 var btnsect = document.getElementsByClassName("buttons")[0];
 function dpsftrChange() {
 if (dpsftropt == "true") {
-infobar.className = "info" + is-staff + " showing"; //make the profile info show all the time
+infobar.className = "info" + isstaff + " showing"; //make the profile info show all the time
 infobar.style.left = "17%"; infobar.style.top = "1px"; infobar.style.zIndex = "1000"; //put the profile info where the buttons are
 function hideInfo() { infobar.style.display = "none" } //show/hide buttons//
 function showInfo() { infobar.style.display = "block" }
@@ -166,7 +166,7 @@ dcvbtn.addEventListener("mouseenter", hideInfo)
 btnsect.addEventListener("mouseleave", showInfo)
 } else {
  infobar.style.left = "17%"; infobar.style.top = "1px";
- infobar.className = "info" + is-staff + "";
+ infobar.className = "info" + isstaff + "";
  infobar.removeEventListener("mouseenter", hideInfo)
  dcvbtn.removeEventListener("mouseenter", hideInfo)
  btnsect.removeEventListener("mouseleave", showInfo) }}
