@@ -171,5 +171,5 @@ btnsect.addEventListener("mouseleave", showInfo)
  dcvbtn.removeEventListener("mouseenter", hideInfo)
  btnsect.removeEventListener("mouseleave", showInfo) }}
  
-dpsmdpsftr.addEventListener("onclick", function() { if (dpsftropt == "true") { dpsftropt = "false"} else { dpsftropt = "true"}}
+dpsmdpsftr.addEventListener("onclick", function() { if (dpsftropt == "true") { dpsftropt = "false"} else { dpsftropt = "true"}})
 dpsmdpsftr.addEventListener("onclick", dpsftrChange)
