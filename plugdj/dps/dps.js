@@ -61,14 +61,14 @@ var dpsmcheckxpp = document.createElement("i") //create xp to percent check
 dpsmcheckxpp.style.left = "0px"; dpsmcheckxpp.className = "icon icon-check-purple"; dpsmcheckxpp.id = "dpsmcheckxpp";
 var dpsmcheckdpsftr = document.createElement("i") //create dps footer check
 dpsmcheckdpsftr.style.left = "0px"; dpsmcheckdpsftr.className = "icon icon-check-purple"; dpsmcheckdpsftr.id = "dpsmcheckdpsftr";
-var dpsmwoot = document.createElement("div"); //DPS MENU OPTIONS | woot option
-var dpsmwoottxt = document.createElement("span"); 
-dpsmwoottxt.textContent="Auto Woot"; dpsmxpptxt.className = "dpsmrowtext"
-dpsmwoot.className = "dpsmrow";
-dpsmwoot.appendChild(dpsmwoottxt); dpsmwoot.appendChild(dpsmcheckwoot); dpsmenu.appendChild(dpsmwoot);
+var dpsmaw = document.createElement("div"); //DPS MENU OPTIONS | woot option
+var dpsmawtxt = document.createElement("span"); 
+dpsmawtxt.innerHTML = "Auto-Woot"; dpsmawtxt.className = "dpsmrowtext"
+dpsmaw.className = "dpsmrow";
+dpsmaw.appendChild(dpsmawtxt); dpsmaw.appendChild(dpsmcheckwoot); dpsmenu.appendChild(dpsmaw);
 var dpsmaj = document.createElement("div"); //autojoin option
 var dpsmajtxt = document.createElement("span");
-dpsmajtxt.innerHTML = "Auto-Join"; dpsmxpptxt.className = "dpsmrowtext"
+dpsmajtxt.innerHTML = "Auto-Join"; dpsmajtxt.className = "dpsmrowtext"
 dpsmaj.className = "dpsmrow";
 dpsmaj.appendChild(dpsmajtxt); dpsmaj.appendChild(dpsmcheckaj); dpsmenu.appendChild(dpsmaj);
 var dpsmxpp = document.createElement("div"); // xp to percent option
@@ -78,7 +78,7 @@ dpsmxpp.className = "dpsmrow";
 dpsmxpp.appendChild(dpsmxpptxt); dpsmxpp.appendChild(dpsmcheckxpp); dpsmenu.appendChild(dpsmxpp);
 var dpsmdpsftr = document.createElement("div"); //dps footer option
 var dpsmdpsftrtxt = document.createElement("span");
-dpsmdpsftrtxt.innerHTML = "DPS Footer"; dpsmxpptxt.className = "dpsmrowtext"
+dpsmdpsftrtxt.innerHTML = "DPS Footer"; dpsmdpsftrtxt.className = "dpsmrowtext"
 dpsmdpsftr.className = "dpsmrow";
 dpsmdpsftr.appendChild(dpsmdpsftrtxt); dpsmdpsftr.appendChild(dpsmcheckdpsftr); dpsmenu.appendChild(dpsmdpsftr);
 document.getElementsByClassName("app-right")[0].style.zIndex = "20" //make it so it's in front
@@ -88,9 +88,7 @@ var infobarclass = document.getElementsByClassName("info")[0]; //change the foot
 infobarclass.id = "infobar";
 var infobar = document.getElementById("infobar");
 infobar.className = "info showing"; //make the profile info show all the time
-infobar.style.left = "17%"; //put the profile info where the buttons are
-infobar.style.top = "1px";
-infobar.style.zIndex = "1000";
+infobar.style.left = "17%"; infobar.style.top = "1px"; infobar.style.zIndex = "1000"; //put the profile info where the buttons are
 function hideInfo() { infobar.style.display = "none" } //show/hide buttons//
 function showInfo() { infobar.style.display = "block" }
 var btnsect = document.getElementsByClassName("buttons")[0]
@@ -102,9 +100,15 @@ function menuClicked() { //to set up the menu
  if (menuclicked == "no") {
   setTimeout(function(){  
   var dpsmrowclass = document.getElementsByClassName('dpsmrow'); //change row properties
-  for(var i = 0; i < dpsmrowclass.length; i++) { dpsmrowclass[i].style.paddingTop = "10px"; dpsmrowclass[i].style.paddingLeft = "30px"; dpsmclass[i].style.width = "100%"; }
-  var dpsmrowtxtclass = document.getElementsByClassName('dpsmrow'); //change row properties
-  for(var i = 0; i < dpsmrowtxtclass.length; i++) { dpsmrowtxtclass[i].style.paddingTop = "10px"; dpsmrowtxtclass[i].style.lineHeight = "30px" }
+  for(var i = 0; i < dpsmrowclass.length; i++) { 
+  dpsmrowclass[i].style.paddingTop = "5px"; 
+  dpsmrowclass[i].style.paddingBottom = "5px";
+  dpsmrowclass[i].style.paddingLeft = "30px"; }
+  var dpsmrowtxtclass = document.getElementsByClassName('dpsmrowtext'); //change row properties
+  for(var i = 0; i < dpsmrowtxtclass.length; i++) { 
+  dpsmrowtxtclass[i].style.paddingTop = "5px"; 
+  dpsmrowtxtclass[i].style.paddingBottom = "5px"; 
+  dpsmrowtxtclass[i].style.lineHeight = "30px" }
   menuclicked = "yes" }, 0100);}}
 function toggleMenu() { //toggle menu
 if (togglemenu == "no") {
