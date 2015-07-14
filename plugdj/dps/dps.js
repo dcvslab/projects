@@ -144,13 +144,17 @@ function cP() {
  xpvalue.innerHTML = percent;
 }
 setInterval(function(){ cP(); }, 10000);
-cP()
+cP();
 
 var infobarclass = document.getElementsByClassName("info")[0];//change the footer//
-if (infobarclass == "info is-staff") { var is-staff = " is-staff" } else { var is-staff = "" }
+if (infobarclass == "info is-staff") { 
+ var is-staff = " is-staff" 
+} else { 
+ var is-staff = "" 
+};
 infobarclass.id = "infobar"; //var stuff
 var infobar = document.getElementById("infobar");
-var btnsect = document.getElementsByClassName("buttons")[0]
+var btnsect = document.getElementsByClassName("buttons")[0];
 function dpsftrChange() {
 if (dpsftropt == "true") {
 infobar.className = "info" + is-staff + " showing"; //make the profile info show all the time
