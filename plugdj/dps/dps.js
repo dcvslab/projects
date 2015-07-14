@@ -167,7 +167,7 @@ infobar.addEventListener("mouseenter", hideInfo)
 dpsbtn.addEventListener("mouseenter", hideInfo)
 btnsect.addEventListener("mouseleave", showInfo)
 } else {
- infobar.style.left = "17%"; infobar.style.top = "1px";
+ infobar.style.left = "17%"; infobar.style.top = "-54px"
  infobar.className = isstaff;
  function hideInfo() { infobar.style.display = "none" } //show/hide buttons//
  function showInfo() { infobar.style.display = "block" }
