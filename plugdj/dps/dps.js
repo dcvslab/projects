@@ -87,7 +87,6 @@ dpsmdpsftr.appendChild(dpsmdpsftrtxt); dpsmdpsftr.appendChild(dpsmcheckdpsftr); 
 document.getElementsByClassName("app-right")[0].style.zIndex = "20" //make it so it's in front
 var plugmenu = document.getElementById("app-menu")
 document.getElementById("chat").appendChild(dpsmenu);
-//FOOTER CHANGE WAS HERE
 var togglemenu = "no" //is needed
 var menuclicked = "no" //testing until it's clicked
 function menuClicked() { //to set up the menu
@@ -161,7 +160,7 @@ infobar.addEventListener("mouseenter", hideInfo)
 dpsbtn.addEventListener("mouseenter", hideInfo)
 btnsect.addEventListener("mouseleave", showInfo)
 } else {
- infobar.style.left = "17%"; infobar.style.top = "-54px"\
+ infobar.style.left = "17%"; infobar.style.top = "-54px";
  function hideInfo() { infobar.style.display = "none" } //show/hide buttons//
  function showInfo() { infobar.style.display = "block" }
  infobar.removeEventListener("mouseenter", hideInfo)
