@@ -1,4 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//
+var userrole = API.getUser().role
+var userid = API.getUser().id
+var username = API.getUser().username
 //SETTING UP THE BUTTON//
 var ibtn = document.getElementsByClassName("inventory button")[0];
 var bbtn = document.getElementsByClassName("badge button")[0];
@@ -145,21 +148,12 @@ function cP() {
 }
 setInterval(function(){ cP(); }, 10000);
 cP();
-
 var infobarclass = document.getElementsByClassName("info")[0];//change the footer//
-if (infobarclass == "info is-staff") { 
- var isstaffshow = "info is-staff showing"
- var isstaff = "info is-staff"
-} else { 
- var isstaffshow = "info showing"
- var isstaff = "info"
-};
 infobarclass.id = "infobar"; //var stuff
 var infobar = document.getElementById("infobar");
 var btnsect = document.getElementsByClassName("buttons")[0];
 function dpsftrChange() {
 if (dpsftropt == "true") {
-infobar.className = isstaffshow; //make the profile info show all the time
 infobar.style.left = "17%"; infobar.style.top = "1px"; infobar.style.zIndex = "1000"; //put the profile info where the buttons are
 function hideInfo() { infobar.style.display = "none" } //show/hide buttons//
 function showInfo() { infobar.style.display = "block" }
@@ -167,8 +161,7 @@ infobar.addEventListener("mouseenter", hideInfo)
 dpsbtn.addEventListener("mouseenter", hideInfo)
 btnsect.addEventListener("mouseleave", showInfo)
 } else {
- infobar.style.left = "17%"; infobar.style.top = "-54px"
- infobar.className = isstaff;
+ infobar.style.left = "17%"; infobar.style.top = "-54px"\
  function hideInfo() { infobar.style.display = "none" } //show/hide buttons//
  function showInfo() { infobar.style.display = "block" }
  infobar.removeEventListener("mouseenter", hideInfo)
