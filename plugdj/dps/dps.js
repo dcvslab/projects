@@ -102,7 +102,7 @@ function menuClicked() { //to set up the menu
   dpsmrowtxtclass[i].style.paddingTop = "5px"; 
   dpsmrowtxtclass[i].style.paddingBottom = "5px"; 
   dpsmrowtxtclass[i].style.lineHeight = "30px" }
-  menuclicked = "yes", 0100);}
+  menuclicked = "yes"; }, 0100);
   dpsmdpsftr.addEventListener("onclick", function() { if (dpsftropt == "true") { dpsftropt = "false"} else { dpsftropt = "true"}})
   dpsmdpsftr.addEventListener("onclick", dpsftrChange)
  }
