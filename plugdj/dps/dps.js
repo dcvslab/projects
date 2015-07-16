@@ -132,7 +132,7 @@ function menuClicked() { //to set up the menu
     if (dpsftropt == "true") {
   dpsftropt = "false";
   dpsoptUpdate()
-  dpsmcheckdpsftr.style.visibility = "invisible"
+  dpsmcheckdpsftr.style.visibility = "hidden"
   setTimeout(function () { dpsftrChange() }, 0050);
  } else {
   dpsftropt = "true";
