@@ -1,7 +1,27 @@
 //DCV'S PLUGDJ SCRIPT//
-var userrole = API.getUser().role
+var userrole = API.getUser().role //get some important vars
 var userid = API.getUser().id
 var username = API.getUser().username
+var dpsopt = localStorage.getItem("dpsOpt");
+if (! dpsopt){
+var dpsOpt = { "awopt": "true", "ajopt": "true", "xppopt": "false", "dpsftropt": "false" };
+localStorage.setItem('dpsOpt', JSON.stringify(dpsOpt));
+var ldpsOpt = localStorage.getItem('dpsOpt');
+var getopt = JSON.parse(ldpsOpt);
+var awopt = getopt.awopt;//load the options
+var ajopt = getopt.ajopt;
+var xppopt = getopt.xppopt;
+var dpsftropt = getopt.dpsftropt;
+} else {
+var ldpsOpt = localStorage.getItem('dpsOpt');
+var getopt = JSON.parse(ldpsOpt);
+var awopt = getopt.awopt;//load the options
+var ajopt = getopt.ajopt;
+var xppopt = getopt.xppopt;
+var dpsftropt = getopt.dpsftropt; }
+setTimeout(function () {
+ dpsoptPush = { "awopt": awopt, "ajopt": ajopt, "xppopt": xppopt, "dpsftropt": dpsftropt };
+}, 0100);
 //SETTING UP THE BUTTON//
 var ibtn = document.getElementsByClassName("inventory button")[0];
 var bbtn = document.getElementsByClassName("badge button")[0];
@@ -82,10 +102,9 @@ dpsmxpp.appendChild(dpsmxpptxt); dpsmxpp.appendChild(dpsmcheckxpp); dpsmenu.appe
 var dpsmdpsftr = document.createElement("div"); //dps footer option
 var dpsmdpsftrtxt = document.createElement("span");
 dpsmdpsftrtxt.innerHTML = "DPS Footer"; dpsmdpsftrtxt.className = "dpsmrowtext"
-dpsmdpsftr.className = "dpsmrow";
+dpsmdpsftr.className = "dpsmrow"; dpsmdpsftr.id = "dpsmdspftr"; var dpsmdpsftr = document.getElementById("dpsmdspftr")
 dpsmdpsftr.appendChild(dpsmdpsftrtxt); dpsmdpsftr.appendChild(dpsmcheckdpsftr); dpsmenu.appendChild(dpsmdpsftr);
 document.getElementsByClassName("app-right")[0].style.zIndex = "20" //make it so it's in front
-var plugmenu = document.getElementById("app-menu")
 document.getElementById("chat").appendChild(dpsmenu);
 var togglemenu = "no" //is needed
 var menuclicked = "no" //testing until it's clicked
@@ -103,7 +122,14 @@ function menuClicked() { //to set up the menu
   dpsmrowtxtclass[i].style.paddingBottom = "5px"; 
   dpsmrowtxtclass[i].style.lineHeight = "30px" }
   menuclicked = "yes"; }, 0100);
- }}
+  dpsmdpsftr.onclick=function(){
+    if (dpsftropt == "true") {
+  dpsftropt = "false";
+  setTimeout(function () { dpsftrChange() }, 0050);
+ } else {
+  dpsftropt = "true";
+  setTimeout(function () { dpsftrChange() }, 0050); }
+}}}
 function toggleMenu() { //toggle menu
 if (togglemenu == "no") {
 dpsmenu.style.display = "block"; //toggle some stuff
@@ -118,24 +144,6 @@ togglemenu = "no"
 }}
 dpsbtn.addEventListener("click", toggleMenu) 
 dpsbtn.addEventListener("click", menuClicked) 
-var dpsopt = localStorage.getItem("dpsOpt");
-if (! dpsopt){
-var dpsOpt = { "awopt": "true", "ajopt": "true", "xppopt": "false", "dpsftropt": "false" };
-localStorage.setItem('dpsOpt', JSON.stringify(dpsOpt));
-var ldpsOpt = localStorage.getItem('dpsOpt');
-var getopt = JSON.parse(ldpsOpt);
-var awopt = getopt.awopt;//load the options
-var ajopt = getopt.ajopt;
-var xppopt = getopt.xppopt;
-var dpsftropt = getopt.dpsftropt;
-} else {
-var ldpsOpt = localStorage.getItem('dpsOpt');
-var getopt = JSON.parse(ldpsOpt);
-var awopt = getopt.awopt;//load the options
-var ajopt = getopt.ajopt;
-var xppopt = getopt.xppopt;
-var dpsftropt = getopt.dpsftropt;
-}
 API.on(API.ADVANCE, function(data) { document.getElementById("woot").click();}); //autowoot//
 API.on(API.ADVANCE, function(data) { API.djJoin();}); //autojoin//
 var progress = document.getElementsByClassName("progress")[0]; //change the xp bar to %
