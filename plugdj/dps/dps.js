@@ -10,7 +10,7 @@ var stbtn = document.getElementsByClassName("store button")[0];
      stbtn = document.getElementsByClassName("store button notify")[0] };
 var pbtn = document.getElementsByClassName("profile button")[0];
  if(typeof pbtn === 'undefined'){
-     pbtn = document.getElementsByClassName("store button notify")[0]; }
+     pbtn = document.getElementsByClassName("profile button notify")[0]; }
 var sebtn = document.getElementsByClassName("settings button")[0];
 document.getElementById("facebook-menu").remove(); //remove fb
 document.getElementById("twitter-menu").remove(); //remove twitter
@@ -102,7 +102,10 @@ function menuClicked() { //to set up the menu
   dpsmrowtxtclass[i].style.paddingTop = "5px"; 
   dpsmrowtxtclass[i].style.paddingBottom = "5px"; 
   dpsmrowtxtclass[i].style.lineHeight = "30px" }
-  menuclicked = "yes" }, 0100);}}
+  menuclicked = "yes", 0100);}
+  dpsmdpsftr.addEventListener("onclick", function() { if (dpsftropt == "true") { dpsftropt = "false"} else { dpsftropt = "true"}})
+  dpsmdpsftr.addEventListener("onclick", dpsftrChange)
+ }
 function toggleMenu() { //toggle menu
 if (togglemenu == "no") {
 dpsmenu.style.display = "block"; //toggle some stuff
@@ -151,21 +154,25 @@ var infobarclass = document.getElementsByClassName("info")[0];//change the foote
 infobarclass.id = "infobar"; //var stuff
 var infobar = document.getElementById("infobar");
 var btnsect = document.getElementsByClassName("buttons")[0];
+function hideInfo() { 
+  infobar.style.display = "none" 
+}
+function showInfo() { 
+  infobar.style.display = "block" 
+}
 function dpsftrChange() {
 if (dpsftropt == "true") {
 infobar.style.left = "17%"; infobar.style.top = "1px"; infobar.style.zIndex = "1000"; //put the profile info where the buttons are
-function hideInfo() { infobar.style.display = "none" } //show/hide buttons//
-function showInfo() { infobar.style.display = "block" }
+infobar.style.display = "block";
 infobar.addEventListener("mouseenter", hideInfo)
-dpsbtn.addEventListener("mouseenter", hideInfo)
+dpsbtn.addEventListener("mouseenter", showInfo)
 btnsect.addEventListener("mouseleave", showInfo)
+pbtn.addEventListener("mouseenter", showInfo); pbtn.addEventListener("mouseleave", hideInfo)
+pbtn.removeEventListener("mouseenter", showInfo); pbtn.removeEventListener("mouseleave", hideInfo)
 } else {
  infobar.style.left = "17%"; infobar.style.top = "-54px";
- function hideInfo() { infobar.style.display = "none" } //show/hide buttons//
- function showInfo() { infobar.style.display = "block" }
+ infobar.style.display = "none"
  infobar.removeEventListener("mouseenter", hideInfo)
- dpsbtn.removeEventListener("mouseenter", hideInfo)
- btnsect.removeEventListener("mouseleave", showInfo) }}
- 
-dpsmdpsftr.addEventListener("onclick", function() { if (dpsftropt == "true") { dpsftropt = "false"} else { dpsftropt = "true"}})
-dpsmdpsftr.addEventListener("onclick", dpsftrChange)
+ btnsect.removeEventListener("mouseleave", showInfo)
+ pbtn.addEventListener("mouseenter", showInfo); pbtn.addEventListener("mouseleave", hideInfo)
+}}
