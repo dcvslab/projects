@@ -102,7 +102,8 @@ dpsmxpp.appendChild(dpsmxpptxt); dpsmxpp.appendChild(dpsmcheckxpp); dpsmenu.appe
 var dpsmdpsftr = document.createElement("div"); //dps footer option
 var dpsmdpsftrtxt = document.createElement("span");
 dpsmdpsftrtxt.innerHTML = "DPS Footer"; dpsmdpsftrtxt.className = "dpsmrowtext"
-dpsmdpsftr.className = "dpsmrow"; dpsmdpsftr.id = "dpsmdspftr"; var dpsmdpsftr = document.getElementById("dpsmdspftr")
+dpsmdpsftr.className = "dpsmrow"; dpsmdpsftr.id = "dpsmdspftr"; 
+dpsmdpsftr = document.getElementById("dpsmdspftr")
 dpsmdpsftr.appendChild(dpsmdpsftrtxt); dpsmdpsftr.appendChild(dpsmcheckdpsftr); dpsmenu.appendChild(dpsmdpsftr);
 document.getElementsByClassName("app-right")[0].style.zIndex = "20" //make it so it's in front
 document.getElementById("chat").appendChild(dpsmenu);
