@@ -103,9 +103,7 @@ function menuClicked() { //to set up the menu
   dpsmrowtxtclass[i].style.paddingBottom = "5px"; 
   dpsmrowtxtclass[i].style.lineHeight = "30px" }
   menuclicked = "yes"; }, 0100);
-  dpsmdpsftr.addEventListener("onclick", function() { if (dpsftropt == "true") { dpsftropt = "false"} else { dpsftropt = "true"}})
-  dpsmdpsftr.addEventListener("onclick", dpsftrChange)
- }
+ }}
 function toggleMenu() { //toggle menu
 if (togglemenu == "no") {
 dpsmenu.style.display = "block"; //toggle some stuff
@@ -176,3 +174,4 @@ pbtn.removeEventListener("mouseenter", showInfo); pbtn.removeEventListener("mous
  btnsect.removeEventListener("mouseleave", showInfo)
  pbtn.addEventListener("mouseenter", showInfo); pbtn.addEventListener("mouseleave", hideInfo)
 }}
+dpsftrChange();
