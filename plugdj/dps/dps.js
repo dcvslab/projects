@@ -2,8 +2,8 @@
 var userrole = API.getUser().role //get some important vars
 var userid = API.getUser().id
 var username = API.getUser().username
-var dpsopt = localStorage.getItem("dpsOpt");
-if (! dpsopt){
+var dpsopt = localStorage.getItem("dpsOpt"); //option stuff
+if (! dpsopt){ 
 var dpsOpt = { "awopt": "true", "ajopt": "true", "xppopt": "false", "dpsftropt": "false" };
 localStorage.setItem('dpsOpt', JSON.stringify(dpsOpt));
 var ldpsOpt = localStorage.getItem('dpsOpt');
@@ -19,6 +19,10 @@ var awopt = getopt.awopt;//load the options
 var ajopt = getopt.ajopt;
 var xppopt = getopt.xppopt;
 var dpsftropt = getopt.dpsftropt; }
+function dpsoptUpdate() { //update
+  dpsoptPush = { "awopt": awopt, "ajopt": ajopt, "xppopt": xppopt, "dpsftropt": dpsftropt };
+  localStorage.setItem('dpsOpt', JSON.stringify(dpsoptPush));
+}
 setTimeout(function () {
  dpsoptPush = { "awopt": awopt, "ajopt": ajopt, "xppopt": xppopt, "dpsftropt": dpsftropt };
 }, 0100);
@@ -102,8 +106,7 @@ dpsmxpp.appendChild(dpsmxpptxt); dpsmxpp.appendChild(dpsmcheckxpp); dpsmenu.appe
 var dpsmdpsftr = document.createElement("div"); //dps footer option
 var dpsmdpsftrtxt = document.createElement("span");
 dpsmdpsftrtxt.innerHTML = "DPS Footer"; dpsmdpsftrtxt.className = "dpsmrowtext"
-dpsmdpsftr.className = "dpsmrow"; dpsmdpsftr.id = "dpsmdspftr"; 
-dpsmdpsftr = document.getElementById("dpsmdspftr")
+dpsmdpsftr.className = "dpsmrow"; dpsmdpsftr.id = "dpsmdspftr";
 dpsmdpsftr.appendChild(dpsmdpsftrtxt); dpsmdpsftr.appendChild(dpsmcheckdpsftr); dpsmenu.appendChild(dpsmdpsftr);
 document.getElementsByClassName("app-right")[0].style.zIndex = "20" //make it so it's in front
 document.getElementById("chat").appendChild(dpsmenu);
@@ -116,7 +119,9 @@ function menuClicked() { //to set up the menu
   for(var i = 0; i < dpsmrowclass.length; i++) { 
   dpsmrowclass[i].style.paddingTop = "5px"; 
   dpsmrowclass[i].style.paddingBottom = "5px";
-  dpsmrowclass[i].style.paddingLeft = "30px"; }
+  dpsmrowclass[i].style.paddingLeft = "30px";
+  dpsmrowclass[i].style.MozUserSelect = "none";
+  dpsmrowclass[i].style.cursor = "pointer"; }
   var dpsmrowtxtclass = document.getElementsByClassName('dpsmrowtext'); //change row properties
   for(var i = 0; i < dpsmrowtxtclass.length; i++) { 
   dpsmrowtxtclass[i].style.paddingTop = "5px"; 
@@ -126,9 +131,13 @@ function menuClicked() { //to set up the menu
   dpsmdpsftr.onclick=function(){
     if (dpsftropt == "true") {
   dpsftropt = "false";
+  dpsoptUpdate()
+  dpsmcheckdpsftr.style.visibility = "invisible"
   setTimeout(function () { dpsftrChange() }, 0050);
  } else {
   dpsftropt = "true";
+  dpsoptUpdate()
+  dpsmcheckdpsftr.style.visibility = "visible"
   setTimeout(function () { dpsftrChange() }, 0050); }
 }}}
 function toggleMenu() { //toggle menu
