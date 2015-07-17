@@ -187,7 +187,7 @@ pbtn.removeEventListener("mouseenter", showInfo); pbtn.removeEventListener("mous
 } else {
  infobar.style.left = "17%"; infobar.style.top = "-54px";
  infobar.style.display = "none"
- dpsmcheckdpsftr.style.visibility = "none"
+ dpsmcheckdpsftr.style.visibility = "hidden"
  infobar.removeEventListener("mouseenter", hideInfo)
  btnsect.removeEventListener("mouseleave", showInfo)
  dpsbtn.removeEventListener("mouseenter", showInfo)
