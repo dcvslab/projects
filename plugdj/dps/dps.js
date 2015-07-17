@@ -132,12 +132,10 @@ function menuClicked() { //to set up the menu
     if (dpsftropt == "true") {
   dpsftropt = "false";
   dpsoptUpdate()
-  dpsmcheckdpsftr.style.visibility = "hidden"
   setTimeout(function () { dpsftrChange() }, 0050);
  } else {
   dpsftropt = "true";
   dpsoptUpdate()
-  dpsmcheckdpsftr.style.visibility = "visible"
   setTimeout(function () { dpsftrChange() }, 0050); }
 }}}
 function toggleMenu() { //toggle menu
@@ -180,6 +178,7 @@ function dpsftrChange() {
 if (dpsftropt == "true") {
 infobar.style.left = "17%"; infobar.style.top = "1px"; infobar.style.zIndex = "1000"; //put the profile info where the buttons are
 infobar.style.display = "block";
+dpsmcheckdpsftr.style.visibility = "visible";
 infobar.addEventListener("mouseenter", hideInfo)
 dpsbtn.addEventListener("mouseenter", showInfo)
 btnsect.addEventListener("mouseleave", showInfo)
@@ -188,8 +187,10 @@ pbtn.removeEventListener("mouseenter", showInfo); pbtn.removeEventListener("mous
 } else {
  infobar.style.left = "17%"; infobar.style.top = "-54px";
  infobar.style.display = "none"
+ dpsmcheckdpsftr.style.visibility = "none"
  infobar.removeEventListener("mouseenter", hideInfo)
  btnsect.removeEventListener("mouseleave", showInfo)
+ dpsbtn.removeEventListener("mouseenter", showInfo)
  pbtn.addEventListener("mouseenter", showInfo); pbtn.addEventListener("mouseleave", hideInfo)
 }}
 dpsftrChange();
