@@ -1,7 +1,26 @@
-//DCV'S PLUGDJ SCRIPT//ALPHA 02
+//DCV'S PLUGDJ SCRIPT//ALPHA 02// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO
 var userrole = API.getUser().role //get some important vars
 var userid = API.getUser().id
 var username = API.getUser().username
+//borrowed with love from Matheus Avellar/Beta Tester (http://matheusavellar.github.io / http://plug.dj/Beta-Tester) who borrowed and edited it with love from Igor (http://plug.dj/igor)
+function dpsChat(_text, _class1, _class2) {
+if (!_class1 || _class1 == "undefined") {
+  _class1 = ""; }
+if (!_class2 || _class2 == "undefined") {
+  _class2 = ""; }
+var _scroll = $("#chat-messages")[0].scrollTop > $("#chat-messages")[0].scrollHeight - $("#chat-messages").height() - 28;
+  $("#chat-messages").append(
+    "<div class='bcs-log " + _class1 + "'>" //note: bcs is beta's script, it's pretty cool. thanks again!
+      + "<div class='" + _class2 + "'>" + _text + "</div>"
+        + "</div>");
+if (_scroll) { $("#chat-messages")[0].scrollTop = $("#chat-messages")[0].scrollHeight; }
+if ($("#chat-messages").children().length > 512) {  $("#chat-messages").children().first().remove();  }}
+var i; //dpschat styling, 
+var plughead = document.getElementsByTagName("head")[0]
+var dpschatcss = ["<style>", ".dpschat {", "padding-left: 30px", "color: dedede", "</style>"]
+for (i = 0; i < args.length; i++) {
+  plughead.appendChild(document.createTextNode(dpschatcss[i]));
+  plughead.appendChild(document.createElement("br")); }}
 var dpsopt = localStorage.getItem("dpsOpt"); //option stuff
 if (! dpsopt){ 
 var dpsOpt = { "awopt": "true", "ajopt": "true", "xppopt": "false", "dpsftropt": "false" };
@@ -26,8 +45,7 @@ function dpsoptUpdate() { //update
 setTimeout(function () {
  dpsoptPush = { "awopt": awopt, "ajopt": ajopt, "xppopt": xppopt, "dpsftropt": dpsftropt };
 }, 0100);
-//SETTING UP THE BUTTON//
-var ibtn = document.getElementsByClassName("inventory button")[0];
+var ibtn = document.getElementsByClassName("inventory button")[0]; //SETTING UP THE BUTTON//
 var bbtn = document.getElementsByClassName("badge button")[0];
 var stbtn = document.getElementsByClassName("store button")[0];
  if(typeof stbtn === 'undefined'){
@@ -194,3 +212,4 @@ pbtn.removeEventListener("mouseenter", showInfo); pbtn.removeEventListener("mous
  pbtn.addEventListener("mouseenter", showInfo); pbtn.addEventListener("mouseleave", hideInfo)
 }}
 dpsftrChange();
+dpsChat("DPS has loaded!", "dpschatcss", " ")
