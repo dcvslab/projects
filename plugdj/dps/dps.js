@@ -15,12 +15,13 @@ var _scroll = $("#chat-messages")[0].scrollTop > $("#chat-messages")[0].scrollHe
         + "</div>");
 if (_scroll) { $("#chat-messages")[0].scrollTop = $("#chat-messages")[0].scrollHeight; }
 if ($("#chat-messages").children().length > 512) {  $("#chat-messages").children().first().remove();  }}
-var i; //dpschat styling, 
 var plughead = document.getElementsByTagName("head")[0]
-var dpschatcss = ["<style>", ".dpschat {", "padding-left: 30px", "color: dedede", "</style>"]
-for (i = 0; i < args.length; i++) {
-  plughead.appendChild(document.createTextNode(dpschatcss[i]));
-  plughead.appendChild(document.createElement("br")); }}
+var _dpschatcss = "<style>"
++".dpschatcss {"
++"  padding-left: 5px"
++"}"
++"</style>";
+$(plughead).append(_dpschatcss);
 var dpsopt = localStorage.getItem("dpsOpt"); //option stuff
 if (! dpsopt){ 
 var dpsOpt = { "awopt": "true", "ajopt": "true", "xppopt": "false", "dpsftropt": "false" };
@@ -212,4 +213,4 @@ pbtn.removeEventListener("mouseenter", showInfo); pbtn.removeEventListener("mous
  pbtn.addEventListener("mouseenter", showInfo); pbtn.addEventListener("mouseleave", hideInfo)
 }}
 dpsftrChange();
-dpsChat("DPS has loaded!", "dpschatcss", " ")
+dpsChat("DPS has loaded! vAlpha03", "dpschatcss", "dpschatcss")
