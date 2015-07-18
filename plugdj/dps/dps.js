@@ -1,4 +1,4 @@
-//DCV'S PLUGDJ SCRIPT//ALPHA 02// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO
+//DCV'S PLUGDJ SCRIPT//ALPHA 03// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO
 var userrole = API.getUser().role //get some important vars
 var userid = API.getUser().id
 var username = API.getUser().username
