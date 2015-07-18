@@ -1,4 +1,4 @@
-//DCV'S PLUGDJ SCRIPT//
+//DCV'S PLUGDJ SCRIPT//ALPHA 02
 var userrole = API.getUser().role //get some important vars
 var userid = API.getUser().id
 var username = API.getUser().username
