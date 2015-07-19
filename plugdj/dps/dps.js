@@ -21,7 +21,7 @@ var cmlength = cm.length - "1"
 var cmbg = $(cm[cmlength]).css("backgroundColor")
 cmbgv = " "
 if (cmbg == "transparent") { cmbgv = "#111317" } else { cmbgv = "#0A0A0A" }
-var dpscm = document.getElementsByClassName("dpscm")
+var dpscm = document.getElementsByClassName("cm dps")
 if (dpscm.length == "0") {
   cmbgv = "#111317"
 } else {
@@ -34,7 +34,7 @@ if (!_class2 || _class2 == "undefined") {
   _class2 = ""; }
 var _scroll = $("#chat-messages")[0].scrollTop > $("#chat-messages")[0].scrollHeight - $("#chat-messages").height() - 28;
   $("#chat-messages").append(
-    "<div class='dpscm" + _class1 + "'>" 
+    "<div class='cm dps" + _class1 + "'>" 
       + "<div class='" + _class2 + "'>" + _text + "</div>"
         + "</div>");
 if (_scroll) { $("#chat-messages")[0].scrollTop = $("#chat-messages")[0].scrollHeight; }
