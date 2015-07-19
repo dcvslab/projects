@@ -183,7 +183,7 @@ function dpsAj() { //autojoin//
     API.on(API.ADVANCE, function(data) { API.djJoin();})
     dpsmcheckaj.style.visibility = "visible" }
   else {
-    dpsmcheckaj.style.visibility = "hidden" }
+    dpsmcheckaj.style.visibility = "hidden" }}
 dpsAj();
 var progress = document.getElementsByClassName("progress")[0]; //change the xp bar to %
 progress.id = "progress";
