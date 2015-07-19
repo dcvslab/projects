@@ -12,6 +12,7 @@ var dpscss = "<style>" //STYLING (HOPEFULLY TEMPORARY, OTHER WAYS ARE NOT CURREN
 +".dpscuinfo {"
 +"  font-weight: 700;"
 +"  color: #009CDD;"
++"  padding-top: 0px"
 +" } "
 +"</style>";$("head").append(dpscss);
 var userrole = API.getUser().role //get some important vars
