@@ -2,24 +2,30 @@
 var userrole = API.getUser().role //get some important vars
 var userid = API.getUser().id
 var username = API.getUser().username
-//borrowed with love from Matheus Avellar/Beta Tester (http://matheusavellar.github.io / http://plug.dj/Beta-Tester) who borrowed and edited it with love from Igor (http://plug.dj/igor)
-function dpsChat(_text, _class1, _class2) {
+function dpsChat(_text, _class1, _class2) { //borrowed with perms from bcs
 if (!_class1 || _class1 == "undefined") {
   _class1 = ""; }
 if (!_class2 || _class2 == "undefined") {
   _class2 = ""; }
 var _scroll = $("#chat-messages")[0].scrollTop > $("#chat-messages")[0].scrollHeight - $("#chat-messages").height() - 28;
   $("#chat-messages").append(
-    "<div class='bcs-log " + _class1 + "'>" //note: bcs is beta's script, it's pretty cool. thanks again!
+    "<div class='bcs-log " + _class1 + "'>" 
       + "<div class='" + _class2 + "'>" + _text + "</div>"
         + "</div>");
 if (_scroll) { $("#chat-messages")[0].scrollTop = $("#chat-messages")[0].scrollHeight; }
 if ($("#chat-messages").children().length > 512) {  $("#chat-messages").children().first().remove();  }}
 var plughead = document.getElementsByTagName("head")[0]
 var _dpschatcss = "<style>"
-+".dpschatcss {"
-+"  padding-left: 5px"
++".dpsc {"
++"  padding: 10px"
 +"}"
++".dpscuserjoin {"
++"  color: #dedede"
++"  font-weight: 700"
++".dpscuinfo" {"
++"  font-weight: 700"
++"  font-color: #009CDD"
+}
 +"</style>";
 $(plughead).append(_dpschatcss);
 var dpsopt = localStorage.getItem("dpsOpt"); //option stuff
