@@ -139,6 +139,30 @@ function menuClicked() { //to set up the menu
   dpsmrowtxtclass[i].style.paddingBottom = "5px"; 
   dpsmrowtxtclass[i].style.lineHeight = "30px" }
   menuclicked = "yes"; }, 0100);
+  dpsmaw.onclick=function(){ if (awopt == "true") { 
+    awopt = "false"; 
+    dpsoptUpdate(); 
+    setTimeout(function () { dpsAw() }, 0050); } 
+  else { 
+    awopt = "true"; 
+    dpsoptUpdate(); 
+    setTimeout(function () { dpsAw() }, 0050); }}
+  dpsmaj.onclick=function(){ if (ajopt == "true") { 
+    ajopt = "false"; 
+    dpsoptUpdate(); 
+    setTimeout(function () { dpsAj() }, 0050); } 
+  else { 
+    ajopt = "true"; 
+    dpsoptUpdate(); 
+    setTimeout(function () { dpsAj() }, 0050); }} 
+  dpsmxpp.onclick=function(){ if (xppopt == "true") { 
+    xppopt = "false"; 
+    dpsoptUpdate(); 
+    setTimeout(function () { dpsXpp() }, 0050); } 
+  else { 
+    xppopt = "true"; 
+    dpsoptUpdate(); 
+    setTimeout(function () { dpsXpp() }, 0050); }} 
   dpsmdpsftr.onclick=function(){ if (dpsftropt == "true") { 
     dpsftropt = "false"; 
     dpsoptUpdate(); 
@@ -147,14 +171,6 @@ function menuClicked() { //to set up the menu
     dpsftropt = "true"; 
     dpsoptUpdate(); 
     setTimeout(function () { dpsftrChange() }, 0050); }}
-  dpsmaw.onclick=function(){ if (awopt == "true") { 
-    awopt = "false"; 
-    dpsoptUpdate(); 
-    setTimeout(function () { dpsAw() }, 0050); } 
-  else { 
-    awopt = "true"; 
-    dpsoptUpdate(); 
-    setTimeout(function () { dpsAw() }, 0050); }} 
 }}
 function toggleMenu() { //toggle menu
 if (togglemenu == "no") {
