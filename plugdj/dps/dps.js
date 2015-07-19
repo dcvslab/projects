@@ -1,18 +1,42 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 03// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO
 $("head").append("<link rel='stylesheet' type='text/css' href='https://rawgit.com/dcvslab/projects/master/plugdj/dps/styleSheet.css'>");
+var ccolor = "light"
+var cmsgs = document.getElementsByClassName("cm")
+var cmsgsl = cmsgs.length - "1" //most recent msg
+var crmsg = cmsgs[cmsgsl]
+var crmsgid = crmsgl.split("-")[0]
+var cmsgsll = cmsgs.length - "2" //2nd most recent msg
+var crmsgl = cmsgs[cmsgsll]
+var crmsglid = crmsgl.split("-")[0]
+API.on(API.CHAT, function(data){
+  if (ccolor == "light") {
+    cmsgs = document.getElementsByClassName("cm")
+    cmsgsl = cmsgs.length - "1"
+    crmsg = cmsgs[cmsgsl]
+    var crmsgid = crmsgl.split("-")[0]
+    cmsgsl2 = cmsgs.length - "2" 
+    crmsg2 = cmsgs[cmsgsll]
+    var crmsglid = crmsgl.split("-")[0]
+    if (crmsgid == crmsglid) { } 
+    else {
+    crmsg.style.backgroundColor = "#111317"
+    ccolor = "dark"
+    }
+  } else {
+    cmsgs = document.getElementsByClassName("cm")
+    cmsgsl = cmsgs.length - "1"
+    crmsg = cmsgs[cmsgsl]
+    var crmsgid = crmsgl.split("-")[0]
+    cmsgsl2 = cmsgs.length - "2" 
+    crmsg2 = cmsgs[cmsgsll]
+    var crmsglid = crmsgl.split("-")[0]
+    if (crmsgid == crmsglid) { } 
+    else {
+    crmsg.style.backgroundColor = "#0A0A0A"
+    ccolor = "light"
+  }
+})
 var user = API.getUser()
-function getcmBg() {
-var cm = document.getElementsByClassName("cm")
-var cmlength = cm.length - "1"
-var cmbg = $(cm[cmlength]).css("backgroundColor")
-cmbgv = " "
-if (cmbg == "rgb(17, 19, 23)") { cmbgv = "#0A0A0A" } else { cmbgv = "#111317" }
-var dpscm = document.getElementsByClassName("cm dps")
-if (dpscm.length == "0") {
-  cmbgv = "#111317"
-} else {
-var dpscml = dpscm.length - "1"
-dpscm[dpscml].style.backgroundColor = cmbgv }}
 function dpsChat(_text, _class1, _class2) { //borrowed with perms from bcs
 if (!_class1 || _class1 == "undefined") {
   _class1 = ""; }
@@ -24,9 +48,7 @@ var _scroll = $("#chat-messages")[0].scrollTop > $("#chat-messages")[0].scrollHe
       + "<div class='" + _class2 + "'>" + _text + "</div>"
         + "</div>");
 if (_scroll) { $("#chat-messages")[0].scrollTop = $("#chat-messages")[0].scrollHeight; }
-if ($("#chat-messages").children().length > 512) {  $("#chat-messages").children().first().remove();  }
-  getcmBg()
-}
+if ($("#chat-messages").children().length > 512) {  $("#chat-messages").children().first().remove();  }}
 var plughead = document.getElementsByTagName("head")[0]
 var dpsopt = localStorage.getItem("dpsOpt"); //option stuff
 if (! dpsopt){ 
