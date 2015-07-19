@@ -1,4 +1,12 @@
-//DCV'S PLUGDJ SCRIPT//ALPHA 03// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO
+//DCV'S PLUGDJ SCRIPT//ALPHA 03// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IOS
+var dpsfiles = "https://rawgit.com/dcvslab/projects/master/plugdj/dps/"
+$("head").append(
+"<link "
++    " rel='stylesheet' "
++    " type='text/css' "
++    " href='" + dpsfiles + "dps.css'"
++ ">"
+);
 var userrole = API.getUser().role //get some important vars
 var userid = API.getUser().id
 var username = API.getUser().username
@@ -15,19 +23,6 @@ var _scroll = $("#chat-messages")[0].scrollTop > $("#chat-messages")[0].scrollHe
 if (_scroll) { $("#chat-messages")[0].scrollTop = $("#chat-messages")[0].scrollHeight; }
 if ($("#chat-messages").children().length > 512) {  $("#chat-messages").children().first().remove();  }}
 var plughead = document.getElementsByTagName("head")[0]
-var _dpschatcss = "<style>"
-+".dpsc {"
-+"  padding: 10px"
-+"}"
-+".dpscuserjoin {"
-+"  color: #dedede"
-+"  font-weight: 700"
-+".dpscuinfo" {"
-+"  font-weight: 700"
-+"  font-color: #009CDD"
-}
-+"</style>";
-$(plughead).append(_dpschatcss);
 var dpsopt = localStorage.getItem("dpsOpt"); //option stuff
 if (! dpsopt){ 
 var dpsOpt = { "awopt": "true", "ajopt": "true", "xppopt": "false", "dpsftropt": "false" };
