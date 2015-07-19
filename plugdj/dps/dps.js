@@ -1,19 +1,12 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 03// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO
-var DPS_DIR = "https://rawgit.com/dcvslab/projects/master/plugdj/dps/;
-$("head").append(
-"<link "
-+    " rel='stylesheet' "
-+    " type='text/css' "
-+    " href='" + DPS_DIR + "styleSheet.css'"
-+ ">"
-);
+$("head").append("<link rel='stylesheet' type='text/css' href='https://rawgit.com/dcvslab/projects/master/plugdj/dps/styleSheet.css'>");
 var user = API.getUser()
 function getcmBg() {
 var cm = document.getElementsByClassName("cm")
 var cmlength = cm.length - "1"
 var cmbg = $(cm[cmlength]).css("backgroundColor")
 cmbgv = " "
-if (cmbg == "transparent") { cmbgv = "#111317" } else { cmbgv = "#0A0A0A" }
+if (cmbg == "rgb(17, 19, 23)") { cmbgv = "#0A0A0A" } else { cmbgv = "#111317" }
 var dpscm = document.getElementsByClassName("cm dps")
 if (dpscm.length == "0") {
   cmbgv = "#111317"
@@ -27,7 +20,7 @@ if (!_class2 || _class2 == "undefined") {
   _class2 = ""; }
 var _scroll = $("#chat-messages")[0].scrollTop > $("#chat-messages")[0].scrollHeight - $("#chat-messages").height() - 28;
   $("#chat-messages").append(
-    "<div class='cm dps" + _class1 + "'>" 
+    "<div class='cm dps " + _class1 + "'>" 
       + "<div class='" + _class2 + "'>" + _text + "</div>"
         + "</div>");
 if (_scroll) { $("#chat-messages")[0].scrollTop = $("#chat-messages")[0].scrollHeight; }
