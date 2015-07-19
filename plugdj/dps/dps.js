@@ -1,41 +1,37 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 03// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO
 $("head").append("<link rel='stylesheet' type='text/css' href='https://rawgit.com/dcvslab/projects/master/plugdj/dps/styleSheet.css'>");
 var ccolor = "light"
-var cmsgs = document.getElementsByClassName("cm")
-var cmsgsl = cmsgs.length - "1" //most recent msg
-var crmsg = cmsgs[cmsgsl]
-var crmsgid = crmsgl.split("-")[0]
-var cmsgsll = cmsgs.length - "2" //2nd most recent msg
-var crmsgl = cmsgs[cmsgsll]
-var crmsglid = crmsgl.split("-")[0]
+var cmsgs;
+var cmsgsl;//most recent msg
+var crmsg;
+var crmsgid;
+var cmsgsl2; //2nd most recent msg
+var crmsg2;
+var crmsg2id;
 API.on(API.CHAT, function(data){
   if (ccolor == "light") {
     cmsgs = document.getElementsByClassName("cm")
     cmsgsl = cmsgs.length - "1"
     crmsg = cmsgs[cmsgsl]
-    var crmsgid = crmsgl.split("-")[0]
+    var crmsgid = crmsg.getAttribute("data-cid").split("-")[0]
     cmsgsl2 = cmsgs.length - "2" 
-    crmsg2 = cmsgs[cmsgsll]
-    var crmsglid = crmsgl.split("-")[0]
-    if (crmsgid == crmsglid) { } 
-    else {
+    crmsg2 = cmsgs[cmsgsl2]
+    var crmsglid = crmsg2.getAttribute("data-cid").split("-")[0]
+    if (crmsgid != crmsglid) { 
     crmsg.style.backgroundColor = "#111317"
-    ccolor = "dark"
-    }
+    ccolor = "dark"}
   } else {
     cmsgs = document.getElementsByClassName("cm")
     cmsgsl = cmsgs.length - "1"
     crmsg = cmsgs[cmsgsl]
-    var crmsgid = crmsgl.split("-")[0]
+    var crmsgid = crmsg.getAttribute("data-cid").split("-")[0]
     cmsgsl2 = cmsgs.length - "2" 
-    crmsg2 = cmsgs[cmsgsll]
-    var crmsglid = crmsgl.split("-")[0]
-    if (crmsgid == crmsglid) { } 
-    else {
-    crmsg.style.backgroundColor = "#0A0A0A"
-    ccolor = "light"
-  }
-})
+    crmsg2 = cmsgs[cmsgsl2]
+    var crmsg2id = crmsg2.getAttribute("data-cid").split("-")[0]
+    if (crmsgid != crmsglid) { 
+    crmsg.style.backgroundColor = "#111317"
+    ccolor = "dark"}
+}})
 var user = API.getUser()
 function dpsChat(_text, _class1, _class2) { //borrowed with perms from bcs
 if (!_class1 || _class1 == "undefined") {
