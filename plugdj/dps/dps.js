@@ -15,6 +15,18 @@ var dpscss = "<style>" //STYLING (HOPEFULLY TEMPORARY, OTHER WAYS ARE NOT CURREN
 var userrole = API.getUser().role //get some important vars
 var userid = API.getUser().id
 var username = API.getUser().username
+function getcmBg() {
+var cm = document.getElementsByClassName("cm")
+var cmlength = cm.length - "1"
+var cmbg = $(cm[cmlength]).css("backgroundColor")
+cmbgv = " "
+if (cmbg == "transparent") { cmbgv = "#111317" } else { cmbgv = "#0A0A0A" }
+var dpscm = document.getElementsByClassName("dpscm")
+if (dpscm.length == "0") {
+  cmbgv = "#111317"
+} else {
+var dpscml = dpscm.length - "1"
+dpscm[dpscml].style.backgroundColor = cmbgv }}
 function dpsChat(_text, _class1, _class2) { //borrowed with perms from bcs
 if (!_class1 || _class1 == "undefined") {
   _class1 = ""; }
@@ -22,11 +34,13 @@ if (!_class2 || _class2 == "undefined") {
   _class2 = ""; }
 var _scroll = $("#chat-messages")[0].scrollTop > $("#chat-messages")[0].scrollHeight - $("#chat-messages").height() - 28;
   $("#chat-messages").append(
-    "<div class='bcs-log " + _class1 + "'>" 
+    "<div class='dpscm" + _class1 + "'>" 
       + "<div class='" + _class2 + "'>" + _text + "</div>"
         + "</div>");
 if (_scroll) { $("#chat-messages")[0].scrollTop = $("#chat-messages")[0].scrollHeight; }
-if ($("#chat-messages").children().length > 512) {  $("#chat-messages").children().first().remove();  }}
+if ($("#chat-messages").children().length > 512) {  $("#chat-messages").children().first().remove();  }
+  getcmBg()
+}
 var plughead = document.getElementsByTagName("head")[0]
 var dpsopt = localStorage.getItem("dpsOpt"); //option stuff
 if (! dpsopt){ 
