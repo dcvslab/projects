@@ -1,9 +1,8 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 03// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO
-var dpsfiles = "https://rawgit.com/dcvslab/projects/plugdj/dps/"
+ setTimeout(function(){
 $('head').append('<link rel="stylesheet" type="text/css" href="https://rawgit.com/dcvslab/projects/plugdj/dps/dps.css">');
-var userrole = API.getUser().role //get some important vars
-var userid = API.getUser().id
-var username = API.getUser().username
+}, 1000);
+var user = API.getUser()
 function getcmBg() {
 var cm = document.getElementsByClassName("cm")
 var cmlength = cm.length - "1"
@@ -222,4 +221,6 @@ pbtn.removeEventListener("mouseenter", showInfo); pbtn.removeEventListener("mous
  pbtn.addEventListener("mouseenter", showInfo); pbtn.addEventListener("mouseleave", hideInfo)
 }}
 dpsftrChange();
+setTimeout(function(){
 dpsChat("DPS has loaded! vAlpha03", "dpsc", "")
+}, 1500);
