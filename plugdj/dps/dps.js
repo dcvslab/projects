@@ -1,6 +1,5 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 03// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO
 $("head").append("<link rel='stylesheet' type='text/css' href='https://rawgit.com/dcvslab/projects/master/plugdj/dps/styleSheet.css'>");
-//something to come back to, changing colors of chat will be here later right now, it's here: 
 var user = API.getUser()
 function dpsChat(_text, _class1, _class2) { //borrowed with perms from bcs
 if (!_class1 || _class1 == "undefined") {
@@ -140,16 +139,23 @@ function menuClicked() { //to set up the menu
   dpsmrowtxtclass[i].style.paddingBottom = "5px"; 
   dpsmrowtxtclass[i].style.lineHeight = "30px" }
   menuclicked = "yes"; }, 0100);
-  dpsmdpsftr.onclick=function(){
-    if (dpsftropt == "true") {
-  dpsftropt = "false";
-  dpsoptUpdate()
-  setTimeout(function () { dpsftrChange() }, 0050);
- } else {
-  dpsftropt = "true";
-  dpsoptUpdate()
-  setTimeout(function () { dpsftrChange() }, 0050); }
-}}}
+  dpsmdpsftr.onclick=function(){ if (dpsftropt == "true") { 
+    dpsftropt = "false"; 
+    dpsoptUpdate(); 
+    setTimeout(function () { dpsftrChange() }, 0050); } 
+  else { 
+    dpsftropt = "true"; 
+    dpsoptUpdate(); 
+    setTimeout(function () { dpsftrChange() }, 0050); }}
+  dpsmaw.onclick=function(){ if (awopt == "true") { 
+    awopt = "false"; 
+    dpsoptUpdate(); 
+    setTimeout(function () { dpsAw() }, 0050); } 
+  else { 
+    awopt = "true"; 
+    dpsoptUpdate(); 
+    setTimeout(function () { dpsAw() }, 0050); }} 
+}}
 function toggleMenu() { //toggle menu
 if (togglemenu == "no") {
 dpsmenu.style.display = "block"; //toggle some stuff
@@ -164,18 +170,45 @@ togglemenu = "no"
 }}
 dpsbtn.addEventListener("click", toggleMenu) 
 dpsbtn.addEventListener("click", menuClicked) 
-API.on(API.ADVANCE, function(data) { document.getElementById("woot").click();}); //autowoot//
-API.on(API.ADVANCE, function(data) { API.djJoin();}); //autojoin//
+function dpsAw() { //autowoot//
+if (awopt == "true") { 
+  API.on(API.ADVANCE, function(data) { document.getElementById("woot").click();})
+  dpsmcheckaw.style.visibility = "visible" }
+else {
+  dpsmcheckaw.style.visibility = "hidden"
+}}
+dpsAw();
+function dpsAj() { //autojoin//
+  if (ajopt == "true") {
+    API.on(API.ADVANCE, function(data) { API.djJoin();})
+    dpsmcheckaj.style.visibility = "visible" }
+  else {
+    dpsmcheckaj.style.visibility = "hidden" }
+dpsAj();
 var progress = document.getElementsByClassName("progress")[0]; //change the xp bar to %
 progress.id = "progress";
 var percent = progress.style.width;
 var xpvalue = document.getElementsByClassName("value")[4]
-function cP() {
- percent = progress.style.width;
- xpvalue.innerHTML = percent;
-}
-setInterval(function(){ cP(); }, 10000);
-cP();
+var xppspan = document.createElement("span")
+var xpbar = document.getElementsByClassName("bar")[0]
+xppspan.id = "xppspan"
+xppspan.className  = "value"
+xppspan.style.display = "none"
+xpbar.appendChild(xppspan)
+function dpsXpp() {
+  if (xppopt == "true") {
+    percent = progress.style.width;
+    xppspan.innerHTML = percent;
+    xpvalue.style.display = "none";
+    xppspan.style.display = "block";
+    dpsmcheckxpp.style.visibility = "visible";
+} else {
+    xpvalue.style.display = "block";
+    xppspan.style.display = "none";
+    dpsmcheckxpp.style.visibility = "hidden";
+}}
+dpsXpp();
+setInterval(function() { dpsXpp() }, 10000)
 var infobarclass = document.getElementsByClassName("info")[0];//change the footer//
 infobarclass.id = "infobar"; //var stuff
 var infobar = document.getElementById("infobar");
@@ -188,14 +221,14 @@ function showInfo() {
 }
 function dpsftrChange() {
 if (dpsftropt == "true") {
-infobar.style.left = "17%"; infobar.style.top = "1px"; infobar.style.zIndex = "1000"; //put the profile info where the buttons are
-infobar.style.display = "block";
-dpsmcheckdpsftr.style.visibility = "visible";
-infobar.addEventListener("mouseenter", hideInfo)
-dpsbtn.addEventListener("mouseenter", showInfo)
-btnsect.addEventListener("mouseleave", showInfo)
-pbtn.addEventListener("mouseenter", showInfo); pbtn.addEventListener("mouseleave", hideInfo)
-pbtn.removeEventListener("mouseenter", showInfo); pbtn.removeEventListener("mouseleave", hideInfo)
+  infobar.style.left = "17%"; infobar.style.top = "1px"; infobar.style.zIndex = "1000"; //put the profile info where the buttons are
+  infobar.style.display = "block";
+  dpsmcheckdpsftr.style.visibility = "visible";
+  infobar.addEventListener("mouseenter", hideInfo)
+  dpsbtn.addEventListener("mouseenter", showInfo)
+  btnsect.addEventListener("mouseleave", showInfo)
+  pbtn.addEventListener("mouseenter", showInfo); pbtn.addEventListener("mouseleave", hideInfo)
+  pbtn.removeEventListener("mouseenter", showInfo); pbtn.removeEventListener("mouseleave", hideInfo)
 } else {
  infobar.style.left = "17%"; infobar.style.top = "-54px";
  infobar.style.display = "none"
@@ -206,6 +239,4 @@ pbtn.removeEventListener("mouseenter", showInfo); pbtn.removeEventListener("mous
  pbtn.addEventListener("mouseenter", showInfo); pbtn.addEventListener("mouseleave", hideInfo)
 }}
 dpsftrChange();
-setTimeout(function(){
 dpsChat("DPS has loaded! vAlpha03", "dpsc", "")
-}, 1500);
