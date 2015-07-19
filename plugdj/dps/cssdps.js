@@ -1,0 +1,13 @@
+var dpscss = "<style>"
++".dpsc {"
++"  padding-left: 10px;"
++" } "
++".dpscuser {"
++"  color: #dedede;"
++"  font-weight: 700;"
++" } "
++".dpscuinfo {"
++"  font-weight: 700;"
++"  color: #009CDD;"
++" } "
++"</style>";$("head").append(dpscss);
