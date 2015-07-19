@@ -1,12 +1,19 @@
-//DCV'S PLUGDJ SCRIPT//ALPHA 03// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IOS
-var dpsfiles = "https://rawgit.com/dcvslab/projects/master/plugdj/dps/"
-$("head").append(
-"<link "
-+    " rel='stylesheet' "
-+    " type='text/css' "
-+    " href='" + dpsfiles + "dps.css'"
-+ ">"
-);
+//DCV'S PLUGDJ SCRIPT//ALPHA 03// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO
+var dpscss = "<style>" //STYLING (HOPEFULLY TEMPORARY, OTHER WAYS ARE NOT CURRENTLY WORKING)
++".dpsc {"
++"  padding-left: 10px;"
++"  padding-bottom: 5px;"
++"  padding-top: 5px;"
++" } "
++".dpscuser {"
++"  color: #dedede;"
++"  font-weight: 700;"
++" } "
++".dpscuinfo {"
++"  font-weight: 700;"
++"  color: #009CDD;"
++" } "
++"</style>";$("head").append(dpscss);
 var userrole = API.getUser().role //get some important vars
 var userid = API.getUser().id
 var username = API.getUser().username
@@ -214,4 +221,4 @@ pbtn.removeEventListener("mouseenter", showInfo); pbtn.removeEventListener("mous
  pbtn.addEventListener("mouseenter", showInfo); pbtn.addEventListener("mouseleave", hideInfo)
 }}
 dpsftrChange();
-dpsChat("DPS has loaded! vAlpha03", "dpschatcss", "dpschatcss")
+dpsChat("DPS has loaded! vAlpha03", "dpsc", "")
