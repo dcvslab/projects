@@ -1,17 +1,6 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 03// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO
-var dpscss = "<style>" //STYLING (HOPEFULLY TEMPORARY, OTHER WAYS ARE NOT CURRENTLY WORKING)
-+".dpsc {"
-+"  padding-left: 10px;"
-+" } "
-+".dpscuser {"
-+"  color: #dedede;"
-+"  font-weight: 700;"
-+" } "
-+".dpscuinfo {"
-+"  font-weight: 700;"
-+"  color: #009CDD;"
-+" } "
-+"</style>";$("head").append(dpscss);
+var dpsfiles = "https://rawgit.com/dcvslab/projects/plugdj/dps/"
+$('head').append('<link rel="stylesheet" type="text/css" href="https://rawgit.com/dcvslab/projects/plugdj/dps/dps.css">');
 var userrole = API.getUser().role //get some important vars
 var userid = API.getUser().id
 var username = API.getUser().username
