@@ -1,6 +1,6 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 03// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO
  setTimeout(function(){
-$('head').append('<link rel="stylesheet" type="text/css" href="https://rawgit.com/dcvslab/projects/plugdj/dps/dps.css">');
+$('head').append('<link rel="stylesheet" type="text/css" href="https://rawgit.com/dcvslab/projects/plugdj/dps/styleSheet.css">');
 }, 1000);
 var user = API.getUser()
 function getcmBg() {
