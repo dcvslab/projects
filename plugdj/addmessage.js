@@ -15,7 +15,7 @@ var damseid = "DAMS-" + damsn
 function damS() {
 user = API.getUser()
 var damsid = "DAMS-" + user.id + "-" + damsn
-$("head").append("<div data-cid='" + damsid + "' class='cm message' id=DAMS-" + damsn + "><div class='badge-box clickable'><i class='" + badgebox + "'></i></div><div class='msg cid-'" + damsid + "'><div class='" + nameclass + "'>
+$("head").append("<div data-cid='" + damsid + "' class='cm message' id=DAMS-" + damsn + "><div class='badge-box clickable'><i class='" + badgebox + "'></i></div><div class=msg cid-'" + damsid + "'><div class='" + nameclass + "'>"
 );
 var one = 1
 damsnn = damsn + one
