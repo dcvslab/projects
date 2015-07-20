@@ -1,6 +1,8 @@
 //DCV'S ADD MESSAGE SCRIPT//
 <div data-cid="dams-undefined" class="cm message"> 
-  <div class="badge-box clickable"><i class="bdg bdg-dragon-g02 g"></i></div>
+  <div class="badge-box clickable">
+    <i class="bdg bdg-dragon-g02 g"></i>
+  </div>
   <div class="msg cid-dams-undefined"><div class="from you"> 
     <span class="un clickable">DAMS</span>
     <span style="display: inline;" class="timestamp"></span></div>
@@ -13,9 +15,8 @@ var damseid = "DAMS-" + damsn
 function damS() {
 user = API.getUser()
 var damsid = "DAMS-" + user.id + "-" + damsn
-$("head").append("<div data-cid='" + damsid + "' class='cm message' id=DAMS-" + damsn + ">");
-damseid = "DAMS-" + damsn
-$(damseid).append("hi")
+$("head").append("<div data-cid='" + damsid + "' class='cm message' id=DAMS-" + damsn + "><div class='badge-box clickable'><i class='" + badgebox + "'></i></div><div class='msg cid-'" + damsid + "'><div class='" + nameclass + "'>
+);
 var one = 1
 damsnn = damsn + one
 damsn = damsnn
