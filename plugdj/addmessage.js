@@ -2,6 +2,7 @@
 var user = API.getUser()
 var damsn = 1
 var damseid = "DAMS-" + damsn
+ var _scroll = $("#chat-messages")[0].scrollTop > $("#chat-messages")[0].scrollHeight - $("#chat-messages").height() - 28;
 function damsMessage(imgtype, badgebox, nameclass, nametext, messagetext) {
   //IMGTYPE CAN BE 1 OF 2 THINGS: " class" | THE SPACE IS IMPORTANT | will let you use plugdj icons and badges, while doing "mg src" and putting a link in the badgebox var will let you put an image
   if (! imgtype) { imgtype = " class";}
@@ -10,8 +11,7 @@ function damsMessage(imgtype, badgebox, nameclass, nametext, messagetext) {
   if (! nametext) { nametext = "DAMS";}
   if (! messagetext) { messagetext = "DAMS MESSAGE TEXT";}
 user = API.getUser()
-var damsid = "DAMS-" + user.id + "-" + damsn + "-" + damsopt
-    var _scroll = $("#chat-messages")[0].scrollTop > $("#chat-messages")[0].scrollHeight - $("#chat-messages").height() - 28;
+var damsid = "DAMS-" + user.id + "-" + damsn
 $("#chat-messages").append("<div data-cid='" + damsid + "' class='cm message' id=DAMS-" + damsn + "><div class='badge-box clickable'><i" + imgtype + "='" + badgebox + "'></i></div><div class='msg cid-" + damsid + "'><div class=from '" + nameclass + "'><span class='un clickable'>" + nametext + "</span></div><div class='text cid-" + damsid + "'>" + messagetext + "</div></div></div>");
 var one = 1
 damsn = damsn + one}
