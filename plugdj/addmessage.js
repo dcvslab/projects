@@ -14,6 +14,8 @@ function damsMessage(imgtype, badgebox, nameclass, nametext, nametextvar,  messa
     //IMPORTANT //when using vars, don't put quotes around them when inputting the function ex: "messagetext", messagetextvar
 $("#chat-messages").append("<div data-cid='" + damsid + "' class='cm message'><div class='badge-box clickable'><i" + imgtype + "='" + badgebox + "'></i></div><div class='msg cid-" + damsid + "'><div class='" + nameclass + "'><span class='un clickable'>" + nametext + nametextvar +  "</span></div><div class='text cid-" + damsid + "'>" + messagetext + messagetextvar + "</div></div></div>");
 var one = 1
-damsn = damsn + one }
+damsn = damsn + one
+damseid = "DAMS-" + damsn
+damsid = "DAMS-" + user.id + "-" + damsn }
 if (_scroll) { $("#chat-messages")[0].scrollTop = $("#chat-messages")[0].scrollHeight; } //BORROWED WITH PERMISSION FROM BETATESTER/IGOR ADDCHAT SCRIPT
 if ($("#chat-messages").children().length > 512) {  $("#chat-messages").children().first().remove();  } //BORROWED WITH PERMISSION FROM BETATESTER/IGOR ADDCHAT SCRIPT
