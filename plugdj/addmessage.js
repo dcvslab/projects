@@ -16,6 +16,7 @@ $("#chat-messages").append("<div data-cid='" + damsid + "' class='cm message'><d
 var one = 1
 damsn = damsn + one
 damseid = "DAMS-" + damsn
-damsid = "DAMS-" + user.id + "-" + damsn }
+damsid = "DAMS-" + user.id + "-" + damsn 
+console.log ("FUNCTION ORDER: imgtype, badgebox, nameclass, nametext, nametextvar,  messagetext, messagetextvar")}
 if (_scroll) { $("#chat-messages")[0].scrollTop = $("#chat-messages")[0].scrollHeight; } //BORROWED WITH PERMISSION FROM BETATESTER/IGOR ADDCHAT SCRIPT
 if ($("#chat-messages").children().length > 512) {  $("#chat-messages").children().first().remove();  } //BORROWED WITH PERMISSION FROM BETATESTER/IGOR ADDCHAT SCRIPT
