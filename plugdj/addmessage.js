@@ -1,4 +1,4 @@
-//DCV'S ADD MESSAGE SCRIPT//
+//DCV'S ADD MESSAGE SCRIPT// COMING SOON: ADD ICON THINGS
 var user = API.getUser()
 var damsn = 1
 var damseid = "DAMS-" + damsn
