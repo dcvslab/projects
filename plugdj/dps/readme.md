@@ -1,7 +1,6 @@
-This is the repository for DCV's plug.dj Script
-<br>
-Here will be the main release and then previous versions if you want to see how far it's come.
-<br>
-To load, make the following a bookmark and click it while you're in plug.dj:
-<br>
-javascript:(function(){$.getScript('https://raw.githubusercontent.com/dcvslab/projects/master/plugdj/dps/dps.js');}());
+This is the source for DPS, DCV's [plug.dj] Script.
+Want more information? Check out the site: COMING SOON!
+
+##Loading The Script
+javascript:(function(){$.getScript("https://rawgit.com/dcvslab/plugdj/dps/master/ressources/dps.js");}());
+Make that into a bookmark and click it in any plug.dj room!
