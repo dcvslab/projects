@@ -1,4 +1,4 @@
-//DCV'S ADD MESSAGE SCRIPT// COMING SOON: TIMESTAMPS? V1.1
+//DCV'S ADD MESSAGE SCRIPT// COMING SOON: TIMESTAMPS? V1.2
 var user = API.getUser()
 var damsn = 1
 var damseid = "DAMS-" + damsn
@@ -18,7 +18,7 @@ function damsMessage(imgtype, badgebox, nameclass, nametext, nametextvar,  messa
   //ICON TYPE: EITHER " class" or "mg src", the first for using plugdj icons and the second for using your own images
   //ICON DATA: where you put the icon/link you want for the image
     //IMPORTANT // if you don't want to use icons, you don't have to! that's why they are at the end so you don't even have to bother with them
-$("#chat-messages").append("<div data-cid='" + damsid + "' class='cm message'><div class='badge-box'><i" + imgtype + "='" + badgebox + "'></i></div><div class='msg cid-" + damsid + "'><div class='" + nameclass + "'><i" + icon1type + "='" + icon1data + "' style='marginRight = 4px; width: 16px; height; 16px'></i><div class='" + nameclass + "'><i" + icon2type + "='" + icon2data + "' style='marginRight = 4px; width: 16px; height; 16px'></i><div class='" + nameclass + "'><i" + icon3type + "='" + icon3data + "' style='marginRight = 4px; width: 16px; height; 16px'></i><span class='un'>" + nametext + nametextvar +  "</span><span style='display: inline;' class='timestamp'>" + time + "</span></div><div class='text cid-" + damsid + "'>" + messagetext + messagetextvar + "</div></div></div>");
+$("#chat-messages").append("<div data-cid='" + damsid + "' class='cm message'><div class='badge-box'><i" + imgtype + "='" + badgebox + "'></i></div><div class='msg cid-" + damsid + "'><div class='" + nameclass + "'><i" + icon1type + "='" + icon1data + "' style='margin-right = 4px; width: 16px; height: 16px; float: left;'></i><div class='" + nameclass + "'><i" + icon2type + "='" + icon2data + "' style='margin-right = 4px; width: 16px; height: 16px; float: left;'></i><div class='" + nameclass + "'><i" + icon3type + "='" + icon3data + "' style='margin-right = 4px; width: 16px; height: 16px; float: left;'></i><span class='un'>" + nametext + nametextvar +  "</span><span style='display: inline;' class='timestamp'>" + time + "</span></div><div class='text cid-" + damsid + "'>" + messagetext + messagetextvar + "</div></div></div>");
 var one = 1
 damsn = damsn + one
 damseid = "DAMS-" + damsn
