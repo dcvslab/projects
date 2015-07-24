@@ -4,7 +4,6 @@ var damsn = 1
 var damseid = "DAMS-" + damsn
 var damsid = "DAMS-" + user.id + "-" + damsn
 var time = "DAMS"
-var ;var badgebox="";var nameclass="";var nametext="";var nametextvar;var messagetext="";var messagetextvar="";var icon1type="";var icon1data="";var icon2type=""; icon2data, icon3type, icon3data
 var _scroll = $("#chat-messages")[0].scrollTop > $("#chat-messages")[0].scrollHeight - $("#chat-messages").height() - 28; //BORROWED WITH PERMISSION FROM BETATESTER/IGOR ADDCHAT SCRIPT
 console.log ("FUNCTION ORDER: imgtype, badgebox, nameclass, nametext, nametextvar,messagetext, messagetextvar, icon1type, icon1data, icon2type, icon2data, icon3type, icon3data")
 function damsMessage(imgtype, badgebox, nameclass, nametext, nametextvar, messagetext, messagetextvar, icon1type, icon1data, icon2type, icon2data, icon3type, icon3data) { 
@@ -27,12 +26,16 @@ function damsMessage(imgtype, badgebox, nameclass, nametext, nametextvar, messag
  //ICONS
   //ICON TYPE: EITHER " class" or "mg src", the first for using plugdj icons and the second for using your own images
   if (! icon1type) { icon1type="" }
-  if (! icon1type) { icon1type="" }
+  if (! icon2type) { icon2type="" }
+  if (! icon3type) { icon3type="" }
   //ICON DATA: where you put the icon/link you want for the image
+  if (! icon1data) { icon1data="" }
+  if (! icon2data) { icon2data="" }
+  if (! icon3data) { icon3data="" }
     //IMPORTANT // if you don't want to use icons, you don't have to! that's why they are at the end so you don't even have to bother with them
 $("#chat-messages").append("<div data-cid='" + damsid + "' class='cm message'><div class='badge-box'><i" + imgtype + "='" + badgebox + "'></i></div><div class='msg cid-" + damsid + "'><div class='" + nameclass + "'><i" + icon1type + "='" + icon1data + "' style='margin-right: 4px; width: 16px; height: 16px; float: left;'></i><i" + icon2type + "='" + icon2data + "' style='margin-right: 4px; width: 16px; height: 16px; float: left;'></i><i" + icon3type + "='" + icon3data + "' style='margin-right: 4px; width: 16px; height: 16px; float: left;'></i><span class='un'>" + nametext + nametextvar +  "</span><span style='display: inline;' class='timestamp'>" + time + "</span></div><div class='text cid-" + damsid + "'>" + messagetext + messagetextvar + "</div></div></div>");
-var one = 1
-damsn = damsn + one
+var imgtype="";var badgebox="";var nameclass="";var nametext="";var nametextvar;var messagetext="";var messagetextvar="";var icon1type="";var icon1data="";var icon2type=""; icon2data="";var icon3type="";var icon3data="";
+damsn = damsn + 1
 damseid = "DAMS-" + damsn
 damsid = "DAMS-" + user.id + "-" + damsn }
 if (_scroll) { $("#chat-messages")[0].scrollTop = $("#chat-messages")[0].scrollHeight; } //BORROWED WITH PERMISSION FROM BETATESTER/IGOR ADDCHAT SCRIPT
