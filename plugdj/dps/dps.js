@@ -1,7 +1,32 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 03// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO
 $("head").append("<link rel='stylesheet' type='text/css' href='https://rawgit.com/dcvslab/projects/master/plugdj/dps/styleSheet.css'>");
-$.getScript( "https://rawgit.com/dcvslab/projects/master/plugdj/addmessage.js" )
-var user = API.getUser()
+var user = API.getUser() //DAMS (http://github.com/dcvslab/projects/plugdj/dams.js)
+var damsn = 1
+var damseid = "DAMS-" + damsn
+var damsid = "DAMS-" + user.id + "-" + damsn
+var time = "DPS"
+var icon1display = "none"; icon2display = "none"; icon3display = "none";
+var _scroll = $("#chat-messages")[0].scrollTop > $("#chat-messages")[0].scrollHeight - $("#chat-messages").height() - 28;
+function damsMessage(nameclass, nametext, nametextvar, messagetext, messagetext2, icon1type, icon1data, icon2type, icon2data, icon3type, icon3data) { 
+  if (! nameclass) { nameclass="" }
+  if (! nametext) { nametext=""}
+  if (! nametextvar) { nametextvar="" }
+  if (! messagetext) { messagetext="" }
+  if (! messagetext2) { messagetext2=""}
+  if (! icon1type) { icon1type=""; icon1display = "none"} else { icon1display = "block" } 
+  if (! icon2type) { icon2type=""; icon2display = "none" } else { icon2display = "block" } 
+  if (! icon3type) { icon3type=""; icon3display = "none" } else { icon3display = "block" } 
+  if (! icon1data) { icon1data=""}
+  if (! icon2data) { icon2data="" }
+  if (! icon3data) { icon3data="" }
+$("#chat-messages").append("<div data-cid='" + damsid + "' class='cm message'><div class='msg cid-" + damsid + "' style='padding-left: 10px'><div class ='" + nameclass + "'><i" + icon1type + " ='" + icon1data + "' style='margin-right: 4px; width: 16px; height: 16px; float: left; display: " + icon1display + ";'></i><i" + icon2type + " ='" + icon2data + "' style='margin-right: 4px; width: 16px; height: 16px; float: left; display: " + icon2display + ";'></i><i" + icon3type + " ='" + icon3data + "' style='margin-right: 4px; width: 16px; height: 16px; float: left; display: " + icon3display + ";'></i><span class='un'>" + nametext + nametextvar +  "</span><span style='display: inline;' class='timestamp'>" + time + "</span></div><div class='text cid-" + damsid + "'>" + messagetext +"</div><div class='text cid-" + damsid + "'>" + messagetext2 +"</div></div></div>");
+;var nameclass="";var nametext="";var nametextvar;var messagetext="";var messagetext2="";var icon1type="";var icon1data="";var icon2type=""; icon2data="";var icon3type="";var icon3data="";
+damsn = damsn + 1
+damseid = "DAMS-" + damsn
+damsid = "DAMS-" + user.id + "-" + damsn }
+if (_scroll) { $("#chat-messages")[0].scrollTop = $("#chat-messages")[0].scrollHeight; } //BORROWED WITH PERMISSION FROM BETATESTER/IGOR ADDCHAT SCRIPT
+if ($("#chat-messages").children().length > 512) {  $("#chat-messages").children().first().remove();  } //BORROWED WITH PERMISSION FROM BETATESTER/IGOR ADDCHAT SCRIPT
+
 var plughead = document.getElementsByTagName("head")[0]
 var dpsopt = localStorage.getItem("dpsOpt"); //option stuff
 if (! dpsopt){ 
@@ -244,4 +269,5 @@ if (dpsftropt == "true") {
  pbtn.addEventListener("mouseenter", showInfo); pbtn.addEventListener("mouseleave", hideInfo)
 }}
 dpsftrChange();
-damsMessage("", "", "from", "test")
+var changelog = "http://dcvslab.github.io/dps/changelog.html"
+damsMessage("from admin", "DPS has loaded!","", "Current Version: Alpha 04 | Changelog: ", changelog)
