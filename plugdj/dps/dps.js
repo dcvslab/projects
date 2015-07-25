@@ -1,18 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 03// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO
 $("head").append("<link rel='stylesheet' type='text/css' href='https://rawgit.com/dcvslab/projects/master/plugdj/dps/styleSheet.css'>");
+$.getScript( "https://rawgit.com/dcvslab/projects/master/plugdj/addmessage.js" )
 var user = API.getUser()
-function dpsChat(_text, _class1, _class2) { //borrowed with perms from bcs
-if (!_class1 || _class1 == "undefined") {
-  _class1 = ""; }
-if (!_class2 || _class2 == "undefined") {
-  _class2 = ""; }
-var _scroll = $("#chat-messages")[0].scrollTop > $("#chat-messages")[0].scrollHeight - $("#chat-messages").height() - 28;
-  $("#chat-messages").append(
-    "<div class='cm dps " + _class1 + "'>" 
-      + "<div class='" + _class2 + "'>" + _text + "</div>"
-        + "</div>");
-if (_scroll) { $("#chat-messages")[0].scrollTop = $("#chat-messages")[0].scrollHeight; }
-if ($("#chat-messages").children().length > 512) {  $("#chat-messages").children().first().remove();  }}
 var plughead = document.getElementsByTagName("head")[0]
 var dpsopt = localStorage.getItem("dpsOpt"); //option stuff
 if (! dpsopt){ 
@@ -255,4 +244,4 @@ if (dpsftropt == "true") {
  pbtn.addEventListener("mouseenter", showInfo); pbtn.addEventListener("mouseleave", hideInfo)
 }}
 dpsftrChange();
-dpsChat("DPS has loaded! vAlpha03", "dpsc", "")
+damsMessage("", "", "from", "test")
