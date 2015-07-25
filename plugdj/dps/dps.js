@@ -1,13 +1,13 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 03// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO
 $("head").append("<link rel='stylesheet' type='text/css' href='https://rawgit.com/dcvslab/projects/master/plugdj/dps/styleSheet.css'>");
-var user = API.getUser() //DAMS (http://github.com/dcvslab/projects/plugdj/dams.js)
+var user = API.getUser() //DAMS (http://github.com/dcvslab/projects/plugdj/dams.js) (this is an edited version)
 var damsn = 1
 var damseid = "DAMS-" + damsn
 var damsid = "DAMS-" + user.id + "-" + damsn
 var time = "DPS"
 var icon1display = "none"; icon2display = "none"; icon3display = "none";
 var _scroll = $("#chat-messages")[0].scrollTop > $("#chat-messages")[0].scrollHeight - $("#chat-messages").height() - 28;
-function damsMessage(nameclass, nametext, nametextvar, messagetext, messagetext2, icon1type, icon1data, icon2type, icon2data, icon3type, icon3data) { 
+function damsMessage(nameclass, nametext, messagetext, messagetext2, icon1type, icon1data, icon2type, icon2data, icon3type, icon3data) { 
   if (! nameclass) { nameclass="" }
   if (! nametext) { nametext=""}
   if (! nametextvar) { nametextvar="" }
@@ -19,7 +19,7 @@ function damsMessage(nameclass, nametext, nametextvar, messagetext, messagetext2
   if (! icon1data) { icon1data=""}
   if (! icon2data) { icon2data="" }
   if (! icon3data) { icon3data="" }
-$("#chat-messages").append("<div data-cid='" + damsid + "' class='cm message'><div class='msg cid-" + damsid + "' style='padding-left: 10px'><div class ='" + nameclass + "'><i" + icon1type + " ='" + icon1data + "' style='margin-right: 4px; width: 16px; height: 16px; float: left; display: " + icon1display + ";'></i><i" + icon2type + " ='" + icon2data + "' style='margin-right: 4px; width: 16px; height: 16px; float: left; display: " + icon2display + ";'></i><i" + icon3type + " ='" + icon3data + "' style='margin-right: 4px; width: 16px; height: 16px; float: left; display: " + icon3display + ";'></i><span class='un'>" + nametext + nametextvar +  "</span><span style='display: inline;' class='timestamp'>" + time + "</span></div><div class='text cid-" + damsid + "'>" + messagetext +"</div><div class='text cid-" + damsid + "'>" + messagetext2 +"</div></div></div>");
+$("#chat-messages").append("<div data-cid='" + damsid + "' class='cm message' stlye='padding-left: 5px'><div class='msg cid-" + damsid + "' style='padding-left: 10px'><div class ='" + nameclass + "'><i" + icon1type + " ='" + icon1data + "' style='margin-right: 4px; width: 16px; height: 16px; float: left; display: " + icon1display + ";'></i><i" + icon2type + " ='" + icon2data + "' style='margin-right: 4px; width: 16px; height: 16px; float: left; display: " + icon2display + ";'></i><i" + icon3type + " ='" + icon3data + "' style='margin-right: 4px; width: 16px; height: 16px; float: left; display: " + icon3display + ";'></i><span class='un'>" + nametext + nametextvar +  "</span><span style='display: inline;' class='timestamp'>" + time + "</span></div><div class='text cid-" + damsid + "'>" + messagetext +"</div><div class='text cid-" + damsid + "'>" + messagetext2 +"</div></div></div>");
 ;var nameclass="";var nametext="";var nametextvar;var messagetext="";var messagetext2="";var icon1type="";var icon1data="";var icon2type=""; icon2data="";var icon3type="";var icon3data="";
 damsn = damsn + 1
 damseid = "DAMS-" + damsn
@@ -270,4 +270,4 @@ if (dpsftropt == "true") {
 }}
 dpsftrChange();
 var changelog = "http://dcvslab.github.io/dps/changelog.html"
-damsMessage("from admin", "DPS has loaded!","", "Current Version: Alpha 04 | Changelog: ", changelog)
+damsMessage("from admin", "DPS has loaded!", "Current Version: Alpha 04","Changelog: " + changelog)
