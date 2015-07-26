@@ -1,4 +1,4 @@
-//DCV'S PLUGDJ SCRIPT//ALPHA 03// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO
+//DCV'S PLUGDJ SCRIPT//ALPHA 03// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 $("head").append("<link rel='stylesheet' type='text/css' href='https://rawgit.com/dcvslab/projects/master/plugdj/dps/styleSheet.css'>");
 var user = API.getUser() //DAMS (http://github.com/dcvslab/projects/plugdj/dams.js) (this is an edited version)
 var damsn = 1
