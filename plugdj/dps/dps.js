@@ -46,10 +46,13 @@ var dpsftropt = getopt.dpsftropt; }
 function dpsoptUpdate() { //update
   dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt, "xppopt": xppopt, "dpsftropt": dpsftropt };
   localStorage.setItem('dpsOpt', JSON.stringify(dpsoptPush));
+  ldpsOpt = localStorage.getItem('dpsOpt');
+  getopt = JSON.parse(ldpsOpt);
 }
 setTimeout(function () { 
  dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt, "xppopt": xppopt, "dpsftropt": dpsftropt };
 }, 0100);
+var oldversion = dpsv
 dpsoptUpdate()
 var ibtn = document.getElementsByClassName("inventory button")[0]; //SETTING UP THE BUTTON//
 var bbtn = document.getElementsByClassName("badge button")[0];
@@ -268,11 +271,11 @@ if (dpsftropt == "true") {
  pbtn.addEventListener("mouseenter", showInfo); pbtn.addEventListener("mouseleave", hideInfo)
 }}
 dpsftrChange();
-var changelog = "http://dcvslab.github.io/dps/changelog.html"
+var changelog = "http://dcvslab.github.io/dps/changelog"
 if (version == dpsv) {
-  dpsMessaged("message", "from admin", "DPS has loaded!", "Current Version: <font color='" + ucolor + "'><b>" + version + "</b></font>","No new updates since last time, <font color='" + ucolor +"'>" + user.username + "</font>.")
+  dpsMessage("system", "from", "DPS has loaded <dont color='" + ucolor + "'<b>v" + version + "</b></font>!","No new updates since last time, <font color='" + ucolor +"'><b>" + user.username + "</b></font>.")
 } else {
-  dpsMessaged("message", "from admin", "DPS has loaded!", "Current Version: " + version,"Changelog: <a href='http://dcvslab.github.io/dps/changelog.html'>" + changelog + "</a>")}
+  dpsMessaged("system", "from", "DPS has loaded <font color='" + ucolor + "'<b>v" + version + "</b></font>!", "You last used <font color='" + ucolor + "'><b>v" + oldversion + "</b></font>.","Changelog: <a href='http://dcvslab.github.io/dps/changelog.html'>" + changelog + "</a>")}
 
 } else {
   dpsMessage("system", "from", "DPS is already on!", "To reload DPS, refresh the page and click the bookmark again!")
