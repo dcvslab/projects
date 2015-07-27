@@ -273,7 +273,7 @@ if (dpsftropt == "true") {
 dpsftrChange();
 var changelog = "http://dcvslab.github.io/dps/changelog"
 if (version == dpsv) {
-  dpsMessage("system", "from", "DPS has loaded <dont color='" + ucolor + "'<b>v" + version + "</b></font>!","No new updates since last time, <font color='" + ucolor +"'><b>" + user.username + "</b></font>.")
+  dpsMessage("system", "from", "DPS has loaded <font color='" + ucolor + "'<b>v" + version + "</b></font>!","No new updates since last time, <font color='" + ucolor +"'><b>" + user.username + "</b></font>.")
 } else {
   dpsMessaged("system", "from", "DPS has loaded <font color='" + ucolor + "'<b>v" + version + "</b></font>!", "You last used <font color='" + ucolor + "'><b>v" + oldversion + "</b></font>.","Changelog: <a href='http://dcvslab.github.io/dps/changelog.html'>" + changelog + "</a>")}
 
