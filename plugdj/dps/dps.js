@@ -2,6 +2,11 @@
 if (! on) {
 var on = "yes"
 var user = API.getUser();
+var creator = {
+  username: "DCV",
+  id: "3639711",
+  sub: "1",
+}
 var ucolor;
 if (user.gRole == "0") { if (user.role > 0) { ucolor = "#AC76FF" } else { if (user.sub == 1) { ucolor = "#C59840" } else { ucolor = "#FFDD6F" } } } else { if (user.gRole == "3") { ucolor = "#89BE6C" } else { ucolor = "#42A5DC" } }
 $("head").append("<link rel='stylesheet' type='text/css' href='https://rawgit.com/dcvslab/projects/master/plugdj/dps/styleSheet.css'>");
