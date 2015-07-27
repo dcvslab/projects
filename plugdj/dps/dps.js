@@ -3,7 +3,7 @@ if (! on) {
 var on = "yes"
 var user = API.getUser();
 var ucolor;
-if (user.gRole == "0") { if (user.role > 0) { ucolor = "#AC76FF" } else { ucolor = "#FFDD6F" } } else { if (user.gRole == "3") { ucolor = "#89BE6C" } else { ucolor = "#42A5DC" } }
+if (user.gRole == "0") { if (user.role > 0) { ucolor = "#AC76FF" } else { if (user.sub == 1) { ucolor = "#C59840" } else { ucolor = "#FFDD6F" } } } else { if (user.gRole == "3") { ucolor = "#89BE6C" } else { ucolor = "#42A5DC" } }
 $("head").append("<link rel='stylesheet' type='text/css' href='https://rawgit.com/dcvslab/projects/master/plugdj/dps/styleSheet.css'>");
 var version = "ALPHA 04";
 //DAMS (http://github.com/dcvslab/projects/plugdj/dams.js) (this is an EXTREMELY edited version)
@@ -270,7 +270,7 @@ if (dpsftropt == "true") {
 dpsftrChange();
 var changelog = "http://dcvslab.github.io/dps/changelog.html"
 if (version == dpsv) {
-  dpsMessaged("message", "from admin", "DPS has loaded!", "Current Version: " + version,"No new updates since last time, <font color='" + ucolor +"'>" + user.username + "</font>.")
+  dpsMessaged("message", "from admin", "DPS has loaded!", "Current Version: <font color='" + ucolor + "'><b>" + version + "</b></font>","No new updates since last time, <font color='" + ucolor +"'>" + user.username + "</font>.")
 } else {
   dpsMessaged("message", "from admin", "DPS has loaded!", "Current Version: " + version,"Changelog: <a href='http://dcvslab.github.io/dps/changelog.html'>" + changelog + "</a>")}
 
