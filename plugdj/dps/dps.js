@@ -23,10 +23,11 @@ if (_scroll) { $("#chat-messages")[0].scrollTop = $("#chat-messages")[0].scrollH
 if ($("#chat-messages").children().length > 512) {  $("#chat-messages").children().first().remove();  } //BORROWED WITH PERMISSION FROM BETATESTER/IGOR ADDCHAT SCRIPT
 var dpsopt = localStorage.getItem("dpsOpt"); //option stuff (END EDITED DAMS)
 if (! dpsopt){ 
-var dpsOpt = { "awopt": "true", "ajopt": "true", "xppopt": "false", "dpsftropt": "false" };
+var dpsOpt = { "dpsv": version, awopt": "true", "ajopt": "true", "xppopt": "false", "dpsftropt": "false" };
 localStorage.setItem('dpsOpt', JSON.stringify(dpsOpt));
 var ldpsOpt = localStorage.getItem('dpsOpt');
 var getopt = JSON.parse(ldpsOpt);
+var dpsv = getopt.dpsv;
 var awopt = getopt.awopt;//load the options
 var ajopt = getopt.ajopt;
 var xppopt = getopt.xppopt;
@@ -34,16 +35,17 @@ var dpsftropt = getopt.dpsftropt;
 } else {
 var ldpsOpt = localStorage.getItem('dpsOpt');
 var getopt = JSON.parse(ldpsOpt);
+var dpsv = getopt.dpsv
 var awopt = getopt.awopt;//load the options
 var ajopt = getopt.ajopt;
 var xppopt = getopt.xppopt;
 var dpsftropt = getopt.dpsftropt; }
 function dpsoptUpdate() { //update
-  dpsoptPush = { "awopt": awopt, "ajopt": ajopt, "xppopt": xppopt, "dpsftropt": dpsftropt };
+  dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt, "xppopt": xppopt, "dpsftropt": dpsftropt };
   localStorage.setItem('dpsOpt', JSON.stringify(dpsoptPush));
 }
-setTimeout(function () {
- dpsoptPush = { "awopt": awopt, "ajopt": ajopt, "xppopt": xppopt, "dpsftropt": dpsftropt };
+setTimeout(function () { 
+ dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt, "xppopt": xppopt, "dpsftropt": dpsftropt };
 }, 0100);
 var ibtn = document.getElementsByClassName("inventory button")[0]; //SETTING UP THE BUTTON//
 var bbtn = document.getElementsByClassName("badge button")[0];
@@ -263,7 +265,10 @@ if (dpsftropt == "true") {
 }}
 dpsftrChange();
 var changelog = "http://dcvslab.github.io/dps/changelog.html"
-dpsMessaged("message", "from admin", "DPS has loaded!", "Current Version: " + version,"Changelog: <a href='http://dcvslab.github.io/dps/changelog.html'>" + changelog + "</a>")
+if (version == dpsv) {
+  dpsMessaged("message", "from admin", "DPS has loaded!", "Current Version: " + version,"No new updates since last time, " + user.id + ".")
+} else {
+  dpsMessaged("message", "from admin", "DPS has loaded!", "Current Version: " + version,"Changelog: <a href='http://dcvslab.github.io/dps/changelog.html'>" + changelog + "</a>")
 
 } else {
   dpsMessage("system", "from", "DPS is already on!", "To reload DPS, refresh the page and click the bookmark again!")
