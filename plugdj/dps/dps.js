@@ -1,25 +1,27 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 04// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
+if (! on) {
+var on = "yes"
 $("head").append("<link rel='stylesheet' type='text/css' href='https://rawgit.com/dcvslab/projects/master/plugdj/dps/styleSheet.css'>");
 var version = "ALPHA 04"
 var user = API.getUser() //DAMS (http://github.com/dcvslab/projects/plugdj/dams.js) (this is an EXTREMELY edited version)
 var dpsn = 1; var dpseid = "DPS-" + dpsn; var dpsid = "DPS-" + user.id + "-" + dpsn; var time = "DPS";
 var _scroll = $("#chat-messages")[0].scrollTop > $("#chat-messages")[0].scrollHeight - $("#chat-messages").height() - 28;
-function dpsMessagedouble(nameclass, nametext, messagetext, messagetext2) { 
+function dpsMessaged(cmtype, nameclass, nametext, messagetext, messagetext2) { //two lines
   if (! nameclass) { nameclass="" };
   if (! nametext) { nametext=""};
   if (! messagetext) { messagetext="" };
   if (! messagetext2) { messagetext2=""};
-$("#chat-messages").append("<div data-cid='" + dpsid + "' class='cm message' stlye='padding-left: 5px'><div class='msg cid-" + dpsid + "' style='padding-left: 10px'><div class ='" + nameclass + "'><span class='un'>" + nametext + "</span><span style='display: inline;' class='timestamp'>" + time + "</span></div><div class='text cid-" + dpsid + "'>" + messagetext +"</div><div class='text cid-" + dpsid + "'>" + messagetext2 +"</div></div></div>");
+$("#chat-messages").append("<div data-cid='" + dpsid + "' class='cm " + cmtype + "' stlye='padding-left: 5px'><div class='msg cid-" + dpsid + "' style='padding-left: 10px'><div class ='" + nameclass + "'><span class='un'>" + nametext + "</span><span style='display: inline;' class='timestamp'>" + time + "</span></div><div class='text cid-" + dpsid + "'>" + messagetext +"</div><div class='text cid-" + dpsid + "'>" + messagetext2 +"</div></div></div>");
 dpsn = dpsn + 1; dpseid = "dps-" + dpsn; dpsid = "dps-" + user.id + "-" + dpsn }
-function dpsMessage(nameclass, nametext, messagetext)
+function dpsMessage(cmtype, nameclass, nametext, messagetext) { //one line
   if (! nameclass) { nameclass="" };
   if (! nametext) { nametext=""};
   if (! messagetext) { messagetext="" };
-$("#chat-messages").append("<div data-cid='" + dpsid + "' class='cm message' stlye='padding-left: 5px'><div class='msg cid-" + dpsid + "' style='padding-left: 10px'><div class ='" + nameclass + "'><span class='un'>" + nametext + "</span><span style='display: inline;' class='timestamp'>" + time + "</span></div><div class='text cid-" + dpsid + "'>" + messagetext +"</div></div></div>");
+$("#chat-messages").append("<div data-cid='" + dpsid + "' class='cm " + cmtype + "'  stlye='padding-left: 5px'><div class='msg cid-" + dpsid + "' style='padding-left: 10px'><div class ='" + nameclass + "'><span class='un'>" + nametext + "</span><span style='display: inline;' class='timestamp'>" + time + "</span></div><div class='text cid-" + dpsid + "'>" + messagetext +"</div></div></div>");
 dpsn = dpsn + 1; dpseid = "dps-" + dpsn; dpsid = "dps-" + user.id + "-" + dpsn }
 if (_scroll) { $("#chat-messages")[0].scrollTop = $("#chat-messages")[0].scrollHeight; } //BORROWED WITH PERMISSION FROM BETATESTER/IGOR ADDCHAT SCRIPT
 if ($("#chat-messages").children().length > 512) {  $("#chat-messages").children().first().remove();  } //BORROWED WITH PERMISSION FROM BETATESTER/IGOR ADDCHAT SCRIPT
-var dpsopt = localStorage.getItem("dpsOpt"); //option stuff
+var dpsopt = localStorage.getItem("dpsOpt"); //option stuff (END EDITED DAMS)
 if (! dpsopt){ 
 var dpsOpt = { "awopt": "true", "ajopt": "true", "xppopt": "false", "dpsftropt": "false" };
 localStorage.setItem('dpsOpt', JSON.stringify(dpsOpt));
@@ -261,4 +263,8 @@ if (dpsftropt == "true") {
 }}
 dpsftrChange();
 var changelog = "http://dcvslab.github.io/dps/changelog.html"
-dpsMessagedouble("from admin", "DPS has loaded!", "Current Version: " + version,"Changelog: <a href='http://dcvslab.github.io/dps/changelog.html'>" + changelog + "</a>")
+dpsMessaged("message", "from admin", "DPS has loaded!", "Current Version: " + version,"Changelog: <a href='http://dcvslab.github.io/dps/changelog.html'>" + changelog + "</a>")
+
+} else {
+  dpsMessage("system", "from", "DPS is already on!", "To reload DPS, refresh the page and click the bookmark again!")
+}
