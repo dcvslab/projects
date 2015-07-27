@@ -2,9 +2,9 @@
 if (! on) {
 var on = "yes"
 $("head").append("<link rel='stylesheet' type='text/css' href='https://rawgit.com/dcvslab/projects/master/plugdj/dps/styleSheet.css'>");
-var version = "ALPHA 04"
-var user = API.getUser() //DAMS (http://github.com/dcvslab/projects/plugdj/dams.js) (this is an EXTREMELY edited version)
-var dpsn = 1; var dpseid = "DPS-" + dpsn; var dpsid = "DPS-" + user.id + "-" + dpsn; var time = "DPS";
+var version = "ALPHA 04";
+var user = API.getUser(); //DAMS (http://github.com/dcvslab/projects/plugdj/dams.js) (this is an EXTREMELY edited version)
+var dpsn = 1; dpseid = "DPS-" + dpsn; var dpsid = "DPS-" + user.id + "-" + dpsn; var time = "DPS";
 var _scroll = $("#chat-messages")[0].scrollTop > $("#chat-messages")[0].scrollHeight - $("#chat-messages").height() - 28;
 function dpsMessaged(cmtype, nameclass, nametext, messagetext, messagetext2) { //two lines
   if (! nameclass) { nameclass="" };
