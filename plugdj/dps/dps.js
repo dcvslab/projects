@@ -1,9 +1,12 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 04// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "yes"
+var user = API.getUser();
+var ucolor;
+if (user.gRole == "0") { if (user.role > 0) { ucolor = "#AC76FF" } else { ucolor = "#FFDD6F" } } else { if (user.gRole == "3") { ucolor = "#89BE6C" } else { ucolor = "#42A5DC" } }
 $("head").append("<link rel='stylesheet' type='text/css' href='https://rawgit.com/dcvslab/projects/master/plugdj/dps/styleSheet.css'>");
 var version = "ALPHA 04";
-var user = API.getUser(); //DAMS (http://github.com/dcvslab/projects/plugdj/dams.js) (this is an EXTREMELY edited version)
+//DAMS (http://github.com/dcvslab/projects/plugdj/dams.js) (this is an EXTREMELY edited version)
 var dpsn = 1; dpseid = "DPS-" + dpsn; var dpsid = "DPS-" + user.id + "-" + dpsn; var time = "DPS";
 var _scroll = $("#chat-messages")[0].scrollTop > $("#chat-messages")[0].scrollHeight - $("#chat-messages").height() - 28;
 function dpsMessaged(cmtype, nameclass, nametext, messagetext, messagetext2) { //two lines
@@ -23,7 +26,7 @@ if (_scroll) { $("#chat-messages")[0].scrollTop = $("#chat-messages")[0].scrollH
 if ($("#chat-messages").children().length > 512) {  $("#chat-messages").children().first().remove();  } //BORROWED WITH PERMISSION FROM BETATESTER/IGOR ADDCHAT SCRIPT
 var dpsopt = localStorage.getItem("dpsOpt"); //option stuff (END EDITED DAMS)
 if (! dpsopt){ 
-var dpsOpt = { "dpsv": version, awopt": "true", "ajopt": "true", "xppopt": "false", "dpsftropt": "false" };
+var dpsOpt = { "dpsv": version, "awopt": "true", "ajopt": "true", "xppopt": "false", "dpsftropt": "false" };
 localStorage.setItem('dpsOpt', JSON.stringify(dpsOpt));
 var ldpsOpt = localStorage.getItem('dpsOpt');
 var getopt = JSON.parse(ldpsOpt);
@@ -47,6 +50,7 @@ function dpsoptUpdate() { //update
 setTimeout(function () { 
  dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt, "xppopt": xppopt, "dpsftropt": dpsftropt };
 }, 0100);
+dpsoptUpdate()
 var ibtn = document.getElementsByClassName("inventory button")[0]; //SETTING UP THE BUTTON//
 var bbtn = document.getElementsByClassName("badge button")[0];
 var stbtn = document.getElementsByClassName("store button")[0];
@@ -266,9 +270,9 @@ if (dpsftropt == "true") {
 dpsftrChange();
 var changelog = "http://dcvslab.github.io/dps/changelog.html"
 if (version == dpsv) {
-  dpsMessaged("message", "from admin", "DPS has loaded!", "Current Version: " + version,"No new updates since last time, " + user.id + ".")
+  dpsMessaged("message", "from admin", "DPS has loaded!", "Current Version: " + version,"No new updates since last time, <font color='" + ucolor +"'>" + user.username + "</font>.")
 } else {
-  dpsMessaged("message", "from admin", "DPS has loaded!", "Current Version: " + version,"Changelog: <a href='http://dcvslab.github.io/dps/changelog.html'>" + changelog + "</a>")
+  dpsMessaged("message", "from admin", "DPS has loaded!", "Current Version: " + version,"Changelog: <a href='http://dcvslab.github.io/dps/changelog.html'>" + changelog + "</a>")}
 
 } else {
   dpsMessage("system", "from", "DPS is already on!", "To reload DPS, refresh the page and click the bookmark again!")
