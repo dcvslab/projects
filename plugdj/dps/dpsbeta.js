@@ -90,14 +90,14 @@ function showdpsBtn() { dpsbtn.style.display = "block" }
 function showdpsbtn() { setTimeout(function(){ showdpsBtn(); }, 0200); }
 plbtnx.addEventListener("click", showdpsbtn)
 var dpsmenu = document.createElement("div"); dpsmenu.className = "dpsmenu" //create dps menu
-var dpsmcheckwoot = document.createElement("i") //create woot check
-dpsmcheckwoot.style.left = "0px"; dpsmcheckwoot.className = "icon icon-check-purple"; dpsmcheckwoot.id = "dpsmcheckaw";
+var dpsmcheckaw = document.createElement("i") //create woot check
+dpsmcheckaw.className = "icon icon-check-purple dpsmcheck";
 var dpsmcheckaj = document.createElement("i") //create autojoin check
-dpsmcheckaj.style.left = "0px"; dpsmcheckaj.className = "icon icon-check-purple"; dpsmcheckaj.id = "dpsmcheckaj";
+dpsmcheckaj.className = "icon icon-check-purple dpsmcheck";
 var dpsmcheckxpp = document.createElement("i") //create xp to percent check
-dpsmcheckxpp.style.left = "0px"; dpsmcheckxpp.className = "icon icon-check-purple"; dpsmcheckxpp.id = "dpsmcheckxpp";
+dpsmcheckxpp.className = "icon icon-check-purple dpsmcheck";
 var dpsmcheckdpsftr = document.createElement("i") //create dps footer check
-dpsmcheckdpsftr.style.left = "0px"; dpsmcheckdpsftr.className = "icon icon-check-purple"; dpsmcheckdpsftr.id = "dpsmcheckdpsftr";
+dpsmcheckdpsftr.className = "icon icon-check-purple dpsmcheck";
 var dpsmaw = document.createElement("div"); //DPS MENU OPTIONS | autowoot option
 var dpsmawtxt = document.createElement("span"); 
 dpsmawtxt.innerHTML = "Auto-Woot"; dpsmawtxt.className = "dpsmrowtext"
@@ -172,6 +172,7 @@ togglemenu = "no"
 }}
 dpsbtn.addEventListener("click", toggleMenu) 
 dpsbtn.addEventListener("click", menuClicked) 
+//FUNCTIONAL SETTINGS//
 function dpsAw() { //autowoot//
 if (awopt == "true") { 
   API.on(API.ADVANCE, function(data) { document.getElementById("woot").click();})
@@ -187,6 +188,7 @@ function dpsAj() { //autojoin//
   else {
     dpsmcheckaj.style.visibility = "hidden" }}
 dpsAj();
+//STYLING SETTINGS//
 var progress = document.getElementsByClassName("progress")[0]; //change the xp bar to %
 progress.id = "progress";
 var percent = progress.style.width;
