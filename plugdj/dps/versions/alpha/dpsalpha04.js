@@ -10,7 +10,6 @@ var creator = {
 }
 var ucolor;
 if (user.gRole == "0") { if (user.role > 0) { ucolor = "#AC76FF" } else { if (user.sub == 1) { ucolor = "#C59840" } else { ucolor = "#FFDD6F" } } } else { if (user.gRole == "3") { ucolor = "#89BE6C" } else { ucolor = "#42A5DC" } }
-$("head").append("<link rel='stylesheet' type='text/css' href='https://rawgit.com/dcvslab/projects/master/plugdj/dps/versions/alpha/styleSheet01.css'>");
 //DAMS (http://github.com/dcvslab/projects/plugdj/dams.js) (this is an EXTREMELY edited version)
 var dpsn = 1; dpseid = "DPS-" + dpsn; var dpsid = "DPS-" + user.id + "-" + dpsn; var time = "DPS";
 var _scroll = $("#chat-messages")[0].scrollTop > $("#chat-messages")[0].scrollHeight - $("#chat-messages").height() - 28;
