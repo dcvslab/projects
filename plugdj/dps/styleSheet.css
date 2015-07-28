@@ -1,5 +1,6 @@
 #dps-button {
   top: -53px;
+  z-index: 1000;
 }
 .dpsbtnimg {
   width: 69px;
