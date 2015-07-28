@@ -1,8 +1,8 @@
 //THIS IS WHERE THE SCRIPT WILL BE TESTED BEFORE THE OFFICIAL.
-//DCV'S PLUGDJ SCRIPT//ALPHA 05.1 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
+//DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "yes"
-var version = "ALPHA 05.1 BETA";
+var version = "ALPHA 05.2 BETA";
 var user = API.getUser();
 var creator = {
   username: "DCV",
@@ -124,13 +124,7 @@ var togglemenu = "no" //is needed
 var menuclicked = "no" //testing until it's clicked
 function menuClicked() { //to set up the menu
  if (menuclicked == "no") {
-  setTimeout(function(){  
-  var dpsmrowtxtclass = document.getElementsByClassName('dpsmrowtext'); //change row properties
-  for(var i = 0; i < dpsmrowtxtclass.length; i++) { 
-  dpsmrowtxtclass[i].style.paddingTop = "5px"; 
-  dpsmrowtxtclass[i].style.paddingBottom = "5px"; 
-  dpsmrowtxtclass[i].style.lineHeight = "30px" }
-  menuclicked = "yes"; }, 0100);
+  setTimeout(function(){ menuclicked = "yes"; }, 0100);
   dpsmaw.onclick=function(){ if (awopt == "true") { 
     awopt = "false"; 
     dpsoptUpdate(); 
