@@ -1,9 +1,6 @@
-.button { /* buttons */
-  width: 16.66666% !important;
-  left: 16.66666% !important;
-}
 #dps-button {
   right: 345px;
+  width: 69px;
   z-index: 1000;
   top: -53px;
 }
