@@ -1,8 +1,8 @@
 //THIS IS WHERE THE SCRIPT WILL BE TESTED BEFORE THE OFFICIAL.
-//DCV'S PLUGDJ SCRIPT//ALPHA 05 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
+//DCV'S PLUGDJ SCRIPT//ALPHA 05.1 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "yes"
-var version = "ALPHA 05 BETA";
+var version = "ALPHA 05.1 BETA";
 var user = API.getUser();
 var creator = {
   username: "DCV",
@@ -32,6 +32,7 @@ if (_scroll) { $("#chat-messages")[0].scrollTop = $("#chat-messages")[0].scrollH
 if ($("#chat-messages").children().length > 512) {  $("#chat-messages").children().first().remove();  } //BORROWED WITH PERMISSION FROM BETATESTER/IGOR ADDCHAT SCRIPT
 var dpsopt = localStorage.getItem("dpsOpt"); //option stuff (END EDITED DAMS)
 if (! dpsopt){ 
+  var newuser = "true"
 var dpsOpt = { "dpsv": version, "awopt": "true", "ajopt": "true", "xppopt": "false", "dpsftropt": "false" };
 localStorage.setItem('dpsOpt', JSON.stringify(dpsOpt));
 var ldpsOpt = localStorage.getItem('dpsOpt');
@@ -63,37 +64,22 @@ dpsoptUpdate()
 var ibtn = document.getElementsByClassName("inventory button")[0]; //SETTING UP THE BUTTON//
 var bbtn = document.getElementsByClassName("badge button")[0];
 var stbtn = document.getElementsByClassName("store button")[0];
- if(typeof stbtn === 'undefined'){
-     stbtn = document.getElementsByClassName("store button notify")[0] };
 var pbtn = document.getElementsByClassName("profile button")[0];
- if(typeof pbtn === 'undefined'){
-     pbtn = document.getElementsByClassName("profile button notify")[0]; }
 var sebtn = document.getElementsByClassName("settings button")[0];
 document.getElementById("facebook-menu").remove(); //remove fb
 document.getElementById("twitter-menu").remove(); //remove twitter
 document.getElementById("footer-user").style.width = "414px";
 ibtn.style.width = bbtn.style.width = stbtn.style.width = pbtn.style.width = sebtn.style.width = ibtn.style.left = bbtn.style.left = stbtn.style.left = pbtn.style.left = sebtn.style.left = "16.6666666%";
 var backbtn = document.getElementsByClassName("back")[0] //fix the back button
-backbtn.style.width = "83.333333%"
-backbtn.style.left = "16.666666%"
+backbtn.style.width = "83.333333%"; backbtn.style.left = "16.666666%"
 var dpsbtn = document.createElement("div"); //create dps button
-dpsbtn.id = "dps-button";
-dpsbtn.className = "dps button";
-dpsbtn.style.right = "83.3333333%"; //a bit of styling
-dpsbtn.style.width = "16.66666666%";
-dpsbtn.style.zIndex ="1000";
+dpsbtn.id = "dps-button"; dpsbtn.className = "dpsbtn button";
 document.body.appendChild(dpsbtn); //put it in the document
 var dpslogo = document.createElement("IMG"); //create dps logo
-    dpslogo.setAttribute("src", "http://i.imgur.com/1CuQDdE.png");
-    dpslogo.setAttribute("width", "69");
-    dpslogo.setAttribute("height", "53");
-    dpslogo.setAttribute("alt", "dpslogo");
+    dpslogo.setAttribute("src", "http://i.imgur.com/1CuQDdE.png"); dpslogo.className = "dpsbtnimg"
 document.getElementById("dps-button").appendChild(dpslogo);
-var dpslogox = document.createElement("IMG"); //create dps logo
-    dpslogox.setAttribute("src", "http://i.imgur.com/m8QFUVD.png");
-    dpslogox.setAttribute("width", "69");
-    dpslogox.setAttribute("height", "53");
-    dpslogox.setAttribute("alt", "dpslogox");
+var dpslogox = document.createElement("IMG"); //create dps logo x
+    dpslogox.setAttribute("src", "http://i.imgur.com/m8QFUVD.png"); dpslogox.className = "dpsbtnimg"
     document.getElementById("dps-button").appendChild(dpslogox);
 document.getElementsByClassName("buttons")[0].appendChild(dpsbtn);
 var plbtn = document.getElementsByClassName("bar-button")[1] //to hide button when this is clicked
@@ -103,16 +89,7 @@ var plbtnx = document.getElementById("playlist-button")
 function showdpsBtn() { dpsbtn.style.display = "block" }
 function showdpsbtn() { setTimeout(function(){ showdpsBtn(); }, 0200); }
 plbtnx.addEventListener("click", showdpsbtn)
-var dpsmenu = document.createElement("div"); //create dps menu
-dpsmenu.style.backgroundColor = "#282C35"; //styling
-dpsmenu.style.right = "345px";
-dpsmenu.style.display = "none";
-dpsmenu.id = "dpsmenu";
-dpsmenu.style.height = "inherit";
-dpsmenu.style.width = "345px";
-dpsmenu.style.zIndex = "10000";
-dpsmenu.style.position = "absolute";
-dpsmenu.style.borderBottom = "1px solid #0A0A0A";
+var dpsmenu = document.createElement("div"); dpsmenu.className = "dpsmenu" //create dps menu
 var dpsmcheckwoot = document.createElement("i") //create woot check
 dpsmcheckwoot.style.left = "0px"; dpsmcheckwoot.className = "icon icon-check-purple"; dpsmcheckwoot.id = "dpsmcheckaw";
 var dpsmcheckaj = document.createElement("i") //create autojoin check
@@ -277,12 +254,15 @@ if (dpsftropt == "true") {
  pbtn.addEventListener("mouseenter", showInfo); pbtn.addEventListener("mouseleave", hideInfo)
 }}
 dpsftrChange();
-var changelog = "http://dcvslab.github.io/dps/changelog"
+var changelog = "dcvslab.github.io/dps/changelog"
+if (newuser == "true") {
+  dpsMessaged("system", "from", "DPS has loaded <font color='" + ucolor + "'<b>v" + version + "</b></font>!", "Welcome to DPS, <font color = '" + ucolor + "'><b>" + user.username + "</b></font>!", "Info: <a href='http://dcvslab.github.io/dps'>dcvslab.github.io/dps</a> (COMING SOON)")
+} else {
 if (version == dpsv) {
   dpsMessage("system", "from", "DPS has loaded <font color='" + ucolor + "'<b>v" + version + "</b></font>!","No new updates since last time, <font color='" + ucolor +"'><b>" + user.username + "</b></font>.")
 } else {
-  dpsMessaged("system", "from", "DPS has loaded <font color='" + ucolor + "'<b>v" + version + "</b></font>!", "You last used <font color='" + ucolor + "'><b>v" + oldversion + "</b></font>.","Changelog: <a href='http://dcvslab.github.io/dps/changelog.html'>" + changelog + "</a>")}
-
+  dpsMessaged("system", "from", "DPS has loaded <font color='" + ucolor + "'<b>v" + version + "</b></font>!", "You last used <font color='" + ucolor + "'><b>v" + oldversion + "</b></font>.","Changelog: <a href='http://dcvslab.github.io/dps/changelog.txt'>" + changelog + "</a>")}
+}
 } else {
   dpsMessage("system", "from", "DPS is already on!", "To reload DPS, refresh the page and click the bookmark again!")
 }
