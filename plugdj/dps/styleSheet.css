@@ -16,3 +16,14 @@
   position: absolute;
   border-bottom: 1px solid #0A0A0A;
 }
+.dpsmrow {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 30px;
+  -moz-user-select: none;
+  cursor: pointer;
+  }
+
+.dpsmrowtext {
+  
+}
