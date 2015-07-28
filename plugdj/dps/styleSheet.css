@@ -1,10 +1,13 @@
-#dps-button {
-  right: 345px;
-  width: 69px;
-  z-index: 1000;
-  top: -53px;
-}
 .dpsbtnimg {
   width: 69px;
   height: 53px;
+}
+.dpsmenu {
+  background-color: #282C53;
+  right: 345px;
+  display: none;
+  height: inherit;
+  width: 345px;
+  position: absolute;
+  border-bottom: 1px solid #0A0A0A;
 }
