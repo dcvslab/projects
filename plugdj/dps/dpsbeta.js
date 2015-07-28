@@ -73,7 +73,7 @@ ibtn.style.width = bbtn.style.width = stbtn.style.width = pbtn.style.width = seb
 var backbtn = document.getElementsByClassName("back")[0] //fix the back button
 backbtn.style.width = "83.333333%"; backbtn.style.left = "16.666666%"
 var dpsbtn = document.createElement("div"); //create dps button
-dpsbtn.id = "dps-button"; dpsbtn.className = "dpsbtn button";
+dpsbtn.id = "dps-button"; dpsbtn.className = "dpsbtn button"; 
 document.body.appendChild(dpsbtn); //put it in the document
 var dpslogo = document.createElement("IMG"); //create dps logo
     dpslogo.setAttribute("src", "http://i.imgur.com/1CuQDdE.png"); dpslogo.className = "dpsbtnimg"
