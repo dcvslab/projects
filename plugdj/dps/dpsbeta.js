@@ -102,7 +102,7 @@ var dpsmaw = document.createElement("div"); //DPS MENU OPTIONS | autowoot option
 var dpsmawtxt = document.createElement("span"); 
 dpsmawtxt.innerHTML = "Auto-Woot"; dpsmawtxt.className = "dpsmrowtext"
 dpsmaw.className = "dpsmrow";
-dpsmaw.appendChild(dpsmawtxt); dpsmaw.appendChild(dpsmcheckwoot); dpsmenu.appendChild(dpsmaw);
+dpsmaw.appendChild(dpsmawtxt); dpsmaw.appendChild(dpsmcheckaw); dpsmenu.appendChild(dpsmaw);
 var dpsmaj = document.createElement("div"); //autojoin option
 var dpsmajtxt = document.createElement("span");
 dpsmajtxt.innerHTML = "Auto-Join"; dpsmajtxt.className = "dpsmrowtext"
