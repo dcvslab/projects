@@ -125,13 +125,6 @@ var menuclicked = "no" //testing until it's clicked
 function menuClicked() { //to set up the menu
  if (menuclicked == "no") {
   setTimeout(function(){  
-  var dpsmrowclass = document.getElementsByClassName('dpsmrow'); //change row properties
-  for(var i = 0; i < dpsmrowclass.length; i++) { 
-  dpsmrowclass[i].style.paddingTop = "5px"; 
-  dpsmrowclass[i].style.paddingBottom = "5px";
-  dpsmrowclass[i].style.paddingLeft = "30px";
-  dpsmrowclass[i].style.MozUserSelect = "none";
-  dpsmrowclass[i].style.cursor = "pointer"; }
   var dpsmrowtxtclass = document.getElementsByClassName('dpsmrowtext'); //change row properties
   for(var i = 0; i < dpsmrowtxtclass.length; i++) { 
   dpsmrowtxtclass[i].style.paddingTop = "5px"; 
