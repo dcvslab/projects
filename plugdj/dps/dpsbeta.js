@@ -2,7 +2,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "yes"
-var release = "ALPHA"; var vnum = "05"; var subvnum = "3"; var commitnum = "2"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "05"; var subvnum = "3"; var commitnum = "4"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -204,7 +204,6 @@ if (ssopt == "true") {
   sstopline = API.getHistory()[0].user.username + " played " + API.getHistory()[0].media.author + " - " + API.getHistory()[0].media.title
   if (sstopline > 44) {
     ssmarquee = "<marquee scrollamount='4'>"; ssmarqueeend = "</marquee>" } else { ssmaruqee = ""; ssmaruqeeend = ""; }
-  setTimeout()
   dpsMessaged("message", "from admin", "SONG STATS", sstopline = "<marquee scrollamount='4'><font color='" + ssucolor + "'><b>" + API.getHistory()[0].user.username + "</b></font> played <b>" + API.getHistory()[0].media.author + " - " + API.getHistory()[0].media.title + "</b></marquee>", "<font color='#90AD2F'>Woots: " + API.getHistory()[0].score.positive + "</font> | <font color='#C42E3B'> Mehs: " + API.getHistory()[0].score.negative + "</font> | <font color='#AA74FF'> Grabs: " + API.getHistory()[0].score.grabs )
   })
 }}
