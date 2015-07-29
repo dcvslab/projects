@@ -2,12 +2,11 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "yes"
-var release = "ALPHA"; var vnum = "05"; var subvnum = "3"; var commitnum = "5"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "05"; var subvnum = "3"; var commitnum = "6"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
 var history = API.getHistory;
-var ssucolor; 
 var creator = { username: "DCV", id: "3639711", sub: "1" }
 var ucolor;
 if (user.gRole == "0") { if (user.role > 0) { ucolor = "#AC76FF" } else { if (user.sub == 1) { ucolor = "#C59840" } else { ucolor = "#FFDD6F" } } } else { if (user.gRole == "3") { ucolor = "#89BE6C" } else { ucolor = "#42A5DC" } }
@@ -31,8 +30,8 @@ dpsn = dpsn + 1; dpseid = "dps-" + dpsn; dpsid = "dps-" + user.id + "-" + dpsn }
 if (_scroll) { $("#chat-messages")[0].scrollTop = $("#chat-messages")[0].scrollHeight; } //BORROWED WITH PERMISSION FROM BETATESTER/IGOR ADDCHAT SCRIPT
 if ($("#chat-messages").children().length > 512) {  $("#chat-messages").children().first().remove();  } //BORROWED WITH PERMISSION FROM BETATESTER/IGOR ADDCHAT SCRIPT
 var dpsopt = localStorage.getItem("dpsOpt"); //option stuff (END EDITED DAMS)
-if (! dpsopt){ 
-  var newuser = "true"
+if (! dpsopt) { 
+var newuser = "true"
 var dpsOpt = { "dpsv": version, "awopt": "true", "ajopt": "true", "xppopt": "false", "dpsftropt": "false" };
 localStorage.setItem('dpsOpt', JSON.stringify(dpsOpt));
 var ldpsOpt = localStorage.getItem('dpsOpt');
@@ -57,8 +56,8 @@ function dpsoptUpdate() { //update
   getopt = JSON.parse(ldpsOpt);
 }
 setTimeout(function () { 
- dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt, "xppopt": xppopt, "dpsftropt": dpsftropt };
-}, 0100);
+dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt, "xppopt": xppopt, "dpsftropt": dpsftropt };
+}, 100);
 var oldversion = dpsv
 dpsoptUpdate()
 var ibtn = document.getElementsByClassName("inventory button")[0]; //SETTING UP THE BUTTON//
@@ -120,58 +119,6 @@ dpsmdpsftr.className = "dpsmrow"; dpsmdpsftr.id = "dpsmdspftr";
 dpsmdpsftr.appendChild(dpsmdpsftrtxt); dpsmdpsftr.appendChild(dpsmcheckdpsftr); dpsmenu.appendChild(dpsmdpsftr);
 document.getElementsByClassName("app-right")[0].style.zIndex = "20" //make it so it's in front
 document.getElementById("chat").appendChild(dpsmenu);
-var togglemenu = "no" //is needed
-var menuclicked = "no" //testing until it's clicked
-function menuClicked() { //to set up the menu
- if (menuclicked == "no") {
-  setTimeout(function(){ menuclicked = "yes"; }, 0100);
-  dpsmaw.onclick=function(){ if (awopt == "true") { 
-    awopt = "false"; 
-    dpsoptUpdate(); 
-    setTimeout(function () { dpsAw() }, 0050); } 
-  else { 
-    awopt = "true"; 
-    dpsoptUpdate(); 
-    setTimeout(function () { dpsAw() }, 0050); }}
-  dpsmaj.onclick=function(){ if (ajopt == "true") { 
-    ajopt = "false"; 
-    dpsoptUpdate(); 
-    setTimeout(function () { dpsAj() }, 0050); } 
-  else { 
-    ajopt = "true"; 
-    dpsoptUpdate(); 
-    setTimeout(function () { dpsAj() }, 0050); }} 
-  dpsmxpp.onclick=function(){ if (xppopt == "true") { 
-    xppopt = "false"; 
-    dpsoptUpdate(); 
-    setTimeout(function () { dpsXpp() }, 0050); } 
-  else { 
-    xppopt = "true"; 
-    dpsoptUpdate(); 
-    setTimeout(function () { dpsXpp() }, 0050); }} 
-  dpsmdpsftr.onclick=function(){ if (dpsftropt == "true") { 
-    dpsftropt = "false"; 
-    dpsoptUpdate(); 
-    setTimeout(function () { dpsftrChange() }, 0050); } 
-  else { 
-    dpsftropt = "true"; 
-    dpsoptUpdate(); 
-    setTimeout(function () { dpsftrChange() }, 0050); }}
-}}
-function toggleMenu() { //toggle menu
-if (togglemenu == "no") {
-dpsmenu.style.display = "block"; //toggle some stuff
-dpslogo.style.display = "none";
-dpslogox.style.display = "block";
-togglemenu = "yes"
-} else {
-dpsmenu.style.display = "none"; //toggle some stuff
-dpslogo.style.display = "block";
-dpslogox.style.display = "none";
-togglemenu = "no"
-}}
-dpsbtn.addEventListener("click", toggleMenu) 
-dpsbtn.addEventListener("click", menuClicked) 
 //FUNCTIONAL SETTINGS//
 function dpsAw() { //autowoot//
 if (awopt == "true") { 
@@ -183,7 +130,7 @@ else {
 dpsAw();
 function dpsAj() { //autojoin//
   if (ajopt == "true") {
-    API.on(API.ADVANCE, function(data) { API.djJoin();})
+    API.on(API.ADVANCE, function(data) { API.djJoin(); console.log("joined"); })
     dpsmcheckaj.style.visibility = "visible" }
   else {
     dpsmcheckaj.style.visibility = "hidden" }}
@@ -192,14 +139,15 @@ dpsAj();
 //song stats
 var ssuserid = API.getHistory()[0].user.id
 var ssuser = API.getUser(ssuserid)
+var ssusercolor = "#FFF"
 function dpsSs() { 
 if (ssopt == "true") {
   API.on(API.ADVANCE, function(data) {
   ssuserid = API.getHistory()[0].user.id
   ssuser = API.getUser(ssuserid)
-  if (user.id == ssuserid) { if (user.role == "0") { if (user.gRole == "0") { ssucolor = "#FFDD6F"}}} else {
-  if (! ssuser.gRole) { if (ssuser.role > 0) { ssucolor = "#AC76FF" } else { if (ssuser.sub == 1) { ssucolor = "#C59840" } else { ssucolor = "#777F92" } } } else { if (ssuser.gRole == "3") { ssucolor = "#89BE6C" } else { ssucolor = "#42A5DC" } }}
-  dpsMessaged("message", "from admin", "SONG STATS","<b><font color='" + ssucolor + "'>" + API.getHistory()[0].user.username + "</b></font> played <b>" + API.getHistory()[0].media.author + " - " + API.getHistory()[0].media.title + "</b>", "<b>SCORE: <font color='#90AD2F'>" + API.getHistory()[1].score.positive + " woots</font></b>, <b><font color='#C42E3B'>" + API.getHistory()[1].score.negative + " mehs</font></b>, and <b><font color='#AA74FF'>" + API.getHistory()[1].score.grabs + " grabs.</font></b>" )
+  if (user.id == ssuserid) { if (user.role == "0") { if (user.gRole == "0") { if (user.sub == "0") { ssucolor = "#FFDD6F"}}}} else {
+
+  dpsMessaged("message", "from admin", "SONG STATS","<b><font color='" + ssucolor + "'>" + API.getHistory()[0].user.username + "</b></font> played <b>" + API.getHistory()[0].media.author + " - " + API.getHistory()[0].media.title + "</b>", "<b><font color='#90AD2F'>" + API.getHistory()[1].score.positive + " woots</font></b> | <b><font color='#C42E3B'>" + API.getHistory()[1].score.negative + " mehs</font></b> | <font color='#AA74FF'>" + API.getHistory()[1].score.grabs + " grabs.</font></b>" )
   })
 }}
 //STYLING SETTINGS//
@@ -257,6 +205,59 @@ if (dpsftropt == "true") {
  pbtn.addEventListener("mouseenter", showInfo); pbtn.addEventListener("mouseleave", hideInfo)
 }}
 dpsftrChange();
+//MAKING MENU WORK 
+var togglemenu = "no" //is needed
+var menuclicked = "no" //testing until it's clicked
+function menuClicked() { //to set up the menu
+ if (menuclicked == "no") {
+  setTimeout(function(){ menuclicked = "yes"; }, 0100);
+  dpsmaw.onclick=function(){ if (awopt == "true") { 
+    awopt = "false";
+    dpsoptUpdate(); 
+    setTimeout(function () { dpsAw() }, 0050); } 
+  else { 
+    awopt = "true"; 
+    dpsoptUpdate(); 
+    setTimeout(function () { dpsAw() }, 0050); }}
+  dpsmaj.onclick=function(){ if (ajopt == "true") { 
+    ajopt = "false";
+    dpsoptUpdate(); 
+    setTimeout(function () { dpsAj() }, 0050); } 
+  else { 
+    ajopt = "true"; 
+    dpsoptUpdate(); 
+    setTimeout(function () { dpsAj() }, 0050); }} 
+  dpsmxpp.onclick=function(){ if (xppopt == "true") { 
+    xppopt = "false"; 
+    dpsoptUpdate(); 
+    setTimeout(function () { dpsXpp() }, 0050); } 
+  else { 
+    xppopt = "true"; 
+    dpsoptUpdate(); 
+    setTimeout(function () { dpsXpp() }, 0050); }} 
+  dpsmdpsftr.onclick=function(){ if (dpsftropt == "true") { 
+    dpsftropt = "false"; 
+    dpsoptUpdate(); 
+    setTimeout(function () { dpsftrChange() }, 0050); } 
+  else { 
+    dpsftropt = "true"; 
+    dpsoptUpdate(); 
+    setTimeout(function () { dpsftrChange() }, 0050); }}
+}}
+function toggleMenu() { //toggle menu
+if (togglemenu == "no") {
+dpsmenu.style.display = "block"; //toggle some stuff
+dpslogo.style.display = "none";
+dpslogox.style.display = "block";
+togglemenu = "yes"
+} else {
+dpsmenu.style.display = "none"; //toggle some stuff
+dpslogo.style.display = "block";
+dpslogox.style.display = "none";
+togglemenu = "no"
+}}
+dpsbtn.addEventListener("click", toggleMenu) 
+dpsbtn.addEventListener("click", menuClicked) 
 var changelog = "dcvslab.github.io/dps/changelog"
 if (newuser == "true") {
   dpsMessaged("system", "from", "DPS has loaded <font color='" + ucolor + "'<b>v" + version + "</b></font>!", "Welcome to DPS, <font color = '" + ucolor + "'><b>" + user.username + "</b></font>!", "Info: <a href='http://dcvslab.github.io/dps'>dcvslab.github.io/dps</a> (COMING SOON)")
