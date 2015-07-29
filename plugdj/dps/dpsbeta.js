@@ -2,13 +2,12 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "yes"
-var version = "ALPHA 05.2 BETA";
+var release = "ALPHA"; var vnum = "05"; var subvnum = "3"; var commitnum = "1"; var beta = "BETA"
+var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
-var creator = {
-  username: "DCV",
-  id: "3639711",
-  sub: "1",
-}
+var media = API.getMedia();
+var history = API.getHistory
+var creator = { username: "DCV", id: "3639711", sub: "1" }
 var ucolor;
 if (user.gRole == "0") { if (user.role > 0) { ucolor = "#AC76FF" } else { if (user.sub == 1) { ucolor = "#C59840" } else { ucolor = "#FFDD6F" } } } else { if (user.gRole == "3") { ucolor = "#89BE6C" } else { ucolor = "#42A5DC" } }
 $("head").append("<link rel='stylesheet' type='text/css' href='https://rawgit.com/dcvslab/projects/master/plugdj/dps/styleSheet.css'>");
@@ -31,20 +30,18 @@ dpsn = dpsn + 1; dpseid = "dps-" + dpsn; dpsid = "dps-" + user.id + "-" + dpsn }
 if (_scroll) { $("#chat-messages")[0].scrollTop = $("#chat-messages")[0].scrollHeight; } //BORROWED WITH PERMISSION FROM BETATESTER/IGOR ADDCHAT SCRIPT
 if ($("#chat-messages").children().length > 512) {  $("#chat-messages").children().first().remove();  } //BORROWED WITH PERMISSION FROM BETATESTER/IGOR ADDCHAT SCRIPT
 var dpsopt = localStorage.getItem("dpsOpt"); //option stuff (END EDITED DAMS)
+var ldpsOpt = localStorage.getItem('dpsOpt');
+var getopt = JSON.parse(ldpsOpt);
 if (! dpsopt){ 
   var newuser = "true"
 var dpsOpt = { "dpsv": version, "awopt": "true", "ajopt": "true", "xppopt": "false", "dpsftropt": "false" };
 localStorage.setItem('dpsOpt', JSON.stringify(dpsOpt));
-var ldpsOpt = localStorage.getItem('dpsOpt');
-var getopt = JSON.parse(ldpsOpt);
 var dpsv = getopt.dpsv;
 var awopt = getopt.awopt;//load the options
 var ajopt = getopt.ajopt;
 var xppopt = getopt.xppopt;
 var dpsftropt = getopt.dpsftropt;
 } else {
-var ldpsOpt = localStorage.getItem('dpsOpt');
-var getopt = JSON.parse(ldpsOpt);
 var dpsv = getopt.dpsv
 var awopt = getopt.awopt;//load the options
 var ajopt = getopt.ajopt;
@@ -188,6 +185,18 @@ function dpsAj() { //autojoin//
   else {
     dpsmcheckaj.style.visibility = "hidden" }}
 dpsAj();
+//NOTIFICATION SETTINGS//
+var psongwoots = "0"
+var psongmehs = "0"
+var psonggrabs = "0"
+var psonginfo = "undefined"
+function dpsSs() { //song stats
+if (suopt == "true") {
+  API.on(API.ADVANCE, function(data) {
+  history = API.getHistory()
+  dpsMessaged("message", "from admin", "Song Stats", history + [0].user.username + " played " + history + [0].media.author + "-" + history + [0].media.title, "<font color='#90AD2F'>Woots: " + history + [0].score.positive + "</font><font color='#C42E3B'> Mehs: " + history + [0].score.negative + "</font><font color='#AA74FF'> Grabs: " + history + [0].score.grabs )
+  })
+}
 //STYLING SETTINGS//
 var progress = document.getElementsByClassName("progress")[0]; //change the xp bar to %
 progress.id = "progress";
