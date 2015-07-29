@@ -2,7 +2,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "yes"
-var release = "ALPHA"; var vnum = "05"; var subvnum = "3"; var commitnum = "1"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "05"; var subvnum = "3"; var commitnum = "2"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -186,17 +186,16 @@ function dpsAj() { //autojoin//
     dpsmcheckaj.style.visibility = "hidden" }}
 dpsAj();
 //NOTIFICATION SETTINGS//
-var psongwoots = "0"
-var psongmehs = "0"
-var psonggrabs = "0"
-var psonginfo = "undefined"
-function dpsSs() { //song stats
-if (suopt == "true") {
+var ssucolor; //song stats
+var ssuserid = API.getHistory()[0].user.id
+var ssuser = API.getUser(ssuserid)
+function dpsSs() { 
+if (ssopt == "true") {
   API.on(API.ADVANCE, function(data) {
-  history = API.getHistory()
-  dpsMessaged("message", "from admin", "Song Stats", history + [0].user.username + " played " + history + [0].media.author + "-" + history + [0].media.title, "<font color='#90AD2F'>Woots: " + history + [0].score.positive + "</font><font color='#C42E3B'> Mehs: " + history + [0].score.negative + "</font><font color='#AA74FF'> Grabs: " + history + [0].score.grabs )
+  if (ssuser.gRole == "0") { if (ssuser.role > 0) { ssucolor = "#AC76FF" } else { if (ssuser.sub == 1) { ssucolor = "#C59840" } else { ssucolor = "#FFDD6F" } } } else { if (ssuser.gRole == "3") { ssucolor = "#89BE6C" } else { ssucolor = "#42A5DC" } }
+  dpsMessaged("message", "from admin", "SONG STATS","<font color='" + sscolor + "'>" + API.getHistory()[0].user.username + "</font> played " + API.getHistory()[0].media.author + " - " + API.getHistory()[0].media.title, "<font color='#90AD2F'>Woots: " + API.getHistory()[0].score.positive + "</font> | <font color='#C42E3B'> Mehs: " + API.getHistory()[0].score.negative + "</font> | <font color='#AA74FF'> Grabs: " + API.getHistory()[0].score.grabs )
   })
-}
+}}
 //STYLING SETTINGS//
 var progress = document.getElementsByClassName("progress")[0]; //change the xp bar to %
 progress.id = "progress";
