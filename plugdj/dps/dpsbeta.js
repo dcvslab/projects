@@ -6,7 +6,8 @@ var release = "ALPHA"; var vnum = "05"; var subvnum = "3"; var commitnum = "2"; 
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
-var history = API.getHistory
+var history = API.getHistory;
+var ssucolor; 
 var creator = { username: "DCV", id: "3639711", sub: "1" }
 var ucolor;
 if (user.gRole == "0") { if (user.role > 0) { ucolor = "#AC76FF" } else { if (user.sub == 1) { ucolor = "#C59840" } else { ucolor = "#FFDD6F" } } } else { if (user.gRole == "3") { ucolor = "#89BE6C" } else { ucolor = "#42A5DC" } }
@@ -30,18 +31,20 @@ dpsn = dpsn + 1; dpseid = "dps-" + dpsn; dpsid = "dps-" + user.id + "-" + dpsn }
 if (_scroll) { $("#chat-messages")[0].scrollTop = $("#chat-messages")[0].scrollHeight; } //BORROWED WITH PERMISSION FROM BETATESTER/IGOR ADDCHAT SCRIPT
 if ($("#chat-messages").children().length > 512) {  $("#chat-messages").children().first().remove();  } //BORROWED WITH PERMISSION FROM BETATESTER/IGOR ADDCHAT SCRIPT
 var dpsopt = localStorage.getItem("dpsOpt"); //option stuff (END EDITED DAMS)
-var ldpsOpt = localStorage.getItem('dpsOpt');
-var getopt = JSON.parse(ldpsOpt);
 if (! dpsopt){ 
   var newuser = "true"
 var dpsOpt = { "dpsv": version, "awopt": "true", "ajopt": "true", "xppopt": "false", "dpsftropt": "false" };
 localStorage.setItem('dpsOpt', JSON.stringify(dpsOpt));
+var ldpsOpt = localStorage.getItem('dpsOpt');
+var getopt = JSON.parse(ldpsOpt);
 var dpsv = getopt.dpsv;
 var awopt = getopt.awopt;//load the options
 var ajopt = getopt.ajopt;
 var xppopt = getopt.xppopt;
 var dpsftropt = getopt.dpsftropt;
 } else {
+var ldpsOpt = localStorage.getItem('dpsOpt');
+var getopt = JSON.parse(ldpsOpt);
 var dpsv = getopt.dpsv
 var awopt = getopt.awopt;//load the options
 var ajopt = getopt.ajopt;
@@ -186,14 +189,23 @@ function dpsAj() { //autojoin//
     dpsmcheckaj.style.visibility = "hidden" }}
 dpsAj();
 //NOTIFICATION SETTINGS//
-var ssucolor; //song stats
+//song stats
 var ssuserid = API.getHistory()[0].user.id
 var ssuser = API.getUser(ssuserid)
+var sstopline;
+var ssmarquee; var ssmaruqeeend;
 function dpsSs() { 
 if (ssopt == "true") {
   API.on(API.ADVANCE, function(data) {
-  if (ssuser.gRole == "0") { if (ssuser.role > 0) { ssucolor = "#AC76FF" } else { if (ssuser.sub == 1) { ssucolor = "#C59840" } else { ssucolor = "#FFDD6F" } } } else { if (ssuser.gRole == "3") { ssucolor = "#89BE6C" } else { ssucolor = "#42A5DC" } }
-  dpsMessaged("message", "from admin", "SONG STATS","<font color='" + sscolor + "'>" + API.getHistory()[0].user.username + "</font> played " + API.getHistory()[0].media.author + " - " + API.getHistory()[0].media.title, "<font color='#90AD2F'>Woots: " + API.getHistory()[0].score.positive + "</font> | <font color='#C42E3B'> Mehs: " + API.getHistory()[0].score.negative + "</font> | <font color='#AA74FF'> Grabs: " + API.getHistory()[0].score.grabs )
+  ssuserid = API.getHistory()[0].user.id
+  ssuser = API.getUser(ssuserid)
+  if (user.id == ssuserid) { if (user.role == "0") { if (user.gRole == "0") { ssucolor = "#FFDD6F"}}} else {
+  if (! ssuser.gRole) { if (ssuser.role > 0) { ssucolor = "#AC76FF" } else { if (ssuser.sub == 1) { ssucolor = "#C59840" } else { ssucolor = "#777F92" } } } else { if (ssuser.gRole == "3") { ssucolor = "#89BE6C" } else { ssucolor = "#42A5DC" } }}
+  sstopline = API.getHistory()[0].user.username + " played " + API.getHistory()[0].media.author + " - " + API.getHistory()[0].media.title
+  if (sstopline > 44) {
+    ssmarquee = "<marquee scrollamount='4'>"; ssmarqueeend = "</marquee>" } else { ssmaruqee = ""; ssmaruqeeend = ""; }
+  setTimeout()
+  dpsMessaged("message", "from admin", "SONG STATS", sstopline = "<marquee scrollamount='4'><font color='" + ssucolor + "'><b>" + API.getHistory()[0].user.username + "</b></font> played <b>" + API.getHistory()[0].media.author + " - " + API.getHistory()[0].media.title + "</b></marquee>", "<font color='#90AD2F'>Woots: " + API.getHistory()[0].score.positive + "</font> | <font color='#C42E3B'> Mehs: " + API.getHistory()[0].score.negative + "</font> | <font color='#AA74FF'> Grabs: " + API.getHistory()[0].score.grabs )
   })
 }}
 //STYLING SETTINGS//
