@@ -142,14 +142,13 @@ var ssuser = API.getUser(ssuserid)
 var ssusercolor = "#FFF"
 function dpsSs() { 
 if (ssopt == "true") {
-  API.on(API.ADVANCE, function(data) {
+  API.on(API.ADVANCE, function(data) { 
   ssuserid = API.getHistory()[0].user.id
   ssuser = API.getUser(ssuserid)
   if (user.id == ssuserid) { if (user.role == "0") { if (user.gRole == "0") { if (user.sub == "0") { ssucolor = "#FFDD6F"}}}} else {
-
+  if (user.gRole == "0") { if (user.role > 0) { ucolor = "#AC76FF" } else { if (user.sub == 1) { ucolor = "#C59840" } else { ucolor = "#777F92" } } } else { if (user.gRole == "3") { ucolor = "#89BE6C" } else { ucolor = "#42A5DC" } }
   dpsMessaged("message", "from admin", "SONG STATS","<b><font color='" + ssucolor + "'>" + API.getHistory()[0].user.username + "</b></font> played <b>" + API.getHistory()[0].media.author + " - " + API.getHistory()[0].media.title + "</b>", "<b><font color='#90AD2F'>" + API.getHistory()[1].score.positive + " woots</font></b> | <b><font color='#C42E3B'>" + API.getHistory()[1].score.negative + " mehs</font></b> | <font color='#AA74FF'>" + API.getHistory()[1].score.grabs + " grabs.</font></b>" )
-  })
-}}
+})}}}
 //STYLING SETTINGS//
 var progress = document.getElementsByClassName("progress")[0]; //change the xp bar to %
 progress.id = "progress";
