@@ -2,7 +2,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "yes"
-var release = "ALPHA"; var vnum = "05"; var subvnum = "3"; var commitnum = "6"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "05"; var subvnum = "4"; var commitnum = "1"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -122,7 +122,7 @@ document.getElementById("chat").appendChild(dpsmenu);
 //FUNCTIONAL SETTINGS//
 function dpsAw() { //autowoot//
 if (awopt == "true") { 
-  API.on(API.ADVANCE, function(data) { document.getElementById("woot").click();})
+  document.getElementById("woot").click();
   dpsmcheckaw.style.visibility = "visible" }
 else {
   dpsmcheckaw.style.visibility = "hidden"
@@ -130,11 +130,11 @@ else {
 dpsAw();
 function dpsAj() { //autojoin//
   if (ajopt == "true") {
-    API.on(API.ADVANCE, function(data) { API.djJoin(); console.log("joined"); })
+    API.djJoin(); console.log("joined"); }
     dpsmcheckaj.style.visibility = "visible" }
   else {
     dpsmcheckaj.style.visibility = "hidden" }}
-dpsAj();
+dpsAj(); 
 //NOTIFICATION SETTINGS//
 //song stats
 var ssuserid = API.getHistory()[0].user.id
@@ -142,13 +142,12 @@ var ssuser = API.getUser(ssuserid)
 var ssusercolor = "#FFF"
 function dpsSs() { 
 if (ssopt == "true") {
-  API.on(API.ADVANCE, function(data) { 
   ssuserid = API.getHistory()[0].user.id
   ssuser = API.getUser(ssuserid)
   if (user.id == ssuserid) { if (user.role == "0") { if (user.gRole == "0") { if (user.sub == "0") { ssucolor = "#FFDD6F"}}}} else {
   if (user.gRole == "0") { if (user.role > 0) { ucolor = "#AC76FF" } else { if (user.sub == 1) { ucolor = "#C59840" } else { ucolor = "#777F92" } } } else { if (user.gRole == "3") { ucolor = "#89BE6C" } else { ucolor = "#42A5DC" } }
   dpsMessaged("message", "from admin", "SONG STATS","<b><font color='" + ssucolor + "'>" + API.getHistory()[0].user.username + "</b></font> played <b>" + API.getHistory()[0].media.author + " - " + API.getHistory()[0].media.title + "</b>", "<b><font color='#90AD2F'>" + API.getHistory()[1].score.positive + " woots</font></b> | <b><font color='#C42E3B'>" + API.getHistory()[1].score.negative + " mehs</font></b> | <font color='#AA74FF'>" + API.getHistory()[1].score.grabs + " grabs.</font></b>" )
-})}}}
+}}}
 //STYLING SETTINGS//
 var progress = document.getElementsByClassName("progress")[0]; //change the xp bar to %
 progress.id = "progress";
@@ -204,6 +203,11 @@ if (dpsftropt == "true") {
  pbtn.addEventListener("mouseenter", showInfo); pbtn.addEventListener("mouseleave", hideInfo)
 }}
 dpsftrChange();
+API.on(API.ADVANCE, function(data) { 
+  dpsAw();
+  dpsAj();
+  dpsSs();
+})
 //MAKING MENU WORK 
 var togglemenu = "no" //is needed
 var menuclicked = "no" //testing until it's clicked
