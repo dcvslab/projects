@@ -2,7 +2,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "yes"
-var release = "ALPHA"; var vnum = "05"; var subvnum = "4"; var commitnum = "4"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "06"; var subvnum = "1"; var commitnum = "1"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -172,7 +172,7 @@ if (npopt == "true") {
   setTimeout(function(){
   if (user.id == dj.id) { if (dj.role == "0") { if (dj.gRole == "0") { if (dj.sub == "0") { djcolor = "#FFDD6F"}}}} else {
   if (dj.gRole == "0") { if (dj.role > 0) { djcolor = "#AC76FF" } else { if (dj.sub == 1) { djcolor = "#C59840" } else { djcolor = "#777F92" } } } else { if (dj.gRole == "3") { djcolor = "#89BE6C" } else { djcolor = "#42A5DC" } }
-  dpsMessaged("message", "from admin", "CURRENT SONG", "<b>DJ: <font color='" + djcolor + "'>" + dj.username + "</font><a href='http://youtu.be/" + media.cid + ">" + media.author + " - " + media.title + "</a></b>")
+  dpsMessaged("message", "from admin", "CURRENT SONG", "<b>DJ: <font color='" + djcolor + "'>" + dj.username + "</font><a href='http://youtu.be/" + media.cid + ">" + media.author + " - " + media.title + "</a></b>")}
 //STYLING SETTINGS//
 var progress = document.getElementsByClassName("progress")[0]; //change the xp bar to %
 progress.id = "progress";
