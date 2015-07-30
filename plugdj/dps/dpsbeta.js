@@ -158,10 +158,21 @@ if (ssopt == "true") {
   ssucolor;
   setTimeout(function(){ 
   if (user.id == ssuserid) { if (ssuser.role == "0") { if (ssuser.gRole == "0") { if (ssuser.sub == "0") { ssucolor = "#FFDD6F"}}}} else {
-  if (user.gRole == "0") { if (user.role > 0) { ssucolor = "#AC76FF" } else { if (ssuser.sub == 1) { ssucolor = "#C59840" } else { ssucolor = "#777F92" } } } else { if (ssuser.gRole == "3") { ssucolor = "#89BE6C" } else { ssucolor = "#42A5DC" } }
+  if (ssuser.gRole == "0") { if (ssuser.role > 0) { ssucolor = "#AC76FF" } else { if (ssuser.sub == 1) { ssucolor = "#C59840" } else { ssucolor = "#777F92" } } } else { if (ssuser.gRole == "3") { ssucolor = "#89BE6C" } else { ssucolor = "#42A5DC" } }
   dpsMessaged("message", "from admin", "SONG STATS","<b><font color='" + ssucolor + "'>" + API.getHistory()[1].user.username + "</b></font> played <b>" + API.getHistory()[1].media.author + " - " + API.getHistory()[1].media.title + "</b>", "<b><font color='#90AD2F'>" + API.getHistory()[1].score.positive + " woots</font></b> | <b><font color='#C42E3B'>" + API.getHistory()[1].score.negative + " mehs</font></b> | <font color='#AA74FF'>" + API.getHistory()[0].score.grabs + " grabs</font></b> | <font color='#8493b0'><b>" + API.getHistory()[1].score.listeners + " users</b></font>" )
   }}, 1000); }}
 function dpsssCheck() {if (ssopt == "true") {dpsmcheckss.style.visibility = "visible" } else {dpsmcheckss.style.visibility = "hidden"}}
+var ssuser = API.getUser(ssuserid)
+var ssucolor;
+function dpsNp() { 
+if (npopt == "true") {
+  var dj = API.getDJ()
+  var media = API.getMedia()
+  djcolor;
+  setTimeout(function(){
+  if (user.id == dj.id) { if (dj.role == "0") { if (dj.gRole == "0") { if (dj.sub == "0") { djcolor = "#FFDD6F"}}}} else {
+  if (dj.gRole == "0") { if (dj.role > 0) { djcolor = "#AC76FF" } else { if (dj.sub == 1) { djcolor = "#C59840" } else { djcolor = "#777F92" } } } else { if (dj.gRole == "3") { djcolor = "#89BE6C" } else { djcolor = "#42A5DC" } }
+  dpsMessaged("message", "from admin", "CURRENT SONG", "<b>DJ: <font color='" + djcolor + "'>" + dj.username + "</font><a href='http://youtu.be/" + media.cid + ">" + media.author + " - " + media.title + "</a></b>")
 //STYLING SETTINGS//
 var progress = document.getElementsByClassName("progress")[0]; //change the xp bar to %
 progress.id = "progress";
