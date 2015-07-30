@@ -2,7 +2,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "yes"
-var release = "ALPHA"; var vnum = "05"; var subvnum = "4"; var commitnum = "2"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "05"; var subvnum = "4"; var commitnum = "3"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -59,6 +59,7 @@ function dpsoptUpdate() { //update
   ldpsOpt = localStorage.getItem('dpsOpt');
   getopt = JSON.parse(ldpsOpt);
 }
+if (! awopt) { awopt = "true" }; if (! ajopt) { ajopt = "true" }; if (! ssopt) { ssopt = "true" }; if (! xppopt) { xppopt = "false" }; if (! dpsftropt) { dpsftropt = "false" }; 
 setTimeout(function () { 
 dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt,"ssopt": ssopt, "xppopt": xppopt, "dpsftropt": dpsftropt };
 }, 100);
