@@ -2,7 +2,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "yes"
-var release = "ALPHA"; var vnum = "05"; var subvnum = "4"; var commitnum = "1"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "05"; var subvnum = "4"; var commitnum = "2"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -20,43 +20,47 @@ function dpsMessaged(cmtype, nameclass, nametext, messagetext, messagetext2) { /
   if (! messagetext) { messagetext="" };
   if (! messagetext2) { messagetext2=""};
 $("#chat-messages").append("<div data-cid='" + dpsid + "' class='cm " + cmtype + "' stlye='padding-left: 5px'><div class='msg cid-" + dpsid + "' style='padding-left: 10px'><div class ='" + nameclass + "'><span class='un'>" + nametext + "</span><span style='display: inline;' class='timestamp'>" + time + "</span></div><div class='text cid-" + dpsid + "'>" + messagetext +"</div><div class='text cid-" + dpsid + "'>" + messagetext2 +"</div></div></div>");
-dpsn = dpsn + 1; dpseid = "dps-" + dpsn; dpsid = "dps-" + user.id + "-" + dpsn }
+dpsn = dpsn + 1; dpseid = "dps-" + dpsn; dpsid = "dps-" + user.id + "-" + dpsn
+if (_scroll) { $("#chat-messages")[0].scrollTop = $("#chat-messages")[0].scrollHeight; }
+if ($("#chat-messages").children().length > 512) {  $("#chat-messages").children().first().remove();  }}
 function dpsMessage(cmtype, nameclass, nametext, messagetext) { //one line
   if (! nameclass) { nameclass="" };
   if (! nametext) { nametext=""};
   if (! messagetext) { messagetext="" };
 $("#chat-messages").append("<div data-cid='" + dpsid + "' class='cm " + cmtype + "'  stlye='padding-left: 5px'><div class='msg cid-" + dpsid + "' style='padding-left: 10px'><div class ='" + nameclass + "'><span class='un'>" + nametext + "</span><span style='display: inline;' class='timestamp'>" + time + "</span></div><div class='text cid-" + dpsid + "'>" + messagetext +"</div></div></div>");
-dpsn = dpsn + 1; dpseid = "dps-" + dpsn; dpsid = "dps-" + user.id + "-" + dpsn }
-if (_scroll) { $("#chat-messages")[0].scrollTop = $("#chat-messages")[0].scrollHeight; } //BORROWED WITH PERMISSION FROM BETATESTER/IGOR ADDCHAT SCRIPT
-if ($("#chat-messages").children().length > 512) {  $("#chat-messages").children().first().remove();  } //BORROWED WITH PERMISSION FROM BETATESTER/IGOR ADDCHAT SCRIPT
+dpsn = dpsn + 1; dpseid = "dps-" + dpsn; dpsid = "dps-" + user.id + "-" + dpsn 
+if (_scroll) { $("#chat-messages")[0].scrollTop = $("#chat-messages")[0].scrollHeight; } 
+if ($("#chat-messages").children().length > 512) {  $("#chat-messages").children().first().remove();  }}
 var dpsopt = localStorage.getItem("dpsOpt"); //option stuff (END EDITED DAMS)
 if (! dpsopt) { 
 var newuser = "true"
-var dpsOpt = { "dpsv": version, "awopt": "true", "ajopt": "true", "xppopt": "false", "dpsftropt": "false" };
+var dpsOpt = { "dpsv": version, "awopt": "true", "ajopt": "true", "ssopt": "false", "xppopt": "false", "dpsftropt": "false" };
 localStorage.setItem('dpsOpt', JSON.stringify(dpsOpt));
 var ldpsOpt = localStorage.getItem('dpsOpt');
 var getopt = JSON.parse(ldpsOpt);
 var dpsv = getopt.dpsv;
-var awopt = getopt.awopt;//load the options
+var awopt = getopt.awopt;//function options
 var ajopt = getopt.ajopt;
-var xppopt = getopt.xppopt;
+var ssopt = getopt.ssopt; //notification options
+var xppopt = getopt.xppopt; //style options
 var dpsftropt = getopt.dpsftropt;
 } else {
 var ldpsOpt = localStorage.getItem('dpsOpt');
 var getopt = JSON.parse(ldpsOpt);
 var dpsv = getopt.dpsv
-var awopt = getopt.awopt;//load the options
+var awopt = getopt.awopt;//function options
 var ajopt = getopt.ajopt;
-var xppopt = getopt.xppopt;
+var ssopt = getopt.ssopt; //notification options
+var xppopt = getopt.xppopt;//style options
 var dpsftropt = getopt.dpsftropt; }
 function dpsoptUpdate() { //update
-  dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt, "xppopt": xppopt, "dpsftropt": dpsftropt };
+  dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt, "ssopt": ssopt, "xppopt": xppopt, "dpsftropt": dpsftropt };
   localStorage.setItem('dpsOpt', JSON.stringify(dpsoptPush));
   ldpsOpt = localStorage.getItem('dpsOpt');
   getopt = JSON.parse(ldpsOpt);
 }
 setTimeout(function () { 
-dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt, "xppopt": xppopt, "dpsftropt": dpsftropt };
+dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt,"ssopt": ssopt, "xppopt": xppopt, "dpsftropt": dpsftropt };
 }, 100);
 var oldversion = dpsv
 dpsoptUpdate()
@@ -93,6 +97,8 @@ var dpsmcheckaw = document.createElement("i") //create woot check
 dpsmcheckaw.className = "icon icon-check-purple dpsmcheck";
 var dpsmcheckaj = document.createElement("i") //create autojoin check
 dpsmcheckaj.className = "icon icon-check-purple dpsmcheck";
+var dpsmcheckss = document.createElement("i") //create song stats check
+dpsmcheckss.className = "icon icon-check-purple dpsmcheck";
 var dpsmcheckxpp = document.createElement("i") //create xp to percent check
 dpsmcheckxpp.className = "icon icon-check-purple dpsmcheck";
 var dpsmcheckdpsftr = document.createElement("i") //create dps footer check
@@ -107,6 +113,11 @@ var dpsmajtxt = document.createElement("span");
 dpsmajtxt.innerHTML = "Auto-Join"; dpsmajtxt.className = "dpsmrowtext"
 dpsmaj.className = "dpsmrow";
 dpsmaj.appendChild(dpsmajtxt); dpsmaj.appendChild(dpsmcheckaj); dpsmenu.appendChild(dpsmaj);
+var dpsmss = document.createElement("div"); //autojoin option
+var dpsmsstxt = document.createElement("span");
+dpsmsstxt.innerHTML = "Song Stats"; dpsmsstxt.className = "dpsmrowtext"
+dpsmss.className = "dpsmrow";
+dpsmss.appendChild(dpsmsstxt); dpsmss.appendChild(dpsmcheckss); dpsmenu.appendChild(dpsmss);
 var dpsmxpp = document.createElement("div"); // xp to percent option
 var dpsmxpptxt = document.createElement("span");
 dpsmxpptxt.innerHTML = "Change XP To Percent"; dpsmxpptxt.className = "dpsmrowtext"
@@ -130,7 +141,7 @@ else {
 dpsAw();
 function dpsAj() { //autojoin//
   if (ajopt == "true") {
-    API.djJoin(); console.log("joined"); }
+    API.djJoin(); console.log("joined"); 
     dpsmcheckaj.style.visibility = "visible" }
   else {
     dpsmcheckaj.style.visibility = "hidden" }}
@@ -139,14 +150,14 @@ dpsAj();
 //song stats
 var ssuserid = API.getHistory()[0].user.id
 var ssuser = API.getUser(ssuserid)
-var ssusercolor = "#FFF"
+var ssucolor = "#FFF"
 function dpsSs() { 
 if (ssopt == "true") {
   ssuserid = API.getHistory()[0].user.id
   ssuser = API.getUser(ssuserid)
   if (user.id == ssuserid) { if (user.role == "0") { if (user.gRole == "0") { if (user.sub == "0") { ssucolor = "#FFDD6F"}}}} else {
   if (user.gRole == "0") { if (user.role > 0) { ucolor = "#AC76FF" } else { if (user.sub == 1) { ucolor = "#C59840" } else { ucolor = "#777F92" } } } else { if (user.gRole == "3") { ucolor = "#89BE6C" } else { ucolor = "#42A5DC" } }
-  dpsMessaged("message", "from admin", "SONG STATS","<b><font color='" + ssucolor + "'>" + API.getHistory()[0].user.username + "</b></font> played <b>" + API.getHistory()[0].media.author + " - " + API.getHistory()[0].media.title + "</b>", "<b><font color='#90AD2F'>" + API.getHistory()[1].score.positive + " woots</font></b> | <b><font color='#C42E3B'>" + API.getHistory()[1].score.negative + " mehs</font></b> | <font color='#AA74FF'>" + API.getHistory()[1].score.grabs + " grabs.</font></b>" )
+  dpsMessaged("message", "from admin", "SONG STATS","<b><font color='" + ssucolor + "'>" + API.getHistory()[0].user.username + "</b></font> played <b>" + API.getHistory()[0].media.author + " - " + API.getHistory()[0].media.title + "</b>", "<b><font color='#90AD2F'>" + API.getHistory()[0].score.positive + " woots</font></b> | <b><font color='#C42E3B'>" + API.getHistory()[0].score.negative + " mehs</font></b> | <font color='#AA74FF'>" + API.getHistory()[0].score.grabs + " grabs</font></b> | <font color='#8493b0'><b>" + API.getHistory()[0].score.listeners + " users</b></font>" )
 }}}
 //STYLING SETTINGS//
 var progress = document.getElementsByClassName("progress")[0]; //change the xp bar to %
@@ -230,6 +241,12 @@ function menuClicked() { //to set up the menu
     ajopt = "true"; 
     dpsoptUpdate(); 
     setTimeout(function () { dpsAj() }, 0050); }} 
+  dpsmss.onclick=function(){ if (ssopt == "true") { 
+    ssopt = "false"; 
+    dpsoptUpdate(); } 
+  else { 
+    ssopt = "true"; 
+    dpsoptUpdate(); }}
   dpsmxpp.onclick=function(){ if (xppopt == "true") { 
     xppopt = "false"; 
     dpsoptUpdate(); 
