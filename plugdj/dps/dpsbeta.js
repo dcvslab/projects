@@ -2,7 +2,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "yes"
-var release = "ALPHA"; var vnum = "06"; var subvnum = "1"; var commitnum = "3"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "06"; var subvnum = "1"; var commitnum = "4"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -173,7 +173,7 @@ if (ssopt == "true") {
   if (user.id == ssuserid) { if (ssuser.role == "0") { if (ssuser.gRole == "0") { if (ssuser.sub == "0") { ssucolor = "#FFDD6F"}}}} else {
   if (ssuser.gRole > "0") { if (ssuser.gRole == "3") { ssuclass = "ba" } else { ssuclass = "admin" }} else { if (ssuser.role > "0") { ssuclass = "staff" } else { if (ssuser.sub == "1") { ssuclass = "sub" } else { ssuclass = "user" }}
   dpsMessaged("message", "from admin", "SONG STATS","<b class='ssuclass'>" + API.getHistory()[1].user.username + "</b> played <b>" + API.getHistory()[1].media.author + " - " + API.getHistory()[1].media.title + "</b>", "<b class='green'>" + API.getHistory()[1].score.positive + " woots</b> | <b class='red'>" + API.getHistory()[1].score.negative + " mehs</b> | <b class='gpurple'>" + API.getHistory()[0].score.grabs + " grabs</b> | <b class='bluegray'>" + API.getHistory()[1].score.listeners + " listeners</b>" )
-  }}, 500); }}
+  }}}, 500); }}
 function dpsssCheck() {if (ssopt == "true") {dpsmcheckss.style.visibility = "visible" } else {dpsmcheckss.style.visibility = "hidden"}}
 var dj = API.getDJ() //now playing
 var media = API.getMedia()
