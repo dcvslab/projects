@@ -1,31 +1,31 @@
-.admin { /*ALPHA 06 */
+.dpsadmin { /*ALPHA 06 */
   color: #42A5DC;
 }
-.ba { /*ALPHA 06 */
+.dpsba { /*ALPHA 06 */
   color: #89BE6C;
 }
-.staff { /*ALPHA 06 */
+.dpsstaff { /*ALPHA 06 */
   color: #AC76FF;
 }
-.sub { /*ALPHA 06 */
+.dpssub { /*ALPHA 06 */
   color: #C59840;
 }
-.you { /*ALPHA 06 */
+.dpsyou { /*ALPHA 06 */
   color: #FFDD6F;
 }
-.user { /*ALPHA 06 */
+.dpsuser { /*ALPHA 06 */
   color: #777F92;
 }
-.green { /* ALPHA 06 */
+.dpsgreen { /* ALPHA 06 */
   color: #90AD2F; /* woot color */
 }
-.red { /* ALPHA O6 */
+.dpsred { /* ALPHA O6 */
  color: #C42E3B; /*meh color */
 }
-.gpurple { /*ALPHA 06 */
+.dpsgpurple { /*ALPHA 06 */
   color: #AA74FF; /* grab color */
 }
-.bluegray { /* ALPHA 06 */
+.dpsbluegray { /* ALPHA 06 */
   color: #8493B0; /* color of most icons */
 }
 #dps-button { /*ALPHA 05 */
