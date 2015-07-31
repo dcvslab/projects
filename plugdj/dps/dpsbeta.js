@@ -2,7 +2,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if ( !on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "06"; var subvnum = "2"; var commitnum = "2"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "06"; var subvnum = "2"; var commitnum = "3"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -179,14 +179,16 @@ if (ssopt == "true") {
 function dpsssCheck() {if (ssopt == "true") {dpsmcheckss.style.visibility = "visible" } else {dpsmcheckss.style.visibility = "hidden"}}
 var dj = API.getDJ() //now playing
 var media = API.getMedia()
-var djcolor;
+var djclass; var minute; var slength; var secondval; var second;
 function dpsNp() { 
 if (npopt == "true") {
   setTimeout(function(){
-  dj = API.getDJ(); media = API.getMedia(); djcolor;
+  dj = API.getDJ(); media = API.getMedia(); djcolor; 
+  slength = media.duration / 60; minute = minuteval.toString().split(".")[0]
+  secondval = slength.toString().split(".")[1]; second = 60*secondval
   if (user.id == dj.id) { if (dj.role == "0") { if (dj.gRole == "0") { if (dj.sub == "0") { djcolor = "#FFDD6F"}}}} else {
-  if (! dj.gRole) { if (dj.role > 0) { djcolor = "#AC76FF" } else { if (dj.sub == 1) { djcolor = "#C59840" } else { djcolor = "#777F92" } } } else { if (dj.gRole == "3") { djcolor = "#89BE6C" } else { djcolor = "#42A5DC" } }}
-  dpsMessaged("message", "from admin", "NOW PLAYING", "<font color='#DEDEDE'>DJ: </font><b><font color='" + djcolor + "'>" + dj.username + "</font></b>", "<font color='#DEDEDE'>SONG: </font><b>" + media.author + " - " + media.title + "</a></b>")
+ if (dj.gRole > "0") { if (dj.gRole == "3") { djclass = "ba" } else { djclass = "admin" }} else { if (dj.role > "0") { djclass = "staff" } else { if (dj.sub == "1") { djclass = "sub" } else { djclass = "user" }}}}
+  dpsMessaged("message", "from admin", "NOW PLAYING", "<b class='" + djclass + "'>" + dj.username + "</b> is playing <b>" + media.author + " - " + media.title + "</b>" , "It is <b>" + )
   }, 500); }}
 function dpsnpCheck() {if (npopt == "true") {dpsmchecknp.style.visibility = "visible" } else {dpsmchecknp.style.visibility = "hidden"}}
 //STYLING SETTINGS
