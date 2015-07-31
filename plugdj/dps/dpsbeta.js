@@ -1,6 +1,8 @@
 //THIS IS WHERE THE SCRIPT WILL BE TESTED BEFORE THE OFFICIAL.
 //DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
-var release = "ALPHA"; var vnum = "06"; var subvnum = "1"; var commitnum = "8"; var beta = "BETA"
+if ( !on) {
+var on = "on"
+var release = "ALPHA"; var vnum = "06"; var subvnum = "2"; var commitnum = "1"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -47,6 +49,7 @@ var dpsv = getopt.dpsv;
 var awopt = getopt.awopt;//function options
 var ajopt = getopt.ajopt;
 var ssopt = getopt.ssopt; //notification options
+var npopt = getopt.npopt
 var xppopt = getopt.xppopt; //style options
 var dpsftropt = getopt.dpsftropt;
 } else {
@@ -56,6 +59,7 @@ var dpsv = getopt.dpsv
 var awopt = getopt.awopt;//function options
 var ajopt = getopt.ajopt;
 var ssopt = getopt.ssopt; //notification options
+var npopt = getopt.npopt
 var xppopt = getopt.xppopt;//style options
 var dpsftropt = getopt.dpsftropt; }
 function dpsoptUpdate() { //update
@@ -64,7 +68,7 @@ function dpsoptUpdate() { //update
   ldpsOpt = localStorage.getItem('dpsOpt');
   getopt = JSON.parse(ldpsOpt);
 }
-if (! awopt) { awopt = "true" }; if (! ajopt) { ajopt = "true" }; if (! ssopt) { ssopt = "true" }; if (! xppopt) { xppopt = "false" }; if (! dpsftropt) { dpsftropt = "false" }; 
+if (! awopt) { awopt = "true" }; if (! ajopt) { ajopt = "true" }; if (! ssopt) { ssopt = "false" }; if (! xppopt) { xppopt = "false" }; if (! dpsftropt) { dpsftropt = "false" }; if (! npopt) { npopt = "false" };
 setTimeout(function () { 
 dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt,"ssopt": ssopt, "xppopt": xppopt, "dpsftropt": dpsftropt };
 }, 100);
@@ -324,3 +328,6 @@ if (version == dpsv) {
 } else {
   dpsMessaged("system", "from", "DPS has loaded <b class='" + uclass + "'>v" + version + "</b>!", "You last used <b class='" + uclass + "'>v" + oldversion + "</b>.","Changelog: <a href='http://dcvslab.github.io/dps/changelog.txt'>" + changelog + "</a>")
 }}
+} else {
+ dpsMessage("system", "from", "DPS is already on!", "To reload DPS, refresh the page and click the bookmark again!")
+}
