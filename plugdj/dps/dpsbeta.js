@@ -2,21 +2,21 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "yes"
-var release = "ALPHA"; var vnum = "06"; var subvnum = "1"; var commitnum = "2"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "06"; var subvnum = "1"; var commitnum = "3"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
 var history = API.getHistory;
 var creator = { username: "DCV", id: "3639711", sub: "1" }
 var ucolor;
-if (! user.gRole) { //get color
-	if (user.role > 0) { ucolor = "#AC76FF" } 
+if (user.gRole > "0") { //get color
+	if (user.gRole == "3") { uclass = "ba" }
+	else { uclass = "admin" }}
+else {
+	if (user.role > "0") { uclass = "staff" }
 	else { 
-		if (user.sub == 1) { ucolor = "#C59840" }
-		else { ucolor = "#FFDD6F" } } 
-} else { 
-	if (user.gRole == "3") { ucolor = "#89BE6C" } 
-	else { ucolor = "#42A5DC" } }
+		if (user.sub == "1") { uclass = "sub" }
+		else { uclass = "you" }}
 $("head").append("<link rel='stylesheet' type='text/css' href='https://rawgit.com/dcvslab/projects/master/plugdj/dps/styleSheet.css'>");
 //DAMS (http://github.com/dcvslab/projects/plugdj/dams.js) (this is an EXTREMELY edited version)
 var dpsn = 1; dpseid = "DPS-" + dpsn; var dpsid = "DPS-" + user.id + "-" + dpsn; var time = "DPS";
@@ -107,6 +107,8 @@ var dpsmcheckaj = document.createElement("i") //create autojoin check
 dpsmcheckaj.className = "icon icon-check-purple dpsmcheck";
 var dpsmcheckss = document.createElement("i") //create song stats check
 dpsmcheckss.className = "icon icon-check-purple dpsmcheck";
+var dpsmchecknp = document.createElement("i") //create now playing check
+dpsmchecknp.className = "icon icon-check-purple dpsmcheck";
 var dpsmcheckxpp = document.createElement("i") //create xp to percent check
 dpsmcheckxpp.className = "icon icon-check-purple dpsmcheck";
 var dpsmcheckdpsftr = document.createElement("i") //create dps footer check
@@ -121,11 +123,16 @@ var dpsmajtxt = document.createElement("span");
 dpsmajtxt.innerHTML = "Auto-Join"; dpsmajtxt.className = "dpsmrowtext"
 dpsmaj.className = "dpsmrow";
 dpsmaj.appendChild(dpsmajtxt); dpsmaj.appendChild(dpsmcheckaj); dpsmenu.appendChild(dpsmaj);
-var dpsmss = document.createElement("div"); //autojoin option
+var dpsmss = document.createElement("div"); //song stats option
 var dpsmsstxt = document.createElement("span");
 dpsmsstxt.innerHTML = "Song Stats"; dpsmsstxt.className = "dpsmrowtext"
 dpsmss.className = "dpsmrow";
 dpsmss.appendChild(dpsmsstxt); dpsmss.appendChild(dpsmcheckss); dpsmenu.appendChild(dpsmss);
+var dpsmnp = document.createElement("div"); //now playing option
+var dpsmnptxt = document.createElement("span");
+dpsmnptxt.innerHTML = "Now Playing"; dpsmnptxt.className = "dpsmrowtext"
+dpsmnp.className = "dpsmrow";
+dpsmnp.appendChild(dpsmnptxt); dpsmnp.appendChild(dpsmchecknp); dpsmenu.appendChild(dpsmnp);
 var dpsmxpp = document.createElement("div"); // xp to percent option
 var dpsmxpptxt = document.createElement("span");
 dpsmxpptxt.innerHTML = "Change XP To Percent"; dpsmxpptxt.className = "dpsmrowtext"
@@ -164,8 +171,8 @@ if (ssopt == "true") {
   ssuser = API.getUser(ssuserid)
   ssucolor;
   if (user.id == ssuserid) { if (ssuser.role == "0") { if (ssuser.gRole == "0") { if (ssuser.sub == "0") { ssucolor = "#FFDD6F"}}}} else {
-  if (! ssuser.gRole) { if (ssuser.role > 0) { ssucolor = "#AC76FF" } else { if (ssuser.sub == 1) { ssucolor = "#C59840" } else { ssucolor = "#777F92" } } } else { if (ssuser.gRole == "3") { ssucolor = "#89BE6C" } else { ssucolor = "#42A5DC" } }
-  dpsMessaged("message", "from admin", "SONG STATS","<b><font color='" + ssucolor + "'>" + API.getHistory()[1].user.username + "</b></font> played <b>" + API.getHistory()[1].media.author + " - " + API.getHistory()[1].media.title + "</b>", "<b><font color='#90AD2F'>" + API.getHistory()[1].score.positive + " woots</font></b> | <b><font color='#C42E3B'>" + API.getHistory()[1].score.negative + " mehs</font></b> | <font color='#AA74FF'>" + API.getHistory()[0].score.grabs + " grabs</font></b> | <font color='#8493b0'><b>" + API.getHistory()[1].score.listeners + " listeners</b></font>" )
+  if (ssuser.gRole > "0") { if (ssuser.gRole == "3") { ssuclass = "ba" } else { ssuclass = "admin" }} else { if (ssuser.role > "0") { ssuclass = "staff" } else { if (ssuser.sub == "1") { ssuclass = "sub" } else { ssuclass = "user" }}
+  dpsMessaged("message", "from admin", "SONG STATS","<b class='ssuclass'>" + API.getHistory()[1].user.username + "</b> played <b>" + API.getHistory()[1].media.author + " - " + API.getHistory()[1].media.title + "</b>", "<b class='green'>" + API.getHistory()[1].score.positive + " woots</b> | <b class='red'>" + API.getHistory()[1].score.negative + " mehs</b> | <b class='gpurple'>" + API.getHistory()[0].score.grabs + " grabs</b> | <b class='bluegray'>" + API.getHistory()[1].score.listeners + " listeners</b>" )
   }}, 500); }}
 function dpsssCheck() {if (ssopt == "true") {dpsmcheckss.style.visibility = "visible" } else {dpsmcheckss.style.visibility = "hidden"}}
 var dj = API.getDJ() //now playing
@@ -177,9 +184,10 @@ if (npopt == "true") {
   dj = API.getDJ(); media = API.getMedia(); djcolor;
   if (user.id == dj.id) { if (dj.role == "0") { if (dj.gRole == "0") { if (dj.sub == "0") { djcolor = "#FFDD6F"}}}} else {
   if (! dj.gRole) { if (dj.role > 0) { djcolor = "#AC76FF" } else { if (dj.sub == 1) { djcolor = "#C59840" } else { djcolor = "#777F92" } } } else { if (dj.gRole == "3") { djcolor = "#89BE6C" } else { djcolor = "#42A5DC" } }
-  dpsMessaged("message", "from admin", "CURRENT SONG", "<b>DJ: <font color='" + djcolor + "'>" + dj.username + "</font>", "SONG: <a href='http://youtu.be/" + media.cid + "'>" + media.author + " - " + media.title + "</a></b>")
+  dpsMessaged("message", "from admin", "NOW PLAYING", "<font color='#DEDEDE'>DJ: </font><b><font color='" + djcolor + "'>" + dj.username + "</font></b>", "<font color='#DEDEDE'>SONG: </font><b>" + media.author + " - " + media.title + "</a></b>")
   }}, 500); }}
-//STYLING SETTINGS//
+function dpsnpCheck() {if (npopt == "true") {dpsmchecknp.style.visibility = "visible" } else {dpsmchecknp.style.visibility = "hidden"}}
+//STYLING SETTINGS
 var progress = document.getElementsByClassName("progress")[0]; //change the xp bar to %
 progress.id = "progress";
 var percent = progress.style.width;
@@ -270,6 +278,14 @@ function menuClicked() { //to set up the menu
     ssopt = "true";
     dpsmcheckss.style.visibility = "visible"
     dpsoptUpdate(); dpsssCheck() }}
+  dpsmnp.onclick=function(){ if (npopt == "true") { 
+    npopt = "false"; 
+    dpsmchecknp.style.visibility = "hidden"
+    dpsoptUpdate(); dpsnpCheck() } 
+  else { 
+    npopt = "true";
+    dpsmchecknp.style.visibility = "visible"
+    dpsoptUpdate(); dpsnpCheck() }}
   dpsmxpp.onclick=function(){ if (xppopt == "true") { 
     xppopt = "false"; 
     dpsoptUpdate(); 
