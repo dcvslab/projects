@@ -2,7 +2,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if ( !on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "06"; var subvnum = "2"; var commitnum = "3"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "06"; var subvnum = "2"; var commitnum = "4"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -10,13 +10,13 @@ var history = API.getHistory;
 var creator = { username: "DCV", id: "3639711", sub: "1" }
 var uclass;
 if (user.gRole > "0") { //get color
-	if (user.gRole == "3") { uclass = "ba" }
-	else { uclass = "admin" }}
+	if (user.gRole == "3") { uclass = "dpsba" }
+	else { uclass = "dpsadmin" }}
 else {
-	if (user.role > "0") { uclass = "staff" }
+	if (user.role > "0") { uclass = "dpsstaff" }
 	else { 
-		if (user.sub == "1") { uclass = "sub" }
-		else { uclass = "you" }}}
+		if (user.sub == "1") { uclass = "dpssub" }
+		else { uclass = "dpsyou" }}}
 $("head").append("<link rel='stylesheet' type='text/css' href='https://rawgit.com/dcvslab/projects/master/plugdj/dps/styleSheet.css'>");
 //DAMS (http://github.com/dcvslab/projects/plugdj/dams.js) (this is an EXTREMELY edited version)
 var dpsn = 1; dpseid = "DPS-" + dpsn; var dpsid = "DPS-" + user.id + "-" + dpsn; var time = "DPS";
@@ -172,23 +172,23 @@ if (ssopt == "true") {
   ssuserid = API.getHistory()[1].user.id
   ssuser = API.getUser(ssuserid)
   ssucolor;
-  if (user.id == ssuserid) { if (ssuser.role == "0") { if (ssuser.gRole == "0") { if (ssuser.sub == "0") { ssucolor = "#FFDD6F"}}}} else {
-  if (ssuser.gRole > "0") { if (ssuser.gRole == "3") { ssuclass = "ba" } else { ssuclass = "admin" }} else { if (ssuser.role > "0") { ssuclass = "staff" } else { if (ssuser.sub == "1") { ssuclass = "sub" } else { ssuclass = "user" }}}}
+  if (user.id == ssuserid) { if (ssuser.role == "0") { if (ssuser.gRole == "0") { if (ssuser.sub == "0") { ssuclass = "dpsyou"}}}} else {
+  if (ssuser.gRole > "0") { if (ssuser.gRole == "3") { ssuclass = "dpsba" } else { ssuclass = "dpsadmin" }} else { if (ssuser.role > "0") { ssuclass = "dpsstaff" } else { if (ssuser.sub == "1") { ssuclass = "dpssub" } else { ssuclass = "dpsuser" }}}}
   dpsMessaged("message", "from admin", "SONG STATS","<b class='" + ssuclass + "'>" + API.getHistory()[1].user.username + "</b> played <b>" + API.getHistory()[1].media.author + " - " + API.getHistory()[1].media.title + "</b>", "<b class='green'>" + API.getHistory()[1].score.positive + " woots</b> | <b class='red'>" + API.getHistory()[1].score.negative + " mehs</b> | <b class='gpurple'>" + API.getHistory()[0].score.grabs + " grabs</b> | <b class='bluegray'>" + API.getHistory()[1].score.listeners + " listeners</b>" )
   }, 500); }}
 function dpsssCheck() {if (ssopt == "true") {dpsmcheckss.style.visibility = "visible" } else {dpsmcheckss.style.visibility = "hidden"}}
 var dj = API.getDJ() //now playing
 var media = API.getMedia()
-var djclass; var minute; var slength; var secondval; var second;
+var djclass; var minute; var slength; var minute; var second;
 function dpsNp() { 
 if (npopt == "true") {
   setTimeout(function(){
-  dj = API.getDJ(); media = API.getMedia(); djcolor; 
-  slength = media.duration / 60; minute = minuteval.toString().split(".")[0]
-  secondval = slength.toString().split(".")[1]; second = 60*secondval
-  if (user.id == dj.id) { if (dj.role == "0") { if (dj.gRole == "0") { if (dj.sub == "0") { djcolor = "#FFDD6F"}}}} else {
- if (dj.gRole > "0") { if (dj.gRole == "3") { djclass = "ba" } else { djclass = "admin" }} else { if (dj.role > "0") { djclass = "staff" } else { if (dj.sub == "1") { djclass = "sub" } else { djclass = "user" }}}}
-  dpsMessaged("message", "from admin", "NOW PLAYING", "<b class='" + djclass + "'>" + dj.username + "</b> is playing <b>" + media.author + " - " + media.title + "</b>" , "It is <b>" + )
+  dj = API.getDJ(); media = API.getMedia(); djclass; slength; minute; second
+  slength = media.duration / 60; minute = slength.toString().split(".")[0]
+  second = slength.toString().split(".")[1]*.6; second = second.toString()
+  if (user.id == dj.id) { if (dj.role == "0") { if (dj.gRole == "0") { if (dj.sub == "0") { djclass = "dpsyou"}}}} else {
+ if (dj.gRole > "0") { if (dj.gRole == "3") { djclass = "dpsba" } else { djclass = "dpsadmin" }} else { if (dj.role > "0") { djclass = "dpsstaff" } else { if (dj.sub == "1") { djclass = "dpssub" } else { djclass = "dpsuser" }}}}
+  dpsMessaged("message", "from admin", "NOW PLAYING", "<b class='" + djclass + "'>" + dj.username + "</b> is playing <b>" + media.author + " - " + media.title + "</b>" , "It is <b>" + minute + ":" + second + "long.")
   }, 500); }}
 function dpsnpCheck() {if (npopt == "true") {dpsmchecknp.style.visibility = "visible" } else {dpsmchecknp.style.visibility = "hidden"}}
 //STYLING SETTINGS
