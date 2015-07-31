@@ -1,13 +1,31 @@
-#dps-button {
+.admin { /*ALPHA 06 */
+  color: #42A5DC;
+}
+.ba { /*ALPHA 06 */
+  color: #89BE6C;
+}
+.staff { /*ALPHA 06 */
+  color: #AC76FF;
+}
+.sub { /*ALPHA 06 */
+  color: #C59840;
+}
+.you { /*ALPHA 06 */
+  color: #FFDD6F;
+}
+.user { /*ALPHA 06 */
+  color: #777F92;
+}
+#dps-button { /*ALPHA 05 */
   right: 83.3333%;
   width: 16.6666% !important;
   z-index: 1000;
 }
-.dpsbtnimg {
+.dpsbtnimg { /*ALPHA 05 */
   width: 69px;
   height: 53px;
 }
-.dpsmenu {
+.dpsmenu { /*ALPHA 05 */
   background-color: #282C35;
   right: 345px;
   display: none;
@@ -16,7 +34,7 @@
   position: absolute;
   border-bottom: 1px solid #0A0A0A;
 }
-.dpsmrow {
+.dpsmrow { /*ALPHA 05 */
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 30px;
@@ -24,11 +42,11 @@
   cursor: pointer;
   }
 
-.dpsmrowtext {
+.dpsmrowtext { /*ALPHA 05 */
   padding-top: 5px;
   padding-bottom: 5px;
   line-height: 30px;
 }
-.dpsmcheck {
+.dpsmcheck { /*ALPHA 05 */
   left: 0px;
 }
