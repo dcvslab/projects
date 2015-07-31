@@ -1,6 +1,6 @@
 //THIS IS WHERE THE SCRIPT WILL BE TESTED BEFORE THE OFFICIAL.
 //DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
-var release = "ALPHA"; var vnum = "06"; var subvnum = "1"; var commitnum = "6"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "06"; var subvnum = "1"; var commitnum = "7"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -9,12 +9,12 @@ var creator = { username: "DCV", id: "3639711", sub: "1" }
 var ucolor;
 if (user.gRole > "0") { //get color
 	if (user.gRole == "3") { uclass = "ba" }
-	else { uclass = "admin" }
+	else { uclass = "admin" }}
 else {
 	if (user.role > "0") { uclass = "staff" }
 	else { 
 		if (user.sub == "1") { uclass = "sub" }
-		else { uclass = "you" }}}}
+		else { uclass = "you" }}}
 $("head").append("<link rel='stylesheet' type='text/css' href='https://rawgit.com/dcvslab/projects/master/plugdj/dps/styleSheet.css'>");
 //DAMS (http://github.com/dcvslab/projects/plugdj/dams.js) (this is an EXTREMELY edited version)
 var dpsn = 1; dpseid = "DPS-" + dpsn; var dpsid = "DPS-" + user.id + "-" + dpsn; var time = "DPS";
@@ -317,10 +317,10 @@ dpsbtn.addEventListener("click", toggleMenu)
 dpsbtn.addEventListener("click", menuClicked) 
 var changelog = "dcvslab.github.io/dps/changelog"
 if (newuser == "true") {
-  dpsMessaged("system", "from", "DPS has loaded <font color='" + ucolor + "'<b>v" + version + "</b></font>!", "Welcome to DPS, <font color = '" + ucolor + "'><b>" + user.username + "</b></font>!", "Info: <a href='http://dcvslab.github.io/dps'>dcvslab.github.io/dps</a> (COMING SOON)")
+  dpsMessaged("system", "from", "DPS has loaded <b class='uclass'>v" + version + "</b>!", "Welcome to DPS, <b class='uclass'>" + user.username + "</b>!", "Info: <a href='http://dcvslab.github.io/dps'>dcvslab.github.io/dps</a> (COMING SOON)")
 } else {
 if (version == dpsv) {
-  dpsMessage("system", "from", "DPS has loaded <font color='" + ucolor + "'<b>v" + version + "</b></font>!","No new updates since last time, <font color='" + ucolor +"'><b>" + user.username + "</b></font>.")
+  dpsMessage("system", "from", "DPS has loaded <b class='uclass'>v" + version + "</b>!","No new updates since last time, <b class='uclass'>" + user.username + "</b>.")
 } else {
-  dpsMessaged("system", "from", "DPS has loaded <font color='" + ucolor + "'<b>v" + version + "</b></font>!", "You last used <font color='" + ucolor + "'><b>v" + oldversion + "</b></font>.","Changelog: <a href='http://dcvslab.github.io/dps/changelog.txt'>" + changelog + "</a>")
+  dpsMessaged("system", "from", "DPS has loaded <b class='uclass'>v" + version + "</b>!", "You last used <b class='uclass'>v" + oldversion + "</b>.","Changelog: <a href='http://dcvslab.github.io/dps/changelog.txt'>" + changelog + "</a>")
 }}
