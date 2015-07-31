@@ -16,6 +16,18 @@
 .user { /*ALPHA 06 */
   color: #777F92;
 }
+.green { /* ALPHA 06 */
+  color: #90AD2F; /* woot color */
+}
+.red { /* ALPHA O6 */
+ color: #C42E3B; /*meh color */
+}
+.gpurple { /*ALPHA 06 */
+  color: #AA74FF; /* grab color */
+}
+.bluegray { /* ALPHA 06 */
+  color: #8493B0; /* color of most icons */
+}
 #dps-button { /*ALPHA 05 */
   right: 83.3333%;
   width: 16.6666% !important;
