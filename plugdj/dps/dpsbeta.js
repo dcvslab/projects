@@ -1,8 +1,6 @@
 //THIS IS WHERE THE SCRIPT WILL BE TESTED BEFORE THE OFFICIAL.
 //DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
-if (! on) {
-var on = "yes"
-var release = "ALPHA"; var vnum = "06"; var subvnum = "1"; var commitnum = "4"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "06"; var subvnum = "1"; var commitnum = "5"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -171,9 +169,9 @@ if (ssopt == "true") {
   ssuser = API.getUser(ssuserid)
   ssucolor;
   if (user.id == ssuserid) { if (ssuser.role == "0") { if (ssuser.gRole == "0") { if (ssuser.sub == "0") { ssucolor = "#FFDD6F"}}}} else {
-  if (ssuser.gRole > "0") { if (ssuser.gRole == "3") { ssuclass = "ba" } else { ssuclass = "admin" }} else { if (ssuser.role > "0") { ssuclass = "staff" } else { if (ssuser.sub == "1") { ssuclass = "sub" } else { ssuclass = "user" }}
+  if (ssuser.gRole > "0") { if (ssuser.gRole == "3") { ssuclass = "ba" } else { ssuclass = "admin" }} else { if (ssuser.role > "0") { ssuclass = "staff" } else { if (ssuser.sub == "1") { ssuclass = "sub" } else { ssuclass = "user" }}}}
   dpsMessaged("message", "from admin", "SONG STATS","<b class='ssuclass'>" + API.getHistory()[1].user.username + "</b> played <b>" + API.getHistory()[1].media.author + " - " + API.getHistory()[1].media.title + "</b>", "<b class='green'>" + API.getHistory()[1].score.positive + " woots</b> | <b class='red'>" + API.getHistory()[1].score.negative + " mehs</b> | <b class='gpurple'>" + API.getHistory()[0].score.grabs + " grabs</b> | <b class='bluegray'>" + API.getHistory()[1].score.listeners + " listeners</b>" )
-  }}}, 500); }}
+  }, 500); }}
 function dpsssCheck() {if (ssopt == "true") {dpsmcheckss.style.visibility = "visible" } else {dpsmcheckss.style.visibility = "hidden"}}
 var dj = API.getDJ() //now playing
 var media = API.getMedia()
@@ -183,9 +181,9 @@ if (npopt == "true") {
   setTimeout(function(){
   dj = API.getDJ(); media = API.getMedia(); djcolor;
   if (user.id == dj.id) { if (dj.role == "0") { if (dj.gRole == "0") { if (dj.sub == "0") { djcolor = "#FFDD6F"}}}} else {
-  if (! dj.gRole) { if (dj.role > 0) { djcolor = "#AC76FF" } else { if (dj.sub == 1) { djcolor = "#C59840" } else { djcolor = "#777F92" } } } else { if (dj.gRole == "3") { djcolor = "#89BE6C" } else { djcolor = "#42A5DC" } }
+  if (! dj.gRole) { if (dj.role > 0) { djcolor = "#AC76FF" } else { if (dj.sub == 1) { djcolor = "#C59840" } else { djcolor = "#777F92" } } } else { if (dj.gRole == "3") { djcolor = "#89BE6C" } else { djcolor = "#42A5DC" } }}
   dpsMessaged("message", "from admin", "NOW PLAYING", "<font color='#DEDEDE'>DJ: </font><b><font color='" + djcolor + "'>" + dj.username + "</font></b>", "<font color='#DEDEDE'>SONG: </font><b>" + media.author + " - " + media.title + "</a></b>")
-  }}, 500); }}
+  }, 500); }}
 function dpsnpCheck() {if (npopt == "true") {dpsmchecknp.style.visibility = "visible" } else {dpsmchecknp.style.visibility = "hidden"}}
 //STYLING SETTINGS
 var progress = document.getElementsByClassName("progress")[0]; //change the xp bar to %
@@ -325,7 +323,4 @@ if (version == dpsv) {
   dpsMessage("system", "from", "DPS has loaded <font color='" + ucolor + "'<b>v" + version + "</b></font>!","No new updates since last time, <font color='" + ucolor +"'><b>" + user.username + "</b></font>.")
 } else {
   dpsMessaged("system", "from", "DPS has loaded <font color='" + ucolor + "'<b>v" + version + "</b></font>!", "You last used <font color='" + ucolor + "'><b>v" + oldversion + "</b></font>.","Changelog: <a href='http://dcvslab.github.io/dps/changelog.txt'>" + changelog + "</a>")}
-}
-} else {
-  dpsMessage("system", "from", "DPS is already on!", "To reload DPS, refresh the page and click the bookmark again!")
 }
