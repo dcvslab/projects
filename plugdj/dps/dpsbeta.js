@@ -2,7 +2,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if ( !on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "06"; var subvnum = "2"; var commitnum = "4"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "06"; var subvnum = "2"; var commitnum = "5"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -41,7 +41,7 @@ if ($("#chat-messages").children().length > 512) {  $("#chat-messages").children
 var dpsopt = localStorage.getItem("dpsOpt"); //option stuff (END EDITED DAMS)
 if (! dpsopt) { 
 var newuser = "true"
-var dpsOpt = { "dpsv": version, "awopt": "true", "ajopt": "true", "ssopt": "false", "xppopt": "false", "dpsftropt": "false" };
+var dpsOpt = { "dpsv": version, "awopt": "true", "ajopt": "true", "ssopt": "false", "npopt": "false:", "xppopt": "false", "dpsftropt": "false" };
 localStorage.setItem('dpsOpt', JSON.stringify(dpsOpt));
 var ldpsOpt = localStorage.getItem('dpsOpt');
 var getopt = JSON.parse(ldpsOpt);
@@ -63,14 +63,14 @@ var npopt = getopt.npopt
 var xppopt = getopt.xppopt;//style options
 var dpsftropt = getopt.dpsftropt; }
 function dpsoptUpdate() { //update
-  dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt, "ssopt": ssopt, "xppopt": xppopt, "dpsftropt": dpsftropt };
+  dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt, "ssopt": ssopt,"npopt": npopt, "xppopt": xppopt, "dpsftropt": dpsftropt };
   localStorage.setItem('dpsOpt', JSON.stringify(dpsoptPush));
   ldpsOpt = localStorage.getItem('dpsOpt');
   getopt = JSON.parse(ldpsOpt);
 }
 if (! awopt) { awopt = "true" }; if (! ajopt) { ajopt = "true" }; if (! ssopt) { ssopt = "false" }; if (! xppopt) { xppopt = "false" }; if (! dpsftropt) { dpsftropt = "false" }; if (! npopt) { npopt = "false" };
 setTimeout(function () { 
-dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt,"ssopt": ssopt, "xppopt": xppopt, "dpsftropt": dpsftropt };
+dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt, "ssopt": ssopt,"npopt": npopt, "xppopt": xppopt, "dpsftropt": dpsftropt };
 }, 100);
 var oldversion = dpsv
 dpsoptUpdate()
@@ -174,7 +174,7 @@ if (ssopt == "true") {
   ssucolor;
   if (user.id == ssuserid) { if (ssuser.role == "0") { if (ssuser.gRole == "0") { if (ssuser.sub == "0") { ssuclass = "dpsyou"}}}} else {
   if (ssuser.gRole > "0") { if (ssuser.gRole == "3") { ssuclass = "dpsba" } else { ssuclass = "dpsadmin" }} else { if (ssuser.role > "0") { ssuclass = "dpsstaff" } else { if (ssuser.sub == "1") { ssuclass = "dpssub" } else { ssuclass = "dpsuser" }}}}
-  dpsMessaged("message", "from admin", "SONG STATS","<b class='" + ssuclass + "'>" + API.getHistory()[1].user.username + "</b> played <b>" + API.getHistory()[1].media.author + " - " + API.getHistory()[1].media.title + "</b>", "<b class='green'>" + API.getHistory()[1].score.positive + " woots</b> | <b class='red'>" + API.getHistory()[1].score.negative + " mehs</b> | <b class='gpurple'>" + API.getHistory()[0].score.grabs + " grabs</b> | <b class='bluegray'>" + API.getHistory()[1].score.listeners + " listeners</b>" )
+  dpsMessaged("message", "from admin", "SONG STATS","<b class='" + ssuclass + "'>" + API.getHistory()[1].user.username + "</b> played <b>" + API.getHistory()[1].media.author + " - " + API.getHistory()[1].media.title + "</b>", "<b class='dpsgreen'>" + API.getHistory()[1].score.positive + " woots</b> | <b class='dpsred'>" + API.getHistory()[1].score.negative + " mehs</b> | <b class='dpsgpurple'>" + API.getHistory()[0].score.grabs + " grabs</b> | <b class='dpsbluegray'>" + API.getHistory()[1].score.listeners + " listeners</b>" )
   }, 500); }}
 function dpsssCheck() {if (ssopt == "true") {dpsmcheckss.style.visibility = "visible" } else {dpsmcheckss.style.visibility = "hidden"}}
 var dj = API.getDJ() //now playing
@@ -185,10 +185,10 @@ if (npopt == "true") {
   setTimeout(function(){
   dj = API.getDJ(); media = API.getMedia(); djclass; slength; minute; second
   slength = media.duration / 60; minute = slength.toString().split(".")[0]
-  second = slength.toString().split(".")[1]*.6; second = second.toString()
+  second = slength.toString().split(".")[1]*.6; second = second.toString(); second = second.match(/../g)[0];
   if (user.id == dj.id) { if (dj.role == "0") { if (dj.gRole == "0") { if (dj.sub == "0") { djclass = "dpsyou"}}}} else {
  if (dj.gRole > "0") { if (dj.gRole == "3") { djclass = "dpsba" } else { djclass = "dpsadmin" }} else { if (dj.role > "0") { djclass = "dpsstaff" } else { if (dj.sub == "1") { djclass = "dpssub" } else { djclass = "dpsuser" }}}}
-  dpsMessaged("message", "from admin", "NOW PLAYING", "<b class='" + djclass + "'>" + dj.username + "</b> is playing <b>" + media.author + " - " + media.title + "</b>" , "It is <b>" + minute + ":" + second + "long.")
+  dpsMessaged("message", "from admin", "NOW PLAYING", "<b class='" + djclass + "'>" + dj.username + "</b> is playing <b>" + media.author + " - " + media.title + "</b>" , "It is <b class='" + djclass + "'>" + minute + ":" + second + "</b> long.")
   }, 500); }}
 function dpsnpCheck() {if (npopt == "true") {dpsmchecknp.style.visibility = "visible" } else {dpsmchecknp.style.visibility = "hidden"}}
 //STYLING SETTINGS
