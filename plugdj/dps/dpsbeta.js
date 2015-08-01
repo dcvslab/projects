@@ -2,7 +2,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if ( !on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "06"; var subvnum = "3"; var commitnum = "2"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "06"; var subvnum = "3"; var commitnum = "3"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -270,6 +270,7 @@ var togglemenu = "no" //is needed
 var menuclicked = "no" //testing until it's clicked
 function menuClicked() { //to set up the menu
  if (menuclicked == "no") {
+  dpsmenu.addEventListener( "mouseover", function() { document.getElementById("user-rollover").style.display = "none" } )
   setTimeout(function(){ menuclicked = "yes"; }, 0100);
   dpsmaw.onclick=function(){ if (awopt == "true") { 
     awopt = "false";
