@@ -2,7 +2,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if ( !on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "06"; var subvnum = "2"; var commitnum = "6.1"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "06"; var subvnum = "2"; var commitnum = "7"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -181,15 +181,15 @@ var dj = API.getDJ() //now playing
 var media = API.getMedia()
 var djclass; var minute; var slength; var minute; var second;
 function dpsNp() { 
-if (npopt == "true") {
+if (npopt == "true") { //second = second.match(/../g)[0];
   setTimeout(function(){
   dj = API.getDJ(); media = API.getMedia(); djclass; slength; minute; second
   slength = media.duration / 60; minute = slength.toString().split(".")[0]
-  second = slength.toString().split(".")[1]*.6; second = second.toString(); second = second.match(/../g)[0];
-  if (second.endsWith(".") == true) { second = second.split("")[0] + "0" }
+  second = slength.toString().split(".")[1]*.6; second = second.toString(); 
+  if (second.split(".")[0].length == 1) { second = "0" + second } else { second = second.split(".")[0] }
   if (user.id == dj.id) { if (dj.role == "0") { if (dj.gRole == "0") { if (dj.sub == "0") { djclass = "dpsyou"}}}} else {
  if (dj.gRole > "0") { if (dj.gRole == "3") { djclass = "dpsba" } else { djclass = "dpsadmin" }} else { if (dj.role > "0") { djclass = "dpsstaff" } else { if (dj.sub == "1") { djclass = "dpssub" } else { djclass = "dpsuser" }}}}
-  dpsMessaged("message", "from admin", "NOW PLAYING", "<b class='" + djclass + "'>" + dj.username + "</b> is playing <b>" + media.author + " - " + media.title + "</b>" , "<font color='#DEDEDE'>It is </font><b class='" + djclass + "'>" + minute + ":" + second + "</b><font color='#DEDEDE'> long.</font>")
+  dpsMessaged("message", "from admin", "NOW PLAYING", "<b class='" + djclass + "'>" + dj.username + "</b> is playing <b>" + media.author + " - " + media.title + "</b>" , "It is <b class='" + djclass + "'>" + minute + ":" + second + "</b> long.")
   }, 500); }}
 function dpsnpCheck() {if (npopt == "true") {dpsmchecknp.style.visibility = "visible" } else {dpsmchecknp.style.visibility = "hidden"}}
 //STYLING SETTINGS
