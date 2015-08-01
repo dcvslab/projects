@@ -2,7 +2,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if ( !on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "06"; var subvnum = "4"; var commitnum = "1.1"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "06"; var subvnum = "4"; var commitnum = "2"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -74,7 +74,7 @@ function dpsoptUpdate() { //update
 if (! awopt) { awopt = "true" }; if (! ajopt) { ajopt = "true" }; if (! ssopt) { ssopt = "false" }; if (! xppopt) { xppopt = "false" }; if (! dpsftropt) { dpsftropt = "false" }; if (! npopt) { npopt = "false"}; if (! ulopt) { ulopt = "true" };
 
 setTimeout(function () { 
-dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt, ulopt: "ulopt", "ssopt": ssopt,"npopt": npopt, "xppopt": xppopt, "dpsftropt": dpsftropt };
+dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt, "ulopt": ulopt, "ssopt": ssopt,"npopt": npopt, "xppopt": xppopt, "dpsftropt": dpsftropt };
 }, 100);
 var oldversion = dpsv
 dpsoptUpdate()
@@ -305,6 +305,14 @@ function menuClicked() { //to set up the menu
     ajopt = "true";
     dpsoptUpdate(); 
     setTimeout(function () { dpsAj() }, 0050); }} 
+  dpsmul.onclick=function(){ if (ulopt == "true") { 
+    ulopt = "false"; 
+    dpsmcheckul.style.visibility = "hidden"
+    dpsoptUpdate(); } 
+  else { 
+    ulopt = "true";
+    dpsmcheckul.style.visibility = "visible"
+    dpsoptUpdate(); }}
   dpsmss.onclick=function(){ if (ssopt == "true") { 
     ssopt = "false"; 
     dpsmcheckss.style.visibility = "hidden"
