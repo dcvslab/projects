@@ -2,7 +2,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "06"; var subvnum = "5"; var commitnum = "1.2"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "06"; var subvnum = "5"; var commitnum = "3"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -42,14 +42,15 @@ if ($("#chat-messages").children().length > 512) {  $("#chat-messages").children
 var dpsopt = localStorage.getItem("dpsOpt"); //option stuff (END EDITED DAMS)
 if (! dpsopt) { 
 var newuser = "true"
-var dpsOpt = { "dpsv": version, "awopt": "true", "ajopt": "true", "ulopt": "true", "ssopt": "false", "npopt": "false:", "xppopt": "false", "dpsftropt": "false" };
+var dpsOpt = { "dpsv": version, "awopt": "true", "ajopt": "true","ujopt": "true", "ulopt": "true", "ssopt": "false", "npopt": "false:", "xppopt": "false", "dpsftropt": "false" };
 localStorage.setItem('dpsOpt', JSON.stringify(dpsOpt));
 var ldpsOpt = localStorage.getItem('dpsOpt');
 var getopt = JSON.parse(ldpsOpt);
 var dpsv = getopt.dpsv;
 var awopt = getopt.awopt;//function options
 var ajopt = getopt.ajopt;
-var ulopt = getopt.ulopt; //notification options
+var ujopt = getopt.ujopt;  //notification options
+var ulopt = getopt.ulopt;
 var ssopt = getopt.ssopt; 
 var npopt = getopt.npopt
 var xppopt = getopt.xppopt; //style options
@@ -60,21 +61,21 @@ var getopt = JSON.parse(ldpsOpt);
 var dpsv = getopt.dpsv
 var awopt = getopt.awopt;//function options
 var ajopt = getopt.ajopt;
-var ulopt = getopt.ulopt; //notification options
+var ujopt = getopt.ujopt; //notification options
+var ulopt = getopt.ulopt; 
 var ssopt = getopt.ssopt; 
 var npopt = getopt.npopt
 var xppopt = getopt.xppopt;//style options
 var dpsftropt = getopt.dpsftropt; }
 function dpsoptUpdate() { //update
-  dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt, "ulopt": ulopt, "ssopt": ssopt,"npopt": npopt, "xppopt": xppopt, "dpsftropt": dpsftropt };
+  dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt,"ujopt": ujopt, "ulopt": ulopt, "ssopt": ssopt,"npopt": npopt, "xppopt": xppopt, "dpsftropt": dpsftropt };
   localStorage.setItem('dpsOpt', JSON.stringify(dpsoptPush));
   ldpsOpt = localStorage.getItem('dpsOpt');
   getopt = JSON.parse(ldpsOpt);
 }
-if (! awopt) { awopt = "true" }; if (! ajopt) { ajopt = "true" }; if (! ssopt) { ssopt = "false" }; if (! xppopt) { xppopt = "false" }; if (! dpsftropt) { dpsftropt = "false" }; if (! npopt) { npopt = "false"}; if (! ulopt) { ulopt = "true" };
-
+if (! awopt) { awopt = "true" }; if (! ajopt) { ajopt = "true" }; if (! ssopt) { ssopt = "false" }; if (! xppopt) { xppopt = "false" }; if (! dpsftropt) { dpsftropt = "false" }; if (! npopt) { npopt = "false"}; if (! ulopt) { ulopt = "true" }; if (! ujopt) { ujopt = "true"};
 setTimeout(function () { 
-dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt, "ulopt": ulopt, "ssopt": ssopt,"npopt": npopt, "xppopt": xppopt, "dpsftropt": dpsftropt };
+dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt,"ujopt": ujopt, "ulopt": ulopt, "ssopt": ssopt,"npopt": npopt, "xppopt": xppopt, "dpsftropt": dpsftropt };
 }, 100);
 var oldversion = dpsv
 dpsoptUpdate()
@@ -111,6 +112,8 @@ var dpsmcheckaw = document.createElement("i") //create woot check
 dpsmcheckaw.className = "icon icon-check-purple dpsmcheck";
 var dpsmcheckaj = document.createElement("i") //create autojoin check
 dpsmcheckaj.className = "icon icon-check-purple dpsmcheck";
+var dpsmcheckuj = document.createElement("i") //create user join check
+dpsmcheckuj.className = "icon icon-check-purple dpsmcheck";
 var dpsmcheckul = document.createElement("i") //create user leave check
 dpsmcheckul.className = "icon icon-check-purple dpsmcheck";
 var dpsmcheckss = document.createElement("i") //create song stats check
@@ -139,6 +142,11 @@ var dpsmsectionn = document.createElement("div"); //notification settings header
 var dpsmsectionntxt = document.createElement("span"); 
 dpsmsectionntxt.innerHTML = "Notifications"; dpsmsectionn.className = "dpsmsection";
 dpsmsectionn.appendChild(dpsmsectionntxt); dpsmenu.appendChild(dpsmsectionn);
+var dpsmuj = document.createElement("div"); //user join option
+var dpsmujtxt = document.createElement("span");
+dpsmujtxt.innerHTML = "User Join"; dpsmujtxt.className = "dpsmrowtext"
+dpsmuj.className = "dpsmrow";
+dpsmuj.appendChild(dpsmujtxt); dpsmuj.appendChild(dpsmcheckuj); dpsmenu.appendChild(dpsmuj);
 var dpsmul = document.createElement("div"); //user leave option
 var dpsmultxt = document.createElement("span");
 dpsmultxt.innerHTML = "User Leave"; dpsmultxt.className = "dpsmrowtext"
@@ -191,7 +199,7 @@ function dpsUj(userj) { //user join
 if (ujopt == "true") {
   roomname = document.getElementsByClassName("bar-value")[0].innerHTML
   if (userj.gRole > "0") { if (userj.gRole == "3") { userjc = "dpsba" } else { userjc = "dpsadmin" }} else { if (userj.role > "0") { userjc = "dpsstaff" } else { if (userj.sub == "1") { userjc = "dpssub" } else { userjc = "dpsuser" }}}
-  dpsMessage("message", userjc, "<b>" + userj.username + "</b>", "<span class='dpsul'>has joined <b>" + roomname + "</b></span>") 
+  dpsMessage("message", userjc, "<b>" + userj.username + "</b>", "<span class='dpsuj'>has joined <b>" + roomname + "</b></span>") 
 }}
 API.on(API.USER_JOIN, dpsUj)
 function dpsujCheck() { { if (ujopt == "true") {dpsmcheckuj.style.visibility = "visible" } else {dpsmcheckuj.style.visibility = "hidden" } } }
@@ -318,13 +326,17 @@ function menuClicked() { //to set up the menu
     ajopt = "true";
     dpsoptUpdate(); 
     setTimeout(function () { dpsAj() }, 0050); }} 
+  dpsmuj.onclick=function(){ if (ujopt == "true") { 
+    ujopt = "false"; 
+    dpsoptUpdate(); dpsujCheck() } 
+  else { 
+    ujopt = "true";
+    dpsoptUpdate(); dpsujCheck() }}
   dpsmul.onclick=function(){ if (ulopt == "true") { 
     ulopt = "false"; 
-    dpsmcheckul.style.visibility = "hidden"
     dpsoptUpdate(); dpsulCheck() } 
   else { 
     ulopt = "true";
-    dpsmcheckul.style.visibility = "visible"
     dpsoptUpdate(); dpsulCheck() }}
   dpsmss.onclick=function(){ if (ssopt == "true") { 
     ssopt = "false"; 
