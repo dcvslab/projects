@@ -2,12 +2,13 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if ( !on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "06"; var subvnum = "3"; var commitnum = "3"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "06"; var subvnum = "4"; var commitnum = "1"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
 var history = API.getHistory;
 var creator = { username: "DCV", id: "3639711", sub: "1" }
+var roomname = document.getElementsByClassName("bar-value")[0].innerHTML
 var uclass;
 if (user.gRole > "0") { //get color
 	if (user.gRole == "3") { uclass = "dpsba" }
@@ -41,14 +42,15 @@ if ($("#chat-messages").children().length > 512) {  $("#chat-messages").children
 var dpsopt = localStorage.getItem("dpsOpt"); //option stuff (END EDITED DAMS)
 if (! dpsopt) { 
 var newuser = "true"
-var dpsOpt = { "dpsv": version, "awopt": "true", "ajopt": "true", "ssopt": "false", "npopt": "false:", "xppopt": "false", "dpsftropt": "false" };
+var dpsOpt = { "dpsv": version, "awopt": "true", "ajopt": "true", "ulopt": "true" "ssopt": "false", "npopt": "false:", "xppopt": "false", "dpsftropt": "false" };
 localStorage.setItem('dpsOpt', JSON.stringify(dpsOpt));
 var ldpsOpt = localStorage.getItem('dpsOpt');
 var getopt = JSON.parse(ldpsOpt);
 var dpsv = getopt.dpsv;
 var awopt = getopt.awopt;//function options
 var ajopt = getopt.ajopt;
-var ssopt = getopt.ssopt; //notification options
+var ulopt = getopt.ulopt; //notification options
+var ssopt = getopt.ssopt; 
 var npopt = getopt.npopt
 var xppopt = getopt.xppopt; //style options
 var dpsftropt = getopt.dpsftropt;
@@ -58,19 +60,21 @@ var getopt = JSON.parse(ldpsOpt);
 var dpsv = getopt.dpsv
 var awopt = getopt.awopt;//function options
 var ajopt = getopt.ajopt;
-var ssopt = getopt.ssopt; //notification options
+var ulopt = getopt.ulopt; //notification options
+var ssopt = getopt.ssopt; 
 var npopt = getopt.npopt
 var xppopt = getopt.xppopt;//style options
 var dpsftropt = getopt.dpsftropt; }
 function dpsoptUpdate() { //update
-  dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt, "ssopt": ssopt,"npopt": npopt, "xppopt": xppopt, "dpsftropt": dpsftropt };
+  dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt, "ulopt": ulopt, "ssopt": ssopt,"npopt": npopt, "xppopt": xppopt, "dpsftropt": dpsftropt };
   localStorage.setItem('dpsOpt', JSON.stringify(dpsoptPush));
   ldpsOpt = localStorage.getItem('dpsOpt');
   getopt = JSON.parse(ldpsOpt);
 }
-if (! awopt) { awopt = "true" }; if (! ajopt) { ajopt = "true" }; if (! ssopt) { ssopt = "false" }; if (! xppopt) { xppopt = "false" }; if (! dpsftropt) { dpsftropt = "false" }; if (! npopt) { npopt = "false" };
+if (! awopt) { awopt = "true" }; if (! ajopt) { ajopt = "true" }; if (! ssopt) { ssopt = "false" }; if (! xppopt) { xppopt = "false" }; if (! dpsftropt) { dpsftropt = "false" }; if (! npopt) { npopt = "false"}; if (! ulopt) { ulopt = "true" };
+
 setTimeout(function () { 
-dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt, "ssopt": ssopt,"npopt": npopt, "xppopt": xppopt, "dpsftropt": dpsftropt };
+dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt, ulopt: "ulopt", "ssopt": ssopt,"npopt": npopt, "xppopt": xppopt, "dpsftropt": dpsftropt };
 }, 100);
 var oldversion = dpsv
 dpsoptUpdate()
@@ -107,6 +111,8 @@ var dpsmcheckaw = document.createElement("i") //create woot check
 dpsmcheckaw.className = "icon icon-check-purple dpsmcheck";
 var dpsmcheckaj = document.createElement("i") //create autojoin check
 dpsmcheckaj.className = "icon icon-check-purple dpsmcheck";
+var dpsmcheckul = document.createElement("i") //create user leave check
+dpsmcheckul.className = "icon icon-check-purple dpsmcheck";
 var dpsmcheckss = document.createElement("i") //create song stats check
 dpsmcheckss.className = "icon icon-check-purple dpsmcheck";
 var dpsmchecknp = document.createElement("i") //create now playing check
@@ -133,6 +139,11 @@ var dpsmsectionn = document.createElement("div"); //notification settings header
 var dpsmsectionntxt = document.createElement("span"); 
 dpsmsectionntxt.innerHTML = "Notifications"; dpsmsectionn.className = "dpsmsection";
 dpsmsectionn.appendChild(dpsmsectionntxt); dpsmenu.appendChild(dpsmsectionn);
+var dpsmul = document.createElement("div"); //user leave option
+var dpsmultxt = document.createElement("span");
+dpsmultxt.innerHTML = "User Leave"; dpsmultxt.className = "dpsmrowtext"
+dpsmul.className = "dpsmrow";
+dpsmul.appendChild(dpsmultxt); dpsmul.appendChild(dpsmcheckul); dpsmenu.appendChild(dpsmul);
 var dpsmss = document.createElement("div"); //song stats option
 var dpsmsstxt = document.createElement("span");
 dpsmsstxt.innerHTML = "Song Stats"; dpsmsstxt.className = "dpsmrowtext"
@@ -204,6 +215,12 @@ if (npopt == "true") {
   dpsMessaged("message", "from admin", "NOW PLAYING", "<b class='" + djclass + "'>" + dj.username + "</b> is playing <b>" + media.author + " - " + media.title + "</b>" , "It is <b class='" + djclass + "'>" + minute + ":" + second + "</b> long.")
   }, 500); }}
 function dpsnpCheck() {if (npopt == "true") {dpsmchecknp.style.visibility = "visible" } else {dpsmchecknp.style.visibility = "hidden"}}
+function dpsUl(userl) { 
+if (ulopt == "true") {
+  roomname = document.getElementsByClassName("bar-value")[0].innerHTML
+  dpsMessage("message", "dpsuser", "<b>" + userl.username + "</b>", "<span class='dpsul'>has left <b>" + roomname + "</b></span>") }
+}
+API.on(API.USER_LEAVE, dpsUl)
 //STYLING SETTINGS
 var progress = document.getElementsByClassName("progress")[0]; //change the xp bar to %
 progress.id = "progress";
