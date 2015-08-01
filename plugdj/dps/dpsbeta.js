@@ -2,7 +2,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if ( !on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "06"; var subvnum = "3"; var commitnum = "1"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "06"; var subvnum = "3"; var commitnum = "2"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -89,10 +89,10 @@ var dpsbtn = document.createElement("div"); //create dps button
 dpsbtn.id = "dps-button"; dpsbtn.className = "dpsbtn button"; 
 document.body.appendChild(dpsbtn); //put it in the document
 var dpslogo = document.createElement("IMG"); //create dps logo
-    dpslogo.setAttribute("src", "http://i.imgur.com/1CuQDdE.png"); dpslogo.className = "dpsbtnimg"
+    dpslogo.setAttribute("src", "https://i.imgur.com/1CuQDdE.png"); dpslogo.className = "dpsbtnimg"
 document.getElementById("dps-button").appendChild(dpslogo);
 var dpslogox = document.createElement("IMG"); //create dps logo x
-    dpslogox.setAttribute("src", "http://i.imgur.com/m8QFUVD.png"); dpslogox.className = "dpsbtnimg"
+    dpslogox.setAttribute("src", "https://i.imgur.com/m8QFUVD.png"); dpslogox.className = "dpsbtnimg"
     document.getElementById("dps-button").appendChild(dpslogox);
 document.getElementsByClassName("buttons")[0].appendChild(dpsbtn);
 var plbtn = document.getElementsByClassName("bar-button")[1] //to hide button when this is clicked
@@ -158,7 +158,7 @@ dpsmdpsftrtxt.innerHTML = "DPS Footer"; dpsmdpsftrtxt.className = "dpsmrowtext"
 dpsmdpsftr.className = "dpsmrow"; dpsmdpsftr.id = "dpsmdspftr";
 dpsmdpsftr.appendChild(dpsmdpsftrtxt); dpsmdpsftr.appendChild(dpsmcheckdpsftr); dpsmenu.appendChild(dpsmdpsftr);
 document.getElementsByClassName("app-right")[0].style.zIndex = "20" //make it so it's in front
-document.getElementById("chat").appendChild(dpsmenu);
+document.getElementsByClassName("app-right")[0].appendChild(dpsmenu);
 //FUNCTIONAL SETTINGS//
 function dpsAw() { //autowoot//
 if (awopt == "true") { 
