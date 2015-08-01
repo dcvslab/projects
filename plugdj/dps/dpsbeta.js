@@ -1,8 +1,8 @@
 //THIS IS WHERE THE SCRIPT WILL BE TESTED BEFORE THE OFFICIAL.
 //DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
-if ( !on) {
+if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "06"; var subvnum = "4"; var commitnum = "3"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "06"; var subvnum = "4"; var commitnum = "3.1"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -186,6 +186,14 @@ function dpsAj() { //autojoin//
     dpsmcheckaj.style.visibility = "hidden" }}
 dpsAj(); 
 //NOTIFICATION SETTINGS//
+function dpsUl(userl) { //user leave
+if (ulopt == "true") {
+  roomname = document.getElementsByClassName("bar-value")[0].innerHTML
+  dpsMessage("message", "dpsuser", "<b>" + userl.username + "</b>", "<span class='dpsul'>has left <b>" + roomname + "</b></span>") 
+}}
+API.on(API.USER_LEAVE, dpsUl)
+function dpsulCheck() { { if (ulopt == "true") {dpsmcheckul.style.visibility = "visible" } else {dpsmcheckul.style.visibility = "hidden" } } }
+dpsulCheck()
 var ssuserid = API.getHistory()[1].user.id //song stats
 var ssuser = API.getUser(ssuserid)
 var ssucolor;
@@ -215,16 +223,8 @@ if (npopt == "true") {
  if (dj.gRole > "0") { if (dj.gRole == "3") { djclass = "dpsba" } else { djclass = "dpsadmin" }} else { if (dj.role > "0") { djclass = "dpsstaff" } else { if (dj.sub == "1") { djclass = "dpssub" } else { djclass = "dpsuser" }}}}
   dpsMessaged("message", "from admin", "NOW PLAYING", "<b class='" + djclass + "'>" + dj.username + "</b> is playing <b>" + media.author + " - " + media.title + "</b>" , "It is <b class='" + djclass + "'>" + minute + ":" + second + "</b> long.")
   }, 500); }}
-function dpsnpCheck() {if (npopt == "true") {dpsmchecknp.style.visibility = "visible" } else {dpsmchecknp.style.visibility = "hidden"}}
+function dpsnpCheck() { if (npopt == "true") { dpsmchecknp.style.visibility = "visible" } else {dpsmchecknp.style.visibility = "hidden" } }
 dpsnpCheck()
-function dpsUl(userl) { 
-if (ulopt == "true") {
-  roomname = document.getElementsByClassName("bar-value")[0].innerHTML
-  dpsMessage("message", "dpsuser", "<b>" + userl.username + "</b>", "<span class='dpsul'>has left <b>" + roomname + "</b></span>") }
-}
-API.on(API.USER_LEAVE, dpsUl)
-function dpsulCheck() {{if (ulopt == "true") {dpsmcheckul.style.visibility = "visible" } else {dpsmcheckul.style.visibility = "hidden"}}
-dpsulCheck()
 //STYLING SETTINGS
 var progress = document.getElementsByClassName("progress")[0]; //change the xp bar to %
 progress.id = "progress";
