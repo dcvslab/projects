@@ -28,6 +28,9 @@
 .dpsbluegray { /* ALPHA 06 */
   color: #8493B0; /* color of most icons */
 }
+.dpsdedede { /*ALPHA 06 */
+  color: #DEDEDE;
+}
 #dps-button { /*ALPHA 05 */
   right: 83.3333%;
   width: 16.6666% !important;
@@ -45,6 +48,13 @@
   width: 345px;
   position: absolute;
   border-bottom: 1px solid #0A0A0A;
+}
+.dpsmsection { /*ALPHA 06 */
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  border: 1px solid #AC76FF;
+  color: #AC76FF;
 }
 .dpsmrow { /*ALPHA 05 */
   padding-top: 5px;
