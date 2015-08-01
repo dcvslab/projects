@@ -2,7 +2,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "06"; var subvnum = "5"; var commitnum = "1"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "06"; var subvnum = "5"; var commitnum = "1.1"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -192,7 +192,7 @@ if (ujopt == "true") {
   if (userj.gRole > "0") { if (userj.gRole == "3") { userjc = "dpsba" } else { userjc = "dpsadmin" }} else { if (userj.role > "0") { userjc = "dpsstaff" } else { if (userj.sub == "1") { userjc = "dpssub" } else { userjc = "dpsuser" }}}
   dpsMessage("message", userjc, "<b>" + userj.username + "</b>", "<span class='dpsul'>has joined <b>" + roomname + "</b></span>") 
 }}
-API.on(API.USER_LEAVE, dpsUj)
+API.on(API.USER_JOIN, dpsUj)
 function dpsujCheck() { { if (ujopt == "true") {dpsmcheckuj.style.visibility = "visible" } else {dpsmcheckuj.style.visibility = "hidden" } } }
 function dpsUl(userl) { //user leave
 if (ulopt == "true") {
