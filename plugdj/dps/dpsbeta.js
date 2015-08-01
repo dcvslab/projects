@@ -2,7 +2,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if ( !on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "06"; var subvnum = "2"; var commitnum = "8"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "06"; var subvnum = "3"; var commitnum = "1"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -115,7 +115,11 @@ var dpsmcheckxpp = document.createElement("i") //create xp to percent check
 dpsmcheckxpp.className = "icon icon-check-purple dpsmcheck";
 var dpsmcheckdpsftr = document.createElement("i") //create dps footer check
 dpsmcheckdpsftr.className = "icon icon-check-purple dpsmcheck";
-var dpsmaw = document.createElement("div"); //DPS MENU OPTIONS | autowoot option
+var dpsmsectionf = document.createElement("div"); //DPS MENU OPTIONS | functional settings header
+var dpsmsectionftxt = document.createElement("span"); 
+dpsmsectionftxt.innerHTML = "Functional"; dpsmsectionf.className = "dpsmsection"
+dpsmsectionf.appendChild(dpsmsectionftxt); ; dpsmenu.appendChild(dpsmsectionf);
+var dpsmaw = document.createElement("div"); //autowoot option
 var dpsmawtxt = document.createElement("span"); 
 dpsmawtxt.innerHTML = "Auto-Woot"; dpsmawtxt.className = "dpsmrowtext"
 dpsmaw.className = "dpsmrow";
@@ -125,6 +129,10 @@ var dpsmajtxt = document.createElement("span");
 dpsmajtxt.innerHTML = "Auto-Join"; dpsmajtxt.className = "dpsmrowtext"
 dpsmaj.className = "dpsmrow";
 dpsmaj.appendChild(dpsmajtxt); dpsmaj.appendChild(dpsmcheckaj); dpsmenu.appendChild(dpsmaj);
+var dpsmsectionn = document.createElement("div"); //notification settings header
+var dpsmsectionntxt = document.createElement("span"); 
+dpsmsectionntxt.innerHTML = "Notifications"; dpsmsectionn.className = "dpsmsection";
+dpsmsectionn.appendChild(dpsmsectionntxt); dpsmenu.appendChild(dpsmsectionn);
 var dpsmss = document.createElement("div"); //song stats option
 var dpsmsstxt = document.createElement("span");
 dpsmsstxt.innerHTML = "Song Stats"; dpsmsstxt.className = "dpsmrowtext"
@@ -135,6 +143,10 @@ var dpsmnptxt = document.createElement("span");
 dpsmnptxt.innerHTML = "Now Playing"; dpsmnptxt.className = "dpsmrowtext"
 dpsmnp.className = "dpsmrow";
 dpsmnp.appendChild(dpsmnptxt); dpsmnp.appendChild(dpsmchecknp); dpsmenu.appendChild(dpsmnp);
+var dpsmsections = document.createElement("div"); //styling settings header
+var dpsmsectionstxt = document.createElement("span"); 
+dpsmsectionstxt.innerHTML = "Styling"; dpsmsections.className = "dpsmsection";
+dpsmsections.appendChild(dpsmsectionstxt); dpsmenu.appendChild(dpsmsections);
 var dpsmxpp = document.createElement("div"); // xp to percent option
 var dpsmxpptxt = document.createElement("span");
 dpsmxpptxt.innerHTML = "Change XP To Percent"; dpsmxpptxt.className = "dpsmrowtext"
