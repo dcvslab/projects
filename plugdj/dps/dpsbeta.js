@@ -2,7 +2,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "06"; var subvnum = "4"; var commitnum = "3.1"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "06"; var subvnum = "5"; var commitnum = "1"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -27,7 +27,7 @@ function dpsMessaged(cmtype, nameclass, nametext, messagetext, messagetext2) { /
   if (! nametext) { nametext=""};
   if (! messagetext) { messagetext="" };
   if (! messagetext2) { messagetext2=""};
-$("#chat-messages").append("<div data-cid='" + dpsid + "' class='cm " + cmtype + "' stlye='padding-left: 5px'><div class='msg cid-" + dpsid + "' style='padding-left: 10px'><div class ='" + nameclass + "'><span class='un'>" + nametext + "</span><span style='display: inline;' class='timestamp'>" + time + "</span></div><div class='text cid-" + dpsid + "'>" + messagetext +"</div><div class='text cid-" + dpsid + "'>" + messagetext2 +"</div></div></div>");
+$("#chat-messages").append("<div data-cid='" + dpsid + "' class='cm " + cmtype + "' stlye='padding-left: 5px'><div class='msg cid-" + dpsid + "' style='padding-left: 10px'><div class ='" + nameclass + "'><span class='un clickable'>" + nametext + "</span><span style='display: inline;' class='timestamp'>" + time + "</span></div><div class='text cid-" + dpsid + "'>" + messagetext +"</div><div class='text cid-" + dpsid + "'>" + messagetext2 +"</div></div></div>");
 dpsn = dpsn + 1; dpseid = "dps-" + dpsn; dpsid = "dps-" + user.id + "-" + dpsn
 if (_scroll) { $("#chat-messages")[0].scrollTop = $("#chat-messages")[0].scrollHeight; }
 if ($("#chat-messages").children().length > 512) {  $("#chat-messages").children().first().remove();  }}
@@ -186,6 +186,14 @@ function dpsAj() { //autojoin//
     dpsmcheckaj.style.visibility = "hidden" }}
 dpsAj(); 
 //NOTIFICATION SETTINGS//
+function dpsUj(userj) { //user join
+if (ujopt == "true") {
+  roomname = document.getElementsByClassName("bar-value")[0].innerHTML
+  if (userj.gRole > "0") { if (userj.gRole == "3") { userjc = "dpsba" } else { userjc = "dpsadmin" }} else { if (userj.role > "0") { userjc = "dpsstaff" } else { if (userj.sub == "1") { userjc = "dpssub" } else { userjc = "dpsuser" }}}
+  dpsMessage("message", userjc, "<b>" + userj.username + "</b>", "<span class='dpsul'>has joined <b>" + roomname + "</b></span>") 
+}}
+API.on(API.USER_LEAVE, dpsUj)
+function dpsujCheck() { { if (ujopt == "true") {dpsmcheckuj.style.visibility = "visible" } else {dpsmcheckuj.style.visibility = "hidden" } } }
 function dpsUl(userl) { //user leave
 if (ulopt == "true") {
   roomname = document.getElementsByClassName("bar-value")[0].innerHTML
