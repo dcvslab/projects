@@ -2,7 +2,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if ( !on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "06"; var subvnum = "4"; var commitnum = "1"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "06"; var subvnum = "4"; var commitnum = "1.1"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -42,7 +42,7 @@ if ($("#chat-messages").children().length > 512) {  $("#chat-messages").children
 var dpsopt = localStorage.getItem("dpsOpt"); //option stuff (END EDITED DAMS)
 if (! dpsopt) { 
 var newuser = "true"
-var dpsOpt = { "dpsv": version, "awopt": "true", "ajopt": "true", "ulopt": "true" "ssopt": "false", "npopt": "false:", "xppopt": "false", "dpsftropt": "false" };
+var dpsOpt = { "dpsv": version, "awopt": "true", "ajopt": "true", "ulopt": "true", "ssopt": "false", "npopt": "false:", "xppopt": "false", "dpsftropt": "false" };
 localStorage.setItem('dpsOpt', JSON.stringify(dpsOpt));
 var ldpsOpt = localStorage.getItem('dpsOpt');
 var getopt = JSON.parse(ldpsOpt);
