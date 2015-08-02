@@ -2,7 +2,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "06"; var subvnum = "6"; var commitnum = "3"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "06"; var subvnum = "6"; var commitnum = "4"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -43,7 +43,7 @@ if ($("#chat-messages").children().length > 512) {  $("#chat-messages").children
 var dpsopt = localStorage.getItem("dpsOpt"); //option stuff (END EDITED DAMS)
 if (! dpsopt) { 
 var newuser = "true"
-var dpsOpt = { "dpsv": version, "awopt": "true", "ajopt": "true","ujopt": "true", "ulopt": "true", "ssopt": "false", "npopt": "false:", "xppopt": "false", "dpsftropt": "false", "ccc":{"on": "false", "admin": "#42A5DC", "ba": "#89BE6C", "staff": "#AC76FF", "sub": "#C59840", "you": "#FFDD6F", "user": "#777F92"} };
+var dpsOpt = { "dpsv": version, "awopt": "true", "ajopt": "true","ujopt": "true", "ulopt": "true", "ssopt": "false", "npopt": "false:", "xppopt": "false", "dpsftropt": "false", "cccopt":{"on": "on", "admin": "#42A5DC", "ba": "#89BE6C", "staff": "#AC76FF", "sub": "#C59840", "you": "#FFDD6F", "user": "#777F92"} };
 localStorage.setItem('dpsOpt', JSON.stringify(dpsOpt));
 var ldpsOpt = localStorage.getItem('dpsOpt');
 var getopt = JSON.parse(ldpsOpt);
@@ -56,7 +56,7 @@ var ssopt = getopt.ssopt;
 var npopt = getopt.npopt
 var xppopt = getopt.xppopt; //style options
 var dpsftropt = getopt.dpsftropt;
-var cccopt = getopt.ccc
+var cccopt = getopt.cccopt
 } else {
 var ldpsOpt = localStorage.getItem('dpsOpt');
 var getopt = JSON.parse(ldpsOpt);
@@ -69,14 +69,14 @@ var ssopt = getopt.ssopt;
 var npopt = getopt.npopt
 var xppopt = getopt.xppopt;//style options
 var dpsftropt = getopt.dpsftropt;
-var cccopt = getopt.ccc}
+var cccopt = getopt.cccopt }
 function dpsoptUpdate() { //update
-  dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt,"ujopt": ujopt, "ulopt": ulopt, "ssopt": ssopt,"npopt": npopt, "xppopt": xppopt, "dpsftropt": dpsftropt, "ccc":{"on": ccc.on, "admin": ccc.admin, "ba": ccc.ba, "staff": ccc.staff, "sub": ccc.sub, "you": ccc.you, "user": ccc.user} };
+  dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt,"ujopt": ujopt, "ulopt": ulopt, "ssopt": ssopt,"npopt": npopt, "xppopt": xppopt, "dpsftropt": dpsftropt, "cccopt":{"on": cccopt.on, "admin": cccopt.admin, "ba": cccopt.ba, "staff": cccopt.staff, "sub": cccopt.sub, "you": cccopt.you, "user": cccopt.user} };
   localStorage.setItem('dpsOpt', JSON.stringify(dpsoptPush));
   ldpsOpt = localStorage.getItem('dpsOpt');
   getopt = JSON.parse(ldpsOpt);
 }
-if (! awopt) { awopt = "true" }; if (! ajopt) { ajopt = "true" }; if (! ssopt) { ssopt = "false" }; if (! xppopt) { xppopt = "false" }; if (! dpsftropt) { dpsftropt = "false" }; if (! npopt) { npopt = "false"}; if (! ulopt) { ulopt = "true" }; if (! ujopt) { ujopt = "true"}; if (! cccopt) { cccopt= "ccc":{"on": "false", "admin": "#42A5DC", "ba": "#89BE6C", "staff": "#AC76FF", "sub": "#C59840", "you": "#FFDD6F", "user": "#777F92"} };
+if (! awopt) { awopt = "true" }; if (! ajopt) { ajopt = "true" }; if (! ssopt) { ssopt = "false" }; if (! xppopt) { xppopt = "false" }; if (! dpsftropt) { dpsftropt = "false" }; if (! npopt) { npopt = "false"}; if (! ulopt) { ulopt = "true" }; if (! ujopt) { ujopt = "true"}; if (! cccopt) { cccopt = {"on": "false", "admin": "#42A5DC", "ba": "#89BE6C", "staff": "#AC76FF", "sub": "#C59840", "you": "#FFDD6F", "user": "#777F92"} };
 setTimeout(function () { 
 dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt,"ujopt": ujopt, "ulopt": ulopt, "ssopt": ssopt,"npopt": npopt, "xppopt": xppopt, "dpsftropt": dpsftropt, "ccc":{"on": ccc.on, "admin": ccc.admin, "ba": ccc.ba, "staff": ccc.staff, "sub": ccc.sub, "you": ccc.you, "user": ccc.user} };
 }, 100);
@@ -246,31 +246,31 @@ function dpsnpCheck() { if (npopt == "true") { dpsmchecknp.style.visibility = "v
 dpsnpCheck()
 //STYLING SETTINGS
 var ccc;
-function cccCreate() {
-ccc = "<style id='ccc'>"
-+"#chat .from.admin .un {"
-+"  color: " + ccc.admin
-+"  };"
-+"#chat .from.ambassador .un {"
-+"  color: " + ccc.ba
-+"  };"
-+"#chat .from.staff .un {"
-+"  color: " + ccc.staff
-+"  };"
-+"#chat .from.subscriber .un {"
-+"  color: " + ccc.sub
-+"  };"
-+"#chat .from.you .un {"
-+"  color: " + ccc.you
-+"  };"
-+"#chat .from .un {"
-+"  color: " + ccc.user
-+"  };"
+function dpsCccc() {
+ccc = "<style id='ccc' type='text/css'>"
++" #chat .from.admin .un {"
++"  color: " + cccopt.admin + ";"
++"  }"
++" #chat .from.ambassador .un {"
++"  color: " + cccopt.ba + ";"
++"  }"
++" #chat .from.staff .un {"
++"  color: " + cccopt.staff + ";"
++"  }"
++" #chat .from.subscriber .un {"
++"  color: " + cccopt.sub + ";"
++"  }"
++" #chat .from.you .un {"
++"  color: " + cccopt.you + ";"
++"  }"
++" #chat .from .un {"
++"  color: " + cccopt.user + ";"
++"  }"
 +"</style>";
 }
-function cccAdd() { $(head).append(ccc); }
-function cccRemove() { document.getElementById("ccc").remove(); }
-if (ccc.on == "true") {
+function dpsCcca() { $(head).append(ccc); }
+function dpsCccr() { document.getElementById("ccc").remove(); }
+if (cccopt.on == "on") {
 cccCreate(); cccAdd();
 }
 var progress = document.getElementsByClassName("progress")[0]; //change the xp bar to %
