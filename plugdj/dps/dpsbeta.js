@@ -2,7 +2,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "06"; var subvnum = "7"; var commitnum = "1"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "06"; var subvnum = "7"; var commitnum = "1.1"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -71,12 +71,12 @@ var xppopt = getopt.xppopt;//style options
 var dpsftropt = getopt.dpsftropt;
 var ccopt = getopt.ccopt }
 function dpsoptUpdate() { //update
-  dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt,"ujopt": ujopt, "ulopt": ulopt, "ssopt": ssopt,"npopt": npopt, "xppopt": xppopt, "dpsftropt": dpsftropt, "ccopt":{"ub":, ccopt.ub, "on": ccopt.on, "admin": ccopt.admin, "ba": ccopt.ba, "staff": ccopt.staff, "sub": ccopt.sub, "you": ccopt.you, "user": ccopt.user} };
+  dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt,"ujopt": ujopt, "ulopt": ulopt, "ssopt": ssopt,"npopt": npopt, "xppopt": xppopt, "dpsftropt": dpsftropt, "ccopt":{"ub": ccopt.ub, "on": ccopt.on, "admin": ccopt.admin, "ba": ccopt.ba, "staff": ccopt.staff, "sub": ccopt.sub, "you": ccopt.you, "user": ccopt.user} };
   localStorage.setItem('dpsOpt', JSON.stringify(dpsoptPush));
   ldpsOpt = localStorage.getItem('dpsOpt');
   getopt = JSON.parse(ldpsOpt);
 }
-if (! awopt) { awopt = "true" }; if (! ajopt) { ajopt = "true" }; if (! ssopt) { ssopt = "false" }; if (! xppopt) { xppopt = "false" }; if (! dpsftropt) { dpsftropt = "false" }; if (! npopt) { npopt = "false"}; if (! ulopt) { ulopt = "true" }; if (! ujopt) { ujopt = "true"}; if (! ccopt) { ccopt = {"ub", "false", "on": "false", "admin": "#42A5DC", "ba": "#89BE6C", "staff": "#AC76FF", "sub": "#C59840", "you": "#FFDD6F", "user": "#777F92"} };
+if (! awopt) { awopt = "true" }; if (! ajopt) { ajopt = "true" }; if (! ssopt) { ssopt = "false" }; if (! xppopt) { xppopt = "false" }; if (! dpsftropt) { dpsftropt = "false" }; if (! npopt) { npopt = "false"}; if (! ulopt) { ulopt = "true" }; if (! ujopt) { ujopt = "true"}; if (! ccopt) { ccopt = {"ub": "false", "on": "false", "admin": "#42A5DC", "ba": "#89BE6C", "staff": "#AC76FF", "sub": "#C59840", "you": "#FFDD6F", "user": "#777F92"} };
 setTimeout(function () { 
   dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt,"ujopt": ujopt, "ulopt": ulopt, "ssopt": ssopt,"npopt": npopt, "xppopt": xppopt, "dpsftropt": dpsftropt, "ccopt":{"ub":, ccopt.ub, "on": ccopt.on, "admin": ccopt.admin, "ba": ccopt.ba, "staff": ccopt.staff, "sub": ccopt.sub, "you": ccopt.you, "user": ccopt.user} };
 }, 100);
