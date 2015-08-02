@@ -2,7 +2,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "06"; var subvnum = "6"; var commitnum = "2"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "06"; var subvnum = "6"; var commitnum = "3"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -43,7 +43,7 @@ if ($("#chat-messages").children().length > 512) {  $("#chat-messages").children
 var dpsopt = localStorage.getItem("dpsOpt"); //option stuff (END EDITED DAMS)
 if (! dpsopt) { 
 var newuser = "true"
-var dpsOpt = { "dpsv": version, "awopt": "true", "ajopt": "true","ujopt": "true", "ulopt": "true", "ssopt": "false", "npopt": "false:", "xppopt": "false", "dpsftropt": "false" };
+var dpsOpt = { "dpsv": version, "awopt": "true", "ajopt": "true","ujopt": "true", "ulopt": "true", "ssopt": "false", "npopt": "false:", "xppopt": "false", "dpsftropt": "false", "ccc":{"on": "false", "admin": "#42A5DC", "ba": "#89BE6C", "staff": "#AC76FF", "sub": "#C59840", "you": "#FFDD6F", "user": "#777F92"} };
 localStorage.setItem('dpsOpt', JSON.stringify(dpsOpt));
 var ldpsOpt = localStorage.getItem('dpsOpt');
 var getopt = JSON.parse(ldpsOpt);
@@ -56,6 +56,7 @@ var ssopt = getopt.ssopt;
 var npopt = getopt.npopt
 var xppopt = getopt.xppopt; //style options
 var dpsftropt = getopt.dpsftropt;
+var cccopt = getopt.ccc
 } else {
 var ldpsOpt = localStorage.getItem('dpsOpt');
 var getopt = JSON.parse(ldpsOpt);
@@ -67,29 +68,20 @@ var ulopt = getopt.ulopt;
 var ssopt = getopt.ssopt; 
 var npopt = getopt.npopt
 var xppopt = getopt.xppopt;//style options
-var dpsftropt = getopt.dpsftropt; }
+var dpsftropt = getopt.dpsftropt;
+var cccopt = getopt.ccc}
 function dpsoptUpdate() { //update
-  dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt,"ujopt": ujopt, "ulopt": ulopt, "ssopt": ssopt,"npopt": npopt, "xppopt": xppopt, "dpsftropt": dpsftropt };
+  dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt,"ujopt": ujopt, "ulopt": ulopt, "ssopt": ssopt,"npopt": npopt, "xppopt": xppopt, "dpsftropt": dpsftropt, "ccc":{"on": ccc.on, "admin": ccc.admin, "ba": ccc.ba, "staff": ccc.staff, "sub": ccc.sub, "you": ccc.you, "user": ccc.user} };
   localStorage.setItem('dpsOpt', JSON.stringify(dpsoptPush));
   ldpsOpt = localStorage.getItem('dpsOpt');
   getopt = JSON.parse(ldpsOpt);
 }
-if (! awopt) { awopt = "true" }; if (! ajopt) { ajopt = "true" }; if (! ssopt) { ssopt = "false" }; if (! xppopt) { xppopt = "false" }; if (! dpsftropt) { dpsftropt = "false" }; if (! npopt) { npopt = "false"}; if (! ulopt) { ulopt = "true" }; if (! ujopt) { ujopt = "true"};
+if (! awopt) { awopt = "true" }; if (! ajopt) { ajopt = "true" }; if (! ssopt) { ssopt = "false" }; if (! xppopt) { xppopt = "false" }; if (! dpsftropt) { dpsftropt = "false" }; if (! npopt) { npopt = "false"}; if (! ulopt) { ulopt = "true" }; if (! ujopt) { ujopt = "true"}; if (! cccopt) { cccopt= "ccc":{"on": "false", "admin": "#42A5DC", "ba": "#89BE6C", "staff": "#AC76FF", "sub": "#C59840", "you": "#FFDD6F", "user": "#777F92"} };
 setTimeout(function () { 
-dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt,"ujopt": ujopt, "ulopt": ulopt, "ssopt": ssopt,"npopt": npopt, "xppopt": xppopt, "dpsftropt": dpsftropt };
+dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt,"ujopt": ujopt, "ulopt": ulopt, "ssopt": ssopt,"npopt": npopt, "xppopt": xppopt, "dpsftropt": dpsftropt, "ccc":{"on": ccc.on, "admin": ccc.admin, "ba": ccc.ba, "staff": ccc.staff, "sub": ccc.sub, "you": ccc.you, "user": ccc.user} };
 }, 100);
 var oldversion = dpsv
 dpsoptUpdate()
-var friendsPush = { }
-var roomusers = API.getUsers(); //get your friends
-var roomusersl = roomusers.length;
-function getFriends() {
-roomusers = API.getUsers(); //get your friends
-roomusersl = roomusers.length;
-for (var i = 0; i < roomusersl; i++) {
-    if (roomusers[i].friend == true) {
-    	friendsPush.push(roomusers[i])
-}}}
 var ibtn = document.getElementsByClassName("inventory button")[0]; //SETTING UP THE BUTTON//
 var bbtn = document.getElementsByClassName("badge button")[0];
 var stbtn = document.getElementsByClassName("store button")[0];
@@ -208,17 +200,15 @@ dpsAj();
 //NOTIFICATION SETTINGS//
 function dpsUj(userj) { //user join
 if (ujopt == "true") {
-  roomname = document.getElementsByClassName("bar-value")[0].innerHTML
   if (userj.gRole > "0") { if (userj.gRole == "3") { userjc = "dpsba" } else { userjc = "dpsadmin" }} else { if (userj.role > "0") { userjc = "dpsstaff" } else { if (userj.sub == "1") { userjc = "dpssub" } else { userjc = "dpsuser" }}}
-  dpsMessage("message", userjc, "<b>" + userj.username + "</b>", "<span class='dpsuj'>has joined <b>" + roomname + "</b></span>") 
+  dpsMessage("message", userjc, "<b>" + userj.username + "</b>", "<span class='dpsuj'>has joined.</span>") 
 }}
 API.on(API.USER_JOIN, dpsUj)
 function dpsujCheck() { { if (ujopt == "true") {dpsmcheckuj.style.visibility = "visible" } else {dpsmcheckuj.style.visibility = "hidden" } } }
 function dpsUl(userl) { //user leave
 if (ulopt == "true") {
-  roomname = document.getElementsByClassName("bar-value")[0].innerHTML
   if (userl.gRole > "0") { if (userl.gRole == "3") { userlc = "dpsba" } else { userlc = "dpsadmin" }} else { if (userl.role > "0") { userlc = "dpsstaff" } else { if (userl.sub == "1") { userlc = "dpssub" } else { userlc = "dpsuser" }}}
-  dpsMessage("message", userlc, "<b>" + userl.username + "</b>", "<span class='dpsul'>has left <b>" + roomname + "</b></span>") 
+  dpsMessage("message", userlc, "<b>" + userl.username + "</b>", "<span class='dpsul'>has left.</span>") 
 }}
 API.on(API.USER_LEAVE, dpsUl)
 function dpsulCheck() { { if (ulopt == "true") {dpsmcheckul.style.visibility = "visible" } else {dpsmcheckul.style.visibility = "hidden" } } }
@@ -255,36 +245,33 @@ if (npopt == "true") {
 function dpsnpCheck() { if (npopt == "true") { dpsmchecknp.style.visibility = "visible" } else {dpsmchecknp.style.visibility = "hidden" } }
 dpsnpCheck()
 //STYLING SETTINGS
-var adminc = "#42A5DC"; var bac = "#89BE6C"; var staffc = "#AC76FF"; var subc = "#C59840"; var youc = "#FFDD6F"; var userc = "#777F92"
 var ccc;
 function cccCreate() {
 ccc = "<style id='ccc'>"
 +"#chat .from.admin .un {"
-+"  color: " + adminc
++"  color: " + ccc.admin
++"  };"
++"#chat .from.ambassador .un {"
++"  color: " + ccc.ba
 +"  };"
 +"#chat .from.staff .un {"
-+"  color: " + staffc
++"  color: " + ccc.staff
 +"  };"
 +"#chat .from.subscriber .un {"
-+"  color: " + subc
++"  color: " + ccc.sub
 +"  };"
 +"#chat .from.you .un {"
-+"  color: " + youc
++"  color: " + ccc.you
 +"  };"
 +"#chat .from .un {"
-+"  color: " + userc
++"  color: " + ccc.user
 +"  };"
 +"</style>";
 }
-var cccstyle;
-function cccAdd() {
-$(head).append(ccc);
-}
-function cccReplace() {
-cccstyle = document.getElementsByTagName("style")[1]
-cccstyle.remove()
-createCcc()
-cccAdd()
+function cccAdd() { $(head).append(ccc); }
+function cccRemove() { document.getElementById("ccc").remove(); }
+if (ccc.on == "true") {
+cccCreate(); cccAdd();
 }
 var progress = document.getElementsByClassName("progress")[0]; //change the xp bar to %
 progress.id = "progress";
