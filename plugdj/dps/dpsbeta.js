@@ -2,11 +2,12 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "06"; var subvnum = "5"; var commitnum = "6.1"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "06"; var subvnum = "6"; var commitnum = "2"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
 var history = API.getHistory;
+var head = document.getElementsByTagName("head")[0]
 var creator = { username: "DCV", id: "3639711", sub: "1" }
 var roomname = document.getElementsByClassName("bar-value")[0].innerHTML
 var uclass;
@@ -233,7 +234,7 @@ if (ssopt == "true") {
   ssucolor;
   if (user.id == ssuserid) { if (ssuser.role == "0") { if (ssuser.gRole == "0") { if (ssuser.sub == "0") { ssuclass = "dpsyou"}}}} else {
   if (ssuser.gRole > "0") { if (ssuser.gRole == "3") { ssuclass = "dpsba" } else { ssuclass = "dpsadmin" }} else { if (ssuser.role > "0") { ssuclass = "dpsstaff" } else { if (ssuser.sub == "1") { ssuclass = "dpssub" } else { ssuclass = "dpsuser" }}}}
-  dpsMessaged("message", "from admin", "SONG STATS","<b class='" + ssuclass + "'>" + API.getHistory()[1].user.username + "</b> played <b>" + API.getHistory()[1].media.author + " - " + API.getHistory()[1].media.title + "</b>", "<b class='dpsgreen'>" + API.getHistory()[1].score.positive + " woots</b> | <b class='dpsred'>" + API.getHistory()[1].score.negative + " mehs</b> | <b class='dpsgpurple'>" + API.getHistory()[0].score.grabs + " grabs</b> | <b class='dpsbluegray'>" + API.getHistory()[1].score.listeners + " listeners</b>" )
+  dpsMessaged("message", "dpsadmin", "<b>SONG STATS</b>","<b class='" + ssuclass + "'>" + API.getHistory()[1].user.username + "</b> played <b>" + API.getHistory()[1].media.author + " - " + API.getHistory()[1].media.title + "</b>", "<b class='dpsgreen'>" + API.getHistory()[1].score.positive + " woots</b> | <b class='dpsred'>" + API.getHistory()[1].score.negative + " mehs</b> | <b class='dpsgpurple'>" + API.getHistory()[0].score.grabs + " grabs</b> | <b class='dpsbluegray'>" + API.getHistory()[1].score.listeners + " listeners</b>" )
   }, 500); }}
 function dpsssCheck() {if (ssopt == "true") {dpsmcheckss.style.visibility = "visible" } else {dpsmcheckss.style.visibility = "hidden"}}
 dpsssCheck()
@@ -249,11 +250,42 @@ if (npopt == "true") {
   if (second.split(".")[0].length == 1) { second = "0" + second.split(".")[0] } else { second = second.split(".")[0]; second = second.match(/../g)[0]; }
   if (user.id == dj.id) { if (dj.role == "0") { if (dj.gRole == "0") { if (dj.sub == "0") { djclass = "dpsyou"}}}} else {
  if (dj.gRole > "0") { if (dj.gRole == "3") { djclass = "dpsba" } else { djclass = "dpsadmin" }} else { if (dj.role > "0") { djclass = "dpsstaff" } else { if (dj.sub == "1") { djclass = "dpssub" } else { djclass = "dpsuser" }}}}
-  dpsMessaged("message", "from admin", "NOW PLAYING", "<b class='" + djclass + "'>" + dj.username + "</b> is playing <b>" + media.author + " - " + media.title + "</b>" , "It is <b class='" + djclass + "'>" + minute + ":" + second + "</b> long.")
+  dpsMessaged("message", "dpsadmin", "<b>NOW PLAYING</b>", "<b class='" + djclass + "'>" + dj.username + "</b> is playing <b>" + media.author + " - " + media.title + "</b>" , "It is <b class='" + djclass + "'>" + minute + ":" + second + "</b> long.")
   }, 500); }}
 function dpsnpCheck() { if (npopt == "true") { dpsmchecknp.style.visibility = "visible" } else {dpsmchecknp.style.visibility = "hidden" } }
 dpsnpCheck()
 //STYLING SETTINGS
+var adminc = "#42A5DC"; var bac = "#89BE6C"; var staffc = "#AC76FF"; var subc = "#C59840"; var youc = "#FFDD6F"; var userc = "#777F92"
+var ccc;
+function cccCreate() {
+ccc = "<style id='ccc'>"
++"#chat .from.admin .un {"
++"  color: " + adminc
++"  };"
++"#chat .from.staff .un {"
++"  color: " + staffc
++"  };"
++"#chat .from.subscriber .un {"
++"  color: " + subc
++"  };"
++"#chat .from.you .un {"
++"  color: " + youc
++"  };"
++"#chat .from .un {"
++"  color: " + userc
++"  };"
++"</style>";
+}
+var cccstyle;
+function cccAdd() {
+$(head).append(ccc);
+}
+function cccReplace() {
+cccstyle = document.getElementsByTagName("style")[1]
+cccstyle.remove()
+createCcc()
+cccAdd()
+}
 var progress = document.getElementsByClassName("progress")[0]; //change the xp bar to %
 progress.id = "progress";
 var percent = progress.style.width;
@@ -400,14 +432,19 @@ togglemenu = "no"
 dpsbtn.addEventListener("click", toggleMenu) 
 dpsbtn.addEventListener("click", menuClicked) 
 var changelog = "dcvslab.github.io/dps/changelog"
+var messagesent = "false"
 if (newuser == "true") {
   dpsMessaged("system", "from", "DPS has loaded <b class='" + uclass + "'>v" + version + "</b>!", "Welcome to DPS, <b class='" + uclass + "'>" + user.username + "</b>!", "Info: <a href='http://dcvslab.github.io/dps'>dcvslab.github.io/dps</a> (COMING SOON)")
+  messagesent = "true"
 } else {
 if (version == dpsv) {
   dpsMessage("system", "from", "DPS has loaded <b class='" + uclass + "'>v" + version + "</b>!","No new updates since last time, <b class='" + uclass + "'>" + user.username + "</b>.")
+  messagesent = "true"
 } else {
   dpsMessaged("system", "from", "DPS has loaded <b class='" + uclass + "'>v" + version + "</b>!", "You last used <b class='" + uclass + "'>v" + oldversion + "</b>.","Changelog: <a href='http://dcvslab.github.io/dps/changelog.txt'>" + changelog + "</a>")
+  messagesent = "true"
 }}
 } else {
  dpsMessage("system", "from", "DPS is already on!", "To reload DPS, refresh the page and click the bookmark again!")
 }
+
