@@ -79,3 +79,7 @@
 .dpsmcheck { /*ALPHA 05 */
   left: 0px;
 }
+.dpsmpm { /*ALPHA 06 */
+  right: 0px;
+  z-index: 500;
+}
