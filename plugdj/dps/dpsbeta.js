@@ -2,7 +2,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "06"; var subvnum = "5"; var commitnum = "3.1"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "06"; var subvnum = "5"; var commitnum = "4"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -79,6 +79,16 @@ dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt,"ujopt": ujopt, "
 }, 100);
 var oldversion = dpsv
 dpsoptUpdate()
+var friendsPush = { }
+var roomusers = API.getUsers(); //get your friends
+var roomusersl = roomusers.length;
+function getFriends() {
+roomusers = API.getUsers(); //get your friends
+roomusersl = roomusers.length;
+for (var i = 0; i < roomusersl; i++) {
+    if (roomusers[i].friend == true) {
+    	friendsPush.push(roomusers[i])
+}}}
 var ibtn = document.getElementsByClassName("inventory button")[0]; //SETTING UP THE BUTTON//
 var bbtn = document.getElementsByClassName("badge button")[0];
 var stbtn = document.getElementsByClassName("store button")[0];
@@ -206,7 +216,8 @@ function dpsujCheck() { { if (ujopt == "true") {dpsmcheckuj.style.visibility = "
 function dpsUl(userl) { //user leave
 if (ulopt == "true") {
   roomname = document.getElementsByClassName("bar-value")[0].innerHTML
-  dpsMessage("message", "dpsuser", "<b>" + userl.username + "</b>", "<span class='dpsul'>has left <b>" + roomname + "</b></span>") 
+  if (userl.gRole > "0") { if (userl.gRole == "3") { userlc = "dpsba" } else { userlc = "dpsadmin" }} else { if (userl.role > "0") { userlc = "dpsstaff" } else { if (userl.sub == "1") { userlc = "dpssub" } else { userlc = "dpsuser" }}}
+  dpsMessage("message", userjl, "<b>" + userl.username + "</b>", "<span class='dpsul'>has left <b>" + roomname + "</b></span>") 
 }}
 API.on(API.USER_LEAVE, dpsUl)
 function dpsulCheck() { { if (ulopt == "true") {dpsmcheckul.style.visibility = "visible" } else {dpsmcheckul.style.visibility = "hidden" } } }
