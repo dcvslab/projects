@@ -2,7 +2,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "06"; var subvnum = "5"; var commitnum = "4.1"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "06"; var subvnum = "5"; var commitnum = "5"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -217,7 +217,8 @@ function dpsUl(userl) { //user leave
 if (ulopt == "true") {
   roomname = document.getElementsByClassName("bar-value")[0].innerHTML
   if (userl.gRole > "0") { if (userl.gRole == "3") { userlc = "dpsba" } else { userlc = "dpsadmin" }} else { if (userl.role > "0") { userlc = "dpsstaff" } else { if (userl.sub == "1") { userlc = "dpssub" } else { userlc = "dpsuser" }}}
-  dpsMessage("message", userlc, "<b>" + userl.username + "</b>", "<span class='dpsul'>has left <b>" + roomname + "</b></span>") 
+  if (userl.friend == true) { ulfriend = " | FRIEND" } else { ulfriend = "" }
+  dpsMessage("message", userlc, "<b>" + userl.username + ulfriend + "</b>", "<span class='dpsul'>has left <b>" + roomname + "</b></span>") 
 }}
 API.on(API.USER_LEAVE, dpsUl)
 function dpsulCheck() { { if (ulopt == "true") {dpsmcheckul.style.visibility = "visible" } else {dpsmcheckul.style.visibility = "hidden" } } }
