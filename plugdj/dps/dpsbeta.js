@@ -2,7 +2,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "06"; var subvnum = "7"; var commitnum = "1.3"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "06"; var subvnum = "7"; var commitnum = "1.4"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -285,8 +285,7 @@ cc = "<style id='cc' type='text/css'>"
 function dpsCca() { $(head).append(cc); };
 function dpsCcr() { document.getElementById("cc").remove(); };
 if (ccopt.on == "true") { dpsCcc(); dpsCca(); };
-dpsccCheck() { if (ccopt.on == "true") { dpsmcheckcc.style.visibility = "visibile"; } else { dpsmcheckcc.style.visibility = "hidden"; } 
-
+dpsccCheck() { if (ccopt.on == "true") { dpsmcheckcc.style.visibility = "visibile"; } else { dpsmcheckcc.style.visibility = "hidden"; }} 
 var progress = document.getElementsByClassName("progress")[0]; //change the xp bar to %
 progress.id = "progress";
 var percent = progress.style.width;
