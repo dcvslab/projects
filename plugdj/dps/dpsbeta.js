@@ -2,7 +2,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "06"; var subvnum = "7"; var commitnum = "4"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "06"; var subvnum = "7"; var commitnum = "4.1"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -180,17 +180,17 @@ var dpsmcctxt = document.createElement("span");
 dpsmcctxt.innerHTML = "Custom Colors"; dpsmcctxt.className = "dpsmrowtext"
 dpsmcc.className = "dpsmrow";
 var dpsmccm = document.createElement("div"); dpsmccm.id = "dpsmccm"; //custom colors menu
-dpsmccmatxt = document.createElement("span"); dpsmccmatxt.innerHTML = "Admin"; dpsmccmatxt.className = "dpsmmrow"
+dpsmccmatxt = document.createElement("div"); dpsmccmatxt.innerHTML = "Admin"; dpsmccmatxt.className = "dpsmmrow"
 dpsmccm.appendChild(dpsmccmatxt); 
-var dpsmccmbatxt = document.createElement("span"); dpsmccmbatxt.innerHTML = "Brand Ambassador"; dpsmccmbatxt.className = "dpsmmrow"
+var dpsmccmbatxt = document.createElement("div"); dpsmccmbatxt.innerHTML = "Brand Ambassador"; dpsmccmbatxt.className = "dpsmmrow"
 dpsmccm.appendChild(dpsmccmbatxt); 
-var dpsmccmstxt = document.createElement("span"); dpsmccmstxt.innerHTML = "Staff"; dpsmccmstxt.className = "dpsmmrow"
+var dpsmccmstxt = document.createElement("div"); dpsmccmstxt.innerHTML = "Staff"; dpsmccmstxt.className = "dpsmmrow"
 dpsmccm.appendChild(dpsmccmstxt); 
-var dpsmccmsutxt = document.createElement("span"); dpsmccmsutxt.innerHTML = "Subscriber"; dpsmccmsutxt.className = "dpsmmrow"
+var dpsmccmsutxt = document.createElement("div"); dpsmccmsutxt.innerHTML = "Subscriber"; dpsmccmsutxt.className = "dpsmmrow"
 dpsmccm.appendChild(dpsmccmsutxt); 
-dpsmccmytxt = document.createElement("span"); dpsmccmytxt.innerHTML = "You"; dpsmccmytxt.className = "dpsmmrow"
+dpsmccmytxt = document.createElement("div"); dpsmccmytxt.innerHTML = "You"; dpsmccmytxt.className = "dpsmmrow"
 dpsmccm.appendChild(dpsmccmytxt); 
-var dpsmccmutxt = document.createElement("span"); dpsmccmutxt.innerHTML = "User"; dpsmccmutxt.className = "dpsmmrow"
+var dpsmccmutxt = document.createElement("div"); dpsmccmutxt.innerHTML = "User"; dpsmccmutxt.className = "dpsmmrow"
 dpsmccm.appendChild(dpsmccmutxt); 
 dpsmcc.appendChild(dpsmcheckcc); dpsmcc.appendChild(dpsmpluscc); dpsmcc.appendChild(dpsmminuscc); dpsmcc.appendChild(dpsmcctxt); dpsmcc.appendChild(dpsmccm); dpsmenu.appendChild(dpsmcc); 
 var dpsmxpp = document.createElement("div"); // xp to percent option
