@@ -114,4 +114,5 @@ color: #DEDEDE;
   border-left: 1px solid #0A0A0A;
   border-right: 1px solid #0A0A0A;
   overflow-y: auto;
+  display: none;
 }
