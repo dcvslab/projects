@@ -53,7 +53,7 @@
   height: inherit;
   width: 345px;
   position: absolute;
-  border-bottom: 1px solid #0A0A0A;
+  border: 1px solid #0A0A0A;
   overflow-y: auto;
 }
 .dpsmsection { /*ALPHA 06 */
@@ -101,4 +101,14 @@ margin-left: 10px;
 padding: 2px;
 background-color: #323742;
 color: #DEDEDE;
+}
+.dpsmoptm { /* ALPHA 06 */
+  background-color: #282C35;
+  right: 690px;
+  display: none;
+  height: inherit;
+  width: 345px;
+  position: absolute;
+  border: 1px solid #0A0A0A;
+  overflow-y: auto;
 }
