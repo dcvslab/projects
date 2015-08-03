@@ -53,7 +53,8 @@
   height: inherit;
   width: 345px;
   position: absolute;
-  border: 1px solid #0A0A0A;
+  border-right: 1px solid #0A0A0A;
+  border-bottom: 1px solid #0A0A0A;
   overflow-y: auto;
 }
 .dpsmsection { /*ALPHA 06 */
@@ -109,6 +110,6 @@ color: #DEDEDE;
   height: inherit;
   width: 345px;
   position: absolute;
-  border: 1px solid #0A0A0A;
+  border-bottom: 1px solid #0A0A0A;
   overflow-y: auto;
 }
