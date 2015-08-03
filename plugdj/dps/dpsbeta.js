@@ -2,7 +2,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "06"; var subvnum = "7"; var commitnum = "1.4"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "06"; var subvnum = "7"; var commitnum = "2"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -128,7 +128,7 @@ dpsmcheckcc.className = "icon icon-check-purple dpsmcheck";
 var dpsmpluscc = document.createElement("i") //create custom colors plus
 dpsmpluscc.className = "icon icon-add dpsmpm";
 var dpsmminuscc = document.createElement("img") //create custom colors minus
-dpsminuscc.setAttribute("src", "http://i.imgur.com/dXRmakc.png"); dpsminuscc.className = "dpsmpm"
+dpsmminuscc.setAttribute("src", "http://i.imgur.com/dXRmakc.png"); dpsmminuscc.className = "dpsmpm"
 var dpsmcheckxpp = document.createElement("i") //create xp to percent check
 dpsmcheckxpp.className = "icon icon-check-purple dpsmcheck";
 var dpsmcheckdpsftr = document.createElement("i") //create dps footer check
@@ -177,12 +177,12 @@ dpsmsectionstxt.innerHTML = "Styling"; dpsmsections.className = "dpsmsection";
 dpsmsections.appendChild(dpsmsectionstxt); dpsmenu.appendChild(dpsmsections);
 var dpsmcc = document.createElement("div"); // custom colors option
 var dpsmcctxt = document.createElement("span");
-dpsmxpptxt.innerHTML = "Custom Colors"; dpsmcctxt.className = "dpsmrowtext"
+dpsmcctxt.innerHTML = "Custom Colors"; dpsmcctxt.className = "dpsmrowtext"
 dpsmcc.className = "dpsmrow";
 var dpsmccm = document.createElement("div"); //custom colors menu
 dpsmccmatxt = document.createElement("span"); dpsmccmatxt.innerHTML = "Admin"; dpsmccmatxt.className = "dpsmmrow"
 dpsmccm.appendChild(dpsmccmatxt); 
-dpsmcc.appendChild(dpsmccm); adpsmcc.appendChild(dpsmcctxt); dpsmcc.appendChild(dpsmcheckcc); dpsmcc.appendChild(dpsmpluscc); dpsmcc.appendChild(dpsmminuscc); dpsmenu.appendChild(dpsmcc);
+dpsmcc.appendChild(dpsmcheckcc); dpsmcc.appendChild(dpsmpluscc); dpsmcc.appendChild(dpsmminuscc); dpsmcc.appendChild(dpsmcctxt); dpsmcc.appendChild(dpsmccm); dpsmenu.appendChild(dpsmcc); 
 var dpsmxpp = document.createElement("div"); // xp to percent option
 var dpsmxpptxt = document.createElement("span");
 dpsmxpptxt.innerHTML = "Change XP To Percent"; dpsmxpptxt.className = "dpsmrowtext"
@@ -285,7 +285,9 @@ cc = "<style id='cc' type='text/css'>"
 function dpsCca() { $(head).append(cc); };
 function dpsCcr() { document.getElementById("cc").remove(); };
 if (ccopt.on == "true") { dpsCcc(); dpsCca(); };
-dpsccCheck() { if (ccopt.on == "true") { dpsmcheckcc.style.visibility = "visibile"; } else { dpsmcheckcc.style.visibility = "hidden"; }} 
+function dpsccCheck() { 
+	if (ccopt.on == "true") { dpsmcheckcc.style.visibility = "visibile"; } 
+	else { dpsmcheckcc.style.visibility = "hidden"; }} 
 var progress = document.getElementsByClassName("progress")[0]; //change the xp bar to %
 progress.id = "progress";
 var percent = progress.style.width;
