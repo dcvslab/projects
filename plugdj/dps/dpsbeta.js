@@ -2,7 +2,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "06"; var subvnum = "7"; var commitnum = "3"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "06"; var subvnum = "7"; var commitnum = "3.1"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -286,7 +286,7 @@ function dpsCca() { $(head).append(cc); };
 function dpsCcr() { document.getElementById("cc").remove(); };
 if (ccopt.on == "true") { dpsCcc(); dpsCca(); };
 function dpsccCheck() { 
-	if (ccopt.on == "true") { dpsmcheckcc.style.visibility = "visibile"; } 
+	if (ccopt.on == "true") { dpsmcheckcc.style.visibility = "visible"; } 
 	else { dpsmcheckcc.style.visibility = "hidden"; }}
 var dpsccmsh = "hidden"
 function dpsccmSh() { //show hide cc menu
@@ -412,7 +412,7 @@ function menuClicked() { //to set up the menu
     npopt = "true";
     dpsmchecknp.style.visibility = "visible"
     dpsoptUpdate(); dpsnpCheck() }}
-  dpsmcc.onclick=function(){ if (ccopt.on == "true") { 
+  dpsmcctxt.onclick=function(){ if (ccopt.on == "true") { 
     ccopt.on = "false"; 
     dpsoptUpdate(); dpsccCheck()
     setTimeout(function () { dpsCcr() }, 0050); } 
