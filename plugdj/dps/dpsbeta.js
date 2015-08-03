@@ -2,7 +2,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "06"; var subvnum = "7"; var commitnum = "4.1"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "06"; var subvnum = "7"; var commitnum = "5"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -181,17 +181,29 @@ dpsmcctxt.innerHTML = "Custom Colors"; dpsmcctxt.className = "dpsmrowtext"
 dpsmcc.className = "dpsmrow";
 var dpsmccm = document.createElement("div"); dpsmccm.id = "dpsmccm"; //custom colors menu
 dpsmccmatxt = document.createElement("div"); dpsmccmatxt.innerHTML = "Admin"; dpsmccmatxt.className = "dpsmmrow"
-dpsmccm.appendChild(dpsmccmatxt); 
+dpsmccm.appendChild(dpsmccmatxt);
+var dpsmccmainput = document.createElement("input"); dpsmccmainput.setAttribute("maxlength", "7"); dpsmccmainput.setAttribute("type", "text"); dpsmccmainput.style.border = "1px solid " + ccopt.admin;
+dpsmccmatxt.appendChild(dpsmccmainput)
 var dpsmccmbatxt = document.createElement("div"); dpsmccmbatxt.innerHTML = "Brand Ambassador"; dpsmccmbatxt.className = "dpsmmrow"
-dpsmccm.appendChild(dpsmccmbatxt); 
+dpsmccm.appendChild(dpsmccmbatxt);
+var dpsmccmbainput = document.createElement("input"); dpsmccmbainput.setAttribute("maxlength", "7"); dpsmccmbainput.setAttribute("type", "text")
+dpsmccmbatxt.appendChild(dpsmccmbainput)
 var dpsmccmstxt = document.createElement("div"); dpsmccmstxt.innerHTML = "Staff"; dpsmccmstxt.className = "dpsmmrow"
-dpsmccm.appendChild(dpsmccmstxt); 
+dpsmccm.appendChild(dpsmccmstxt);
+var dpsmccmsinput = document.createElement("input"); dpsmccmsinput.setAttribute("maxlength", "7"); dpsmccmsinput.setAttribute("type", "text")
+dpsmccmstxt.appendChild(dpsmccmsinput)
 var dpsmccmsutxt = document.createElement("div"); dpsmccmsutxt.innerHTML = "Subscriber"; dpsmccmsutxt.className = "dpsmmrow"
 dpsmccm.appendChild(dpsmccmsutxt); 
+var dpsmccmsuinput = document.createElement("input"); dpsmccmsuinput.setAttribute("maxlength", "7"); dpsmccmsuinput.setAttribute("type", "text")
+dpsmccmsutxt.appendChild(dpsmccmsuinput)
 dpsmccmytxt = document.createElement("div"); dpsmccmytxt.innerHTML = "You"; dpsmccmytxt.className = "dpsmmrow"
-dpsmccm.appendChild(dpsmccmytxt); 
+dpsmccm.appendChild(dpsmccmytxt);
+var dpsmccmyinput = document.createElement("input"); dpsmccmyinput.setAttribute("maxlength", "7"); dpsmccmyinput.setAttribute("type", "text")
+dpsmccmytxt.appendChild(dpsmccmyinput)
 var dpsmccmutxt = document.createElement("div"); dpsmccmutxt.innerHTML = "User"; dpsmccmutxt.className = "dpsmmrow"
 dpsmccm.appendChild(dpsmccmutxt); 
+var dpsmccmuinput = document.createElement("input"); dpsmccmuinput.setAttribute("maxlength", "7"); dpsmccmuinput.setAttribute("type", "text")
+dpsmccmutxt.appendChild(dpsmccmuinput)
 dpsmcc.appendChild(dpsmcheckcc); dpsmcc.appendChild(dpsmpluscc); dpsmcc.appendChild(dpsmminuscc); dpsmcc.appendChild(dpsmcctxt); dpsmcc.appendChild(dpsmccm); dpsmenu.appendChild(dpsmcc); 
 var dpsmxpp = document.createElement("div"); // xp to percent option
 var dpsmxpptxt = document.createElement("span");
