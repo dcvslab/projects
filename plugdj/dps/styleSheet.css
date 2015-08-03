@@ -54,6 +54,7 @@
   width: 345px;
   position: absolute;
   border-bottom: 1px solid #0A0A0A;
+  overflow-y: auto;
 }
 .dpsmsection { /*ALPHA 06 */
   padding-top: 10px;
