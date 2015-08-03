@@ -95,3 +95,7 @@
   cursor: default;
   line-height: 30px;
 }
+.dpsccbox { /* ALPHA 06 */
+  width: 15px;
+  height: inherit;
+}
