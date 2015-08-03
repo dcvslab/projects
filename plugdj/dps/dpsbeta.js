@@ -2,7 +2,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "06"; var subvnum = "7"; var commitnum = "2"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "06"; var subvnum = "7"; var commitnum = "3"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -179,7 +179,7 @@ var dpsmcc = document.createElement("div"); // custom colors option
 var dpsmcctxt = document.createElement("span");
 dpsmcctxt.innerHTML = "Custom Colors"; dpsmcctxt.className = "dpsmrowtext"
 dpsmcc.className = "dpsmrow";
-var dpsmccm = document.createElement("div"); //custom colors menu
+var dpsmccm = document.createElement("div"); dpsmccm.id = "dpsmccm"; //custom colors menu
 dpsmccmatxt = document.createElement("span"); dpsmccmatxt.innerHTML = "Admin"; dpsmccmatxt.className = "dpsmmrow"
 dpsmccm.appendChild(dpsmccmatxt); 
 dpsmcc.appendChild(dpsmcheckcc); dpsmcc.appendChild(dpsmpluscc); dpsmcc.appendChild(dpsmminuscc); dpsmcc.appendChild(dpsmcctxt); dpsmcc.appendChild(dpsmccm); dpsmenu.appendChild(dpsmcc); 
@@ -263,22 +263,22 @@ var cc; //CUSTOM COLORS WOO
 function dpsCcc() {
 cc = "<style id='cc' type='text/css'>"
 +" #chat .from.admin .un {"
-+"  color: " + cccopt.admin + ";"
++"  color: " + ccopt.admin + ";"
 +"  }"
 +" #chat .from.ambassador .un {"
-+"  color: " + cccopt.ba + ";"
++"  color: " + ccopt.ba + ";"
 +"  }"
 +" #chat .from.staff .un {"
-+"  color: " + cccopt.staff + ";"
++"  color: " + ccopt.staff + ";"
 +"  }"
 +" #chat .from.subscriber .un {"
-+"  color: " + cccopt.sub + ";"
++"  color: " + ccopt.sub + ";"
 +"  }"
 +" #chat .from.you .un {"
-+"  color: " + cccopt.you + ";"
++"  color: " + ccopt.you + ";"
 +"  }"
 +" #chat .from .un {"
-+"  color: " + cccopt.user + ";"
++"  color: " + ccopt.user + ";"
 +"  }"
 +"</style>";
 }
@@ -287,7 +287,20 @@ function dpsCcr() { document.getElementById("cc").remove(); };
 if (ccopt.on == "true") { dpsCcc(); dpsCca(); };
 function dpsccCheck() { 
 	if (ccopt.on == "true") { dpsmcheckcc.style.visibility = "visibile"; } 
-	else { dpsmcheckcc.style.visibility = "hidden"; }} 
+	else { dpsmcheckcc.style.visibility = "hidden"; }}
+var dpsccmsh = "hidden"
+function dpsccmSh() { //show hide cc menu
+ if (dpsccmsh == "hidden") {
+ 	dpsccmsh == "visible"
+ 	dpsmccm.style.display = "block";
+ 	dpsmpluscc.style.display = "none";
+ 	dpsmminuscc.style.display = "block";
+ } else {
+ 	dpsccmsh == "hidden"
+ 	dpsmccm.style.display = "none";
+ 	dpsmpluscc.style.display = "block";
+ 	dpsmminuscc.style.display = "none";
+}}
 var progress = document.getElementsByClassName("progress")[0]; //change the xp bar to %
 progress.id = "progress";
 var percent = progress.style.width;
@@ -401,11 +414,11 @@ function menuClicked() { //to set up the menu
     dpsoptUpdate(); dpsnpCheck() }}
   dpsmcc.onclick=function(){ if (ccopt.on == "true") { 
     ccopt.on = "false"; 
-    dpsoptUpdate(); 
+    dpsoptUpdate(); dpsccCheck()
     setTimeout(function () { dpsCcr() }, 0050); } 
   else { 
     ccopt.on = "true"; 
-    dpsoptUpdate(); 
+    dpsoptUpdate(); dpsccCheck()
     setTimeout(function () { dpsCcc(); dpsCca(); }, 0050); }} 
   dpsmxpp.onclick=function(){ if (xppopt == "true") { 
     xppopt = "false"; 
@@ -427,6 +440,7 @@ function menuClicked() { //to set up the menu
 dpsssCheck()
 dpsnpCheck()
 dpsccCheck()
+dpsccmSh()
 }}
 function toggleMenu() { //toggle menu
 if (togglemenu == "no") {
