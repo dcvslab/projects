@@ -69,13 +69,14 @@
   padding-bottom: 5px;
   padding-left: 30px;
   -moz-user-select: none;
-  cursor: pointer;
+  cursor: default;
   }
 
 .dpsmrowtext { /*ALPHA 05 */
   padding-top: 5px;
   padding-bottom: 5px;
   line-height: 30px;
+  cursor: pointer;
 }
 .dpsmcheck { /*ALPHA 05 */
   left: 0px;
