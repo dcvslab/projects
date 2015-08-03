@@ -2,7 +2,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "06"; var subvnum = "7"; var commitnum = "3.2"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "06"; var subvnum = "7"; var commitnum = "3.3"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -369,7 +369,7 @@ function menuClicked() { //to set up the menu
  if (menuclicked == "no") {
   dpsmenu.addEventListener( "mouseover", function() { document.getElementById("user-rollover").style.display = "none" } )
   setTimeout(function(){ menuclicked = "yes"; }, 0100);
-  dpsmaw.onclick=function(){ if (awopt == "true") { 
+  dpsmawtxt.onclick=function(){ if (awopt == "true") { 
     awopt = "false";
     dpsoptUpdate(); 
     setTimeout(function () { dpsAw() }, 0050); } 
@@ -377,7 +377,7 @@ function menuClicked() { //to set up the menu
     awopt = "true"; 
     dpsoptUpdate(); 
     setTimeout(function () { dpsAw() }, 0050); }}
-  dpsmaj.onclick=function(){ if (ajopt == "true") { 
+  dpsmajtxt.onclick=function(){ if (ajopt == "true") { 
     ajopt = "false";
     dpsoptUpdate(); 
     setTimeout(function () { dpsAj() }, 0050); } 
@@ -385,19 +385,19 @@ function menuClicked() { //to set up the menu
     ajopt = "true";
     dpsoptUpdate(); 
     setTimeout(function () { dpsAj() }, 0050); }} 
-  dpsmuj.onclick=function(){ if (ujopt == "true") { 
+  dpsmujtxt.onclick=function(){ if (ujopt == "true") { 
     ujopt = "false"; 
     dpsoptUpdate(); dpsujCheck() } 
   else { 
     ujopt = "true";
     dpsoptUpdate(); dpsujCheck() }}
-  dpsmul.onclick=function(){ if (ulopt == "true") { 
+  dpsmultxt.onclick=function(){ if (ulopt == "true") { 
     ulopt = "false"; 
     dpsoptUpdate(); dpsulCheck() } 
   else { 
     ulopt = "true";
     dpsoptUpdate(); dpsulCheck() }}
-  dpsmss.onclick=function(){ if (ssopt == "true") { 
+  dpsmsstxt.onclick=function(){ if (ssopt == "true") { 
     ssopt = "false"; 
     dpsmcheckss.style.visibility = "hidden"
     dpsoptUpdate(); dpsssCheck() } 
@@ -405,7 +405,7 @@ function menuClicked() { //to set up the menu
     ssopt = "true";
     dpsmcheckss.style.visibility = "visible"
     dpsoptUpdate(); dpsssCheck() }}
-  dpsmnp.onclick=function(){ if (npopt == "true") { 
+  dpsmnptxt.onclick=function(){ if (npopt == "true") { 
     npopt = "false"; 
     dpsmchecknp.style.visibility = "hidden"
     dpsoptUpdate(); dpsnpCheck() } 
@@ -421,7 +421,8 @@ function menuClicked() { //to set up the menu
     ccopt.on = "true"; 
     dpsoptUpdate(); dpsccCheck()
     setTimeout(function () { dpsCcc(); dpsCca(); }, 0050); }} 
-  dpsmxpp.onclick=function(){ if (xppopt == "true") { 
+  dpsmpluscc.onclick=dpsccmSh(); dpsmminuscc.onclick=dpsccmSh()
+  dpsmxpptxt.onclick=function(){ if (xppopt == "true") { 
     xppopt = "false"; 
     dpsoptUpdate(); 
     setTimeout(function () { dpsXpp() }, 0050); } 
@@ -429,7 +430,7 @@ function menuClicked() { //to set up the menu
     xppopt = "true"; 
     dpsoptUpdate(); 
     setTimeout(function () { dpsXpp() }, 0050); }} 
-  dpsmdpsftr.onclick=function(){ if (dpsftropt == "true") { 
+  dpsmdpsftrtxt.onclick=function(){ if (dpsftropt == "true") { 
     dpsftropt = "false"; 
     dpsoptUpdate(); 
     setTimeout(function () { dpsftrChange() }, 0050); } 
