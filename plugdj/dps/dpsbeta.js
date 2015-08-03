@@ -2,7 +2,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "06"; var subvnum = "7"; var commitnum = "3.3"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "06"; var subvnum = "7"; var commitnum = "4"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -182,6 +182,16 @@ dpsmcc.className = "dpsmrow";
 var dpsmccm = document.createElement("div"); dpsmccm.id = "dpsmccm"; //custom colors menu
 dpsmccmatxt = document.createElement("span"); dpsmccmatxt.innerHTML = "Admin"; dpsmccmatxt.className = "dpsmmrow"
 dpsmccm.appendChild(dpsmccmatxt); 
+var dpsmccmbatxt = document.createElement("span"); dpsmccmbatxt.innerHTML = "Brand Ambassador"; dpsmccmbatxt.className = "dpsmmrow"
+dpsmccm.appendChild(dpsmccmbatxt); 
+var dpsmccmstxt = document.createElement("span"); dpsmccmstxt.innerHTML = "Staff"; dpsmccmstxt.className = "dpsmmrow"
+dpsmccm.appendChild(dpsmccmstxt); 
+var dpsmccmsutxt = document.createElement("span"); dpsmccmsutxt.innerHTML = "Subscriber"; dpsmccmsutxt.className = "dpsmmrow"
+dpsmccm.appendChild(dpsmccmsutxt); 
+dpsmccmytxt = document.createElement("span"); dpsmccmytxt.innerHTML = "You"; dpsmccmytxt.className = "dpsmmrow"
+dpsmccm.appendChild(dpsmccmytxt); 
+var dpsmccmutxt = document.createElement("span"); dpsmccmutxt.innerHTML = "User"; dpsmccmutxt.className = "dpsmmrow"
+dpsmccm.appendChild(dpsmccmutxt); 
 dpsmcc.appendChild(dpsmcheckcc); dpsmcc.appendChild(dpsmpluscc); dpsmcc.appendChild(dpsmminuscc); dpsmcc.appendChild(dpsmcctxt); dpsmcc.appendChild(dpsmccm); dpsmenu.appendChild(dpsmcc); 
 var dpsmxpp = document.createElement("div"); // xp to percent option
 var dpsmxpptxt = document.createElement("span");
@@ -367,7 +377,7 @@ var togglemenu = "no" //is needed
 var menuclicked = "no" //testing until it's clicked
 function menuClicked() { //to set up the menu
  if (menuclicked == "no") {
-  dpsmenu.addEventListener( "mouseover", function() { document.getElementById("user-rollover").style.display = "none" } )
+  dpsmenu.addEventListener( "mouseenter", function() { document.getElementById("user-rollover").style.display = "none" } )
   setTimeout(function(){ menuclicked = "yes"; }, 0100);
   dpsmawtxt.onclick=function(){ if (awopt == "true") { 
     awopt = "false";
@@ -421,7 +431,7 @@ function menuClicked() { //to set up the menu
     ccopt.on = "true"; 
     dpsoptUpdate(); dpsccCheck()
     setTimeout(function () { dpsCcc(); dpsCca(); }, 0050); }} 
-  dpsmpluscc.onclick=dpsccmSh(); dpsmminuscc.onclick=dpsccmSh()
+  dpsmpluscc.addEventListener("click", dpsccmSh); dpsmminuscc.addEventListener("click", dpsccmSh)
   dpsmxpptxt.onclick=function(){ if (xppopt == "true") { 
     xppopt = "false"; 
     dpsoptUpdate(); 
