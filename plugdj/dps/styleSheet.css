@@ -95,7 +95,10 @@
   cursor: default;
   line-height: 30px;
 }
-.dpsccbox { /* ALPHA 06 */
-  width: 15px;
-  height: inherit;
+.dpsccinput { /* ALPHA 06 */
+width: 50%;
+margin-left: 10px;
+padding: 2px;
+background-color: #323742;
+color: #DEDEDE;
 }
