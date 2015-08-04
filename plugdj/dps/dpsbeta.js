@@ -2,7 +2,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "06"; var subvnum = "7"; var commitnum = "6.2"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "06"; var subvnum = "7"; var commitnum = "6.3"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -292,14 +292,14 @@ var dpsccmsh = "hidden"
 function dpsccmSh() { //show hide cc menu
  if (dpsccmsh == "hidden") {
  	dpsccmsh = "visible"
- 	dpsmccm.style.display = "block";
- 	dpsmpluscc.style.display = "none";
- 	dpsmminuscc.style.display = "block";
- } else {
- 	dpsccmsh = "hidden"
  	dpsmccm.style.display = "none";
  	dpsmpluscc.style.display = "block";
  	dpsmminuscc.style.display = "none";
+ } else {
+ 	dpsccmsh = "hidden"
+ 	dpsmccm.style.display = "block";
+ 	dpsmpluscc.style.display = "none";
+ 	dpsmminuscc.style.display = "block";
 }}
 dpsccmSh()
 var progress = document.getElementsByClassName("progress")[0]; //change the xp bar to %
@@ -442,7 +442,6 @@ function menuClicked() { //to set up the menu
 dpsssCheck()
 dpsnpCheck()
 dpsccCheck()
-dpsccmSh()
 }}
 function toggleMenu() { //toggle menu
 if (togglemenu == "no") {
@@ -455,6 +454,7 @@ dpsmenu.style.display = "none"; //toggle some stuff
 dpslogo.style.display = "block";
 dpslogox.style.display = "none";
 togglemenu = "no"
+dpsccmsh = "hidden"; dpsccmSh()
 }}
 dpsbtn.addEventListener("click", toggleMenu) 
 dpsbtn.addEventListener("click", menuClicked) 
