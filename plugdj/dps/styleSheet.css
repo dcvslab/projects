@@ -96,6 +96,12 @@
   cursor: default;
   line-height: 30px;
 }
+.dpsmmmrowtext { /*ALPHA 06 */
+  padding-top: 5px;
+  padding-bottom: 5px;
+  line-height: 30px;
+  cursor: default;
+}
 .dpsmccinput { /* ALPHA 06 */
   width: 50%;
   margin-left: 10px;
