@@ -2,7 +2,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "06"; var subvnum = "7"; var commitnum = "6.1"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "06"; var subvnum = "7"; var commitnum = "6.2"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -178,9 +178,10 @@ dpsmsections.appendChild(dpsmsectionstxt); dpsmenu.appendChild(dpsmsections);
 var dpsmcc = document.createElement("div"); // custom colors option
 var dpsmcctxt = document.createElement("span");
 dpsmcctxt.innerHTML = "Custom Colors"; dpsmcctxt.className = "dpsmrowtext"
-dpsmcc.className = "dpsmrow"; dpsmcc.style.display = "none"
-var dpsmccm = document.createElement("div"); dpsmccm.id = "dpsmccm"; dpsmccm.className = "dpsmoptm" //custom colors menu
+dpsmcc.className = "dpsmrow"; 
+var dpsmccm = document.createElement("div"); dpsmccm.style.display = "none"; dpsmccm.id = "dpsmccm"; dpsmccm.className = "dpsmoptm" //custom colors menu
 var dpsmccmtitle = document.createElement("div"); var dpsmccmtitletxt = document.createElement("span"); dpsmccmtitletxt.innerHTML = "Custom Colors"; dpsmccmtitle.appendChild(dpsmccmtitletxt); dpsmccmtitle.className = "dpsmsection"; dpsmccm.appendChild(dpsmccmtitle)
+var dpsmccma = document.createElement("div"); dpsmccma.className = "dpsmrow"; var dpsmccmatxt = document.createElement("span"); dpsmccmatxt.className = "dpsmrowtext"; dpsmccmatxt.innerHTML = "Admin"; $(dpsmccma).append(dpsmccmatxt); $(dpsmccm).append(dpsmccma);
 dpsmcc.appendChild(dpsmcheckcc); dpsmcc.appendChild(dpsmpluscc); dpsmcc.appendChild(dpsmminuscc); dpsmcc.appendChild(dpsmcctxt); document.getElementsByClassName("app-right")[0].appendChild(dpsmccm); dpsmenu.appendChild(dpsmcc); 
 var dpsmxpp = document.createElement("div"); // xp to percent option
 var dpsmxpptxt = document.createElement("span");
