@@ -2,7 +2,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "06"; var subvnum = "7"; var commitnum = "6.3"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "06"; var subvnum = "7"; var commitnum = "7"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -181,7 +181,30 @@ dpsmcctxt.innerHTML = "Custom Colors"; dpsmcctxt.className = "dpsmrowtext"
 dpsmcc.className = "dpsmrow"; 
 var dpsmccm = document.createElement("div"); dpsmccm.style.display = "none"; dpsmccm.id = "dpsmccm"; dpsmccm.className = "dpsmoptm" //custom colors menu
 var dpsmccmtitle = document.createElement("div"); var dpsmccmtitletxt = document.createElement("span"); dpsmccmtitletxt.innerHTML = "Custom Colors"; dpsmccmtitle.appendChild(dpsmccmtitletxt); dpsmccmtitle.className = "dpsmsection"; dpsmccm.appendChild(dpsmccmtitle)
-var dpsmccma = document.createElement("div"); dpsmccma.className = "dpsmrow"; var dpsmccmatxt = document.createElement("span"); dpsmccmatxt.className = "dpsmrowtext"; dpsmccmatxt.innerHTML = "Admin"; $(dpsmccma).append(dpsmccmatxt); $(dpsmccm).append(dpsmccma);
+ var dpsmccma = document.createElement("div"); dpsmccma.className = "dpsmmrow"; 
+	var dpsmccmatxt = document.createElement("span"); dpsmccmatxt.className = "dpsmmrowtext"; dpsmccmatxt.innerHTML = "Admin"; 
+	var dpsmccmainput = document.createElement("input"); dpsmccmainput.className = "dpsmccinput"; dpsmccmainput.setAttribute("maxlength", "7"); dpsmccmainput.style.border = "1px solid " + ccopt.admin; dpsmccainput.value = ccopt.admin
+	$(dpsmccma).append(dpsmccmatxt); $(dpsmccma).append(dpsmccmainput); $(dpsmccm).append(dpsmccma);
+ var dpsmccmba = document.createElement("div"); dpsmccmba.className = "dpsmmrow"; 
+	var dpsmccmbatxt = document.createElement("span"); dpsmccmbatxt.className = "dpsmmrowtext"; dpsmccmbatxt.innerHTML = "Brand Ambassador"; 
+	var dpsmccmbainput = document.createElement("input"); dpsmccmbainput.className = "dpsmccinput"; dpsmccmbainput.setAttribute("maxlength", "7"); dpsmccmbainput.style.border = "1px solid " + ccopt.ba; dpsmccbainput.value = ccopt.ba
+	$(dpsmccmba).append(dpsmccmbatxt) ;$(dpsmccmba).append(dpsmccmbainput); $(dpsmccm).append(dpsmccmba);
+var dpsmccms = document.createElement("div"); dpsmccms.className = "dpsmmrow"; 
+	var dpsmccmstxt = document.createElement("span"); dpsmccmstxt.className = "dpsmmrowtext"; dpsmccmstxt.innerHTML = "Staff"; 
+	var dpsmccmsinput = document.createElement("input"); dpsmccmsinput.className = "dpsmccinput"; dpsmccmsinput.setAttribute("maxlength", "7"); dpsmccmsinput.style.border = "1px solid " + ccopt.staff; dpsmccsinput.value = ccopt.staff
+	$(dpsmccms).append(dpsmccmstxt) ;$(dpsmccms).append(dpsmccmsinput); $(dpsmccm).append(dpsmccms);
+var dpsmccmsu = document.createElement("div"); dpsmccmsu.className = "dpsmmrow"; dpsmccmsu.id = "dpsmccmsu"
+	var dpsmccmsutxt = document.createElement("span"); dpsmccmsutxt.className = "dpsmmrowtext"; dpsmccmsutxt.innerHTML = "Subscriber"; 
+	var dpsmccmsuinput = document.createElement("input"); dpsmccmsuinput.className = "dpsmccinput"; dpsmccmsuinput.setAttribute("maxlength", "7"); dpsmccmsuinput.style.border = "1px solid " + ccopt.sub; dpsmccsuinput.value = ccopt.sub
+	$(dpsmccmsu).append(dpsmccmsutxt) ;$(dpsmccmsu).append(dpsmccmsuinput); $(dpsmccm).append(dpsmccmsu);
+var dpsmccmy = document.createElement("div"); dpsmccmy.className = "dpsmmrow"; 
+	var dpsmccmytxt = document.createElement("span"); dpsmccmytxt.className = "dpsmmrowtext"; dpsmccmytxt.innerHTML = "You"; 
+	var dpsmccmyinput = document.createElement("input"); dpsmccmyinput.className = "dpsmccinput"; dpsmccmyinput.setAttribute("maxlength", "7"); dpsmccmyinput.style.border = "1px solid " + ccopt.you; dpsmccmyinput.value = ccopt.you
+	$(dpsmccmy).append(dpsmccmytxt) ;$(dpsmccmy).append(dpsmccmyinput); $(dpsmccm).append(dpsmccmy);
+var dpsmccmu = document.createElement("div"); dpsmccmu.className = "dpsmmrow"; 
+	var dpsmccmutxt = document.createElement("span"); dpsmccmutxt.className = "dpsmmrowtext"; dpsmccmutxt.innerHTML = "User"; 
+	var dpsmccmuinput = document.createElement("input"); dpsmccmuinput.className = "dpsmccinput"; dpsmccmuinput.setAttribute("maxlength", "7"); dpsmccmuinput.style.border = "1px solid " + ccopt.user; dpsmccuinput.value = ccopt.user
+	$(dpsmccmu).append(dpsmccmutxt) ;$(dpsmccmu).append(dpsmccmuinput); $(dpsmccm).append(dpsmccmu);
 dpsmcc.appendChild(dpsmcheckcc); dpsmcc.appendChild(dpsmpluscc); dpsmcc.appendChild(dpsmminuscc); dpsmcc.appendChild(dpsmcctxt); document.getElementsByClassName("app-right")[0].appendChild(dpsmccm); dpsmenu.appendChild(dpsmcc); 
 var dpsmxpp = document.createElement("div"); // xp to percent option
 var dpsmxpptxt = document.createElement("span");
