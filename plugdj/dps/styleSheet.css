@@ -103,11 +103,12 @@
   cursor: default;
 }
 .dpsmccinput { /* ALPHA 06 */
-  width: 50%;
-  margin-left: 10px;
+  width: 80px;
+  margin-right: 10px;
   padding: 2px;
   background-color: #323742;
   color: #DEDEDE;
+  float: left;
 }
 .dpsmoptm { /* ALPHA 06 */
   background-color: #282C35;
