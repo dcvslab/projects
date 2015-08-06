@@ -133,4 +133,6 @@
   position: absolute;
   bottom: 0px;
   color: #DEDEDE;
+  border: 1px solid #282C35;
+  background: #925AFF;
 }
