@@ -2,7 +2,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "06"; var subvnum = "7"; var commitnum = "7.2"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "06"; var subvnum = "7"; var commitnum = "7.3"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -328,7 +328,7 @@ function dpsccmSh() { //show hide cc menu
 }}
 dpsccmSh()
 function dpsccmGv() { //get values
-var dpsmccmainputval = $(dpsmccmsinput).val(); var dpsmccmbainputval = $(dpsmccmsinput).val(); var dpsmccmsinputval = $(dpsmccmsinput).val(); var dpsmccmsuinputval = $(dpsmccmsinput).val(); var dpsmccmyinputval = $(dpsmccmsinput).val(); var dpsmccmuinputval = $(dpsmccmsinput).val();
+var dpsmccmainputval = $(dpsmccmsinput).val(); var dpsmccmbainputval = $(dpsmccmsinput).val(); var dpsmccmsinputval = $(dpsmccmsinput).val(); var dpsmccmsuinputval = $(dpsmccmsinput).val(); var dpsmccmyinputval = $(dpsmccmsinput).val(); var dpsmccmuinputval = $(dpsmccmsinput).val(); }
 var progress = document.getElementsByClassName("progress")[0]; //change the xp bar to %
 progress.id = "progress";
 var percent = progress.style.width;
