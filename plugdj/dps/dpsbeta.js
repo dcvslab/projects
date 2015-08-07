@@ -2,7 +2,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "06"; var subvnum = "7"; var commitnum = "8.3"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "06"; var subvnum = "7"; var commitnum = "8.4"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -296,7 +296,7 @@ cc = "<style id='cc' type='text/css'>"
 +" #chat .from.staff .un {"
 +"  color: " + ccopt.staff + ";"
 +"  }"
-+" ##chat .from.dj .un {"
++" #chat .from.dj .un {"
 +"  color: " + ccopt.staff + ";"
 +"  }"
 +" #chat .from.subscriber .un {"
