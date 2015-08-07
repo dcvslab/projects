@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 06 RELEASE// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "06"; var subvnum = "0"; var commitnum = "0"; var beta = "RELEASE"
+var release = "ALPHA"; var vnum = "06"; var subvnum = "0"; var commitnum = "1"; var beta = "RELEASE"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -337,7 +337,7 @@ dpsmccmainput.style.border = "1px solid " + ccopt.admin; dpsmccmbainput.style.bo
 function dpsccmApply() { //apply button
 dpsccmGv(); dpsccmSv(); 
 if (ccopt.on == "true") {
-dpsCcc(); dpsCca();}}
+dpsCcr(); dpsCcc(); dpsCca();}}
 dpsmccma.addEventListener("click", dpsccmApply)
 function dpsccmReset() { //reset button
 ccopt.admin = "#42A5DC"; ccopt.ba = "#89BE6C"; ccopt.staff = "#AC76FF";  ccopt.sub = "#C59840"; ccopt.you = "#FFDD6F"; ccopt.user = "#777F92"; dpsccmSv(); dpsCcr(); }
