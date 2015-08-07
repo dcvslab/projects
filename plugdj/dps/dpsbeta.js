@@ -2,7 +2,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "06"; var subvnum = "7"; var commitnum = "7.3"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "06"; var subvnum = "7"; var commitnum = "8"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -206,7 +206,7 @@ var dpsmccmu = document.createElement("div"); dpsmccmu.className = "dpsmmrow";
 	var dpsmccmuinput = document.createElement("input"); dpsmccmuinput.className = "dpsmccinput"; dpsmccmuinput.setAttribute("maxlength", "7"); dpsmccmuinput.style.border = "1px solid " + ccopt.user; dpsmccmuinput.value = ccopt.user
 	$(dpsmccmu).append(dpsmccmutxt) ;$(dpsmccmu).append(dpsmccmuinput); $(dpsmccm).append(dpsmccmu);
 var dpsmccmr = document.createElement("button"); dpsmccmr.className = "dpsmmbtn"; dpsmccmr.innerHTML = "Reset"; $(dpsmccm).append(dpsmccmr);
-var dpsmccma = document.createElement("button"); dpsmccma.className = "dpsmmbtn"; dpsmccma.innerHTML = "Apply"; $(dpsmccm).append(dpsmccma);
+var dpsmccma = document.createElement("button"); dpsmccma.className = "dpsmmbtn"; dpsmccma.innerHTML = "Apply"; dpsmccma.style.right = "0px"; $(dpsmccm).append(dpsmccma); 
 dpsmcc.appendChild(dpsmcheckcc); dpsmcc.appendChild(dpsmpluscc); dpsmcc.appendChild(dpsmminuscc); dpsmcc.appendChild(dpsmcctxt); document.getElementsByClassName("app-right")[0].appendChild(dpsmccm); dpsmenu.appendChild(dpsmcc); 
 var dpsmxpp = document.createElement("div"); // xp to percent option
 var dpsmxpptxt = document.createElement("span");
@@ -284,7 +284,7 @@ if (npopt == "true") {
 function dpsnpCheck() { if (npopt == "true") { dpsmchecknp.style.visibility = "visible" } else {dpsmchecknp.style.visibility = "hidden" } }
 dpsnpCheck()
 //STYLING SETTINGS
-var cc; //CUSTOM COLORS WOO
+var cc; //CUSTOM COLORS WOO (THESE HURT ME)
 function dpsCcc() {
 cc = "<style id='cc' type='text/css'>"
 +" #chat .from.admin .un {"
@@ -329,6 +329,14 @@ function dpsccmSh() { //show hide cc menu
 dpsccmSh()
 function dpsccmGv() { //get values
 var dpsmccmainputval = $(dpsmccmsinput).val(); var dpsmccmbainputval = $(dpsmccmsinput).val(); var dpsmccmsinputval = $(dpsmccmsinput).val(); var dpsmccmsuinputval = $(dpsmccmsinput).val(); var dpsmccmyinputval = $(dpsmccmsinput).val(); var dpsmccmuinputval = $(dpsmccmsinput).val(); }
+function dpsccmSv() { //set values
+dpsmccmainput.value = ccopt.admin; dpsmccmbainput.value = ccopt.ba; dpsmccmsinput.value = ccopt.staff; dpsmccmsuinput.value = ccopt.sub; dpsmccmyinput.value = ccopt.you; dpsmccmuinput.value = ccopt.user }
+function dpsccmApply() { //apply button
+dpsccmGv(); dpsccmSv(); dpsCcc(); dpsCca();}
+dpsmccma.addEventListener("click", dpsccmApply)
+dpsccmReset() { //reset button
+ccopt.admin = "#42A5DC"; ccopt.ba = "#89BE6C"; ccopt.staff = "#AC76FF";  ccopt.sub = "#C59840"; ccopt.you = "#FFDD6F"; ccopt.user = "#777F92"; dpsccmSv(); dpsCcr(); }
+dpsmccmr.addEventListener("click", dpsccmReset)
 var progress = document.getElementsByClassName("progress")[0]; //change the xp bar to %
 progress.id = "progress";
 var percent = progress.style.width;
