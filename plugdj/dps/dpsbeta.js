@@ -2,7 +2,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "06"; var subvnum = "8"; var commitnum = "1"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "06"; var subvnum = "8"; var commitnum = "1.1"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -343,7 +343,8 @@ dpsmccma.addEventListener("click", dpsccmApply)
 function dpsccmReset() { //reset button
 ccopt.admin = "#42A5DC"; ccopt.ba = "#89BE6C"; ccopt.staff = "#AC76FF";  ccopt.sub = "#C59840"; ccopt.you = "#FFDD6F"; ccopt.user = "#777F92"; dpsccmSv(); dpsCcr(); }
 dpsmccmr.addEventListener("click", dpsccmReset)
-function dpsCcu() { if (ccopt.ub == "false") { dpsMessage("system", "from", "CUSTOM COLORS", "Click the plus next to the text to edit the colors, make sure you have a # infront of the color and you hit apply!")}}
+function dpsCcu() { if (ccopt.ub == "false") { dpsMessage("system", "from", "CUSTOM COLORS", "Click the plus next to the text to edit the colors, make sure you have a # infront of the color and you hit apply!")
+ccopt.ub = "true"; dpsoptUpdate() }}
 var progress = document.getElementsByClassName("progress")[0]; //change the xp bar to %
 progress.id = "progress";
 var percent = progress.style.width;
