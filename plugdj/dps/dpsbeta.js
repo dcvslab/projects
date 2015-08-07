@@ -2,7 +2,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "06"; var subvnum = "7"; var commitnum = "8.4"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "06"; var subvnum = "7"; var commitnum = "9"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -333,7 +333,8 @@ dpsccmSh()
 function dpsccmGv() { //get values
 ccopt.admin = $(dpsmccmainput).val(); ccopt.ba = $(dpsmccmbainput).val(); ccopt.staff = $(dpsmccmsinput).val(); ccopt.sub = $(dpsmccmsuinput).val(); ccopt.you = $(dpsmccmyinput).val(); ccopt.user = $(dpsmccmuinput).val(); }
 function dpsccmSv() { //set values
-dpsmccmainput.value = ccopt.admin; dpsmccmbainput.value = ccopt.ba; dpsmccmsinput.value = ccopt.staff; dpsmccmsuinput.value = ccopt.sub; dpsmccmyinput.value = ccopt.you; dpsmccmuinput.value = ccopt.user; }
+dpsmccmainput.value = ccopt.admin; dpsmccmbainput.value = ccopt.ba; dpsmccmsinput.value = ccopt.staff; dpsmccmsuinput.value = ccopt.sub; dpsmccmyinput.value = ccopt.you; dpsmccmuinput.value = ccopt.user; 
+dpsmccmainput.style.border = "1px solid " + ccopt.admin; dpsmccmbainput.style.border = "1px solid " + ccopt.ba; dpsmccmsinput.style.border = "1px solid " + ccopt.staff; dpsmccmsuinput.style.border = "1px solid " + ccopt.sub; dpsmccmyinput.style.border = "1px solid " + ccopt.you; dpsmccmuinput.style.border = "1px solid " + ccopt.user; }
 function dpsccmApply() { //apply button
 dpsccmGv(); dpsccmSv(); 
 if (ccopt.on == "true") {
@@ -455,8 +456,7 @@ function menuClicked() { //to set up the menu
     dpsoptUpdate(); dpsnpCheck() }}
   dpsmcctxt.onclick=function(){ if (ccopt.on == "true") { 
     ccopt.on = "false"; 
-    dpsoptUpdate(); dpsccCheck()
-    setTimeout(function () { dpsCcr() }, 0050); } 
+    dpsoptUpdate(); dpsccCheck(); dpsCcr() } 
   else { 
     ccopt.on = "true"; 
     dpsoptUpdate(); dpsccCheck()
