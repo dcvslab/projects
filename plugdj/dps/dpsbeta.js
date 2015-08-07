@@ -2,7 +2,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "06"; var subvnum = "7"; var commitnum = "8.1"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "06"; var subvnum = "7"; var commitnum = "8.2"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -328,9 +328,9 @@ function dpsccmSh() { //show hide cc menu
 }}
 dpsccmSh()
 function dpsccmGv() { //get values
-var dpsmccmainputval = $(dpsmccmsinput).val(); var dpsmccmbainputval = $(dpsmccmsinput).val(); var dpsmccmsinputval = $(dpsmccmsinput).val(); var dpsmccmsuinputval = $(dpsmccmsinput).val(); var dpsmccmyinputval = $(dpsmccmsinput).val(); var dpsmccmuinputval = $(dpsmccmsinput).val(); }
+ccopt.admin = $(dpsmccmainput).val(); ccopt.ba = $(dpsmccmbainput).val(); ccopt.staff = $(dpsmccmsinput).val(); ccopt.sub = $(dpsmccmsuinput).val(); ccopt.you = $(dpsmccmyinput).val(); var ccopt.user = $(dpsmccmuinput).val(); }
 function dpsccmSv() { //set values
-dpsmccmainput.value = ccopt.admin; dpsmccmbainput.value = ccopt.ba; dpsmccmsinput.value = ccopt.staff; dpsmccmsuinput.value = ccopt.sub; dpsmccmyinput.value = ccopt.you; dpsmccmuinput.value = ccopt.user }
+dpsmccmainput.value = ccopt.admin; dpsmccmbainput.value = ccopt.ba; dpsmccmsinput.value = ccopt.staff; dpsmccmsuinput.value = ccopt.sub; dpsmccmyinput.value = ccopt.you; dpsmccmuinput.value = ccopt.user; }
 function dpsccmApply() { //apply button
 dpsccmGv(); dpsccmSv(); dpsCcc(); dpsCca();}
 dpsmccma.addEventListener("click", dpsccmApply)
