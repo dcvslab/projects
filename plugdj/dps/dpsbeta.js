@@ -2,7 +2,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "06"; var subvnum = "7"; var commitnum = "8"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "06"; var subvnum = "7"; var commitnum = "8.1"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -334,7 +334,7 @@ dpsmccmainput.value = ccopt.admin; dpsmccmbainput.value = ccopt.ba; dpsmccmsinpu
 function dpsccmApply() { //apply button
 dpsccmGv(); dpsccmSv(); dpsCcc(); dpsCca();}
 dpsmccma.addEventListener("click", dpsccmApply)
-dpsccmReset() { //reset button
+function dpsccmReset() { //reset button
 ccopt.admin = "#42A5DC"; ccopt.ba = "#89BE6C"; ccopt.staff = "#AC76FF";  ccopt.sub = "#C59840"; ccopt.you = "#FFDD6F"; ccopt.user = "#777F92"; dpsccmSv(); dpsCcr(); }
 dpsmccmr.addEventListener("click", dpsccmReset)
 var progress = document.getElementsByClassName("progress")[0]; //change the xp bar to %
