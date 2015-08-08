@@ -1,8 +1,8 @@
-//THIS IS WHERE THE SCRIPT WILL BE TESTED BEFORE THE OFFICIAL.
-//DCV'S PLUGDJ SCRIPT//ALPHA 05.2 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
-if (! on) {
+//THIS IS WHERE THE SCRIPT IS TESTED BEFORE RELEASE
+//DCV'S PLUGDJ SCRIPT//ALPHA 07 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
+if (! on) 
 var on = "on"
-var release = "ALPHA"; var vnum = "06"; var subvnum = "8"; var commitnum = "1.1"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "07"; var subvnum = "0"; var commitnum = "1"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -252,6 +252,17 @@ if (ulopt == "true") {
 API.on(API.USER_LEAVE, dpsUl)
 function dpsulCheck() { { if (ulopt == "true") {dpsmcheckul.style.visibility = "visible" } else {dpsmcheckul.style.visibility = "hidden" } } }
 dpsulCheck()
+var nextmedia = API.getNextMedia() //history alert
+var playlistbar = document.getElementsByClassName("bar-button")[1]
+var nextsong = document.getElementsByClassName("container")[1].children[1]
+function dpsHa() { 
+  if (haopt == "true") {
+    nextmedia = API.getNextMedia()
+    nextsong = document.getElementsByClassName("container")[1].children[1]
+    if (nextmedia.inHistory == "true") {
+    dpsMessage("system", "from", "HISTORY ALERT", "Your next song is in the rooms history!")}
+    playlistbar.click(); $(nextsong).trigger('mouseenter'); 	
+  }}
 var ssuserid = API.getHistory()[1].user.id //song stats
 var ssuser = API.getUser(ssuserid)
 var ssucolor;
@@ -264,7 +275,7 @@ if (ssopt == "true") {
   if (user.id == ssuserid) { if (ssuser.role == "0") { if (ssuser.gRole == "0") { if (ssuser.sub == "0") { ssuclass = "dpsyou"}}}} else {
   if (ssuser.gRole > "0") { if (ssuser.gRole == "3") { ssuclass = "dpsba" } else { ssuclass = "dpsadmin" }} else { if (ssuser.role > "0") { ssuclass = "dpsstaff" } else { if (ssuser.sub == "1") { ssuclass = "dpssub" } else { ssuclass = "dpsuser" }}}}
   dpsMessaged("message", "dpsadmin", "<b>SONG STATS</b>","<b class='" + ssuclass + "'>" + API.getHistory()[1].user.username + "</b> played <b>" + API.getHistory()[1].media.author + " - " + API.getHistory()[1].media.title + "</b>", "<b class='dpsgreen'>" + API.getHistory()[1].score.positive + " woots</b> | <b class='dpsred'>" + API.getHistory()[1].score.negative + " mehs</b> | <b class='dpsgpurple'>" + API.getHistory()[0].score.grabs + " grabs</b> | <b class='dpsbluegray'>" + API.getHistory()[1].score.listeners + " listeners</b>" )
-  }, 500); }}
+  }, 1000); }}
 function dpsssCheck() {if (ssopt == "true") {dpsmcheckss.style.visibility = "visible" } else {dpsmcheckss.style.visibility = "hidden"}}
 dpsssCheck()
 var dj = API.getDJ() //now playing
@@ -280,7 +291,7 @@ if (npopt == "true") {
   if (user.id == dj.id) { if (dj.role == "0") { if (dj.gRole == "0") { if (dj.sub == "0") { djclass = "dpsyou"}}}} else {
  if (dj.gRole > "0") { if (dj.gRole == "3") { djclass = "dpsba" } else { djclass = "dpsadmin" }} else { if (dj.role > "0") { djclass = "dpsstaff" } else { if (dj.sub == "1") { djclass = "dpssub" } else { djclass = "dpsuser" }}}}
   dpsMessaged("message", "dpsadmin", "<b>NOW PLAYING</b>", "<b class='" + djclass + "'>" + dj.username + "</b> is playing <b>" + media.author + " - " + media.title + "</b>" , "It is <b class='" + djclass + "'>" + minute + ":" + second + "</b> long.")
-  }, 500); }}
+  }, 1000); }}
 function dpsnpCheck() { if (npopt == "true") { dpsmchecknp.style.visibility = "visible" } else {dpsmchecknp.style.visibility = "hidden" } }
 dpsnpCheck()
 //STYLING SETTINGS
@@ -338,7 +349,7 @@ dpsmccmainput.style.border = "1px solid " + ccopt.admin; dpsmccmbainput.style.bo
 function dpsccmApply() { //apply button
 dpsccmGv(); dpsccmSv(); 
 if (ccopt.on == "true") {
-dpsCcc(); dpsCca();}}
+dpsCcr(); dpsCcc(); dpsCca();}}
 dpsmccma.addEventListener("click", dpsccmApply)
 function dpsccmReset() { //reset button
 ccopt.admin = "#42A5DC"; ccopt.ba = "#89BE6C"; ccopt.staff = "#AC76FF";  ccopt.sub = "#C59840"; ccopt.you = "#FFDD6F"; ccopt.user = "#777F92"; dpsccmSv(); dpsCcr(); }
