@@ -1,8 +1,7 @@
-//THIS IS WHERE THE SCRIPT IS TESTED BEFORE RELEASE
-//DCV'S PLUGDJ SCRIPT//ALPHA 07 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
-if (! on) 
+//DCV'S PLUGDJ SCRIPT//ALPHA 06 RELEASE// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
+if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "07"; var subvnum = "0"; var commitnum = "1"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "1"; var commitnum = "1"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -252,17 +251,15 @@ if (ulopt == "true") {
 API.on(API.USER_LEAVE, dpsUl)
 function dpsulCheck() { { if (ulopt == "true") {dpsmcheckul.style.visibility = "visible" } else {dpsmcheckul.style.visibility = "hidden" } } }
 dpsulCheck()
-var nextmedia = API.getNextMedia() //history alert
-var playlistbar = document.getElementsByClassName("bar-button")[1]
-var nextsong = document.getElementsByClassName("container")[1].children[1]
-function dpsHa() { 
+var nextmedia = API.getNextMedia()
+function dpsHa() {
   if (haopt == "true") {
     nextmedia = API.getNextMedia()
-    nextsong = document.getElementsByClassName("container")[1].children[1]
-    if (nextmedia.inHistory == "true") {
-    dpsMessage("system", "from", "HISTORY ALERT", "Your next song is in the rooms history!")}
-    playlistbar.click(); $(nextsong).trigger('mouseenter'); 	
-  }}
+    if (nextmedia.inHistory == true) {
+      dpsMessage("system", "from", "HISTORY ALERT", "Your next song, <b>" + nextmedia.media.author + " - " + nextmedia.media.title + "</b>, is in the room history!")
+    }
+  }
+}
 var ssuserid = API.getHistory()[1].user.id //song stats
 var ssuser = API.getUser(ssuserid)
 var ssucolor;
