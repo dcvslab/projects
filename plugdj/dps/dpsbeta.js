@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 06 RELEASE// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "1"; var commitnum = "1"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "1"; var commitnum = "2"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -254,12 +254,9 @@ dpsulCheck()
 var nextmedia = API.getNextMedia()
 function dpsHa() {
   if (haopt == "true") {
-    nextmedia = API.getNextMedia()
+  nextmedia = API.getNextMedia()
     if (nextmedia.inHistory == true) {
-      dpsMessage("system", "from", "HISTORY ALERT", "Your next song, <b>" + nextmedia.media.author + " - " + nextmedia.media.title + "</b>, is in the room history!")
-    }
-  }
-}
+    dpsMessage("system", "from", "HISTORY ALERT", "<b>" + nextmedia.media.author + " - " + nextmedia.media.title + "</b> is in the room history!")}}}
 var ssuserid = API.getHistory()[1].user.id //song stats
 var ssuser = API.getUser(ssuserid)
 var ssucolor;
@@ -413,6 +410,13 @@ API.on(API.ADVANCE, function(data) {
   dpsSs();
   dpsNp();
 })
+//CHAT COMMANDS//
+function chatcmd(cmd) { 
+if (cmd.split(" ")[0] == "/shrug") {
+  var shrugmsg = document.getElementById("chat-input-field").value.replace("/shrug ", "")
+  API.sendChat(shrugmsg + " ¯\\_(ツ)_/¯")
+}}
+API.on(API.CHAT_COMMAND, chatcmd);
 //MAKING MENU WORK 
 var togglemenu = "no" //is needed
 var menuclicked = "no" //testing until it's clicked
