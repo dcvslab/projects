@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 06 RELEASE// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "1"; var commitnum = "3"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "1"; var commitnum = "4"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -9,6 +9,7 @@ var history = API.getHistory;
 var head = document.getElementsByTagName("head")[0]
 var creator = { username: "DCV", id: "3639711", sub: "1" }
 var roomname = document.getElementsByClassName("bar-value")[0].innerHTML
+var badoop = new Audio(); badoop.src = "https://cdn.plug.dj/_/static/sfx/badoop.801a12ca13864e90203193b2c83c019c03a447d1.mp3"; badoop.load();
 var uclass;
 if (user.gRole > "0") { //get color
 	if (user.gRole == "3") { uclass = "dpsba" }
@@ -252,11 +253,16 @@ API.on(API.USER_LEAVE, dpsUl)
 function dpsulCheck() { { if (ulopt == "true") {dpsmcheckul.style.visibility = "visible" } else {dpsmcheckul.style.visibility = "hidden" } } }
 dpsulCheck()
 var nextmedia = API.getNextMedia()
+var wlpos = API.getWaitListPosition()
 function dpsHa() {
   if (haopt == "true") {
   nextmedia = API.getNextMedia()
+  wlpos = API.getWaitListPosition()
     if (nextmedia.inHistory == true) {
-    dpsMessage("system", "from", "HISTORY ALERT", "<b>" + nextmedia.media.author + " - " + nextmedia.media.title + "</b> is in the room history!")}}}
+      if (wlpos == 0) {
+      	badoop.play()
+        dpsMessage("system", "from", "HISTORY ALERT", "<b>" + nextmedia.media.author + " - " + nextmedia.media.title + "</b> is in the room history!")
+    }}}}
 var ssuserid = API.getHistory()[1].user.id //song stats
 var ssuser = API.getUser(ssuserid)
 var ssucolor;
@@ -416,7 +422,9 @@ function chatcmd(cmd) {
 if (cmd.contains("/shrug")) {
   var shrugmsg = document.getElementById("chat-input-field").value.split("/shrug ")[1]; if (! shrugmsg) { shrugmsg = "" };
   API.sendChat(shrugmsg + " ¯\\_(ツ)_/¯")
-}}
+}
+	
+}
 API.on(API.CHAT_COMMAND, chatcmd);
 //MAKING MENU WORK 
 var togglemenu = "no" //is needed
