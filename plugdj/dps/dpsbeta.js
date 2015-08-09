@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 06 RELEASE// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "2"; var commitnum = "6.1"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "2"; var commitnum = "6.2"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -174,7 +174,7 @@ var dpsmha = document.createElement("div"); //history alert option
 var dpsmhatxt = document.createElement("span");
 dpsmhatxt.innerHTML = "History Alert"; dpsmhatxt.className = "dpsmrowtext"
 dpsmha.className = "dpsmrow";
-dpsmha.appendChild(dpsmhatxt); dpsmha.appendChild(dpsmcheckha); dpsmha.appendChild(dpsmpencilha); dpsmenu.appendChild(dpsmha);
+dpsmha.appendChild(dpsmhatxt); dpsmha.appendChild(dpsmcheckha); dpsmha.appendChild(dpsmplusha); dpsmha.appendChild(dpsmminusha); dpsmenu.appendChild(dpsmha);
 var dpsmham = document.createElement("div"); dpsmccm.style.display = "none"; dpsmccm.id = "dpsmccm"; dpsmccm.className = "dpsmoptm" //history alerts menu
 var dpsmhamtitle = document.createElement("div"); var dpsmhamtitletxt = document.createElement("span"); dpsmhamtitletxt.innerHTML = "History Alert"; dpsmhamtitle.appendChild(dpsmhamtitletxt); dpsmhamtitle.className = "dpsmsection"; dpsmham.appendChild(dpsmhamtitle)
 var dpsmhamo = document.createElement("div"); dpsmhamo.className = "dpsmmrow"; dpsmhamo.style.paddingLeft = "15px !important"
