@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 06 RELEASE// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "1"; var commitnum = "2"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "1"; var commitnum = "3"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -409,11 +409,12 @@ API.on(API.ADVANCE, function(data) {
   dpsAj();
   dpsSs();
   dpsNp();
+  dpsHa();
 })
 //CHAT COMMANDS//
 function chatcmd(cmd) { 
-if (cmd.split(" ")[0] == "/shrug") {
-  var shrugmsg = document.getElementById("chat-input-field").value.replace("/shrug ", "")
+if (cmd.contains("/shrug")) {
+  var shrugmsg = document.getElementById("chat-input-field").value.split("/shrug ")[1]; if (! shrugmsg) { shrugmsg = "" };
   API.sendChat(shrugmsg + " ¯\\_(ツ)_/¯")
 }}
 API.on(API.CHAT_COMMAND, chatcmd);
