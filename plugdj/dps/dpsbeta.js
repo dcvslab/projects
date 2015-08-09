@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 06 RELEASE// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "2"; var commitnum = "2"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "2"; var commitnum = "3"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -40,7 +40,8 @@ $("#chat-messages").append("<div data-cid='" + dpsid + "' class='cm " + cmtype +
 dpsn = dpsn + 1; dpseid = "dps-" + dpsn; dpsid = "dps-" + user.id + "-" + dpsn 
 if (_scroll) { $("#chat-messages")[0].scrollTop = $("#chat-messages")[0].scrollHeight; } 
 if ($("#chat-messages").children().length > 512) {  $("#chat-messages").children().first().remove();  }}
-var dpsopt = localStorage.getItem("dpsOpt"); //option stuff (END EDITED DAMS)
+var timeon = 0; setInterval(function(){timeon = timeon + 1; }, 1000);
+var dpsopt = localStorage.getItem("dpsOpt"); //option stuff 
 if (! dpsopt) { 
 var newuser = "true"
 var dpsOpt = { "dpsv": version, "awopt": "true", "ajopt": "true","ujopt": "true", "ulopt": "true", "haopt":{"on": "true", "pos": "1"}, "ssopt": "false", "npopt": "false:", "xppopt": "false", "dpsftropt": "false", "ccopt":{"ub": "false", "on": "false", "admin": "#42A5DC", "ba": "#89BE6C", "staff": "#AC76FF", "sub": "#C59840", "you": "#FFDD6F", "user": "#777F92"} };
@@ -440,6 +441,7 @@ if (cmd.contains("/debug")) { //debug commands
   user = API.getUser(); if (user.id == creator.id) {
   if (cmd.split("/debug ")[1] == "reset") { localStorage.removeItem("dpsOpt"); API.chatLog("DPS has been reset! Refreshing..."); setTimeout(function(){ location.reload(); }, 1000); }
   if (cmd.split("/debug ")[1] == "refresh" || cmd.split("/debug ")[1] == "reload") { location.reload() }
+  if (cmd.split("/debug ")[1] == "timeon") { if (timeon > 3600 { API.chatLog("DPS has been running for " + cmd.split(" ")[0] + cmd.split(" ")[1] + cmd.split(" ")[2] + " hours.") } else { if (timeon > 60 { API.chatLog("DPS has been running for " + cmd.split(" ")[0] + cmd.split(" ")[1] + cmd.split(" ")[2] + " minutes." })
   } else { dpsMessage("system", "from", "DPS ALERT", "Debug commands are currently only availible to <b class='dpssub'>" + creator.username + "</b>. Check back later!")}
 }}
 API.on(API.CHAT_COMMAND, chatcmd);
