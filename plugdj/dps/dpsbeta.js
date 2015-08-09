@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 06 RELEASE// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "1"; var commitnum = "6.1"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "1"; var commitnum = "7"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -430,12 +430,13 @@ API.on(API.ADVANCE, function(data) {
 })
 //CHAT COMMANDS//
 function chatcmd(cmd) { 
-if (cmd.contains("/shrug")) {
+if (cmd.contains("/shrug")) { //user commands
   var shrugmsg = document.getElementById("chat-input-field").value.split("/shrug ")[1]; if (! shrugmsg) { shrugmsg = "" };
   API.sendChat(shrugmsg + " ¯\\_(ツ)_/¯")
 }
-	
-}
+if (cmd.contains("/debug")) { //debug commands
+  if (cmd.split("/debug "[1] == "reset")) { localStorage.removeItem("dpsOpt") }
+}}
 API.on(API.CHAT_COMMAND, chatcmd);
 //MAKING MENU WORK 
 var togglemenu = "no" //is needed
@@ -477,7 +478,7 @@ function menuClicked() { //to set up the menu
     dpsmcheckha.style.visibility = "hidden"
     dpsoptUpdate();} 
   else { 
-    haopt = "true";
+    haopt.on = "true";
     dpsmcheckha.style.visibility = "visible"
     dpsoptUpdate();}}
   dpsmsstxt.onclick=function(){ if (ssopt == "true") { 
