@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 06 RELEASE// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "1"; var commitnum = "8.1"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "1"; var commitnum = "8.2"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -274,6 +274,8 @@ function dpsHa() {
       	badoop.play()
         dpsMessage("system", "from", "HISTORY ALERT", "<b>" + nextmedia.media.author + " - " + nextmedia.media.title + "</b> is in the room history!")
     }}}}
+function dpshaCheck() {if (haopt.on == "true") { dpsmcheckha.style.visibility = "visible" } else { dpsmcheckha.style.visibility = "hidden"}}
+dpshaCheck()
 var ssuserid = API.getHistory()[1].user.id //song stats
 var ssuser = API.getUser(ssuserid)
 var ssucolor;
