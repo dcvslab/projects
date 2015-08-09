@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 06 RELEASE// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "2"; var commitnum = "5.4"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "2"; var commitnum = "6"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -124,8 +124,10 @@ var dpsmcheckul = document.createElement("i") //create user leave check
 dpsmcheckul.className = "icon icon-check-purple dpsmcheck";
 var dpsmcheckha = document.createElement("i") //create history alert check
 dpsmcheckha.className = "icon icon-check-purple dpsmcheck";
-var dpsmpencilha = document.createElement("i") //create history alert pencil
-dpsmpencilha.className = "icon icon-edit-white dpsmpm";
+var dpsmplusha = document.createElement("i") //create custom colors plus
+dpsmplusha.className = "icon icon-add dpsmpm";
+var dpsmminusha = document.createElement("img") //create custom colors minus
+dpsmminusha.setAttribute("src", "https://i.imgur.com/dXRmakc.png"); dpsmminusha.className = "dpsmpm"
 var dpsmcheckss = document.createElement("i") //create song stats check
 dpsmcheckss.className = "icon icon-check-purple dpsmcheck";
 var dpsmchecknp = document.createElement("i") //create now playing check
@@ -135,7 +137,7 @@ dpsmcheckcc.className = "icon icon-check-purple dpsmcheck";
 var dpsmpluscc = document.createElement("i") //create custom colors plus
 dpsmpluscc.className = "icon icon-add dpsmpm";
 var dpsmminuscc = document.createElement("img") //create custom colors minus
-dpsmminuscc.setAttribute("src", "http://i.imgur.com/dXRmakc.png"); dpsmminuscc.className = "dpsmpm"
+dpsmminuscc.setAttribute("src", "https://i.imgur.com/dXRmakc.png"); dpsmminuscc.className = "dpsmpm"
 var dpsmcheckxpp = document.createElement("i") //create xp to percent check
 dpsmcheckxpp.className = "icon icon-check-purple dpsmcheck";
 var dpsmcheckdpsftr = document.createElement("i") //create dps footer check
@@ -173,6 +175,14 @@ var dpsmhatxt = document.createElement("span");
 dpsmhatxt.innerHTML = "History Alert"; dpsmhatxt.className = "dpsmrowtext"
 dpsmha.className = "dpsmrow";
 dpsmha.appendChild(dpsmhatxt); dpsmha.appendChild(dpsmcheckha); dpsmha.appendChild(dpsmpencilha); dpsmenu.appendChild(dpsmha);
+var dpsmham = document.createElement("div"); dpsmccm.style.display = "none"; dpsmccm.id = "dpsmccm"; dpsmccm.className = "dpsmoptm" //history alerts menu
+var dpsmhamtitle = document.createElement("div"); var dpsmhamtitletxt = document.createElement("span"); dpsmhamtitletxt.innerHTML = "History Alert"; dpsmhamtitle.appendChild(dpsmhamtitletxt); dpsmhamtitle.className = "dpsmsection"; dpsmham.appendChild(dpsmhamtitle)
+var dpsmhamo = document.createElement("div"); dpsmhamo.className = "dpsmmrow"; dpsmhamo.style.paddingLeft = "15px !important"
+	var dpsmhamotxt = document.createElement("span"); dpsmhamotxt.className = "dpsmmrowtext"; dpsmhamotxt.innerHTML = "Enter what waitlist position you would like to be alerted that your song is in the history."; 
+	var dpsmhamoinputdiv = document.createElement("div");
+	var dpsmhamoinput = document.createElement("input"); dpsmhamoinput.className = "dpsmccinput"; dpsmhamoinput.style.border = "1px solid #925AFF"; dpsmhamoinput.value = haopt.pos; dpsmhamoinput.style.float = "none";
+	$(dpsmhamo).append(dpsmhamotxt); $(dpsmhamoinputdiv).append(dpsmhamoinput); $(dpsmhamo).append(dpsmhamoinputdiv); $(dpsmccm).append(dpsmhamo);
+	var dpsmhamb = document.createElement("button"); dpsmhamb.className = "dpsmmbtn"; dpsmhamb.innerHTML = "Apply"; dpsmhamb.style.width = "100%"; $(dpsmham).append(dpsmhamb); 
 var dpsmss = document.createElement("div"); //song stats option
 var dpsmsstxt = document.createElement("span");
 dpsmsstxt.innerHTML = "Song Stats"; dpsmsstxt.className = "dpsmrowtext"
@@ -275,16 +285,18 @@ function dpsHa() {
       	badoop.play()
         dpsMessage("system", "from", "HISTORY ALERT", "<b>" + nextmedia.media.author + " - " + nextmedia.media.title + "</b> is in the room history!")
     }}}}
-function dpshaPrompt() {
-  dpsMessaged("system", "from", "HISTORY ALERT", "Enter the waitlist position you would like to be notified about your song being in the history.", "The current waitlist alert position is position <b>" + haopt.pos + "</b>.")
-  haoptpos = haopt.pos
-  haopt.pos = prompt("Enter Position", ""); dpsoptUpdate();
-  if (! haopt.pos) {
-  haopt.pos = haoptpos
-  dpsMessage("system", "from", "HISTORY ALERT", "You didn't change anything, waitlist alert position will stay at position <b>" + haopt.pos + "</b>.")
-  dpsoptUpdate();
-  } else {
-  dpsMessage("system", "from", "HISTORY ALERT", "You have set the waitlist alert position to be position <b>" + haopt.pos + "</b>.")
+var dpshash = "hidden"
+function dpshaSh() { //show hide cc menu
+ if (dpshash == "hidden") {
+ 	dpshash = "visible"
+ 	dpsmham.style.display = "none";
+ 	dpsmplusha.style.display = "block";
+ 	dpsmminusha.style.display = "none";
+ } else {
+ 	dpshamsh = "hidden"
+ 	dpsmham.style.display = "block";
+ 	dpsmplusha.style.display = "none";
+ 	dpsmminusha.style.display = "block";
 }}
 function dpshaCheck() {if (haopt.on == "true") { dpsmcheckha.style.visibility = "visible" } else { dpsmcheckha.style.visibility = "hidden"}}
 dpshaCheck()
