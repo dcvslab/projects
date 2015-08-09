@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 06 RELEASE// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "2"; var commitnum = "4.2"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "2"; var commitnum = "5"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -28,7 +28,7 @@ function dpsMessaged(cmtype, nameclass, nametext, messagetext, messagetext2) { /
   if (! nametext) { nametext=""};
   if (! messagetext) { messagetext="" };
   if (! messagetext2) { messagetext2=""};
-$("#chat-messages").append("<div data-cid='" + dpsid + "' class='cm " + cmtype + "' stlye='padding-left: 5px'><div class='msg cid-" + dpsid + "' style='padding-left: 10px'><div class ='" + nameclass + "'><span class='un'>" + nametext + "</span><span style='display: inline;' class='timestamp'>" + time + "</span></div><div class='text cid-" + dpsid + "'>" + messagetext +"</div><div class='text cid-" + dpsid + "'>" + messagetext2 +"</div></div></div>");
+$("#chat-messages").append("<div data-cid='" + dpsid + "' class='dpsmsg cm " + cmtype + "' style='padding-left: 5px'><div class='msg cid-" + dpsid + "' style='padding-left: 10px'><div class ='" + nameclass + "'><span class='un'>" + nametext + "</span><span style='display: inline;' class='timestamp'>" + time + "</span></div><div class='text cid-" + dpsid + "'>" + messagetext +"</div><div class='text cid-" + dpsid + "'>" + messagetext2 +"</div></div></div>");
 dpsn = dpsn + 1; dpseid = "dps-" + dpsn; dpsid = "dps-" + user.id + "-" + dpsn
 if (_scroll) { $("#chat-messages")[0].scrollTop = $("#chat-messages")[0].scrollHeight; }
 if ($("#chat-messages").children().length > 512) {  $("#chat-messages").children().first().remove();  }}
@@ -452,6 +452,7 @@ if (cmd.contains("/debug")) { //debug commands
   if (cmd.split("/debug ")[1] == "reset") { localStorage.removeItem("dpsOpt"); API.chatLog("DPS has been reset! Refreshing..."); setTimeout(function(){ location.reload(); }, 1000); }
   if (cmd.split("/debug ")[1] == "refresh" || cmd.split("/debug ")[1] == "reload") { location.reload() }
   if (cmd.split("/debug ")[1] == "timeon") { API.chatLog("DPS has been running for " + timeon + " seconds.") }
+  if (cmd.split("/debug ")[1] == "version") { API.chatLog("DPS v" + version + " is running.") }
   } else { dpsMessage("system", "from", "DPS ALERT", "Debug commands are currently only availible to <b class='dpssub'>" + creator.username + "</b>. Check back later!")}
 }}
 API.on(API.CHAT_COMMAND, chatcmd);
