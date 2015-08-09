@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 06 RELEASE// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "2"; var commitnum = "5.3"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "2"; var commitnum = "5.4"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -282,6 +282,7 @@ function dpshaPrompt() {
   if (! haopt.pos) {
   haopt.pos = haoptpos
   dpsMessage("system", "from", "HISTORY ALERT", "You didn't change anything, waitlist alert position will stay at position <b>" + haopt.pos + "</b>.")
+  dpsoptUpdate();
   } else {
   dpsMessage("system", "from", "HISTORY ALERT", "You have set the waitlist alert position to be position <b>" + haopt.pos + "</b>.")
 }}
