@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 06 RELEASE// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "2"; var commitnum = "5.1"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "2"; var commitnum = "5.2"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -453,6 +453,7 @@ if (cmd.contains("/debug")) { //debug commands
   if (cmd.split("/debug ")[1] == "refresh" || cmd.split("/debug ")[1] == "reload") { location.reload() }
   if (cmd.split("/debug ")[1] == "timeon") { API.chatLog("DPS has been running for " + timeon + " seconds.") }
   if (cmd.split("/debug ")[1] == "version") { API.chatLog("DPS v" + version + " is running.") }
+  if (cmd.split("/debug ")[1] == "clear") { chatmsgs = document.getElementById("chat-messages").children; for (var i = 0; i < chatmsgs.length; i++) { if (chatmsgs[i].className.contains("dpsmsg")) {; chatmsgs[i].remove() }}
   } else { dpsMessage("system", "from", "DPS ALERT", "Debug commands are currently only availible to <b class='dpssub'>" + creator.username + "</b>. Check back later!")}
 }}
 API.on(API.CHAT_COMMAND, chatcmd);
