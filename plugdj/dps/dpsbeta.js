@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 06 RELEASE// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "2"; var commitnum = "4.1"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "2"; var commitnum = "4.2"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -277,9 +277,14 @@ function dpsHa() {
     }}}}
 function dpshaPrompt() {
   dpsMessaged("system", "from", "HISTORY ALERT", "Enter the waitlist position you would like to be notified about your song being in the history.", "The current waitlist alert position is position <b>" + haopt.pos + "</b>.")
+  haoptpos = haopt.pos
   haopt.pos = prompt("Enter Position", ""); dpsoptUpdate();
-  dpsMessaged("system", "from", "HISTORY ALERT", "You have set the waitlist alert position to be position <b>" + haopt.pos + "</b>.")
-}
+  if (! haopt.pos) {
+  haopt.pos = haoptpos
+  dpsMessage("system", "from", "HISTORY ALERT", "You didn't change anything, waitlist alert position will stay at position <b>" + haopt.pos + "</b>.")
+  } else {
+  dpsMessage("system", "from", "HISTORY ALERT", "You have set the waitlist alert position to be position <b>" + haopt.pos + "</b>.")
+}}
 function dpshaCheck() {if (haopt.on == "true") { dpsmcheckha.style.visibility = "visible" } else { dpsmcheckha.style.visibility = "hidden"}}
 dpshaCheck()
 var ssuserid = API.getHistory()[1].user.id //song stats
