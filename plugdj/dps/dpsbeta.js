@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 06 RELEASE// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "1"; var commitnum = "4"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "1"; var commitnum = "5"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -43,7 +43,7 @@ if ($("#chat-messages").children().length > 512) {  $("#chat-messages").children
 var dpsopt = localStorage.getItem("dpsOpt"); //option stuff (END EDITED DAMS)
 if (! dpsopt) { 
 var newuser = "true"
-var dpsOpt = { "dpsv": version, "awopt": "true", "ajopt": "true","ujopt": "true", "ulopt": "true", "ssopt": "false", "npopt": "false:", "xppopt": "false", "dpsftropt": "false", "ccopt":{"ub": "false", "on": "false", "admin": "#42A5DC", "ba": "#89BE6C", "staff": "#AC76FF", "sub": "#C59840", "you": "#FFDD6F", "user": "#777F92"} };
+var dpsOpt = { "dpsv": version, "awopt": "true", "ajopt": "true","ujopt": "true", "ulopt": "true", "haopt":{"on": "true", "pos": "1"}, "ssopt": "false", "npopt": "false:", "xppopt": "false", "dpsftropt": "false", "ccopt":{"ub": "false", "on": "false", "admin": "#42A5DC", "ba": "#89BE6C", "staff": "#AC76FF", "sub": "#C59840", "you": "#FFDD6F", "user": "#777F92"} };
 localStorage.setItem('dpsOpt', JSON.stringify(dpsOpt));
 var ldpsOpt = localStorage.getItem('dpsOpt');
 var getopt = JSON.parse(ldpsOpt);
@@ -52,6 +52,7 @@ var awopt = getopt.awopt;//function options
 var ajopt = getopt.ajopt;
 var ujopt = getopt.ujopt;  //notification options
 var ulopt = getopt.ulopt;
+var haopt = getopt.haopt;
 var ssopt = getopt.ssopt; 
 var npopt = getopt.npopt
 var xppopt = getopt.xppopt; //style options
@@ -65,20 +66,21 @@ var awopt = getopt.awopt;//function options
 var ajopt = getopt.ajopt;
 var ujopt = getopt.ujopt; //notification options
 var ulopt = getopt.ulopt; 
+var haopt = getopt.haopt;
 var ssopt = getopt.ssopt; 
 var npopt = getopt.npopt
 var xppopt = getopt.xppopt;//style options
 var dpsftropt = getopt.dpsftropt;
 var ccopt = getopt.ccopt }
 function dpsoptUpdate() { //update
-  dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt,"ujopt": ujopt, "ulopt": ulopt, "ssopt": ssopt,"npopt": npopt, "xppopt": xppopt, "dpsftropt": dpsftropt, "ccopt":{"ub": ccopt.ub, "on": ccopt.on, "admin": ccopt.admin, "ba": ccopt.ba, "staff": ccopt.staff, "sub": ccopt.sub, "you": ccopt.you, "user": ccopt.user} };
+  dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt,"ujopt": ujopt, "ulopt": ulopt,"haopt":{"on": haopt.on, "pos": haopt.pos}, "ssopt": ssopt,"npopt": npopt, "xppopt": xppopt, "dpsftropt": dpsftropt, "ccopt":{"ub": ccopt.ub, "on": ccopt.on, "admin": ccopt.admin, "ba": ccopt.ba, "staff": ccopt.staff, "sub": ccopt.sub, "you": ccopt.you, "user": ccopt.user} };
   localStorage.setItem('dpsOpt', JSON.stringify(dpsoptPush));
   ldpsOpt = localStorage.getItem('dpsOpt');
   getopt = JSON.parse(ldpsOpt);
 }
-if (! awopt) { awopt = "true" }; if (! ajopt) { ajopt = "true" }; if (! ssopt) { ssopt = "false" }; if (! xppopt) { xppopt = "false" }; if (! dpsftropt) { dpsftropt = "false" }; if (! npopt) { npopt = "false"}; if (! ulopt) { ulopt = "true" }; if (! ujopt) { ujopt = "true"}; if (! ccopt) { ccopt = {"ub": "false", "on": "false", "admin": "#42A5DC", "ba": "#89BE6C", "staff": "#AC76FF", "sub": "#C59840", "you": "#FFDD6F", "user": "#777F92"} };
+if (! awopt) { awopt = "true" }; if (! ajopt) { ajopt = "true" }; if (! ssopt) { ssopt = "false" }; if (! xppopt) { xppopt = "false" }; if (! dpsftropt) { dpsftropt = "false" }; if (! npopt) { npopt = "false"}; if (! ulopt) { ulopt = "true" }; if (! ujopt) { ujopt = "true"}; if (! ccopt) { ccopt = {"ub": "false", "on": "false", "admin": "#42A5DC", "ba": "#89BE6C", "staff": "#AC76FF", "sub": "#C59840", "you": "#FFDD6F", "user": "#777F92"} }; if (! haopt) { "haopt":{"on": haopt.on, "pos": haopt.pos } };
 setTimeout(function () { 
-  dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt,"ujopt": ujopt, "ulopt": ulopt, "ssopt": ssopt,"npopt": npopt, "xppopt": xppopt, "dpsftropt": dpsftropt, "ccopt":{"ub": ccopt.ub, "on": ccopt.on, "admin": ccopt.admin, "ba": ccopt.ba, "staff": ccopt.staff, "sub": ccopt.sub, "you": ccopt.you, "user": ccopt.user} };
+  dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt,"ujopt": ujopt, "ulopt": ulopt,"haopt":{"on": haopt.on, "pos": haopt.pos}, "ssopt": ssopt,"npopt": npopt, "xppopt": xppopt, "dpsftropt": dpsftropt, "ccopt":{"ub": ccopt.ub, "on": ccopt.on, "admin": ccopt.admin, "ba": ccopt.ba, "staff": ccopt.staff, "sub": ccopt.sub, "you": ccopt.you, "user": ccopt.user} };
 }, 100);
 var oldversion = dpsv
 dpsoptUpdate()
@@ -119,6 +121,10 @@ var dpsmcheckuj = document.createElement("i") //create user join check
 dpsmcheckuj.className = "icon icon-check-purple dpsmcheck";
 var dpsmcheckul = document.createElement("i") //create user leave check
 dpsmcheckul.className = "icon icon-check-purple dpsmcheck";
+var dpsmcheckha = document.createElement("i") //create history alert check
+dpsmcheckha.className = "icon icon-check-purple dpsmcheck";
+var dpsmpencilha = document.createElement("i") //create history alert pencil
+dpsmpencilha.className = "icon icon-edit-white dpsmpm";
 var dpsmcheckss = document.createElement("i") //create song stats check
 dpsmcheckss.className = "icon icon-check-purple dpsmcheck";
 var dpsmchecknp = document.createElement("i") //create now playing check
@@ -161,6 +167,11 @@ var dpsmultxt = document.createElement("span");
 dpsmultxt.innerHTML = "User Leave"; dpsmultxt.className = "dpsmrowtext"
 dpsmul.className = "dpsmrow";
 dpsmul.appendChild(dpsmultxt); dpsmul.appendChild(dpsmcheckul); dpsmenu.appendChild(dpsmul);
+var dpsmha = document.createElement("div"); //history alert option
+var dpsmhatxt = document.createElement("span");
+dpsmhatxt.innerHTML = "History Alert"; dpsmhatxt.className = "dpsmrowtext"
+dpsmha.className = "dpsmrow";
+dpsmha.appendChild(dpsmhatxt); dpsmha.appendChild(dpsmcheckha); dpsmha.appendChild(dpsmpencilha); dpsmenu.appendChild(dpsmha);
 var dpsmss = document.createElement("div"); //song stats option
 var dpsmsstxt = document.createElement("span");
 dpsmsstxt.innerHTML = "Song Stats"; dpsmsstxt.className = "dpsmrowtext"
@@ -255,11 +266,11 @@ dpsulCheck()
 var nextmedia = API.getNextMedia()
 var wlpos = API.getWaitListPosition()
 function dpsHa() {
-  if (haopt == "true") {
+  if (haopt.on == "true") {
   nextmedia = API.getNextMedia()
   wlpos = API.getWaitListPosition()
     if (nextmedia.inHistory == true) {
-      if (wlpos == 0) {
+      if (wlpos == haopt.pos - 1) {
       	badoop.play()
         dpsMessage("system", "from", "HISTORY ALERT", "<b>" + nextmedia.media.author + " - " + nextmedia.media.title + "</b> is in the room history!")
     }}}}
