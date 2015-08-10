@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 06 RELEASE// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "2"; var commitnum = "7"; var beta = "BETA | UNFINISHED VERSION"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "2"; var commitnum = "7"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -514,7 +514,7 @@ function menuClicked() { //to set up the menu
     haopt.on = "true";
     dpsmcheckha.style.visibility = "visible"
     dpsoptUpdate();}}
-  dpsmplusha.addEventListener("click", dpshamSh); dpsmminusha.addEventListener("click", dpshamSh)
+  dpsmplusha.addEventListener("click", dpshaSh); dpsmminusha.addEventListener("click", dpshaSh)
   dpsmsstxt.onclick=function(){ if (ssopt == "true") { 
     ssopt = "false"; 
     dpsmcheckss.style.visibility = "hidden"
