@@ -1,13 +1,14 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 06 RELEASE// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "2"; var commitnum = "7.4"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "2"; var commitnum = "7.5"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
 var history = API.getHistory;
 var head = document.getElementsByTagName("head")[0]
 var creator = { username: "DCV", id: "3639711", sub: "1" }
+var vip = [ "3639711", "4820534", "6323268" ]; var viplength = vip.length;
 var roomname = document.getElementsByClassName("bar-value")[0].innerHTML
 var badoop = new Audio(); badoop.src = "https://cdn.plug.dj/_/static/sfx/badoop.801a12ca13864e90203193b2c83c019c03a447d1.mp3"; badoop.load();
 var uclass;
@@ -468,7 +469,8 @@ if (cmd.contains("/shrug")) { //user commands
   API.sendChat(shrugmsg + " ¯\\_(ツ)_/¯")
 }
 if (cmd.contains("/debug")) { //debug commands
-  user = API.getUser(); if (user.id == creator.id) {
+  for (var i = 0; i < viplength; i++) {
+    if (user.id == vip[i]) {
   if (cmd.split("/debug ")[1] == "reset") { localStorage.removeItem("dpsOpt"); API.chatLog("DPS has been reset! Refreshing..."); setTimeout(function(){ location.reload(); }, 1000); }
   if (cmd.split("/debug ")[1] == "refresh" || cmd.split("/debug ")[1] == "reload") { location.reload() }
   if (cmd.split("/debug ")[1] == "timeon") { API.chatLog("DPS has been running for " + timeon + " seconds.") }
