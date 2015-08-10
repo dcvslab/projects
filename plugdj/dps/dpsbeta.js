@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 06 RELEASE// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "2"; var commitnum = "7.2"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "2"; var commitnum = "7.3"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -290,15 +290,15 @@ var dpshash = "hidden"
 function dpshaSh() { //show hide cc menu
  if (dpshash == "hidden") {
  	dpshash = "visible"
- 	dpsmham.style.display = "block";
- 	dpsmplusha.style.display = "none";
- 	dpsmminusha.style.display = "block";
- 	dpsmhamoinput.value = haopt.pos
- } else {
- 	dpshash = "hidden"
  	dpsmham.style.display = "none";
  	dpsmplusha.style.display = "block";
  	dpsmminusha.style.display = "none";
+ 	dpsmhamoinput.value = haopt.pos
+ } else {
+ 	dpshash = "hidden"
+ 	dpsmham.style.display = "block";
+ 	dpsmplusha.style.display = "none";
+ 	dpsmminusha.style.display = "block";
 }}
 function dpshaCheck() {if (haopt.on == "true") { dpsmcheckha.style.visibility = "visible" } else { dpsmcheckha.style.visibility = "hidden"}}
 dpshaCheck()
@@ -577,7 +577,8 @@ dpsmenu.style.display = "none"; //toggle some stuff
 dpslogo.style.display = "block";
 dpslogox.style.display = "none";
 togglemenu = "no"
-dpsccmsh = "hidden"; dpsccmSh(); dpshash = "hidden"; dpshaSh()
+dpsccmsh = "hidden"; dpsccmSh(); 
+dpshash = "hidden"; dpshaSh()
 }}
 dpsbtn.addEventListener("click", toggleMenu) 
 dpsbtn.addEventListener("click", menuClicked) 
