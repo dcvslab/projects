@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 06 RELEASE// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "2"; var commitnum = "7.3"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "2"; var commitnum = "7.4"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -180,7 +180,7 @@ var dpsmhamtitle = document.createElement("div"); var dpsmhamtitletxt = document
 var dpsmhamo = document.createElement("div"); dpsmhamo.className = "dpsmmrow"; dpsmhamo.style.paddingLeft = "15px"; 
 	var dpsmhamotxt = document.createElement("span"); dpsmhamotxt.className = "dpsmmrowtext"; dpsmhamotxt.innerHTML = "Enter what waitlist position you would like to be alerted that your song is in the history."; 
 	var dpsmhamoinputdiv = document.createElement("div");
-	var dpsmhamoinput = document.createElement("input"); dpsmhamoinput.className = "dpsmccinput"; dpsmhamoinput.style.border = "1px solid #925AFF"; dpsmhamoinput.value = haopt.pos; dpsmhamoinput.style.float = "none"; dpsmhamoinput.style.width = "96%"; dpsmhamoinput.style.marginRight = "0px"
+	var dpsmhamoinput = document.createElement("input"); dpsmhamoinput.className = "dpsmccinput"; dpsmhamoinput.style.border = "1px solid #925AFF"; dpsmhamoinput.value = haopt.pos; dpsmhamoinput.style.float = "none"; dpsmhamoinput.style.width = "96%"; dpsmhamoinput.style.marginRight = "0px";  dpsmhamoinput.style.textAlign = "center"
 	$(dpsmhamo).append(dpsmhamotxt); $(dpsmhamoinputdiv).append(dpsmhamoinput); $(dpsmhamo).append(dpsmhamoinputdiv); $(dpsmham).append(dpsmhamo);
 	var dpsmhamb = document.createElement("button"); dpsmhamb.className = "dpsmmbtn"; dpsmhamb.innerHTML = "Apply"; dpsmhamb.style.width = "100%"; $(dpsmham).append(dpsmhamb);
 	dpsmha.appendChild(dpsmcheckha); dpsmha.appendChild(dpsmplusha); dpsmha.appendChild(dpsmminusha); dpsmha.appendChild(dpsmhatxt); document.getElementsByClassName("app-right")[0].appendChild(dpsmham); dpsmenu.appendChild(dpsmha); 
@@ -305,6 +305,7 @@ dpshaCheck()
 function dpshaApply() {
 haopt.pos = dpsmhamoinput.value; dpsoptUpdate()
 dpsmhamoinput.value = haopt.pos
+dpsMessage("system", "from", "HISTORY ALERT", "You will now be alerted when you're at position <b>" + haopt.pos + "</b>!")
 }
 var ssuserid = API.getHistory()[1].user.id //song stats
 var ssuser = API.getUser(ssuserid)
