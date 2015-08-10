@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 06 RELEASE// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "2"; var commitnum = "6.3"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "2"; var commitnum = "7"; var beta = "BETA | UNFINISHED VERSION"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -124,9 +124,9 @@ var dpsmcheckul = document.createElement("i") //create user leave check
 dpsmcheckul.className = "icon icon-check-purple dpsmcheck";
 var dpsmcheckha = document.createElement("i") //create history alert check
 dpsmcheckha.className = "icon icon-check-purple dpsmcheck";
-var dpsmplusha = document.createElement("i") //create custom colors plus
+var dpsmplusha = document.createElement("i") //create history alert plus
 dpsmplusha.className = "icon icon-add dpsmpm";
-var dpsmminusha = document.createElement("img") //create custom colors minus
+var dpsmminusha = document.createElement("img") //create history alert minus
 dpsmminusha.setAttribute("src", "https://i.imgur.com/dXRmakc.png"); dpsmminusha.className = "dpsmpm"
 var dpsmcheckss = document.createElement("i") //create song stats check
 dpsmcheckss.className = "icon icon-check-purple dpsmcheck";
@@ -175,14 +175,15 @@ var dpsmhatxt = document.createElement("span");
 dpsmhatxt.innerHTML = "History Alert"; dpsmhatxt.className = "dpsmrowtext"
 dpsmha.className = "dpsmrow";
 dpsmha.appendChild(dpsmhatxt); dpsmha.appendChild(dpsmcheckha); dpsmha.appendChild(dpsmplusha); dpsmha.appendChild(dpsmminusha); dpsmenu.appendChild(dpsmha);
-var dpsmham = document.createElement("div"); dpsmham.style.display = "none"; dpsmham.id = "dpsmccm"; dpsmham.className = "dpsmoptm" //history alerts menu
+var dpsmham = document.createElement("div"); dpsmham.style.display = "none"; dpsmham.id = "dpsmham"; dpsmham.className = "dpsmoptm"; dpsmham.style.height = "-moz-calc(100% / 2)" //history alerts menu
 var dpsmhamtitle = document.createElement("div"); var dpsmhamtitletxt = document.createElement("span"); dpsmhamtitletxt.innerHTML = "History Alert"; dpsmhamtitle.appendChild(dpsmhamtitletxt); dpsmhamtitle.className = "dpsmsection"; dpsmham.appendChild(dpsmhamtitle)
-var dpsmhamo = document.createElement("div"); dpsmhamo.className = "dpsmmrow"; dpsmhamo.style.paddingLeft = "15px !important"
+var dpsmhamo = document.createElement("div"); dpsmhamo.className = "dpsmmrow"; dpsmhamo.style.paddingLeft = "15px"; 
 	var dpsmhamotxt = document.createElement("span"); dpsmhamotxt.className = "dpsmmrowtext"; dpsmhamotxt.innerHTML = "Enter what waitlist position you would like to be alerted that your song is in the history."; 
 	var dpsmhamoinputdiv = document.createElement("div");
-	var dpsmhamoinput = document.createElement("input"); dpsmhamoinput.className = "dpsmccinput"; dpsmhamoinput.style.border = "1px solid #925AFF"; dpsmhamoinput.value = haopt.pos; dpsmhamoinput.style.float = "none";
-	$(dpsmhamo).append(dpsmhamotxt); $(dpsmhamoinputdiv).append(dpsmhamoinput); $(dpsmhamo).append(dpsmhamoinputdiv); $(dpsmccm).append(dpsmhamo);
-	var dpsmhamb = document.createElement("button"); dpsmhamb.className = "dpsmmbtn"; dpsmhamb.innerHTML = "Apply"; dpsmhamb.style.width = "100%"; $(dpsmham).append(dpsmhamb); 
+	var dpsmhamoinput = document.createElement("input"); dpsmhamoinput.className = "dpsmccinput"; dpsmhamoinput.style.border = "1px solid #925AFF"; dpsmhamoinput.value = haopt.pos; dpsmhamoinput.style.float = "none"; dpsmhamoinput.style.width = "96%"; dpsmhamoinput.style.marginRight = "0px"
+	$(dpsmhamo).append(dpsmhamotxt); $(dpsmhamoinputdiv).append(dpsmhamoinput); $(dpsmhamo).append(dpsmhamoinputdiv); $(dpsmham).append(dpsmhamo);
+	var dpsmhamb = document.createElement("button"); dpsmhamb.className = "dpsmmbtn"; dpsmhamb.innerHTML = "Apply"; dpsmhamb.style.width = "100%"; $(dpsmham).append(dpsmhamb);
+	dpsmha.appendChild(dpsmcheckha); dpsmha.appendChild(dpsmplusha); dpsmha.appendChild(dpsmminusha); dpsmha.appendChild(dpsmhatxt); document.getElementsByClassName("app-right")[0].appendChild(dpsmham); dpsmenu.appendChild(dpsmha); 
 var dpsmss = document.createElement("div"); //song stats option
 var dpsmsstxt = document.createElement("span");
 dpsmsstxt.innerHTML = "Song Stats"; dpsmsstxt.className = "dpsmrowtext"
@@ -289,14 +290,14 @@ var dpshash = "hidden"
 function dpshaSh() { //show hide cc menu
  if (dpshash == "hidden") {
  	dpshash = "visible"
- 	dpsmham.style.display = "none";
- 	dpsmplusha.style.display = "block";
- 	dpsmminusha.style.display = "none";
- } else {
- 	dpshamsh = "hidden"
  	dpsmham.style.display = "block";
  	dpsmplusha.style.display = "none";
  	dpsmminusha.style.display = "block";
+ } else {
+ 	dpshash = "hidden"
+ 	dpsmham.style.display = "none";
+ 	dpsmplusha.style.display = "block";
+ 	dpsmminusha.style.display = "none";
 }}
 function dpshaCheck() {if (haopt.on == "true") { dpsmcheckha.style.visibility = "visible" } else { dpsmcheckha.style.visibility = "hidden"}}
 dpshaCheck()
