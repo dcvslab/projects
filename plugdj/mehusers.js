@@ -13,14 +13,15 @@ API.chatLog("Users " + mehuser + " were added to your list!")
 }
 else {
 var mehuser = command.split("/amu ")[1];
+mehuser = mehuser + ", ineedthisforscripttowork"
 localStorage.setItem("mehuser", mehuser)
 API.chatLog("User " + mehuser + " was added to your list!")
 }}}}
 function amehUser() {
 dj = API.getDJ()
-var amuc = amehuser.children;
+var amuc = localStorage.getItem("mehuser").toString().split(",").length;
 for (var i = 0; i < amuc.length; i++) {
-  if (dj.contains(amuc[i])) {
+  if (dj.username.contains(amuc[i])) {
     document.getElementById("meh").click() }}}
 API.on(API.ADVANCE, function(data) { amehUser(); })
 API.on(API.CHAT_COMMAND, chatcommand);
