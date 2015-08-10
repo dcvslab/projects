@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 06 RELEASE// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "2"; var commitnum = "7.1"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "2"; var commitnum = "7.2"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -303,7 +303,7 @@ function dpshaSh() { //show hide cc menu
 function dpshaCheck() {if (haopt.on == "true") { dpsmcheckha.style.visibility = "visible" } else { dpsmcheckha.style.visibility = "hidden"}}
 dpshaCheck()
 function dpshaApply() {
-haopt.pos = dpsmhamoinput.value
+haopt.pos = dpsmhamoinput.value; dpsoptUpdate()
 dpsmhamoinput.value = haopt.pos
 }
 var ssuserid = API.getHistory()[1].user.id //song stats
@@ -577,7 +577,7 @@ dpsmenu.style.display = "none"; //toggle some stuff
 dpslogo.style.display = "block";
 dpslogox.style.display = "none";
 togglemenu = "no"
-dpsccmsh = "hidden"; dpsccmSh()
+dpsccmsh = "hidden"; dpsccmSh(); dpshash = "hidden"; dpshaSh()
 }}
 dpsbtn.addEventListener("click", toggleMenu) 
 dpsbtn.addEventListener("click", menuClicked) 
