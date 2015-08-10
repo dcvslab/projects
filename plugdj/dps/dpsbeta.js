@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 06 RELEASE// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "2"; var commitnum = "7"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "2"; var commitnum = "7.1"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -293,6 +293,7 @@ function dpshaSh() { //show hide cc menu
  	dpsmham.style.display = "block";
  	dpsmplusha.style.display = "none";
  	dpsmminusha.style.display = "block";
+ 	dpsmhamoinput.value = haopt.pos
  } else {
  	dpshash = "hidden"
  	dpsmham.style.display = "none";
@@ -301,6 +302,10 @@ function dpshaSh() { //show hide cc menu
 }}
 function dpshaCheck() {if (haopt.on == "true") { dpsmcheckha.style.visibility = "visible" } else { dpsmcheckha.style.visibility = "hidden"}}
 dpshaCheck()
+function dpshaApply() {
+haopt.pos = dpsmhamoinput.value
+dpsmhamoinput.value = haopt.pos
+}
 var ssuserid = API.getHistory()[1].user.id //song stats
 var ssuser = API.getUser(ssuserid)
 var ssucolor;
@@ -515,6 +520,7 @@ function menuClicked() { //to set up the menu
     dpsmcheckha.style.visibility = "visible"
     dpsoptUpdate();}}
   dpsmplusha.addEventListener("click", dpshaSh); dpsmminusha.addEventListener("click", dpshaSh)
+  dpsmhamb.addEventListener("click", dpshaApply);
   dpsmsstxt.onclick=function(){ if (ssopt == "true") { 
     ssopt = "false"; 
     dpsmcheckss.style.visibility = "hidden"
