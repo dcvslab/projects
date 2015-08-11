@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 06 RELEASE// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "2"; var commitnum = "8.1"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "2"; var commitnum = "8.2"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -471,7 +471,7 @@ if (cmd.contains("/shrug")) { //user commands
 if (cmd.contains("/debug")) { //debug commands
   for (var i = 0; i < viplength; i++) {
     if (user.id == vip[i]) {
-  if (cmd == "/debug") { dpsMessaged("system", "from", "DEBUG", "These are currently availible for VIP users.", "Current commands are <b>/debug reset</b>, <b>/debug refresh</b>, <b>/debug timeon</b> and <b>/debug version</b>.")
+  if (cmd == "/debug") { dpsMessaged("system", "from", "DEBUG", "These are currently availible for VIP users.", "Current commands are <b>/debug reset</b>, <b>/debug refresh</b>, <b>/debug timeon</b> and <b>/debug version</b>.") }
   if (cmd.split("/debug ")[1] == "reset") { localStorage.removeItem("dpsOpt"); API.chatLog("DPS has been reset! Refreshing..."); setTimeout(function(){ location.reload(); }, 1000); }
   if (cmd.split("/debug ")[1] == "refresh" || cmd.split("/debug ")[1] == "reload") { location.reload() }
   if (cmd.split("/debug ")[1] == "timeon") { API.chatLog("DPS has been running for " + timeon + " seconds.") }
