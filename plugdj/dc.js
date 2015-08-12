@@ -15,8 +15,8 @@ function uJ(uj) {
   var wldcl = wldc.length;
   for (var i = 0; i < wldcl; i++) {
    if (wldc[i].split(".")[0] == uj.id) {
-    if (wldc[i].split(".")[2] <= wldc[i].split(".")[2] + 60) { 
-    API.chatLog("Moving @" + uj.username + " to position " + wldc[i].split(" ")[1])
+    if (wldc[i].split(".")[2] <= wldc[i].split(".")[2] + 18000) { 
+    API.chatLog("Moving @" + uj.username + " to position " + wldc[i].split(".")[1])
     wldc.splice(i,1); }
     else {
     API.chatLog("@" + uj.username + " took to long to return to the room! Spots are only saved for 30 minutes!")
@@ -26,7 +26,7 @@ API.on(API.USER_JOIN, uJ);
 function clearWldc() {
   var wldcl = wldc.length;
   for (var i = 0; i < wldcl; i++) {
-    if (wldc[i].split(".")[2] < runtime - 60) {
+    if (wldc[i].split(".")[2] < runtime - 18000) {
     API.chatLog("Removing " + wldc[i].split(".")[0] + " from wldc for taking to long.");
     wldc.splice(i,1);
 }}}
