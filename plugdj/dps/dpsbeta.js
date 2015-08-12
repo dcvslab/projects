@@ -1,14 +1,14 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 06 RELEASE// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "2"; var commitnum = "8.2"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "2"; var commitnum = "8.3"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
 var history = API.getHistory;
 var head = document.getElementsByTagName("head")[0]
 var creator = { username: "DCV", id: "3639711", sub: "1" }
-var vip = [ "3639711", "4820534", "6323268" ]; var viplength = vip.length;
+var vip = [ "3639711", "4820534", "6323268", "4764565"]; var viplength = vip.length; //CURRENT VIPS: DCV, BETA TESTER, COOKIE TESTER, WUMBOLOGY
 var roomname = document.getElementsByClassName("bar-value")[0].innerHTML
 var badoop = new Audio(); badoop.src = "https://cdn.plug.dj/_/static/sfx/badoop.801a12ca13864e90203193b2c83c019c03a447d1.mp3"; badoop.load();
 var uclass;
@@ -247,7 +247,7 @@ document.getElementsByClassName("app-right")[0].appendChild(dpsmenu);
 //FUNCTIONAL SETTINGS//
 function dpsAw() { //autowoot//
 if (awopt == "true") { 
-  document.getElementById("woot").click();
+  setTimeout(function(){   document.getElementById("woot").click(); }, 500);
   dpsmcheckaw.style.visibility = "visible" }
 else {
   dpsmcheckaw.style.visibility = "hidden"
