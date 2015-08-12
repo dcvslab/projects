@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 06 RELEASE// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "2"; var commitnum = "9"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "2"; var commitnum = "9.1"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -466,13 +466,13 @@ API.on(API.ADVANCE, function(data) {
 //CHAT COMMANDS//
 function chatcmd(cmd) { 
 if (cmd.contains("/shrug")) { //user commands
-  var shrugmsg = document.getElementById("chat-input-field").value.split("/shrug ")[1]; if (! shrugmsg) { shrugmsg = "" };
-  API.sendChat(shrugmsg + " ¯\\_(ツ)_/¯")
-}
-if (cmd.contains("/tag")) {
-  if (cmd == "/tag") { dpsMessage("system", "from", "TAG COMMAND", "This command will tag the staff members of your choosing. You can do this by typing /tag <rank> <message>. The <message> is optional!")
-  if (cmd.split("/tag ")[1] == "host") { if (! API.getHost()) { API.chatLog(document.getElementsByClassName("username")[0].innerHTML + " is not online right now!") } else { var tagmsg = cmd.split("/tag host"); if (! tagmsg) { tagmsg = "" } API.sendChat("@" + API.getHost.username + tagmsg) }}
-}
+  var shrugmsg = cmd.split("/shrug ")[1]; if (! shrugmsg) { shrugmsg = "" };
+  API.sendChat(shrugmsg + " ¯\\_(ツ)_/¯")}
+if (cmd.contains("/lenny")) {
+  var lennymsg = cmd.split("/shrug ")[1]; if (! lennymsg) { lennymsg = "" };
+  API.sendChat(lennymsg + " ( ͡° ͜ʖ ͡°)")}
+if (cmd.contains("/dps")) {
+  API.sendChat("DPS: http://dcvslab.github.io/dps")}
 if (cmd.contains("/debug")) { //debug commands
   for (var i = 0; i < viplength; i++) {
     if (user.id == vip[i]) {
