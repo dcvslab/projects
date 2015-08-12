@@ -17,6 +17,7 @@ function uJ(uj) {
    if (wldc[i].split(".")[1] == uj.id) {
     if (wldc[i].split(".")[3] <= wldc[i].split(".")[3] + 18000) { 
     API.chatLog("Moving @" + uj.username + " to position " + wldc[i].split(".")[2])
+    API.moderateMoveDJ(uj.id, wldc[i].split(".")[2])
     wldc.splice(i,1); }
     else {
     API.chatLog("@" + uj.username + " took to long to return to the room! Spots are only saved for 30 minutes!")
@@ -27,7 +28,7 @@ function clearWldc() {
   var wldcl = wldc.length;
   for (var i = 0; i < wldcl; i++) {
     if (wldc[i].split(".")[3] < runtime - 18000) {
-    API.chatLog("Removing " + wldc[i].split(".")[0] + " from wldc for taking to long.");
+    API.chatLog(wldc[i].split(".")[0] + " took to long to return.");
     wldc.splice(i,1);
 }}}
 setInterval(function(){ clearWldc(); }, 900000);
