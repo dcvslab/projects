@@ -31,4 +31,4 @@ function clearWldc() {
     API.chatLog(wldc[i].split(".")[0] + " took to long to return.");
     wldc.splice(i,1);
 }}}
-setInterval(function(){ clearWldc(); }, 900000);
+setInterval(function(){ clearWldc(); }, 900001);
