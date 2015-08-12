@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 06 RELEASE// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "2"; var commitnum = "8.3"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "2"; var commitnum = "9"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -301,6 +301,7 @@ function dpshaSh() { //show hide cc menu
  	dpsmplusha.style.display = "none";
  	dpsmminusha.style.display = "block";
 }}
+dpshaSh()
 function dpshaCheck() {if (haopt.on == "true") { dpsmcheckha.style.visibility = "visible" } else { dpsmcheckha.style.visibility = "hidden"}}
 dpshaCheck()
 function dpshaApply() {
@@ -468,6 +469,10 @@ if (cmd.contains("/shrug")) { //user commands
   var shrugmsg = document.getElementById("chat-input-field").value.split("/shrug ")[1]; if (! shrugmsg) { shrugmsg = "" };
   API.sendChat(shrugmsg + " ¯\\_(ツ)_/¯")
 }
+if (cmd.contains("/tag")) {
+  if (cmd == "/tag") { dpsMessage("system", "from", "TAG COMMAND", "This command will tag the staff members of your choosing. You can do this by typing /tag <rank> <message>. The <message> is optional!")
+  if (cmd.split("/tag ")[1] == "host") { if (! API.getHost()) { API.chatLog(document.getElementsByClassName("username")[0].innerHTML + " is not online right now!") } else { var tagmsg = cmd.split("/tag host"); if (! tagmsg) { tagmsg = "" } API.sendChat("@" + API.getHost.username + tagmsg) }}
+}
 if (cmd.contains("/debug")) { //debug commands
   for (var i = 0; i < viplength; i++) {
     if (user.id == vip[i]) {
@@ -476,7 +481,8 @@ if (cmd.contains("/debug")) { //debug commands
   if (cmd.split("/debug ")[1] == "refresh" || cmd.split("/debug ")[1] == "reload") { location.reload() }
   if (cmd.split("/debug ")[1] == "timeon") { API.chatLog("DPS has been running for " + timeon + " seconds.") }
   if (cmd.split("/debug ")[1] == "version") { API.chatLog("DPS v" + version + " is running.") }
-}}}}
+}}}
+}
 API.on(API.CHAT_COMMAND, chatcmd);
 //MAKING MENU WORK 
 var togglemenu = "no" //is needed
