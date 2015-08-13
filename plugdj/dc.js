@@ -17,11 +17,11 @@ function uJ(uj) {
    if (wldc[i].split(".")[1] == uj.id) {
     var sthree = wldc[i].split(".")[3]
     var stwo = wldc[i].split(".")[2]
-    var sone = wldc[i].split(".")[1]
-    var sonep = JSON.parse(sone)
-    if ( JSON.parse(sthree) <= JSON.parse(sthree) + 3600) { 
-    API.chatLog("Moving @" + uj.username + " to position " + wldc[i].split(".")[2])
-    API.moderateAddDJ(sonep); API.moderateMoveDJ(uj.id, JSON.parse(stwo))
+    var id = uj.id
+    if ( runtime <= JSON.parse(sthree) + 3600) { 
+    API.chatLog("Moving @" + uj.username + " to position " + wldc[i].split(".")[2]);
+    
+    API.moderateAddDJ(id); API.moderateMoveDJ(id, stwo)
     wldc.splice(i,1); }
     else {
     API.chatLog("@" + uj.username + " took to long to return to the room! Spots are only saved for 30 minutes!")
