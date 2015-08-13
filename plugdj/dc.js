@@ -18,8 +18,8 @@ function chatmsg(msg) {
   for (var i = 0; i < wldcl; i++) {
    if (wldc[i].split(".")[1] == msg.uid) {
      API.sendChat("/me @" + msg.un + " was at position " + wldc[i].split(".")[2]);
-     uid = msg.uid.toString()
-     upos = wldc[i].split(".")[2]
+     var uid = msg.uid.toString()
+     var upos = wldc[i].split(".")[2]
      API.moderateAddDJ(uid);
      setTimeout(function(){ API.moderateMoveDJ(uid, upos) }, 500);
      wldc.splice(i, 1);
