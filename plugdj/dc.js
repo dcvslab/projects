@@ -11,28 +11,34 @@ for (var i = 0; i < wll; i++) {
       wldc.push(ul.username + "." + ul.id + "." + wlp + "." + runtime)
     }}}
 API.on(API.USER_LEAVE, uL);
-function uJ(uj) {
+function chatmsg(msg) {
+  if (msg.message == "!dc" || msg.message == "!DC") {
+  var inum = 0
   var wldcl = wldc.length;
   for (var i = 0; i < wldcl; i++) {
-   if (wldc[i].split(".")[1] == uj.id) {
-    var sthree = wldc[i].split(".")[3]
-    var stwo = wldc[i].split(".")[2]
-    var id = uj.id
-    if ( runtime <= JSON.parse(sthree) + 3600) { 
-    API.chatLog("Moving @" + uj.username + " to position " + wldc[i].split(".")[2]);
-    setTimeout(function(){ API.moderateAddDJ(id); }, 500);
-    setTimeout(function(){ API.moderateMoveDJ(id, stwo); }, 1000);
-    wldc.splice(i,1); }
-    else {
-    API.chatLog("@" + uj.username + " took to long to return to the room! Spots are only saved for 30 minutes!")
-    wldc.splice(i,1);
-}}}}
-API.on(API.USER_JOIN, uJ);
-function clearWldc() {
-  var wldcl = wldc.length;
-  for (var i = 0; i < wldcl; i++) {
-    if (JSON.parse(wldc[i].split(".")[3]) < JSON.parse(runtime - 3600)) {
-    API.chatLog(wldc[i].split(".")[0] + " took to long to return.");
-    wldc.splice(i,1);
-}}}
-setInterval(function(){ clearWldc(); }, 5400);
+   if (wldc[i].split(".")[1] == msg.uid) {
+     API.sendChat("/me @" + msg.un + " was at position " + wldc[i].split(".")[2]);
+     uid = msg.uid.toString()
+     upos = wldc[i].split(".")[2]
+     API.moderateAddDJ(uid);
+     setTimeout(function(){ API.moderateMoveDJ(uid, upos) }, 500);
+     wldc.splice(i, 1);
+  } else {
+    inum = inum + 1
+    if (inum == wldc.length) {
+      API.sendChat("/me @" + msg.un + " didn't disconnect.")
+}}}}}
+API.on(API.CHAT, chatmsg);
+function pushWldc() {
+  wldcp = { "list": wldc, "runtime": runtime } 
+  localStorage.setItem('dtebot', JSON.stringify(wldcp));
+}
+API.on(API.USER_LEAVE, pushWldc);
+setInterval(function(){ pushWldc() }, 5000);
+function loadWldc() {
+  wldclo = localStorage.getItem("dtebot")
+  lwldco = JSON.parse(wldclo);
+  wldc = lwldco.list
+  runtime = lwldco.runtime
+}
+loadWldc()
