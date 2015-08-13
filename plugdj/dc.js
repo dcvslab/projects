@@ -20,8 +20,8 @@ function uJ(uj) {
     var id = uj.id
     if ( runtime <= JSON.parse(sthree) + 3600) { 
     API.chatLog("Moving @" + uj.username + " to position " + wldc[i].split(".")[2]);
-    
-    API.moderateAddDJ(id); API.moderateMoveDJ(id, stwo)
+    setTimeout(function(){ API.moderateAddDJ(id); }, 500);
+    setTimeout(function(){ API.moderateMoveDJ(id, stwo); }, 1000);
     wldc.splice(i,1); }
     else {
     API.chatLog("@" + uj.username + " took to long to return to the room! Spots are only saved for 30 minutes!")
