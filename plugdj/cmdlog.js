@@ -19,7 +19,7 @@ function showClm() {
 cmdlogbtn.addEventListener("click", showClm)
 function onChat(chat) {
   if (chat.message.split("")[0] == "!") {
-    cllt = cllt + "<br><b>" + chat.un + "</b> ( <font color='#dedede'>" + chat.uid + "</font> ) | " + chat.message
+    cllt = cllt + "<br><b>" + chat.un + "</b> ( <font color='#dedede'>" + chat.uid + "</font> ) sent the command <b>" + chat.message + "</b> at <b> " + msg.timestamp + "</b>."
     cll.innerHTML = cllt
     clld.appendChild(cll)
   }
