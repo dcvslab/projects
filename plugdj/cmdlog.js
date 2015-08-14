@@ -24,3 +24,4 @@ function onChat(chat) {
     clld.appendChild(cll)
   }
 }
+API.on(API.CHAT, onChat);
