@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 06 RELEASE// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "3"; var commitnum = "1"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "3"; var commitnum = "2"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -261,6 +261,24 @@ function dpsAj() { //autojoin//
     dpsmcheckaj.style.visibility = "hidden" }}
 dpsAj(); 
 //NOTIFICATION SETTINGS//
+var uwa = ["uwa"] //user woot
+function dpsUw(userw) {
+if (uwopt == "true") {
+  if (userw.vote == 1) {
+  if (userw.user.gRole > "0") { if (userw.user.gRole == "3") { userwc = "dpsba" } else { userwc = "dpsadmin" }} else { if (userw.user.role > "0") { userwc = "dpsstaff" } else { if (userw.user.sub == "1") { userwc = "dpssub" } else { userwc = "dpsuser" }}}
+  uwa.push(userw.user.id)
+  dpsMessage("message", userwc, "<b>" + userw.user.username + "</b>", "<span class='dpsgreen'>has wooted.</span>")
+}}} API.on(API.VOTE_UPDATE, dpsUwar);
+function dpsUwar() { uwa = ["uwa"] }; API.on(API.ADVANCE, dpsUwar);
+var uma = ["uma"] //user meh
+function dpsUm(userm) {
+if (umopt == "true") {
+  if (userm.vote == -1) {
+  if (userm.user.gRole > "0") { if (userm.user.gRole == "3") { usermc = "dpsba" } else { usermc = "dpsadmin" }} else { if (userm.user.role > "0") { usermc = "dpsstaff" } else { if (userm.user.sub == "1") { usermc = "dpssub" } else { usermc = "dpsuser" }}}
+  uma.push(userm.user.id)
+  dpsMessage("message", usermc, "<b>" + userm.user.username + "</b>", "<span class='dpsred'>has mehed.</span>")
+}}} API.on(API.VOTE_UPDATE, dpsUm);
+function dpsumar() { uma = ["uma"] }; API.on(API.ADVANCE, dpsumar);
 function dpsUj(userj) { //user join
 if (ujopt == "true") {
   if (userj.gRole > "0") { if (userj.gRole == "3") { userjc = "dpsba" } else { userjc = "dpsadmin" }} else { if (userj.role > "0") { userjc = "dpsstaff" } else { if (userj.sub == "1") { userjc = "dpssub" } else { userjc = "dpsuser" }}}
@@ -471,9 +489,9 @@ if (cmd.contains("/shrug")) { //user commands 【=◈︿◈=】
 if (cmd.contains("/lenny")) {
   var lennymsg = cmd.split("/lenny ")[1]; if (! lennymsg) { lennymsg = "" };
   API.sendChat(lennymsg + " ( ͡° ͜ʖ ͡°)")}
-if (cmd.contains("/lenny")) {
-  var lennymsg = cmd.split("/worlds ")[1]; if (! worldsmsg) { worldsmsg = "" };
-  API.sendChat(worldsmsg + " 【=◈︿◈=")}
+if (cmd.contains("/worlds")) {
+  var worldsmsg = cmd.split("/worlds ")[1]; if (! worldsmsg) { worldsmsg = "" };
+  API.sendChat(worldsmsg + " 【＝◈︿◈＝】")}
 if (cmd.contains("/dps")) {
   API.sendChat("DPS: http://dcvslab.github.io/dps")}
 if (cmd.contains("/debug")) { //debug commands
