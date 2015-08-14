@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 06 RELEASE// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "2"; var commitnum = "9.2"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "3"; var commitnum = "1"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -465,12 +465,15 @@ API.on(API.ADVANCE, function(data) {
 })
 //CHAT COMMANDS//
 function chatcmd(cmd) { 
-if (cmd.contains("/shrug")) { //user commands
+if (cmd.contains("/shrug")) { //user commands 【=◈︿◈=】
   var shrugmsg = cmd.split("/shrug ")[1]; if (! shrugmsg) { shrugmsg = "" };
   API.sendChat(shrugmsg + " ¯\\_(ツ)_/¯")}
 if (cmd.contains("/lenny")) {
   var lennymsg = cmd.split("/lenny ")[1]; if (! lennymsg) { lennymsg = "" };
   API.sendChat(lennymsg + " ( ͡° ͜ʖ ͡°)")}
+if (cmd.contains("/lenny")) {
+  var lennymsg = cmd.split("/worlds ")[1]; if (! worldsmsg) { worldsmsg = "" };
+  API.sendChat(worldsmsg + " 【=◈︿◈=")}
 if (cmd.contains("/dps")) {
   API.sendChat("DPS: http://dcvslab.github.io/dps")}
 if (cmd.contains("/debug")) { //debug commands
