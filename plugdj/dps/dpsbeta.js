@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 06 RELEASE// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "3"; var commitnum = "2"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "3"; var commitnum = "2.1"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -268,7 +268,7 @@ if (uwopt == "true") {
   if (userw.user.gRole > "0") { if (userw.user.gRole == "3") { userwc = "dpsba" } else { userwc = "dpsadmin" }} else { if (userw.user.role > "0") { userwc = "dpsstaff" } else { if (userw.user.sub == "1") { userwc = "dpssub" } else { userwc = "dpsuser" }}}
   uwa.push(userw.user.id)
   dpsMessage("message", userwc, "<b>" + userw.user.username + "</b>", "<span class='dpsgreen'>has wooted.</span>")
-}}} API.on(API.VOTE_UPDATE, dpsUwar);
+}}} API.on(API.VOTE_UPDATE, dpsUw);
 function dpsUwar() { uwa = ["uwa"] }; API.on(API.ADVANCE, dpsUwar);
 var uma = ["uma"] //user meh
 function dpsUm(userm) {
