@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 06 RELEASE// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "3"; var commitnum = "2.2"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "3"; var commitnum = "2.3"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -484,7 +484,7 @@ API.on(API.ADVANCE, function(data) {
 //CHAT COMMANDS//
 function chatcmd(cmd) {
 if (cmd == "/commands" || cmd == "/cmds") {
-  dpsMessage("system", "from", "COMMANDS", "Current user commands are <b>/shrug</b>, <b>/lenny</b>, <b>/worlds</b>, and <b>/dps</b>.
+  dpsMessage("system", "from", "COMMANDS", "Current user commands are <b>/shrug</b>, <b>/lenny</b>, <b>/worlds</b>, and <b>/dps</b>.")
 }
 if (cmd.contains("/shrug")) { //user commands 【=◈︿◈=】
   var shrugmsg = cmd.split("/shrug ")[1]; if (! shrugmsg) { shrugmsg = "" };
