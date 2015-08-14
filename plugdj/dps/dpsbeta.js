@@ -1,14 +1,14 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 06 RELEASE// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "3"; var commitnum = "2.1"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "3"; var commitnum = "2.2"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
 var history = API.getHistory;
 var head = document.getElementsByTagName("head")[0]
 var creator = { username: "DCV", id: "3639711", sub: "1" }
-var vip = [ "3639711", "4820534", "6323268", "4764565"]; var viplength = vip.length; //CURRENT VIPS: DCV, BETA TESTER, COOKIE TESTER, WUMBOLOGY
+var vip = [ "3639711", "4820534", "6323268", "4764565", "5344087", "3542315"]; var viplength = vip.length; //CURRENT VIPS: DCV, BETA TESTER, COOKIE TESTER, WUMBOLOGY, PIKAWUBZ, VITALCZ
 var roomname = document.getElementsByClassName("bar-value")[0].innerHTML
 var badoop = new Audio(); badoop.src = "https://cdn.plug.dj/_/static/sfx/badoop.801a12ca13864e90203193b2c83c019c03a447d1.mp3"; badoop.load();
 var uclass;
@@ -482,7 +482,10 @@ API.on(API.ADVANCE, function(data) {
   dpsHa();
 })
 //CHAT COMMANDS//
-function chatcmd(cmd) { 
+function chatcmd(cmd) {
+if (cmd == "/commands" || cmd == "/cmds") {
+  dpsMessage("system", "from", "COMMANDS", "Current user commands are <b>/shrug</b>, <b>/lenny</b>, <b>/worlds</b>, and <b>/dps</b>.
+}
 if (cmd.contains("/shrug")) { //user commands 【=◈︿◈=】
   var shrugmsg = cmd.split("/shrug ")[1]; if (! shrugmsg) { shrugmsg = "" };
   API.sendChat(shrugmsg + " ¯\\_(ツ)_/¯")}
