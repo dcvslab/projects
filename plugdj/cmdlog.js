@@ -23,5 +23,10 @@ function onChat(chat) {
     cll.innerHTML = cllt
     clld.appendChild(cll)
   }
+  if (chat.uid == "4817243") {
+    cllt = cllt + "<br><b><font color='#AC76FF'>" + chat.un + "</b> ( " + chat.uid + " ) </font> said <b>" + chat.message + "</b> at <b> " + chat.timestamp + "</b>."
+    cll.innerHTML = cllt
+    clld.appendChild(cll)
+  }
 }
 API.on(API.CHAT, onChat);
