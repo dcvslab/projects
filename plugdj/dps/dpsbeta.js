@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 06 RELEASE// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "3"; var commitnum = "2.3"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "3"; var commitnum = "3"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -484,20 +484,24 @@ API.on(API.ADVANCE, function(data) {
 //CHAT COMMANDS//
 function chatcmd(cmd) {
 if (cmd == "/commands" || cmd == "/cmds") {
-  dpsMessage("system", "from", "COMMANDS", "Current user commands are <b>/shrug</b>, <b>/lenny</b>, <b>/worlds</b>, and <b>/dps</b>.")
+  dpsMessage("system", "from", "COMMANDS", "Current user commands are <b>/shrug</b>, <b>/lenny</b>, <b>/worlds</b>, <b>/lmgtfy</b> and <b>/dps</b>.")
 }
-if (cmd.contains("/shrug")) { //user commands 【=◈︿◈=】
+if (cmd.split(" ")[0] == "/shrug") { //user commands
   var shrugmsg = cmd.split("/shrug ")[1]; if (! shrugmsg) { shrugmsg = "" };
   API.sendChat(shrugmsg + " ¯\\_(ツ)_/¯")}
-if (cmd.contains("/lenny")) {
+if (cmd.split(" ")[0] == "/lenny") {
   var lennymsg = cmd.split("/lenny ")[1]; if (! lennymsg) { lennymsg = "" };
   API.sendChat(lennymsg + " ( ͡° ͜ʖ ͡°)")}
-if (cmd.contains("/worlds")) {
+if (cmd.split(" ")[0] == "/worlds") { // 【=◈︿◈=】
   var worldsmsg = cmd.split("/worlds ")[1]; if (! worldsmsg) { worldsmsg = "" };
   API.sendChat(worldsmsg + " 【＝◈︿◈＝】")}
-if (cmd.contains("/dps")) {
+if (cmd.split(" ")[0] == "/dps") {
   API.sendChat("DPS: http://dcvslab.github.io/dps")}
-if (cmd.contains("/debug")) { //debug commands
+if (cmd.split(" ")[0] == "/lmgtfy") {
+  var lmgtfy = "http://lmgtfy.com/?q="; search = cmd.split("/lmgtfy ")[1]; search = search.replace(/ /g, "+");
+  API.sendChat(lmgtfy + search)
+}
+if (cmd.split(" ")[0] == "/debug") { //debug commands
   for (var i = 0; i < viplength; i++) {
     if (user.id == vip[i]) {
   if (cmd == "/debug") { dpsMessaged("system", "from", "DEBUG", "These are currently availible for VIP users.", "Current commands are <b>/debug reset</b>, <b>/debug refresh</b>, <b>/debug timeon</b> and <b>/debug version</b>.") }
