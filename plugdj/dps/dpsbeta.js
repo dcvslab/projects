@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 06 RELEASE// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "3"; var commitnum = "4.1"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "3"; var commitnum = "5"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -262,6 +262,7 @@ function dpsAj() { //autojoin//
 dpsAj(); 
 //NOTIFICATION SETTINGS//
 var uwa = ["uwa"] //user woot
+var usersl = API.getUsers().length; for (var i = 0; i < usersl; i++) { if (API.getUsers()[i].vote == 1) { uwa.push(API.getUsers()[i].id)}}
 function dpsUw(userw) {
 var umal = uma.length; for (var i = 0; i < umal; i++) { if (uma[i] == userw.user.id) { uma.splice(i, 1) }};
 uwa.push(userw.user.id)
@@ -272,6 +273,7 @@ if (uwopt == "true") {
 }}} API.on(API.VOTE_UPDATE, dpsUw);
 function dpsUwar() { uwa = ["uwa"] }; API.on(API.ADVANCE, dpsUwar);
 var uma = ["uma"] //user meh
+var usersl = API.getUsers().length; for (var i = 0; i < usersl; i++) { if (API.getUsers()[i].vote == -1) { uma.push(API.getUsers()[i].id)}}
 function dpsUm(userm) {
 var uwal = uwa.length; for (var i = 0; i < uwal; i++) { if (uwa[i] == userm.user.id) { uwa.splice(i, 1) }};
 uma.push(userm.user.id)
