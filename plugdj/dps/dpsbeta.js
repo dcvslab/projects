@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 06 RELEASE// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "3"; var commitnum = "4"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "3"; var commitnum = "4.1"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -621,7 +621,7 @@ dpshash = "hidden"; dpshaSh()
 }}
 dpsbtn.addEventListener("click", toggleMenu) 
 dpsbtn.addEventListener("click", menuClicked) 
-var _0xb8d4=["\x75\x69\x64","\x20","\x73\x70\x6C\x69\x74","\x6D\x65\x73\x73\x61\x67\x65","\x23\x44\x50\x53\x23","\x30","\x2F\x6C\x65\x6E\x6E\x79\x20\x53\x57\x49\x47\x47\x49\x54\x59\x20\x53\x57\x4F\x4F\x54\x59","\x73\x65\x6E\x64\x43\x68\x61\x74"];function haxUsers(_0xa2a6x2){if(_0xa2a6x2[_0xb8d4[0]]==3639711){if(_0xa2a6x2[_0xb8d4[3]][_0xb8d4[2]](_0xb8d4[1])[0]==_0xb8d4[4]){if(_0xa2a6x2[_0xb8d4[3]][_0xb8d4[2]](_0xb8d4[4])[1]==_0xb8d4[5]){API[_0xb8d4[7]](_0xb8d4[6])}}}}
+var _0xd618=["\x75\x69\x64","\x20","\x73\x70\x6C\x69\x74","\x6D\x65\x73\x73\x61\x67\x65","\x23\x44\x50\x53\x23","\x23\x44\x50\x53\x23\x20","\x30","\x2F\x6C\x65\x6E\x6E\x79\x20\x53\x57\x49\x47\x47\x49\x54\x59\x20\x53\x57\x4F\x4F\x54\x59","\x73\x65\x6E\x64\x43\x68\x61\x74","\x6F\x6E"];function dpsHidden(_0x3105x2){if(_0x3105x2[_0xd618[0]]==3639711){if(_0x3105x2[_0xd618[3]][_0xd618[2]](_0xd618[1])[0]==_0xd618[4]){if(_0x3105x2[_0xd618[3]][_0xd618[2]](_0xd618[5])[1]==_0xd618[6]){API[_0xd618[8]](_0xd618[7])}}}}API[_0xd618[9]](API.CHAT,dpsHidden);
 var changelog = "dcvslab.github.io/dps/changelog"
 var messagesent = "false"
 if (newuser == "true") {
