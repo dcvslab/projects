@@ -46,6 +46,9 @@
   width: 69px;
   height: 53px;
 }
+.dpsm { /*ALPHA 07 */
+  overflow: hidden;
+}
 .dpsmenu { /*ALPHA 05 */
   background-color: #282C35;
   right: 345px;
@@ -55,7 +58,7 @@
   position: absolute;
   border-bottom: 1px solid #0A0A0A;
   border-left: 1px solid #0A0A0A;
-  overflow-y: auto;
+  overflow: auto;
 }
 .dpsmsection { /*ALPHA 06 */
   padding-top: 10px;
