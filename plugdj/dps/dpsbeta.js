@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 07 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "3"; var commitnum = "5.2"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "3"; var commitnum = "5.3"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
 var user = API.getUser();
 var media = API.getMedia();
@@ -118,7 +118,6 @@ var plbtnx = document.getElementById("playlist-button")
 function showdpsBtn() { dpsbtn.style.display = "block" }
 function showdpsbtn() { setTimeout(function(){ showdpsBtn(); }, 0200); }
 plbtnx.addEventListener("click", showdpsbtn)
-var dpsm = document.createElement("div"); dpsm.className = "dpsm";
 var dpsmenu = document.createElement("div"); dpsmenu.className = "dpsmenu"; //create dps menu
 var dpsmcheckaw = document.createElement("i") //create woot check
 dpsmcheckaw.className = "icon icon-check-purple dpsmcheck";
@@ -262,8 +261,7 @@ dpsmdpsftrtxt.innerHTML = "DPS Footer"; dpsmdpsftrtxt.className = "dpsmrowtext"
 dpsmdpsftr.className = "dpsmrow"; dpsmdpsftr.id = "dpsmdspftr";
 dpsmdpsftr.appendChild(dpsmdpsftrtxt); dpsmdpsftr.appendChild(dpsmcheckdpsftr); dpsmenu.appendChild(dpsmdpsftr);
 document.getElementsByClassName("app-right")[0].style.zIndex = "20" //make it so it's in front
-dpsm.appendChild(dpsmenu)
-document.getElementsByClassName("app-right")[0].appendChild(dpsm);
+document.getElementsByClassName("app-right")[0].appendChild(dpsmenu);
 //FUNCTIONAL SETTINGS//
 function dpsAw() { //autowoot//
 if (awopt == "true") { 
