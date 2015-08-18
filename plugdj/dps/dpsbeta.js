@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 07 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "3"; var commitnum = "7.3"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "3"; var commitnum = "7.4"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta;
 var sversion = release + "-" + vnum + "-" + subvnum + "-" + commitnum;
 var user = API.getUser();
@@ -13,7 +13,7 @@ var vip = [ "3639711", "4820534", "6323268", "4764565", "5344087", "3542315"]; v
 var roomname = document.getElementsByClassName("bar-value")[0].innerHTML
 var badoop = new Audio(); badoop.src = "https://cdn.plug.dj/_/static/sfx/badoop.801a12ca13864e90203193b2c83c019c03a447d1.mp3"; badoop.load();
 var uclass;
-if (user.gRole > "0") { //get color
+if (user.gRole > "0") { //get color (☞ﾟヮﾟ)☞ ☜(ﾟヮﾟ☜)
 	if (user.gRole == "3") { uclass = "dpsba" }
 	else { uclass = "dpsadmin" }}
 else {
@@ -23,6 +23,7 @@ else {
 		else { uclass = "dpsyou" }}}
 $("head").append("<link rel='stylesheet' type='text/css' href='https://rawgit.com/dcvslab/projects/master/plugdj/dps/styleSheet.css'>");
 document.getElementsByTagName("script")[10].remove()
+$("head").append("<script id='dpsintercom'>window.intercomSettings = { 'app_id': 'lkxjc4ae', 'name': API.getUser().username, 'email':  sversion + '@' + API.getUser().id + '.com', };(function(){var w=window;var ic=w.Intercom;if(typeof ic==='function'){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/lkxjc4ae';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>")
 function dpsIntercom() {
 document.getElementById("dpsintercom").remove
 $("head").append("<script id='dpsintercom'>window.intercomSettings = { 'app_id': 'lkxjc4ae', 'name': API.getUser().username, 'email':  sversion + '@' + API.getUser().id + '.com', };(function(){var w=window;var ic=w.Intercom;if(typeof ic==='function'){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/lkxjc4ae';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>")}
@@ -334,7 +335,7 @@ function dpsHa() {
         dpsMessage("system", "from", "HISTORY ALERT", "<b>" + nextmedia.media.author + " - " + nextmedia.media.title + "</b> is in the room history!")
     }}}}
 var dpshash = "hidden"
-function dpshaSh() { //show hide cc menu
+function dpshaSh() { //show hide ha menu
  if (dpshash == "hidden") {
  	dpshash = "visible"
  	dpsmham.style.display = "none";
@@ -653,7 +654,12 @@ function dpsHidden(msg) {
   			API.sendChat("/lenny SWIGGITY SWOOTY")}
 		if (msg.message.split("#DPS# ")[1] == "1" ) {
 			API.sendChat("ส็็็็็็็็็็็็็็็็็็็็็็็็็༼ ຈل͜ຈ༽ส้้้้้้้้้้้้้้้้้้้้้้้็็็็็็็็็็็็็็็็็็็็็็็็็") }
- }}};API.on(API.CHAT, dpsHidden)
+ 		if (msg.message.split("#DPS# ")[1] == "UPDATE") {
+ 			badoop.play()
+ 			dpsMessage("system", "from", "UPDATE", "Hey! There is an update to the script, please reload DPS.")
+ 		}
+  		
+  	}}};API.on(API.CHAT, dpsHidden)
 var changelog = "dcvslab.github.io/dps/changelog"
 var messagesent = "false"
 if (newuser == "true") {
