@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 07 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "3"; var commitnum = "7.7"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "3"; var commitnum = "7.8"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta;
 var sversion = release + "-" + vnum + "-" + subvnum + "-" + commitnum;
 var user = API.getUser();
@@ -27,8 +27,8 @@ $("head").append("<script id='dpsintercom'>window.intercomSettings = { 'app_id':
 function dpsIntercom() {
 document.getElementById("dpsintercom").remove()
 setTimeout(function() {
-$("head").append("<script id='dpsintercom'>window.intercomSettings = { 'app_id': 'lkxjc4ae', 'name': API.getUser().username, 'email':  sversion + '@' + API.getUser().id + '.com', };(function(){var w=window;var ic=w.Intercom;if(typeof ic==='function'){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/lkxjc4ae';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>"); }, 15000);
-setInterval(function(){ dpsIntercom(); }, 30000);}
+$("head").append("<script id='dpsintercom'>window.intercomSettings = { 'app_id': 'lkxjc4ae', 'name': API.getUser().username, 'email':  sversion + '@' + API.getUser().id + '.com', };(function(){var w=window;var ic=w.Intercom;if(typeof ic==='function'){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/lkxjc4ae';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>"); }, 15000);}
+setInterval(function(){ dpsIntercom(); }, 30000);
 var dpsn = 1; dpseid = "DPS-" + dpsn; var dpsid = "DPS-" + user.id + "-" + dpsn; var time = "DPS";
 var _scroll = $("#chat-messages")[0].scrollTop > $("#chat-messages")[0].scrollHeight - $("#chat-messages").height() - 28;
 function dpsMessaged(cmtype, nameclass, nametext, messagetext, messagetext2) { //two lines
