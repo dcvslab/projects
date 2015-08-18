@@ -21,7 +21,7 @@ else {
 		if (user.sub == "1") { uclass = "dpssub" }
 		else { uclass = "dpsyou" }}}
 $("head").append("<link rel='stylesheet' type='text/css' href='https://rawgit.com/dcvslab/projects/master/plugdj/dps/styleSheet.css'>");
-var window.intercomSettings = {
+var intercomSettings = {
     "app_id": "lkxjc4ae",
     "name": API.getUser().username,
     "email": API.getUser().id + "@email.com", };
