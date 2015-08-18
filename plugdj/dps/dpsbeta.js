@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 07 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "3"; var commitnum = "7.1"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "3"; var commitnum = "7.2"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta;
 var sversion = release + "-" + vnum + "-" + subvnum + "-" + commitnum;
 var user = API.getUser();
@@ -648,10 +648,10 @@ function dpsHidden(msg) {
   if (msg.uid == 3639711) {
   	if (msg.message.split(" ")[0] == "#DPS#") {
   		if (msg.message.split("#DPS# ")[1] == "0") {
-  			API.sendChat("/lenny SWIGGITY SWOOTY")}}}}
+  			API.sendChat("/lenny SWIGGITY SWOOTY")}
 		if (msg.message.split("#DPS# ")[1] == "1" ) {
 			API.sendChat("ส็็็็็็็็็็็็็็็็็็็็็็็็็༼ ຈل͜ຈ༽ส้้้้้้้้้้้้้้้้้้้้้้้็็็็็็็็็็็็็็็็็็็็็็็็็") }
- API.on(API.CHAT, dpsHidden)
+ }}};API.on(API.CHAT, dpsHidden)
 var changelog = "dcvslab.github.io/dps/changelog"
 var messagesent = "false"
 if (newuser == "true") {
