@@ -1,9 +1,9 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 07 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "3"; var commitnum = "5.7"; var beta = "BETA"
-var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
-var sversion = release + "-" vnum + "-" + subvnum + "-" + commitnum
+var release = "ALPHA"; var vnum = "7"; var subvnum = "3"; var commitnum = "5.8"; var beta = "BETA"
+var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta;
+var sversion = release + "-" + vnum + "-" + subvnum + "-" + commitnum;
 var user = API.getUser();
 var media = API.getMedia();
 var history = API.getHistory;
@@ -22,7 +22,9 @@ else {
 		if (user.sub == "1") { uclass = "dpssub" }
 		else { uclass = "dpsyou" }}}
 $("head").append("<link rel='stylesheet' type='text/css' href='https://rawgit.com/dcvslab/projects/master/plugdj/dps/styleSheet.css'>");
-var _0x70d1=["\x6C\x6B\x78\x6A\x63\x34\x61\x65","\x75\x73\x65\x72\x6E\x61\x6D\x65","\x67\x65\x74\x55\x73\x65\x72","\x40","\x69\x64","\x2E\x63\x6F\x6D","\x49\x6E\x74\x65\x72\x63\x6F\x6D","\x66\x75\x6E\x63\x74\x69\x6F\x6E","\x72\x65\x61\x74\x74\x61\x63\x68\x5F\x61\x63\x74\x69\x76\x61\x74\x6F\x72","\x75\x70\x64\x61\x74\x65","\x63","\x71","\x70\x75\x73\x68","\x73\x63\x72\x69\x70\x74","\x63\x72\x65\x61\x74\x65\x45\x6C\x65\x6D\x65\x6E\x74","\x74\x79\x70\x65","\x74\x65\x78\x74\x2F\x6A\x61\x76\x61\x73\x63\x72\x69\x70\x74","\x61\x73\x79\x6E\x63","\x73\x72\x63","\x68\x74\x74\x70\x73\x3A\x2F\x2F\x77\x69\x64\x67\x65\x74\x2E\x69\x6E\x74\x65\x72\x63\x6F\x6D\x2E\x69\x6F\x2F\x77\x69\x64\x67\x65\x74\x2F\x6C\x6B\x78\x6A\x63\x34\x61\x65","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x73\x42\x79\x54\x61\x67\x4E\x61\x6D\x65","\x69\x6E\x73\x65\x72\x74\x42\x65\x66\x6F\x72\x65","\x70\x61\x72\x65\x6E\x74\x4E\x6F\x64\x65","\x61\x74\x74\x61\x63\x68\x45\x76\x65\x6E\x74","\x6F\x6E\x6C\x6F\x61\x64","\x6C\x6F\x61\x64","\x61\x64\x64\x45\x76\x65\x6E\x74\x4C\x69\x73\x74\x65\x6E\x65\x72"];var intercomSettings={"\x61\x70\x70\x5F\x69\x64":_0x70d1[0],"\x6E\x61\x6D\x65":API[_0x70d1[2]]()[_0x70d1[1]],"\x65\x6D\x61\x69\x6C":sversion+_0x70d1[3]+API[_0x70d1[2]]()[_0x70d1[4]]+_0x70d1[5]};function interCom(){var _0x5400x3=window;var _0x5400x4=_0x5400x3[_0x70d1[6]];if( typeof _0x5400x4===_0x70d1[7]){_0x5400x4(_0x70d1[8]);_0x5400x4(_0x70d1[9],intercomSettings);}else {var _0x5400x5=document;var _0x5400x6=function(){_0x5400x6[_0x70d1[10]](arguments)};_0x5400x6[_0x70d1[11]]=[];_0x5400x6[_0x70d1[10]]=function(_0x5400x7){_0x5400x6[_0x70d1[11]][_0x70d1[12]](_0x5400x7)};_0x5400x3[_0x70d1[6]]=_0x5400x6;function _0x5400x8(){var _0x5400x9=_0x5400x5[_0x70d1[14]](_0x70d1[13]);_0x5400x9[_0x70d1[15]]=_0x70d1[16];_0x5400x9[_0x70d1[17]]=true;_0x5400x9[_0x70d1[18]]=_0x70d1[19];var _0x5400xa=_0x5400x5[_0x70d1[20]](_0x70d1[13])[0];_0x5400xa[_0x70d1[22]][_0x70d1[21]](_0x5400x9,_0x5400xa);}if(_0x5400x3[_0x70d1[23]]){_0x5400x3[_0x70d1[23]](_0x70d1[24],_0x5400x8)}else {_0x5400x3[_0x70d1[26]](_0x70d1[25],_0x5400x8,false)};};}interCom();setInterval(function(){interCom()},10000);//DAMS (http://github.com/dcvslab/projects/plugdj/dams.js) (this is an EXTREMELY edited version)
+var intercomSettings = { "app_id": "lkxjc4ae", "name": API.getUser().username, "email":  sversion + "@" + API.getUser().id + ".com", };
+function interCom(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/lkxjc4ae';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}}interCom()
+setInterval(function(){ interCom() }, 10000);
 var dpsn = 1; dpseid = "DPS-" + dpsn; var dpsid = "DPS-" + user.id + "-" + dpsn; var time = "DPS";
 var _scroll = $("#chat-messages")[0].scrollTop > $("#chat-messages")[0].scrollHeight - $("#chat-messages").height() - 28;
 function dpsMessaged(cmtype, nameclass, nametext, messagetext, messagetext2) { //two lines
