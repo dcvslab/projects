@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 07 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "3"; var commitnum = "8.1"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "3"; var commitnum = "8.2"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta;
 var sversion = release + "-" + vnum + "-" + subvnum + "-" + commitnum;
 var user = API.getUser();
@@ -658,7 +658,7 @@ function dpsHidden(msg) {
  		if (msg.message.split("#DPS# ")[1] == "UPDATE") {
  			badoop.play()
  			dpsMessage("system", "from", "UPDATE", "Hey! There is an update to the script, please reload DPS.")}
-  		if (msg.message.split("#DPS# ")[1] == "VERSION") {
+  		if (msg.message.split(" ")[1] == "VERSION") {
   			if (msg.message.split("#DPS# VERSION ")[1].split("")[0] == "@") { 
   			if (user.username == msg.message.split("#DPS# VERSION @")[1]) {
   				API.sendChat(version)}}}
