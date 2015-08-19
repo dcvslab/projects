@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 07 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "3"; var commitnum = "8.4"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "4"; var commitnum = "1"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta;
 var sversion = release + "-" + vnum + "-" + subvnum + "-" + commitnum;
 var user = API.getUser();
@@ -269,9 +269,6 @@ dpsmdpsftr.className = "dpsmrow"; dpsmdpsftr.id = "dpsmdspftr";
 dpsmdpsftr.appendChild(dpsmdpsftrtxt); dpsmdpsftr.appendChild(dpsmcheckdpsftr); dpsmenu.appendChild(dpsmdpsftr);
 document.getElementsByClassName("app-right")[0].style.zIndex = "20" //make it so it's in front
 document.getElementsByClassName("app-right")[0].appendChild(dpsmenu);
-var djwlt = document.getElementsByClassName("title")[2]; var wleta = document.createElement("span"); wleta.className = "title"; wleta.style.color = "rgba(255,255,255,.5)"; wleta.style.borderLeft = "1px solid"; wleta.style.paddingLeft = "17px"; var etatime = "0:00:00"; wleta.innerHTML = "ETA: " + etatime;
-djwlt.parentNode.insertBefore(wleta, djwlt.nextSibling);
-
 //FUNCTIONAL SETTINGS//
 function dpsAw() { //autowoot//
 if (awopt == "true") { 
@@ -300,6 +297,9 @@ if (uwopt == "true") {
   dpsMessage("message", userwc, "<b>" + userw.user.username + "</b>", "<span class='dpsgreen'>has wooted.</span>")
 }}} API.on(API.VOTE_UPDATE, dpsUw);
 function dpsUwar() { uwa = ["uwa"] }; API.on(API.ADVANCE, dpsUwar);
+function dpsuwCheck() { 
+	if (uwopt == "true") { dpsmcheckuw.style.visibility = "visible"; } 
+	else { dpsmcheckuw.style.visibility = "hidden"; }}
 var uma = ["uma"] //user meh
 var usersl = API.getUsers().length; for (var i = 0; i < usersl; i++) { if (API.getUsers()[i].vote == -1) { uma.push(API.getUsers()[i].id)}}
 function dpsUm(userm) {
@@ -312,6 +312,9 @@ if (umopt == "true") {
   dpsMessage("message", usermc, "<b>" + userm.user.username + "</b>", "<span class='dpsred'>has mehed.</span>")
 }}} API.on(API.VOTE_UPDATE, dpsUm);
 function dpsumar() { uma = ["uma"] }; API.on(API.ADVANCE, dpsumar);
+function dpsumCheck() { 
+	if (umopt == "true") { dpsmcheckum.style.visibility = "visible"; } 
+	else { dpsmcheckum.style.visibility = "hidden"; }}
 function dpsUj(userj) { //user join
 if (ujopt == "true") {
   if (userj.gRole > "0") { if (userj.gRole == "3") { userjc = "dpsba" } else { userjc = "dpsadmin" }} else { if (userj.role > "0") { userjc = "dpsstaff" } else { if (userj.sub == "1") { userjc = "dpssub" } else { userjc = "dpsuser" }}}
@@ -568,6 +571,18 @@ function menuClicked() { //to set up the menu
     ajopt = "true";
     dpsoptUpdate(); 
     setTimeout(function () { dpsAj() }, 0050); }} 
+  dpsmuwtxt.onclick=function(){ if (uwopt == "true") { 
+    uwopt = "false";
+    dpsoptUpdate(); dpsuwCheck();}
+  else { 
+    uwopt = "false";
+    dpsoptUpdate(); }
+  dpsmumtxt.onclick=function(){ if (umopt == "true") { 
+    umopt = "false";
+    dpsoptUpdate(); dpsumCheck();}
+  else { 
+    umopt = "false";
+    dpsoptUpdate(); }
   dpsmujtxt.onclick=function(){ if (ujopt == "true") { 
     ujopt = "false"; 
     dpsoptUpdate(); dpsujCheck() } 
