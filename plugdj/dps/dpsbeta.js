@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 07 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "4"; var commitnum = "1"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "4"; var commitnum = "1.1"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta;
 var sversion = release + "-" + vnum + "-" + subvnum + "-" + commitnum;
 var user = API.getUser();
@@ -576,13 +576,13 @@ function menuClicked() { //to set up the menu
     dpsoptUpdate(); dpsuwCheck();}
   else { 
     uwopt = "false";
-    dpsoptUpdate(); }
+    dpsoptUpdate(); }}
   dpsmumtxt.onclick=function(){ if (umopt == "true") { 
     umopt = "false";
     dpsoptUpdate(); dpsumCheck();}
   else { 
     umopt = "false";
-    dpsoptUpdate(); }
+    dpsoptUpdate(); }}
   dpsmujtxt.onclick=function(){ if (ujopt == "true") { 
     ujopt = "false"; 
     dpsoptUpdate(); dpsujCheck() } 
