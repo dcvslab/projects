@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 07 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "4"; var commitnum = "1.2"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "4"; var commitnum = "1.3"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta;
 var sversion = release + "-" + vnum + "-" + subvnum + "-" + commitnum;
 var user = API.getUser();
@@ -299,7 +299,7 @@ if (uwopt == "true") {
 function dpsUwar() { uwa = ["uwa"] }; API.on(API.ADVANCE, dpsUwar);
 function dpsuwCheck() { 
 	if (uwopt == "true") { dpsmcheckuw.style.visibility = "visible"; } 
-	else { dpsmcheckuw.style.visibility = "hidden"; }}
+	else { dpsmcheckuw.style.visibility = "hidden"; }}; dpsuwCheck()
 var uma = ["uma"] //user meh
 var usersl = API.getUsers().length; for (var i = 0; i < usersl; i++) { if (API.getUsers()[i].vote == -1) { uma.push(API.getUsers()[i].id)}}
 function dpsUm(userm) {
@@ -314,7 +314,7 @@ if (umopt == "true") {
 function dpsumar() { uma = ["uma"] }; API.on(API.ADVANCE, dpsumar);
 function dpsumCheck() { 
 	if (umopt == "true") { dpsmcheckum.style.visibility = "visible"; } 
-	else { dpsmcheckum.style.visibility = "hidden"; }}
+	else { dpsmcheckum.style.visibility = "hidden"; }}; dpsumCheck();
 function dpsUj(userj) { //user join
 if (ujopt == "true") {
   if (userj.gRole > "0") { if (userj.gRole == "3") { userjc = "dpsba" } else { userjc = "dpsadmin" }} else { if (userj.role > "0") { userjc = "dpsstaff" } else { if (userj.sub == "1") { userjc = "dpssub" } else { userjc = "dpsuser" }}}
@@ -677,7 +677,7 @@ function dpsHidden(msg) {
  			badoop.play()
  			dpsMessage("system", "from", "UPDATE", "Hey! There is an update to the script, please reload DPS.")}
   		if (msg.message.split(" ")[1] == "VERSION") {
-  			if (msg.message.split("#DPS# VERSION @")[1] == user.username) {
+  			if (user.username == msg.message.split("#DPS# VERSION @")[1]) {
   				API.sendChat(version)}}
   	}}};API.on(API.CHAT, dpsHidden)
 var changelog = "dcvslab.github.io/dps/changelog"
