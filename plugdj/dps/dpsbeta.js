@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 07 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "3"; var commitnum = "8.3"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "3"; var commitnum = "8.4"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta;
 var sversion = release + "-" + vnum + "-" + subvnum + "-" + commitnum;
 var user = API.getUser();
@@ -269,6 +269,9 @@ dpsmdpsftr.className = "dpsmrow"; dpsmdpsftr.id = "dpsmdspftr";
 dpsmdpsftr.appendChild(dpsmdpsftrtxt); dpsmdpsftr.appendChild(dpsmcheckdpsftr); dpsmenu.appendChild(dpsmdpsftr);
 document.getElementsByClassName("app-right")[0].style.zIndex = "20" //make it so it's in front
 document.getElementsByClassName("app-right")[0].appendChild(dpsmenu);
+var djwlt = document.getElementsByClassName("title")[2]; var wleta = document.createElement("span"); wleta.className = "title"; wleta.style.color = "rgba(255,255,255,.5)"; wleta.style.borderLeft = "1px solid"; wleta.style.paddingLeft = "17px"; var etatime = "0:00:00"; wleta.innerHTML = "ETA: " + etatime;
+djwlt.parentNode.insertBefore(wleta, djwlt.nextSibling);
+
 //FUNCTIONAL SETTINGS//
 function dpsAw() { //autowoot//
 if (awopt == "true") { 
