@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 07 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "4"; var commitnum = "2"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "4"; var commitnum = "2.1"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta;
 var sversion = release + "-" + vnum + "-" + subvnum + "-" + commitnum;
 var user = API.getUser();
@@ -538,7 +538,6 @@ if (cmd.split(" ")[0] == "/lmgtfy") {
   API.sendChat(lmgtfy + search)}
 if (cmd.split(" ")[0] == "/slap") { 
   API.sendChat("/me slaps " + cmd.split(" ")[1] + "!")}
-}
 if (cmd.split(" ")[0] == "/debug") { //debug commands
   for (var i = 0; i < viplength; i++) {
     if (user.id == vip[i]) {
@@ -547,8 +546,7 @@ if (cmd.split(" ")[0] == "/debug") { //debug commands
   if (cmd.split("/debug ")[1] == "refresh" || cmd.split("/debug ")[1] == "reload") { location.reload() }
   if (cmd.split("/debug ")[1] == "timeon") { API.chatLog("DPS has been running for " + timeon + " seconds.") }
   if (cmd.split("/debug ")[1] == "version") { API.chatLog("DPS v" + version + " is running.") }
-}}}
-}
+}}}}
 API.on(API.CHAT_COMMAND, chatcmd);
 //MAKING MENU WORK 
 var togglemenu = "no" //is needed
