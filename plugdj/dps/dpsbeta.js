@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 07 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "4"; var commitnum = "1.3"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "4"; var commitnum = "2"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta;
 var sversion = release + "-" + vnum + "-" + subvnum + "-" + commitnum;
 var user = API.getUser();
@@ -535,7 +535,9 @@ if (cmd.split(" ")[0] == "/dps") {
   API.sendChat("DPS: http://dcvslab.github.io/dps")}
 if (cmd.split(" ")[0] == "/lmgtfy") {
   var lmgtfy = "http://lmgtfy.com/?q="; search = cmd.split("/lmgtfy ")[1]; search = search.replace(/ /g, "+");
-  API.sendChat(lmgtfy + search)
+  API.sendChat(lmgtfy + search)}
+if (cmd.split(" ")[0] == "/slap") { 
+  API.sendChat("/me slaps " + cmd.split(" ")[1] + "!")}
 }
 if (cmd.split(" ")[0] == "/debug") { //debug commands
   for (var i = 0; i < viplength; i++) {
