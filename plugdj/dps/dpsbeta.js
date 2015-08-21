@@ -1,4 +1,4 @@
-//DCV'S PLUGDJ SCRIPT//ALPHA 07 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
+//DCV'S PLUGDJ SCRIPT//ALPHA 07 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO //hi
 if (! on) {
 var on = "on"
 var release = "ALPHA"; var vnum = "7"; var subvnum = "4"; var commitnum = "2.3"; var beta = "BETA"
