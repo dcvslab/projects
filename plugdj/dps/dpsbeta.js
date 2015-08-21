@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 07 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "4"; var commitnum = "2.2"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "4"; var commitnum = "2.3"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta;
 var sversion = release + "-" + vnum + "-" + subvnum + "-" + commitnum;
 var user = API.getUser();
@@ -112,7 +112,7 @@ var dpsbtn = document.createElement("div"); //create dps button
 dpsbtn.id = "dps-button"; dpsbtn.className = "dpsbtn button"; 
 document.body.appendChild(dpsbtn); //put it in the document
 var dpslogo = document.createElement("IMG"); //create dps logo
-    dpslogo.setAttribute("src", "https://i.imgur.com/1CuQDdE.png"); dpslogo.className = "dpsbtnimg"
+    dpslogo.setAttribute("src", "https://i.imgur.com/mlQrUWf.png"); dpslogo.className = "dpsbtnimg"
 document.getElementById("dps-button").appendChild(dpslogo);
 var dpslogox = document.createElement("IMG"); //create dps logo x
     dpslogox.setAttribute("src", "https://i.imgur.com/m8QFUVD.png"); dpslogox.className = "dpsbtnimg"
