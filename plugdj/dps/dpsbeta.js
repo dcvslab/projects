@@ -1,7 +1,7 @@
-//DCV'S PLUGDJ SCRIPT//ALPHA 07 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO //hi
+//DCV'S PLUGDJ SCRIPT//ALPHA 07 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // //dps@dps.x10host.com DCVSLAB.GITHUB.IO //hi
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "4"; var commitnum = "2.3"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "4"; var commitnum = "2.4"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta;
 var sversion = release + "-" + vnum + "-" + subvnum + "-" + commitnum;
 var user = API.getUser();
@@ -522,6 +522,8 @@ function chatcmd(cmd) {
 if (cmd == "/commands" || cmd == "/cmds") {
   dpsMessage("system", "from", "COMMANDS", "Current user commands are <b>/shrug</b>, <b>/lenny</b>, <b>/worlds</b>, <b>/lmgtfy</b> and <b>/dps</b>.")
 }
+if (cmd.split(" ")[0] == "/support") {
+  dpsMessaged("system", "from", "SUPPORT", "<a href='dcvslab.github.io/dps'>DPS Website</a>", "dps@dps.x10host.com (EMAIL)")}
 if (cmd.split(" ")[0] == "/shrug") { //user commands
   var shrugmsg = cmd.split("/shrug ")[1]; if (! shrugmsg) { shrugmsg = "" };
   API.sendChat(shrugmsg + " ¯\\_(ツ)_/¯")}
