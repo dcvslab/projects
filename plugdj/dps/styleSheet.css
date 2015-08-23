@@ -137,8 +137,8 @@
   background: #925AFF;
 }
 .dpsmvote { /*ALPHA 07 */
-  box-shadow: 0px 0px 0px;
-  margin-right: 0px;
+  box-shadow: 0px 0px 0px !important;
+  margin-right: 0px !important;
 }
 .dpsmvoteicon { /*ALPHA P7 */
   margin: 0px 0px 0px 2px;
