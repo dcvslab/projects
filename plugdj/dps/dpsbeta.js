@@ -517,6 +517,16 @@ API.on(API.ADVANCE, function(data) {
   dpsNp();
   dpsHa();
 })
+//NOT TOGGLEABLE//
+document.getElementsByClassName("meta")[14].style.height = "128px"; var idspan = document.createElement("span"); idspan.className = "dpsidspan"; document.getElementsByClassName("meta")[14].appendChild(idspan)
+function dpsIdrollover() {
+if (document.getElementById("user-rollover").style.display == "block") {
+  var username = document.getElementById("user-rollover").children[0].children[1].innerHTML
+  var usersl = API.getUsers().length;
+  for (var i = 0; i < usersl; i++) {
+    if (API.getUsers()[i].username == username) {
+    idspan.innerHTML = "ID: " + API.getUsers()[i].id;     	
+}}}}}
 //CHAT COMMANDS//
 function chatcmd(cmd) {
 if (cmd == "/commands" || cmd == "/cmds") {
