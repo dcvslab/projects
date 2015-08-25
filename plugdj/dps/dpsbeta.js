@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 07 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // //dps@dps.x10host.com DCVSLAB.GITHUB.IO //hi
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "4"; var commitnum = "3.2"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "4"; var commitnum = "3.3"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta;
 var sversion = release + "-" + vnum + "-" + subvnum + "-" + commitnum;
 var user = API.getUser();
@@ -518,16 +518,15 @@ API.on(API.ADVANCE, function(data) {
   dpsHa();
 })
 //NOT TOGGLEABLE//
-function dpsTestidrollover() {
-if (! document.getElementsByClassName("meta")[14]) { } else { idspanopened = "yes"; if (idspanopened == "yes") { } else { idspan = document.createElement("span"); idspan.className = "joined"; idspan.style.top = "108px"; document.getElementsByClassName("meta")[14].appendChild(idspan) }}}
 function dpsIdrollover() {
+if (! document.getElementById("user-rollover")) { } else {
 if (document.getElementById("user-rollover").style.display == "block") {
   var username = document.getElementById("user-rollover").children[0].children[1].innerHTML
   var usersl = API.getUsers().length;
   for (var i = 0; i < usersl; i++) {
     if (API.getUsers()[i].username == username) {
     idspan.innerHTML = "ID: " + API.getUsers()[i].id;     	
-}}}}
+}}}}}
 setInterval(function(){ dpsIdrollover(); }, 250);
 //CHAT COMMANDS//
 function chatcmd(cmd) {
