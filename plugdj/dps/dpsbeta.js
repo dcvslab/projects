@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 07 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // //dps@dps.x10host.com DCVSLAB.GITHUB.IO //hi
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "4"; var commitnum = "2.5"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "4"; var commitnum = "3"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta;
 var sversion = release + "-" + vnum + "-" + subvnum + "-" + commitnum;
 var user = API.getUser();
@@ -526,7 +526,7 @@ if (document.getElementById("user-rollover").style.display == "block") {
   for (var i = 0; i < usersl; i++) {
     if (API.getUsers()[i].username == username) {
     idspan.innerHTML = "ID: " + API.getUsers()[i].id;     	
-}}}}}
+}}}}
 setInterval(function(){ dpsIdrollover(); }, 250);
 //CHAT COMMANDS//
 function chatcmd(cmd) {
