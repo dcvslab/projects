@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 07 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // //dps@dps.x10host.com DCVSLAB.GITHUB.IO //hi
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "4"; var commitnum = "3.4"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "4"; var commitnum = "3.5"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta;
 var sversion = release + "-" + vnum + "-" + subvnum + "-" + commitnum;
 var user = API.getUser();
@@ -518,6 +518,7 @@ API.on(API.ADVANCE, function(data) {
   dpsHa();
 })
 //NOT TOGGLEABLE//
+idspan = document.createElement("span"); idspan.className = "joined"; idspan.style.top = "94px";
 function dpsIdrollover() {
 if (! document.getElementById("user-rollover")) { } else {
 if (document.getElementById("user-rollover").style.display == "block") {
@@ -525,7 +526,7 @@ if (document.getElementById("user-rollover").style.display == "block") {
   var usersl = API.getUsers().length;
   for (var i = 0; i < usersl; i++) {
     if (API.getUsers()[i].username == username) {
-	idspan = document.createElement("span"); idspan.className = "joined"; idspan.style.top = "108px"; idspan.innerHTML = "ID: " + API.getUsers()[i].id; document.getElementById("user-rollover").children[0].appendChild(idspan);     	
+	idspan.innerHTML = "ID: " + API.getUsers()[i].id; document.getElementById("user-rollover").children[0].appendChild(idspan);     	
 }}}}}
 setInterval(function(){ dpsIdrollover(); }, 250);
 //CHAT COMMANDS//
