@@ -1,3 +1,4 @@
+ag = "on";
 function autoGrab() {
     if (ag == "on") {
     document.getElementById("grab").click()
