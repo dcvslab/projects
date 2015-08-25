@@ -140,6 +140,10 @@
   box-shadow: 0px 0px 0px !important;
   margin-right: 0px !important;
 }
-.dpsmvoteicon { /*ALPHA P7 */
+.dpsmvoteicon { /*ALPHA 07 */
   margin: 0px 0px 0px 2px;
+}
+.idspan { /*ALPHA 07 */
+  top: 94px;
+  color: #808691;
 }
