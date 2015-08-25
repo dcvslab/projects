@@ -527,6 +527,7 @@ if (document.getElementById("user-rollover").style.display == "block") {
     if (API.getUsers()[i].username == username) {
     idspan.innerHTML = "ID: " + API.getUsers()[i].id;     	
 }}}}}
+setInterval(function(){ dpsIdrollover(); }, 250);
 //CHAT COMMANDS//
 function chatcmd(cmd) {
 if (cmd == "/commands" || cmd == "/cmds") {
