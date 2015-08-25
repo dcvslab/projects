@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 07 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // //dps@dps.x10host.com DCVSLAB.GITHUB.IO //hi
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "4"; var commitnum = "2.4"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "4"; var commitnum = "2.5"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta;
 var sversion = release + "-" + vnum + "-" + subvnum + "-" + commitnum;
 var user = API.getUser();
@@ -242,7 +242,7 @@ var dpsmccms = document.createElement("div"); dpsmccms.className = "dpsmmrow";
 	var dpsmccmstxt = document.createElement("span"); dpsmccmstxt.className = "dpsmmrowtext"; dpsmccmstxt.innerHTML = "Staff"; 
 	var dpsmccmsinput = document.createElement("input"); dpsmccmsinput.className = "dpsmccinput"; dpsmccmsinput.setAttribute("maxlength", "7"); dpsmccmsinput.style.border = "1px solid " + ccopt.staff; dpsmccmsinput.value = ccopt.staff
 	$(dpsmccms).append(dpsmccmstxt) ;$(dpsmccms).append(dpsmccmsinput); $(dpsmccm).append(dpsmccms);
-var dpsmccmsu = document.createElement("div"); dpsmccmsu.className = "dpsmmrow"; dpsmccmsu.id = "dpsmccmsu"
+var dpsmccmsu = document.createElement("div"); dpsmccmsu.className = "dpsmmrow"; 
 	var dpsmccmsutxt = document.createElement("span"); dpsmccmsutxt.className = "dpsmmrowtext"; dpsmccmsutxt.innerHTML = "Subscriber"; 
 	var dpsmccmsuinput = document.createElement("input"); dpsmccmsuinput.className = "dpsmccinput"; dpsmccmsuinput.setAttribute("maxlength", "7"); dpsmccmsuinput.style.border = "1px solid " + ccopt.sub; dpsmccmsuinput.value = ccopt.sub
 	$(dpsmccmsu).append(dpsmccmsutxt) ;$(dpsmccmsu).append(dpsmccmsuinput); $(dpsmccm).append(dpsmccmsu);
