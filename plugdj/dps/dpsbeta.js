@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 07 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // //dps@dps.x10host.com DCVSLAB.GITHUB.IO //hi
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "4"; var commitnum = "4.3"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "5"; var commitnum = "1"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta;
 var sversion = release + "-" + vnum + "-" + subvnum + "-" + commitnum;
 var user = API.getUser();
@@ -52,13 +52,14 @@ var timeon = 0; setInterval(function(){timeon = timeon + 1; }, 1000);
 var dpsopt = localStorage.getItem("dpsOpt"); //option stuff 
 if (! dpsopt) { 
 var newuser = "true"
-var dpsOpt = { "dpsv": version, "awopt": "true", "ajopt": "true","uwopt": "false", "umopt": "true", "ujopt": "true", "ulopt": "true", "haopt":{"on": "true", "pos": "1"}, "ssopt": "false", "npopt": "false:", "xppopt": "false", "dpsftropt": "false", "ccopt":{"ub": "false", "on": "false", "admin": "#42A5DC", "ba": "#89BE6C", "staff": "#AC76FF", "sub": "#C59840", "you": "#FFDD6F", "user": "#777F92"} };
+var dpsOpt = { "dpsv": version, "awopt": "true", "ajopt": "true", "agopt": "false","uwopt": "false", "umopt": "true", "ujopt": "true", "ulopt": "true", "haopt":{"on": "true", "pos": "1"}, "ssopt": "false", "npopt": "false:", "xppopt": "false", "dpsftropt": "false", "ccopt":{"ub": "false", "on": "false", "admin": "#42A5DC", "ba": "#89BE6C", "staff": "#AC76FF", "sub": "#C59840", "you": "#FFDD6F", "user": "#777F92"} };
 localStorage.setItem('dpsOpt', JSON.stringify(dpsOpt));
 var ldpsOpt = localStorage.getItem('dpsOpt');
 var getopt = JSON.parse(ldpsOpt);
 var dpsv = getopt.dpsv;
 var awopt = getopt.awopt;//function options
 var ajopt = getopt.ajopt;
+var agopt = getopt.agopt;
 var uwopt = getopt.uwopt; //notification options
 var umopt = getopt.umopt; 
 var ujopt = getopt.ujopt;  
@@ -75,6 +76,7 @@ var getopt = JSON.parse(ldpsOpt);
 var dpsv = getopt.dpsv
 var awopt = getopt.awopt;//function options
 var ajopt = getopt.ajopt;
+var agopt = getopt.agopt
 var uwopt = getopt.uwopt; //notification options
 var umopt = getopt.umopt; 
 var ujopt = getopt.ujopt; 
@@ -86,15 +88,15 @@ var xppopt = getopt.xppopt;//style options
 var dpsftropt = getopt.dpsftropt;
 var ccopt = getopt.ccopt }
 function dpsoptUpdate() { //update
-  dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt,"uwopt": uwopt, "umopt": umopt, "ujopt": ujopt, "ulopt": ulopt,"haopt":{"on": haopt.on, "pos": haopt.pos}, "ssopt": ssopt,"npopt": npopt, "xppopt": xppopt, "dpsftropt": dpsftropt, "ccopt":{"ub": ccopt.ub, "on": ccopt.on, "admin": ccopt.admin, "ba": ccopt.ba, "staff": ccopt.staff, "sub": ccopt.sub, "you": ccopt.you, "user": ccopt.user} };
+  dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt, "agopt": agopt, "uwopt": uwopt, "umopt": umopt, "ujopt": ujopt, "ulopt": ulopt,"haopt":{"on": haopt.on, "pos": haopt.pos}, "ssopt": ssopt,"npopt": npopt, "xppopt": xppopt, "dpsftropt": dpsftropt, "ccopt":{"ub": ccopt.ub, "on": ccopt.on, "admin": ccopt.admin, "ba": ccopt.ba, "staff": ccopt.staff, "sub": ccopt.sub, "you": ccopt.you, "user": ccopt.user} };
   localStorage.setItem('dpsOpt', JSON.stringify(dpsoptPush));
   ldpsOpt = localStorage.getItem('dpsOpt');
   getopt = JSON.parse(ldpsOpt);
 }
-if (! awopt) { awopt = "true" }; if (! ajopt) { ajopt = "true" }; if (! ssopt) { ssopt = "false" }; if (! xppopt) { xppopt = "false" }; if (! dpsftropt) { dpsftropt = "false" }; if (! npopt) { npopt = "false"}; if (! ulopt) { ulopt = "true" }; if (! ujopt) { ujopt = "true"}; if (! ccopt) { ccopt = {"ub": "false", "on": "false", "admin": "#42A5DC", "ba": "#89BE6C", "staff": "#AC76FF", "sub": "#C59840", "you": "#FFDD6F", "user": "#777F92"} }; if (! haopt) { haopt = {"on": "true", "pos": "1"} }; if (! uwopt) { uwopt = "false" }; if (! umopt) { umopt = "true" };
+if (! awopt) { awopt = "true" }; if (! ajopt) { ajopt = "true" }; if (! ssopt) { ssopt = "false" }; if (! xppopt) { xppopt = "false" }; if (! dpsftropt) { dpsftropt = "false" }; if (! npopt) { npopt = "false"}; if (! ulopt) { ulopt = "true" }; if (! ujopt) { ujopt = "true"}; if (! ccopt) { ccopt = {"ub": "false", "on": "false", "admin": "#42A5DC", "ba": "#89BE6C", "staff": "#AC76FF", "sub": "#C59840", "you": "#FFDD6F", "user": "#777F92"} }; if (! haopt) { haopt = {"on": "true", "pos": "1"} }; if (! uwopt) { uwopt = "false" }; if (! umopt) { umopt = "true" }; if (! agopt) { agopt = "false"};
 setTimeout(function () { 
-  dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt,"uwopt": uwopt, "umopt": umopt, "ujopt": ujopt, "ulopt": ulopt,"haopt":{"on": haopt.on, "pos": haopt.pos}, "ssopt": ssopt,"npopt": npopt, "xppopt": xppopt, "dpsftropt": dpsftropt, "ccopt":{"ub": ccopt.ub, "on": ccopt.on, "admin": ccopt.admin, "ba": ccopt.ba, "staff": ccopt.staff, "sub": ccopt.sub, "you": ccopt.you, "user": ccopt.user} };
-}, 100);
+  dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt, "agopt": agopt, "uwopt": uwopt, "umopt": umopt, "ujopt": ujopt, "ulopt": ulopt,"haopt":{"on": haopt.on, "pos": haopt.pos}, "ssopt": ssopt,"npopt": npopt, "xppopt": xppopt, "dpsftropt": dpsftropt, "ccopt":{"ub": ccopt.ub, "on": ccopt.on, "admin": ccopt.admin, "ba": ccopt.ba, "staff": ccopt.staff, "sub": ccopt.sub, "you": ccopt.you, "user": ccopt.user} };
+  }, 100);
 var oldversion = dpsv
 dpsoptUpdate()
 var ibtn = document.getElementsByClassName("inventory button")[0]; //SETTING UP THE BUTTON//
@@ -130,6 +132,8 @@ var dpsmcheckaw = document.createElement("i") //create woot check
 dpsmcheckaw.className = "icon icon-check-purple dpsmcheck";
 var dpsmcheckaj = document.createElement("i") //create autojoin check
 dpsmcheckaj.className = "icon icon-check-purple dpsmcheck";
+var dpsmcheckag = document.createElement("i") //create autograb check
+dpsmcheckag.className = "icon icon-check-purple dpsmcheck";
 var dpsmcheckuw = document.createElement("i") //create user woot check
 dpsmcheckuw.className = "icon icon-check-purple dpsmcheck";
 var dpsmcheckum = document.createElement("i") //create user meh check
@@ -171,7 +175,12 @@ var dpsmaj = document.createElement("div"); //autojoin option
 var dpsmajtxt = document.createElement("span");
 dpsmajtxt.innerHTML = "Auto-Join"; dpsmajtxt.className = "dpsmrowtext"
 dpsmaj.className = "dpsmrow";
-dpsmaj.appendChild(dpsmajtxt); dpsmaj.appendChild(dpsmcheckaj); dpsmenu.appendChild(dpsmaj);
+dpsmaw.appendChild(dpsmawtxt); dpsmaw.appendChild(dpsmcheckaw); dpsmenu.appendChild(dpsmaw);
+var dpsmag = document.createElement("div"); //autograb option
+var dpsmagtxt = document.createElement("span");
+dpsmagtxt.innerHTML = "Auto-Grab"; dpsmagtxt.className = "dpsmrowtext"
+dpsmag.className = "dpsmrow";
+dpsmag.appendChild(dpsmagtxt); dpsmag.appendChild(dpsmcheckag); dpsmenu.appendChild(dpsmag);
 var dpsmsectionn = document.createElement("div"); //notification settings header
 var dpsmsectionntxt = document.createElement("span"); 
 dpsmsectionntxt.innerHTML = "Notifications"; dpsmsectionn.className = "dpsmsection";
@@ -285,6 +294,17 @@ function dpsAj() { //autojoin//
   else {
     dpsmcheckaj.style.visibility = "hidden" }}
 dpsAj(); 
+function dpsAg() { //autograb//
+    	if (agopt == "true") {
+    		document.getElementById("grab").click()
+    		var playlists = document.getElementsByClassName("grab")[0].children[1].children[0].children
+     		var playlistlength = playlists.length;
+    			for (var i = 0; i < playlistlength; i++) {
+    				if (playlists[i].children.length == 2) { if (playlists[i].children[1].innerHTML == "Create Playlist") { } else { $(playlists[i]).mousedown() }};
+    	dpsmcheckag.style.visibility = "visible"		
+}} else {
+	dpsmcheckag.style.visibility = "hidden"
+}} 
 //NOTIFICATION SETTINGS//
 var uwa = ["uwa"] //user woot
 var usersl = API.getUsers().length; for (var i = 0; i < usersl; i++) { if (API.getUsers()[i].vote == 1) { uwa.push(API.getUsers()[i].id)}}
