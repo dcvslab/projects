@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 07 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // //dps@dps.x10host.com DCVSLAB.GITHUB.IO //hi
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "5"; var commitnum = "1"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "5"; var commitnum = "1.1"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta;
 var sversion = release + "-" + vnum + "-" + subvnum + "-" + commitnum;
 var user = API.getUser();
@@ -175,7 +175,7 @@ var dpsmaj = document.createElement("div"); //autojoin option
 var dpsmajtxt = document.createElement("span");
 dpsmajtxt.innerHTML = "Auto-Join"; dpsmajtxt.className = "dpsmrowtext"
 dpsmaj.className = "dpsmrow";
-dpsmaw.appendChild(dpsmawtxt); dpsmaw.appendChild(dpsmcheckaw); dpsmenu.appendChild(dpsmaw);
+dpsmaj.appendChild(dpsmajtxt); dpsmaj.appendChild(dpsmcheckaj); dpsmenu.appendChild(dpsmaj);
 var dpsmag = document.createElement("div"); //autograb option
 var dpsmagtxt = document.createElement("span");
 dpsmagtxt.innerHTML = "Auto-Grab"; dpsmagtxt.className = "dpsmrowtext"
