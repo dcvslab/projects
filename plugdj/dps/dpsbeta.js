@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 07 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // //dps@dps.x10host.com DCVSLAB.GITHUB.IO //hi
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "5"; var commitnum = "1.4"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "5"; var commitnum = "2"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta;
 var sversion = release + "-" + vnum + "-" + subvnum + "-" + commitnum;
 var user = API.getUser();
@@ -331,11 +331,25 @@ if (umopt == "true") {
   if (userm.user.gRole > "0") { if (userm.user.gRole == "3") { usermc = "dpsba" } else { usermc = "dpsadmin" }} else { if (userm.user.role > "0") { usermc = "dpsstaff" } else { if (userm.user.sub == "1") { usermc = "dpssub" } else { usermc = "dpsuser" }}}
   uma.push(userm.user.id)
   dpsMessage("message", usermc, "<b>" + userm.user.username + "</b>", "<span class='dpsred'>has mehed.</span>")
-}}} API.on(API.VOTE_UPDATE, dpsUm);
+}}}; API.on(API.VOTE_UPDATE, dpsUm);
 function dpsumar() { uma = ["uma"] }; API.on(API.ADVANCE, dpsumar);
 function dpsumCheck() { 
 	if (umopt == "true") { dpsmcheckum.style.visibility = "visible"; } 
 	else { dpsmcheckum.style.visibility = "hidden"; }}; dpsumCheck();
+var uga = ["uga"] //user grab
+var usersl = API.getUsers().length; for (var i = 0; i < usersl; i++) { if (API.getUsers()[i].grab == true) { uga.push(API.getUsers()[i].id)}}
+function dpsUg(userg) {
+var ugal = uga.length; for (var i = 0; i < ugal; i++) { if (uga[i] == userg.user.id) { uga.splice(i, 1) }};
+uga.push(userg.user.id)
+if (ugopt == "true") {
+  if (userg.grab == true) {
+  if (userg.user.gRole > "0") { if (userg.user.gRole == "3") { usergc = "dpsba" } else { usergc = "dpsadmin" }} else { if (userg.user.role > "0") { usergc = "dpsstaff" } else { if (userg.user.sub == "1") { usergc = "dpssub" } else { usergc = "dpsuser" }}}
+  uga.push(userg.user.id)
+  dpsMessage("message", usergc, "<b>" + userm.user.username + "</b>", "<span class='dpspurple'>has grabbed.</span>")
+}}} API.on(API.GRAB_UPDATE, dpsUg);
+function dpsugCheck() { 
+	if (ugopt == "true") { dpsmcheckug.style.visibility = "visible"; } 
+	else { dpsmcheckug.style.visibility = "hidden"; }}; dpsugCheck();
 function dpsUj(userj) { //user join
 if (ujopt == "true") {
   if (userj.gRole > "0") { if (userj.gRole == "3") { userjc = "dpsba" } else { userjc = "dpsadmin" }} else { if (userj.role > "0") { userjc = "dpsstaff" } else { if (userj.sub == "1") { userjc = "dpssub" } else { userjc = "dpsuser" }}}
