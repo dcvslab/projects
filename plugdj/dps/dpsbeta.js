@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 07 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // //dps@dps.x10host.com DCVSLAB.GITHUB.IO //hi
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "5"; var commitnum = "1.3"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "5"; var commitnum = "1.4"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta;
 var sversion = release + "-" + vnum + "-" + subvnum + "-" + commitnum;
 var user = API.getUser();
@@ -534,6 +534,7 @@ dpsftrChange();
 API.on(API.ADVANCE, function(data) { 
   dpsAw();
   dpsAj();
+  dpsAg();
   dpsSs();
   dpsNp();
   dpsHa();
