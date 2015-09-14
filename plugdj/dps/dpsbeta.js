@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 07 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // //dps@dps.x10host.com DCVSLAB.GITHUB.IO //hi
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "5"; var commitnum = "4"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "5"; var commitnum = "5"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta;
 var sversion = release + "-" + vnum + "-" + subvnum + "-" + commitnum;
 var user = API.getUser();
@@ -319,8 +319,9 @@ function dpsAg() { //autograb//
 var uwa = ["uwa"] //user woot
 var usersl = API.getUsers().length; for (var i = 0; i < usersl; i++) { if (API.getUsers()[i].vote == 1) { uwa.push(API.getUsers()[i].id)}}
 function dpsUw(userw) {
-var umal = uma.length; for (var i = 0; i < umal; i++) { if (uma[i] == userw.user.id) { uma.splice(i, 1) }};
-uwa.push(userw.user.id)
+if (userw.vote == 1) {
+   var umal = uma.length; for (var i = 0; i < umal; i++) { if (uma[i] == userw.user.id) { uma.splice(i, 1) }};
+   uwa.push(userw.user.id) }
 if (uwopt == "true") {
   if (userw.vote == 1) {
   if (userw.user.gRole > "0") { if (userw.user.gRole == "3") { userwc = "dpsba" } else { userwc = "dpsadmin" }} else { if (userw.user.role > "0") { userwc = "dpsstaff" } else { if (userw.user.sub == "1") { userwc = "dpssub" } else { userwc = "dpsuser" }}}
@@ -333,8 +334,9 @@ function dpsuwCheck() {
 var uma = ["uma"] //user meh
 var usersl = API.getUsers().length; for (var i = 0; i < usersl; i++) { if (API.getUsers()[i].vote == -1) { uma.push(API.getUsers()[i].id)}}
 function dpsUm(userm) {
-var uwal = uwa.length; for (var i = 0; i < uwal; i++) { if (uwa[i] == userm.user.id) { uwa.splice(i, 1) }};
-uma.push(userm.user.id)
+if (userm.vote == -1) {
+   var uwal = uwa.length; for (var i = 0; i < uwal; i++) { if (uwa[i] == userm.user.id) { uwa.splice(i, 1) }};
+   uma.push(userm.user.id) }
 if (umopt == "true") {
   if (userm.vote == -1) {
   if (userm.user.gRole > "0") { if (userm.user.gRole == "3") { usermc = "dpsba" } else { usermc = "dpsadmin" }} else { if (userm.user.role > "0") { usermc = "dpsstaff" } else { if (userm.user.sub == "1") { usermc = "dpssub" } else { usermc = "dpsuser" }}}
@@ -355,6 +357,7 @@ if (ugopt == "true") {
   uga.push(userg.user.id)
   dpsMessage("message", usergc, "<b>" + userg.user.username + "</b>", "<span class='dpspurple'>has grabbed.</span>")
 }} API.on(API.GRAB_UPDATE, dpsUg);
+function dpsUgar() { uga = ["uga"] }; API.on(API.ADVANCE, dpsUgar);
 function dpsugCheck() { 
 	if (ugopt == "true") { dpsmcheckug.style.visibility = "visible"; } 
 	else { dpsmcheckug.style.visibility = "hidden"; }}; dpsugCheck()
