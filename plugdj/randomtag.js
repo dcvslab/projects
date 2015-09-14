@@ -12,5 +12,5 @@ function randomTag(user) {
   var msg = randommsgs[randommsgsnums].replace("%%USER%%", userc)
   API.sendChat(msg + "")
 }
-function onCommand(cmd) { if (cmd == "/send") { randomTag() }}; API.on(API.CHAT_COMMAND, onCommand);
+function onCommand(cmd) { if (cmd.split(" ")[0] == "/send") { userh = cmd.split(" ")[1]; randomTag(userh) }}; API.on(API.CHAT_COMMAND, onCommand);
   
