@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 07 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // //dps@dps.x10host.com DCVSLAB.GITHUB.IO //hi
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "5"; var commitnum = "2"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "5"; var commitnum = "3"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta;
 var sversion = release + "-" + vnum + "-" + subvnum + "-" + commitnum;
 var user = API.getUser();
@@ -138,6 +138,8 @@ var dpsmcheckuw = document.createElement("i") //create user woot check
 dpsmcheckuw.className = "icon icon-check-purple dpsmcheck";
 var dpsmcheckum = document.createElement("i") //create user meh check
 dpsmcheckum.className = "icon icon-check-purple dpsmcheck";
+var dpsmcheckug = document.createElement("i") //create user meh check
+dpsmcheckug.className = "icon icon-check-purple dpsmcheck";
 var dpsmcheckuj = document.createElement("i") //create user join check
 dpsmcheckuj.className = "icon icon-check-purple dpsmcheck";
 var dpsmcheckul = document.createElement("i") //create user leave check
@@ -195,6 +197,11 @@ var dpsmumtxt = document.createElement("span");
 dpsmumtxt.innerHTML = "User Meh"; dpsmumtxt.className = "dpsmrowtext"
 dpsmum.className = "dpsmrow";
 dpsmum.appendChild(dpsmumtxt); dpsmum.appendChild(dpsmcheckum); dpsmenu.appendChild(dpsmum); //u wot m8 i'll rek ye dpsmum
+var dpsmug = document.createElement("div"); //user grab option
+var dpsmugtxt = document.createElement("span");
+dpsmugtxt.innerHTML = "User Grab"; dpsmugtxt.className = "dpsmrowtext"
+dpsmug.className = "dpsmrow";
+dpsmug.appendChild(dpsmugtxt); dpsmug.appendChild(dpsmcheckug); dpsmenu.appendChild(dpsmug); //you're gettin mugged
 var dpsmuj = document.createElement("div"); //user join option
 var dpsmujtxt = document.createElement("span");
 dpsmujtxt.innerHTML = "User Join"; dpsmujtxt.className = "dpsmrowtext"
@@ -342,14 +349,13 @@ function dpsUg(userg) {
 var ugal = uga.length; for (var i = 0; i < ugal; i++) { if (uga[i] == userg.user.id) { uga.splice(i, 1) }};
 uga.push(userg.user.id)
 if (ugopt == "true") {
-  if (userg.grab == true) {
   if (userg.user.gRole > "0") { if (userg.user.gRole == "3") { usergc = "dpsba" } else { usergc = "dpsadmin" }} else { if (userg.user.role > "0") { usergc = "dpsstaff" } else { if (userg.user.sub == "1") { usergc = "dpssub" } else { usergc = "dpsuser" }}}
   uga.push(userg.user.id)
-  dpsMessage("message", usergc, "<b>" + userm.user.username + "</b>", "<span class='dpspurple'>has grabbed.</span>")
-}}} API.on(API.GRAB_UPDATE, dpsUg);
+  dpsMessage("message", usergc, "<b>" + userg.user.username + "</b>", "<span class='dpspurple'>has grabbed.</span>")
+}} API.on(API.GRAB_UPDATE, dpsUg);
 function dpsugCheck() { 
 	if (ugopt == "true") { dpsmcheckug.style.visibility = "visible"; } 
-	else { dpsmcheckug.style.visibility = "hidden"; }}; dpsugCheck();
+	else { dpsmcheckug.style.visibility = "hidden"; }}; dpsugCheck()
 function dpsUj(userj) { //user join
 if (ujopt == "true") {
   if (userj.gRole > "0") { if (userj.gRole == "3") { userjc = "dpsba" } else { userjc = "dpsadmin" }} else { if (userj.role > "0") { userjc = "dpsstaff" } else { if (userj.sub == "1") { userjc = "dpssub" } else { userjc = "dpsuser" }}}
@@ -644,6 +650,12 @@ function menuClicked() { //to set up the menu
   else { 
     umopt = "true";
     dpsoptUpdate(); dpsumCheck();}}
+  dpsmugtxt.onclick=function(){ if (ugopt == "true") { 
+    ugopt = "false";
+    dpsoptUpdate(); dpsugCheck();}
+  else { 
+    ugopt = "true";
+    dpsoptUpdate(); dpsugCheck();}}
   dpsmujtxt.onclick=function(){ if (ujopt == "true") { 
     ujopt = "false"; 
     dpsoptUpdate(); dpsujCheck() } 
