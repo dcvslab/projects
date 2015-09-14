@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 07 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // //dps@dps.x10host.com DCVSLAB.GITHUB.IO //hi
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "5"; var commitnum = "5"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "5"; var commitnum = "6"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta;
 var sversion = release + "-" + vnum + "-" + subvnum + "-" + commitnum;
 var user = API.getUser();
@@ -304,6 +304,14 @@ function dpsAj() { //autojoin//
     dpsmcheckaj.style.visibility = "hidden" }}
 dpsAj(); 
 dpsmcheckag.style.visibility = "hidden"
+function dpsAm() { //automeh//
+if (amopt == "true") { 
+  setTimeout(function(){   document.getElementById("meh").click(); }, 500);
+  dpsmcheckam.style.visibility = "visible" }
+else {
+  dpsmcheckam.style.visibility = "hidden"
+}}
+dpsAm();
 function dpsAg() { //autograb//
     	if (agopt == "true") {
     		document.getElementById("grab").click()
