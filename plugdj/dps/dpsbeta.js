@@ -799,4 +799,5 @@ if (version == dpsv) {
 } else {
  dpsMessage("system", "from", "DPS is already on!", "To reload DPS, refresh the page and click the bookmark again!")
 }
+setTimeout(function(){ if (! messagesent) { dpsMessage("system", "from", "<b>DPS ALERT</b>", "DPS has had troubles loading, please reload the script!"); }, 5000);
 
