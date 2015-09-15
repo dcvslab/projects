@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 07 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // //dps@dps.x10host.com DCVSLAB.GITHUB.IO //hi
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "5"; var commitnum = "6.1 UNFINISHED"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "5"; var commitnum = "7"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta;
 var sversion = release + "-" + vnum + "-" + subvnum + "-" + commitnum;
 var user = API.getUser();
@@ -52,7 +52,7 @@ var timeon = 0; setInterval(function(){timeon = timeon + 1; }, 1000);
 var dpsopt = localStorage.getItem("dpsOpt"); //option stuff 
 if (! dpsopt) { 
 var newuser = "true"
-var dpsOpt = { "dpsv": version, "awopt": "true", "ajopt": "true", "agopt": "false","uwopt": "false", "umopt": "true", "ugopt": "true", "ujopt": "true", "ulopt": "true", "haopt":{"on": "true", "pos": "1"}, "ssopt": "false", "npopt": "false:", "xppopt": "false", "dpsftropt": "false", "ccopt":{"ub": "false", "on": "false", "admin": "#42A5DC", "ba": "#89BE6C", "staff": "#AC76FF", "sub": "#C59840", "you": "#FFDD6F", "user": "#777F92"} };
+var dpsOpt = { "dpsv": version, "awopt": "true", "ajopt": "true", "agopt": "false", "amopt": "false", "uwopt": "false", "umopt": "true", "ugopt": "true", "ujopt": "true", "ulopt": "true", "haopt":{"on": "true", "pos": "1"}, "ssopt": "false", "npopt": "false:", "xppopt": "false", "dpsftropt": "false", "ccopt":{"ub": "false", "on": "false", "admin": "#42A5DC", "ba": "#89BE6C", "staff": "#AC76FF", "sub": "#C59840", "you": "#FFDD6F", "user": "#777F92"} };
 localStorage.setItem('dpsOpt', JSON.stringify(dpsOpt));
 var ldpsOpt = localStorage.getItem('dpsOpt');
 var getopt = JSON.parse(ldpsOpt);
@@ -60,6 +60,7 @@ var dpsv = getopt.dpsv;
 var awopt = getopt.awopt;//function options
 var ajopt = getopt.ajopt;
 var agopt = getopt.agopt;
+var amopt = getopt.amopt;
 var uwopt = getopt.uwopt; //notification options
 var umopt = getopt.umopt; 
 var ujopt = getopt.ujopt;
@@ -77,7 +78,8 @@ var getopt = JSON.parse(ldpsOpt);
 var dpsv = getopt.dpsv
 var awopt = getopt.awopt;//function options
 var ajopt = getopt.ajopt;
-var agopt = getopt.agopt
+var agopt = getopt.agopt;
+var amopt = getopt.amopt;
 var uwopt = getopt.uwopt; //notification options
 var umopt = getopt.umopt; 
 var ujopt = getopt.ujopt; 
@@ -90,14 +92,14 @@ var xppopt = getopt.xppopt;//style options
 var dpsftropt = getopt.dpsftropt;
 var ccopt = getopt.ccopt }
 function dpsoptUpdate() { //update
-  dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt, "agopt": agopt, "uwopt": uwopt, "umopt": umopt, "ugopt": ugopt, "ujopt": ujopt, "ulopt": ulopt,"haopt":{"on": haopt.on, "pos": haopt.pos}, "ssopt": ssopt,"npopt": npopt, "xppopt": xppopt, "dpsftropt": dpsftropt, "ccopt":{"ub": ccopt.ub, "on": ccopt.on, "admin": ccopt.admin, "ba": ccopt.ba, "staff": ccopt.staff, "sub": ccopt.sub, "you": ccopt.you, "user": ccopt.user} };
+  dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt, "agopt": agopt, "amopt": amopt, "uwopt": uwopt, "umopt": umopt, "ugopt": ugopt, "ujopt": ujopt, "ulopt": ulopt,"haopt":{"on": haopt.on, "pos": haopt.pos}, "ssopt": ssopt,"npopt": npopt, "xppopt": xppopt, "dpsftropt": dpsftropt, "ccopt":{"ub": ccopt.ub, "on": ccopt.on, "admin": ccopt.admin, "ba": ccopt.ba, "staff": ccopt.staff, "sub": ccopt.sub, "you": ccopt.you, "user": ccopt.user} };
   localStorage.setItem('dpsOpt', JSON.stringify(dpsoptPush));
   ldpsOpt = localStorage.getItem('dpsOpt');
   getopt = JSON.parse(ldpsOpt);
 }
-if (! awopt) { awopt = "true" }; if (! ajopt) { ajopt = "true" }; if (! ssopt) { ssopt = "false" }; if (! xppopt) { xppopt = "false" }; if (! dpsftropt) { dpsftropt = "false" }; if (! npopt) { npopt = "false"}; if (! ulopt) { ulopt = "true" }; if (! ujopt) { ujopt = "true"}; if (! ccopt) { ccopt = {"ub": "false", "on": "false", "admin": "#42A5DC", "ba": "#89BE6C", "staff": "#AC76FF", "sub": "#C59840", "you": "#FFDD6F", "user": "#777F92"} }; if (! haopt) { haopt = {"on": "true", "pos": "1"} }; if (! uwopt) { uwopt = "false" }; if (! umopt) { umopt = "true" }; if (! agopt) { agopt = "false"}; if (! ugopt) { ugopt = "true" };
+if (! awopt) { awopt = "true" }; if (! ajopt) { ajopt = "true" }; if (! ssopt) { ssopt = "false" }; if (! xppopt) { xppopt = "false" }; if (! dpsftropt) { dpsftropt = "false" }; if (! npopt) { npopt = "false"}; if (! ulopt) { ulopt = "true" }; if (! ujopt) { ujopt = "true"}; if (! ccopt) { ccopt = {"ub": "false", "on": "false", "admin": "#42A5DC", "ba": "#89BE6C", "staff": "#AC76FF", "sub": "#C59840", "you": "#FFDD6F", "user": "#777F92"} }; if (! haopt) { haopt = {"on": "true", "pos": "1"} }; if (! uwopt) { uwopt = "false" }; if (! umopt) { umopt = "true" }; if (! agopt) { agopt = "false"}; if (! ugopt) { ugopt = "true" }; if (! amopt) { amopt = "false" };
 setTimeout(function () { 
-  dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt, "agopt": agopt, "uwopt": uwopt, "umopt": umopt, "ugopt": ugopt, "ujopt": ujopt, "ulopt": ulopt,"haopt":{"on": haopt.on, "pos": haopt.pos}, "ssopt": ssopt,"npopt": npopt, "xppopt": xppopt, "dpsftropt": dpsftropt, "ccopt":{"ub": ccopt.ub, "on": ccopt.on, "admin": ccopt.admin, "ba": ccopt.ba, "staff": ccopt.staff, "sub": ccopt.sub, "you": ccopt.you, "user": ccopt.user} };
+  dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt, "agopt": agopt, "amopt": amopt, "uwopt": uwopt, "umopt": umopt, "ugopt": ugopt, "ujopt": ujopt, "ulopt": ulopt,"haopt":{"on": haopt.on, "pos": haopt.pos}, "ssopt": ssopt,"npopt": npopt, "xppopt": xppopt, "dpsftropt": dpsftropt, "ccopt":{"ub": ccopt.ub, "on": ccopt.on, "admin": ccopt.admin, "ba": ccopt.ba, "staff": ccopt.staff, "sub": ccopt.sub, "you": ccopt.you, "user": ccopt.user} };
   }, 100);
 var oldversion = dpsv
 dpsoptUpdate()
@@ -136,11 +138,13 @@ var dpsmcheckaj = document.createElement("i") //create autojoin check
 dpsmcheckaj.className = "icon icon-check-purple dpsmcheck";
 var dpsmcheckag = document.createElement("i") //create autograb check
 dpsmcheckag.className = "icon icon-check-purple dpsmcheck";
+var dpsmcheckam = document.createElement("i") //create automeh check
+dpsmcheckam.className = "icon icon-check-purple dpsmcheck";
 var dpsmcheckuw = document.createElement("i") //create user woot check
 dpsmcheckuw.className = "icon icon-check-purple dpsmcheck";
 var dpsmcheckum = document.createElement("i") //create user meh check
 dpsmcheckum.className = "icon icon-check-purple dpsmcheck";
-var dpsmcheckug = document.createElement("i") //create user meh check
+var dpsmcheckug = document.createElement("i") //create user grab check
 dpsmcheckug.className = "icon icon-check-purple dpsmcheck";
 var dpsmcheckuj = document.createElement("i") //create user join check
 dpsmcheckuj.className = "icon icon-check-purple dpsmcheck";
@@ -185,11 +189,11 @@ var dpsmagtxt = document.createElement("span");
 dpsmagtxt.innerHTML = "Auto-Grab"; dpsmagtxt.className = "dpsmrowtext"
 dpsmag.className = "dpsmrow";
 dpsmag.appendChild(dpsmagtxt); dpsmag.appendChild(dpsmcheckag); dpsmenu.appendChild(dpsmag);
-var dpsmah = document.createElement("div"); //automeh option
-var dpsmahtxt = document.createElement("span");
-dpsmagtxt.innerHTML = "Auto-Grab"; dpsmagtxt.className = "dpsmrowtext"
-dpsmag.className = "dpsmrow";
-dpsmag.appendChild(dpsmagtxt); dpsmag.appendChild(dpsmcheckag); dpsmenu.appendChild(dpsmag);
+var dpsmam = document.createElement("div"); //automeh option
+var dpsmamtxt = document.createElement("span");
+dpsmamtxt.innerHTML = "Auto-Meh"; dpsmamtxt.className = "dpsmrowtext"
+dpsmam.className = "dpsmrow";
+dpsmam.appendChild(dpsmamtxt); dpsmam.appendChild(dpsmcheckam); dpsmenu.appendChild(dpsmam);
 var dpsmsectionn = document.createElement("div"); //notification settings header
 var dpsmsectionntxt = document.createElement("span"); 
 dpsmsectionntxt.innerHTML = "Notifications"; dpsmsectionn.className = "dpsmsection";
@@ -656,6 +660,14 @@ function menuClicked() { //to set up the menu
     agopt = "true"; 
     dpsoptUpdate(); 
     setTimeout(function () { dpsAg() }, 0050); }}
+  dpsmamtxt.onclick=function(){ if (amopt == "true") { 
+    anopt = "false";
+    dpsoptUpdate(); 
+    setTimeout(function () { dpsAm() }, 0050); } 
+  else { 
+    amopt = "true"; 
+    dpsoptUpdate(); 
+    setTimeout(function () { dpsAm() }, 0050); }}
   dpsmuwtxt.onclick=function(){ if (uwopt == "true") { 
     uwopt = "false";
     dpsoptUpdate(); dpsuwCheck();}
