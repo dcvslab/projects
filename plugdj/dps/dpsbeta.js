@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 07 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // //dps@dps.x10host.com DCVSLAB.GITHUB.IO //hi
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "5"; var commitnum = "8"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "5"; var commitnum = "8.1"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta;
 var sversion = release + "-" + vnum + "-" + subvnum + "-" + commitnum;
 var user = API.getUser();
@@ -596,6 +596,7 @@ if (document.getElementById("user-rollover").style.display == "block") {
     	idspan.innerHTML = "ID: UNDEFINED"; document.getElementById("user-rollover").children[0].appendChild(idspan);  
 }}}}}
 setInterval(function(){ dpsIdrollover(); }, 1);
+API.sendChat(tes2123123t + "hey")
 //CHAT COMMANDS//
 function chatcmd(cmd) {
 if (cmd == "/commands" || cmd == "/cmds") {
@@ -643,7 +644,7 @@ function menuClicked() { //to set up the menu
   else { 
     awopt = "true";
     amopt = "false";
-    dpsmcheckaw.style.visibile = "hidden";
+    dpsmcheckaw.style.visibility = "hidden";
     dpsoptUpdate(); 
     setTimeout(function () { dpsAw() }, 0050); }}
   dpsmajtxt.onclick=function(){ if (ajopt == "true") { 
@@ -670,7 +671,7 @@ function menuClicked() { //to set up the menu
     amopt = "true"; 
     awopt = "false"
     dpsoptUpdate(); 
-    dpsmcheckaw.style.visibile = "hidden";
+    dpsmcheckaw.style.visibility = "hidden";
     setTimeout(function () { dpsAm() }, 0050); }}
   dpsmuwtxt.onclick=function(){ if (uwopt == "true") { 
     uwopt = "false";
