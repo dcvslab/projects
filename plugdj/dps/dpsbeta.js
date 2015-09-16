@@ -1,7 +1,7 @@
 //DCV'S PLUGDJ SCRIPT//ALPHA 07 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // //dps@dps.x10host.com DCVSLAB.GITHUB.IO //hi
 if (! on) {
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "5"; var commitnum = "7.2"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "5"; var commitnum = "8"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta;
 var sversion = release + "-" + vnum + "-" + subvnum + "-" + commitnum;
 var user = API.getUser();
@@ -132,7 +132,7 @@ function showdpsBtn() { dpsbtn.style.display = "block" }
 function showdpsbtn() { setTimeout(function(){ showdpsBtn(); }, 0200); }
 plbtnx.addEventListener("click", showdpsbtn)
 var dpsmenu = document.createElement("div"); dpsmenu.className = "dpsmenu"; //create dps menu
-var dpsmcheckaw = document.createElement("i") //create woot check
+var dpsmcheckaw = document.createElement("i") //create autowoot check
 dpsmcheckaw.className = "icon icon-check-purple dpsmcheck";
 var dpsmcheckaj = document.createElement("i") //create autojoin check
 dpsmcheckaj.className = "icon icon-check-purple dpsmcheck";
@@ -641,7 +641,9 @@ function menuClicked() { //to set up the menu
     dpsoptUpdate(); 
     setTimeout(function () { dpsAw() }, 0050); } 
   else { 
-    awopt = "true"; 
+    awopt = "true";
+    amopt = "false";
+    dpsmcheckaw.style.visibile = "hidden";
     dpsoptUpdate(); 
     setTimeout(function () { dpsAw() }, 0050); }}
   dpsmajtxt.onclick=function(){ if (ajopt == "true") { 
@@ -666,7 +668,9 @@ function menuClicked() { //to set up the menu
     setTimeout(function () { dpsAm() }, 0050); } 
   else { 
     amopt = "true"; 
+    awopt = "false"
     dpsoptUpdate(); 
+    dpsmcheckaw.style.visibile = "hidden";
     setTimeout(function () { dpsAm() }, 0050); }}
   dpsmuwtxt.onclick=function(){ if (uwopt == "true") { 
     uwopt = "false";
