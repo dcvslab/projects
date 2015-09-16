@@ -2,7 +2,7 @@
 if (! on) {
 setTimeout(function(){ if (! messagesent) { dpsMessage("system", "from", "<b>DPS ALERT</b>", "DPS has had troubles loading, please reload the script!"); }}, 3000);
 var on = "on"
-var release = "ALPHA"; var vnum = "7"; var subvnum = "5"; var commitnum = "8.3"; var beta = "BETA"
+var release = "ALPHA"; var vnum = "7"; var subvnum = "6"; var commitnum = "0"; var beta = "BETA"
 var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta;
 var sversion = release + "-" + vnum + "-" + subvnum + "-" + commitnum;
 var user = API.getUser();
@@ -644,7 +644,7 @@ function menuClicked() { //to set up the menu
   else { 
     awopt = "true";
     amopt = "false";
-    dpsmcheckaw.style.visibility = "hidden";
+    dpsmcheckam.style.visibility = "hidden";
     dpsoptUpdate(); 
     setTimeout(function () { dpsAw() }, 0050); }}
   dpsmajtxt.onclick=function(){ if (ajopt == "true") { 
