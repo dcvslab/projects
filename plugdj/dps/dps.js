@@ -1,16 +1,20 @@
-//DCV'S PLUGDJ SCRIPT//ALPHA 06 RELEASE// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // DCVSLAB.GITHUB.IO
+//DCV'S PLUGDJ SCRIPT//ALPHA 07 BETA// HTTP://PLUG.DJ/DCV // HTTP://DCVSLAB.GITHUB.IO // //dps@dps.x10host.com DCVSLAB.GITHUB.IO //hi
 if (! on) {
+setTimeout(function(){ if (! messagesent) { dpsMessage("system", "from", "<b>DPS ALERT</b>", "DPS has had troubles loading, please reload the script!"); }}, 3000);
 var on = "on"
-var release = "ALPHA"; var vnum = "06"; var subvnum = "0"; var commitnum = "2"; var beta = "RELEASE"
-var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta
+var release = "ALPHA"; var vnum = "7"; var subvnum = "0"; var commitnum = "0"; var beta = "RELEASE"
+var version = release + " " + vnum + "." + subvnum + "." + commitnum + " " + beta;
+var sversion = release + "-" + vnum + "-" + subvnum + "-" + commitnum;
 var user = API.getUser();
 var media = API.getMedia();
 var history = API.getHistory;
 var head = document.getElementsByTagName("head")[0]
 var creator = { username: "DCV", id: "3639711", sub: "1" }
+var vip = [ "3639711", "4820534", "6323268", "4764565", "5344087", "3542315"]; var viplength = vip.length; //CURRENT VIPS: DCV, BETA TESTER, COOKIE TESTER, WUMBOLOGY, PIKAWUBZ, VITALCZ
 var roomname = document.getElementsByClassName("bar-value")[0].innerHTML
+var badoop = new Audio(); badoop.src = "https://cdn.plug.dj/_/static/sfx/badoop.801a12ca13864e90203193b2c83c019c03a447d1.mp3"; badoop.load();
 var uclass;
-if (user.gRole > "0") { //get color
+if (user.gRole > "0") { //get color (☞ﾟヮﾟ)☞ ☜(ﾟヮﾟ☜)
 	if (user.gRole == "3") { uclass = "dpsba" }
 	else { uclass = "dpsadmin" }}
 else {
@@ -19,7 +23,13 @@ else {
 		if (user.sub == "1") { uclass = "dpssub" }
 		else { uclass = "dpsyou" }}}
 $("head").append("<link rel='stylesheet' type='text/css' href='https://rawgit.com/dcvslab/projects/master/plugdj/dps/styleSheet.css'>");
-//DAMS (http://github.com/dcvslab/projects/plugdj/dams.js) (this is an EXTREMELY edited version)
+document.getElementsByTagName("script")[10].remove()
+$("head").append("<script id='dpsintercom'>window.intercomSettings = { 'app_id': 'lkxjc4ae', 'name': API.getUser().username, 'email':  sversion + '@' + API.getUser().id + '.com', };(function(){var w=window;var ic=w.Intercom;if(typeof ic==='function'){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/lkxjc4ae';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>")
+function dpsIntercom() {
+document.getElementById("dpsintercom").remove()
+setTimeout(function() {
+$("head").append("<script id='dpsintercom'>window.intercomSettings = { 'app_id': 'lkxjc4ae', 'name': API.getUser().username, 'email':  sversion + '@' + API.getUser().id + '.com', };(function(){var w=window;var ic=w.Intercom;if(typeof ic==='function'){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/lkxjc4ae';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>"); }, 60000);}
+setInterval(function(){ dpsIntercom(); }, 120000);
 var dpsn = 1; dpseid = "DPS-" + dpsn; var dpsid = "DPS-" + user.id + "-" + dpsn; var time = "DPS";
 var _scroll = $("#chat-messages")[0].scrollTop > $("#chat-messages")[0].scrollHeight - $("#chat-messages").height() - 28;
 function dpsMessaged(cmtype, nameclass, nametext, messagetext, messagetext2) { //two lines
@@ -27,7 +37,7 @@ function dpsMessaged(cmtype, nameclass, nametext, messagetext, messagetext2) { /
   if (! nametext) { nametext=""};
   if (! messagetext) { messagetext="" };
   if (! messagetext2) { messagetext2=""};
-$("#chat-messages").append("<div data-cid='" + dpsid + "' class='cm " + cmtype + "' stlye='padding-left: 5px'><div class='msg cid-" + dpsid + "' style='padding-left: 10px'><div class ='" + nameclass + "'><span class='un'>" + nametext + "</span><span style='display: inline;' class='timestamp'>" + time + "</span></div><div class='text cid-" + dpsid + "'>" + messagetext +"</div><div class='text cid-" + dpsid + "'>" + messagetext2 +"</div></div></div>");
+$("#chat-messages").append("<div data-cid='" + dpsid + "' class='dpsmsg cm " + cmtype + "' style='padding-left: 5px'><div class='msg cid-" + dpsid + "' style='padding-left: 10px'><div class ='" + nameclass + "'><span class='un'>" + nametext + "</span><span style='display: inline;' class='timestamp'>" + time + "</span></div><div class='text cid-" + dpsid + "'>" + messagetext +"</div><div class='text cid-" + dpsid + "'>" + messagetext2 +"</div></div></div>");
 dpsn = dpsn + 1; dpseid = "dps-" + dpsn; dpsid = "dps-" + user.id + "-" + dpsn
 if (_scroll) { $("#chat-messages")[0].scrollTop = $("#chat-messages")[0].scrollHeight; }
 if ($("#chat-messages").children().length > 512) {  $("#chat-messages").children().first().remove();  }}
@@ -35,22 +45,29 @@ function dpsMessage(cmtype, nameclass, nametext, messagetext) { //one line
   if (! nameclass) { nameclass="" };
   if (! nametext) { nametext=""};
   if (! messagetext) { messagetext="" };
-$("#chat-messages").append("<div data-cid='" + dpsid + "' class='cm " + cmtype + "' stlye='padding-left: 5px'><div class='msg cid-" + dpsid + "' style='padding-left: 10px'><div class ='" + nameclass + "'><span class='un'>" + nametext + "</span><span style='display: inline;' class='timestamp'>" + time + "</span></div><div class='text cid-" + dpsid + "'>" + messagetext +"</div></div></div>");
+$("#chat-messages").append("<div data-cid='" + dpsid + "' class='dpsmsg cm " + cmtype + "' stlye='padding-left: 5px'><div class='msg cid-" + dpsid + "' style='padding-left: 10px'><div class ='" + nameclass + "'><span class='un'>" + nametext + "</span><span style='display: inline;' class='timestamp'>" + time + "</span></div><div class='text cid-" + dpsid + "'>" + messagetext +"</div></div></div>");
 dpsn = dpsn + 1; dpseid = "dps-" + dpsn; dpsid = "dps-" + user.id + "-" + dpsn 
 if (_scroll) { $("#chat-messages")[0].scrollTop = $("#chat-messages")[0].scrollHeight; } 
 if ($("#chat-messages").children().length > 512) {  $("#chat-messages").children().first().remove();  }}
-var dpsopt = localStorage.getItem("dpsOpt"); //option stuff (END EDITED DAMS)
+var timeon = 0; setInterval(function(){timeon = timeon + 1; }, 1000);
+var dpsopt = localStorage.getItem("dpsOpt"); //option stuff 
 if (! dpsopt) { 
 var newuser = "true"
-var dpsOpt = { "dpsv": version, "awopt": "true", "ajopt": "true","ujopt": "true", "ulopt": "true", "ssopt": "false", "npopt": "false:", "xppopt": "false", "dpsftropt": "false", "ccopt":{"ub": "false", "on": "false", "admin": "#42A5DC", "ba": "#89BE6C", "staff": "#AC76FF", "sub": "#C59840", "you": "#FFDD6F", "user": "#777F92"} };
+var dpsOpt = { "dpsv": version, "awopt": "true", "ajopt": "true", "agopt": "false", "amopt": "false", "uwopt": "false", "umopt": "true", "ugopt": "true", "ujopt": "true", "ulopt": "true", "haopt":{"on": "true", "pos": "1"}, "ssopt": "false", "npopt": "false:", "xppopt": "false", "dpsftropt": "false", "ccopt":{"ub": "false", "on": "false", "admin": "#42A5DC", "ba": "#89BE6C", "staff": "#AC76FF", "sub": "#C59840", "you": "#FFDD6F", "user": "#777F92"} };
 localStorage.setItem('dpsOpt', JSON.stringify(dpsOpt));
 var ldpsOpt = localStorage.getItem('dpsOpt');
 var getopt = JSON.parse(ldpsOpt);
 var dpsv = getopt.dpsv;
 var awopt = getopt.awopt;//function options
 var ajopt = getopt.ajopt;
-var ujopt = getopt.ujopt;  //notification options
+var agopt = getopt.agopt;
+var amopt = getopt.amopt;
+var uwopt = getopt.uwopt; //notification options
+var umopt = getopt.umopt; 
+var ujopt = getopt.ujopt;
+var ugopt = getopt.ugopt;
 var ulopt = getopt.ulopt;
+var haopt = getopt.haopt;
 var ssopt = getopt.ssopt; 
 var npopt = getopt.npopt
 var xppopt = getopt.xppopt; //style options
@@ -62,23 +79,29 @@ var getopt = JSON.parse(ldpsOpt);
 var dpsv = getopt.dpsv
 var awopt = getopt.awopt;//function options
 var ajopt = getopt.ajopt;
-var ujopt = getopt.ujopt; //notification options
+var agopt = getopt.agopt;
+var amopt = getopt.amopt;
+var uwopt = getopt.uwopt; //notification options
+var umopt = getopt.umopt; 
+var ujopt = getopt.ujopt; 
+var ugopt = getopt.ugopt;
 var ulopt = getopt.ulopt; 
+var haopt = getopt.haopt;
 var ssopt = getopt.ssopt; 
 var npopt = getopt.npopt
 var xppopt = getopt.xppopt;//style options
 var dpsftropt = getopt.dpsftropt;
 var ccopt = getopt.ccopt }
 function dpsoptUpdate() { //update
-  dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt,"ujopt": ujopt, "ulopt": ulopt, "ssopt": ssopt,"npopt": npopt, "xppopt": xppopt, "dpsftropt": dpsftropt, "ccopt":{"ub": ccopt.ub, "on": ccopt.on, "admin": ccopt.admin, "ba": ccopt.ba, "staff": ccopt.staff, "sub": ccopt.sub, "you": ccopt.you, "user": ccopt.user} };
+  dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt, "agopt": agopt, "amopt": amopt, "uwopt": uwopt, "umopt": umopt, "ugopt": ugopt, "ujopt": ujopt, "ulopt": ulopt,"haopt":{"on": haopt.on, "pos": haopt.pos}, "ssopt": ssopt,"npopt": npopt, "xppopt": xppopt, "dpsftropt": dpsftropt, "ccopt":{"ub": ccopt.ub, "on": ccopt.on, "admin": ccopt.admin, "ba": ccopt.ba, "staff": ccopt.staff, "sub": ccopt.sub, "you": ccopt.you, "user": ccopt.user} };
   localStorage.setItem('dpsOpt', JSON.stringify(dpsoptPush));
   ldpsOpt = localStorage.getItem('dpsOpt');
   getopt = JSON.parse(ldpsOpt);
 }
-if (! awopt) { awopt = "true" }; if (! ajopt) { ajopt = "true" }; if (! ssopt) { ssopt = "false" }; if (! xppopt) { xppopt = "false" }; if (! dpsftropt) { dpsftropt = "false" }; if (! npopt) { npopt = "false"}; if (! ulopt) { ulopt = "true" }; if (! ujopt) { ujopt = "true"}; if (! ccopt) { ccopt = {"ub": "false", "on": "false", "admin": "#42A5DC", "ba": "#89BE6C", "staff": "#AC76FF", "sub": "#C59840", "you": "#FFDD6F", "user": "#777F92"} };
+if (! awopt) { awopt = "true" }; if (! ajopt) { ajopt = "true" }; if (! ssopt) { ssopt = "false" }; if (! xppopt) { xppopt = "false" }; if (! dpsftropt) { dpsftropt = "false" }; if (! npopt) { npopt = "false"}; if (! ulopt) { ulopt = "true" }; if (! ujopt) { ujopt = "true"}; if (! ccopt) { ccopt = {"ub": "false", "on": "false", "admin": "#42A5DC", "ba": "#89BE6C", "staff": "#AC76FF", "sub": "#C59840", "you": "#FFDD6F", "user": "#777F92"} }; if (! haopt) { haopt = {"on": "true", "pos": "1"} }; if (! uwopt) { uwopt = "false" }; if (! umopt) { umopt = "true" }; if (! agopt) { agopt = "false"}; if (! ugopt) { ugopt = "true" }; if (! amopt) { amopt = "false" };
 setTimeout(function () { 
-  dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt,"ujopt": ujopt, "ulopt": ulopt, "ssopt": ssopt,"npopt": npopt, "xppopt": xppopt, "dpsftropt": dpsftropt, "ccopt":{"ub": ccopt.ub, "on": ccopt.on, "admin": ccopt.admin, "ba": ccopt.ba, "staff": ccopt.staff, "sub": ccopt.sub, "you": ccopt.you, "user": ccopt.user} };
-}, 100);
+  dpsoptPush = { "dpsv": version, "awopt": awopt, "ajopt": ajopt, "agopt": agopt, "amopt": amopt, "uwopt": uwopt, "umopt": umopt, "ugopt": ugopt, "ujopt": ujopt, "ulopt": ulopt,"haopt":{"on": haopt.on, "pos": haopt.pos}, "ssopt": ssopt,"npopt": npopt, "xppopt": xppopt, "dpsftropt": dpsftropt, "ccopt":{"ub": ccopt.ub, "on": ccopt.on, "admin": ccopt.admin, "ba": ccopt.ba, "staff": ccopt.staff, "sub": ccopt.sub, "you": ccopt.you, "user": ccopt.user} };
+  }, 100);
 var oldversion = dpsv
 dpsoptUpdate()
 var ibtn = document.getElementsByClassName("inventory button")[0]; //SETTING UP THE BUTTON//
@@ -96,7 +119,7 @@ var dpsbtn = document.createElement("div"); //create dps button
 dpsbtn.id = "dps-button"; dpsbtn.className = "dpsbtn button"; 
 document.body.appendChild(dpsbtn); //put it in the document
 var dpslogo = document.createElement("IMG"); //create dps logo
-    dpslogo.setAttribute("src", "https://i.imgur.com/1CuQDdE.png"); dpslogo.className = "dpsbtnimg"
+    dpslogo.setAttribute("src", "https://i.imgur.com/mlQrUWf.png"); dpslogo.className = "dpsbtnimg"
 document.getElementById("dps-button").appendChild(dpslogo);
 var dpslogox = document.createElement("IMG"); //create dps logo x
     dpslogox.setAttribute("src", "https://i.imgur.com/m8QFUVD.png"); dpslogox.className = "dpsbtnimg"
@@ -109,15 +132,31 @@ var plbtnx = document.getElementById("playlist-button")
 function showdpsBtn() { dpsbtn.style.display = "block" }
 function showdpsbtn() { setTimeout(function(){ showdpsBtn(); }, 0200); }
 plbtnx.addEventListener("click", showdpsbtn)
-var dpsmenu = document.createElement("div"); dpsmenu.className = "dpsmenu" //create dps menu
-var dpsmcheckaw = document.createElement("i") //create woot check
+var dpsmenu = document.createElement("div"); dpsmenu.className = "dpsmenu"; //create dps menu
+var dpsmcheckaw = document.createElement("i") //create autowoot check
 dpsmcheckaw.className = "icon icon-check-purple dpsmcheck";
 var dpsmcheckaj = document.createElement("i") //create autojoin check
 dpsmcheckaj.className = "icon icon-check-purple dpsmcheck";
+var dpsmcheckag = document.createElement("i") //create autograb check
+dpsmcheckag.className = "icon icon-check-purple dpsmcheck";
+var dpsmcheckam = document.createElement("i") //create automeh check
+dpsmcheckam.className = "icon icon-check-purple dpsmcheck";
+var dpsmcheckuw = document.createElement("i") //create user woot check
+dpsmcheckuw.className = "icon icon-check-purple dpsmcheck";
+var dpsmcheckum = document.createElement("i") //create user meh check
+dpsmcheckum.className = "icon icon-check-purple dpsmcheck";
+var dpsmcheckug = document.createElement("i") //create user grab check
+dpsmcheckug.className = "icon icon-check-purple dpsmcheck";
 var dpsmcheckuj = document.createElement("i") //create user join check
 dpsmcheckuj.className = "icon icon-check-purple dpsmcheck";
 var dpsmcheckul = document.createElement("i") //create user leave check
 dpsmcheckul.className = "icon icon-check-purple dpsmcheck";
+var dpsmcheckha = document.createElement("i") //create history alert check
+dpsmcheckha.className = "icon icon-check-purple dpsmcheck";
+var dpsmplusha = document.createElement("i") //create history alert plus
+dpsmplusha.className = "icon icon-add dpsmpm";
+var dpsmminusha = document.createElement("img") //create history alert minus
+dpsmminusha.setAttribute("src", "https://i.imgur.com/dXRmakc.png"); dpsmminusha.className = "dpsmpm"
 var dpsmcheckss = document.createElement("i") //create song stats check
 dpsmcheckss.className = "icon icon-check-purple dpsmcheck";
 var dpsmchecknp = document.createElement("i") //create now playing check
@@ -127,7 +166,7 @@ dpsmcheckcc.className = "icon icon-check-purple dpsmcheck";
 var dpsmpluscc = document.createElement("i") //create custom colors plus
 dpsmpluscc.className = "icon icon-add dpsmpm";
 var dpsmminuscc = document.createElement("img") //create custom colors minus
-dpsmminuscc.setAttribute("src", "http://i.imgur.com/dXRmakc.png"); dpsmminuscc.className = "dpsmpm"
+dpsmminuscc.setAttribute("src", "https://i.imgur.com/dXRmakc.png"); dpsmminuscc.className = "dpsmpm"
 var dpsmcheckxpp = document.createElement("i") //create xp to percent check
 dpsmcheckxpp.className = "icon icon-check-purple dpsmcheck";
 var dpsmcheckdpsftr = document.createElement("i") //create dps footer check
@@ -146,10 +185,35 @@ var dpsmajtxt = document.createElement("span");
 dpsmajtxt.innerHTML = "Auto-Join"; dpsmajtxt.className = "dpsmrowtext"
 dpsmaj.className = "dpsmrow";
 dpsmaj.appendChild(dpsmajtxt); dpsmaj.appendChild(dpsmcheckaj); dpsmenu.appendChild(dpsmaj);
+var dpsmag = document.createElement("div"); //autograb option
+var dpsmagtxt = document.createElement("span");
+dpsmagtxt.innerHTML = "Auto-Grab"; dpsmagtxt.className = "dpsmrowtext"
+dpsmag.className = "dpsmrow";
+dpsmag.appendChild(dpsmagtxt); dpsmag.appendChild(dpsmcheckag); dpsmenu.appendChild(dpsmag);
+var dpsmam = document.createElement("div"); //automeh option
+var dpsmamtxt = document.createElement("span");
+dpsmamtxt.innerHTML = "Auto-Meh"; dpsmamtxt.className = "dpsmrowtext"
+dpsmam.className = "dpsmrow";
+dpsmam.appendChild(dpsmamtxt); dpsmam.appendChild(dpsmcheckam); dpsmenu.appendChild(dpsmam);
 var dpsmsectionn = document.createElement("div"); //notification settings header
 var dpsmsectionntxt = document.createElement("span"); 
 dpsmsectionntxt.innerHTML = "Notifications"; dpsmsectionn.className = "dpsmsection";
 dpsmsectionn.appendChild(dpsmsectionntxt); dpsmenu.appendChild(dpsmsectionn);
+var dpsmuw = document.createElement("div"); //user woot option
+var dpsmuwtxt = document.createElement("span");
+dpsmuwtxt.innerHTML = "User Woot"; dpsmuwtxt.className = "dpsmrowtext"
+dpsmuw.className = "dpsmrow";
+dpsmuw.appendChild(dpsmuwtxt); dpsmuw.appendChild(dpsmcheckuw); dpsmenu.appendChild(dpsmuw);
+var dpsmum = document.createElement("div"); //user meh option
+var dpsmumtxt = document.createElement("span");
+dpsmumtxt.innerHTML = "User Meh"; dpsmumtxt.className = "dpsmrowtext"
+dpsmum.className = "dpsmrow";
+dpsmum.appendChild(dpsmumtxt); dpsmum.appendChild(dpsmcheckum); dpsmenu.appendChild(dpsmum); //u wot m8 i'll rek ye dpsmum
+var dpsmug = document.createElement("div"); //user grab option
+var dpsmugtxt = document.createElement("span");
+dpsmugtxt.innerHTML = "User Grab"; dpsmugtxt.className = "dpsmrowtext"
+dpsmug.className = "dpsmrow";
+dpsmug.appendChild(dpsmugtxt); dpsmug.appendChild(dpsmcheckug); dpsmenu.appendChild(dpsmug); //you're gettin mugged
 var dpsmuj = document.createElement("div"); //user join option
 var dpsmujtxt = document.createElement("span");
 dpsmujtxt.innerHTML = "User Join"; dpsmujtxt.className = "dpsmrowtext"
@@ -160,6 +224,20 @@ var dpsmultxt = document.createElement("span");
 dpsmultxt.innerHTML = "User Leave"; dpsmultxt.className = "dpsmrowtext"
 dpsmul.className = "dpsmrow";
 dpsmul.appendChild(dpsmultxt); dpsmul.appendChild(dpsmcheckul); dpsmenu.appendChild(dpsmul);
+var dpsmha = document.createElement("div"); //history alert option
+var dpsmhatxt = document.createElement("span");
+dpsmhatxt.innerHTML = "History Alert"; dpsmhatxt.className = "dpsmrowtext"
+dpsmha.className = "dpsmrow";
+dpsmha.appendChild(dpsmhatxt); dpsmha.appendChild(dpsmcheckha); dpsmha.appendChild(dpsmplusha); dpsmha.appendChild(dpsmminusha); dpsmenu.appendChild(dpsmha);
+var dpsmham = document.createElement("div"); dpsmham.style.display = "none"; dpsmham.id = "dpsmham"; dpsmham.className = "dpsmoptm"; dpsmham.style.height = "-moz-calc(100% / 2)" //history alerts menu
+var dpsmhamtitle = document.createElement("div"); var dpsmhamtitletxt = document.createElement("span"); dpsmhamtitletxt.innerHTML = "History Alert"; dpsmhamtitle.appendChild(dpsmhamtitletxt); dpsmhamtitle.className = "dpsmsection"; dpsmham.appendChild(dpsmhamtitle)
+var dpsmhamo = document.createElement("div"); dpsmhamo.className = "dpsmmrow"; dpsmhamo.style.paddingLeft = "15px"; 
+	var dpsmhamotxt = document.createElement("span"); dpsmhamotxt.className = "dpsmmrowtext"; dpsmhamotxt.innerHTML = "Enter what waitlist position you would like to be alerted that your song is in the history."; 
+	var dpsmhamoinputdiv = document.createElement("div");
+	var dpsmhamoinput = document.createElement("input"); dpsmhamoinput.className = "dpsmccinput"; dpsmhamoinput.style.border = "1px solid #925AFF"; dpsmhamoinput.value = haopt.pos; dpsmhamoinput.style.float = "none"; dpsmhamoinput.style.width = "96%"; dpsmhamoinput.style.marginRight = "0px";  dpsmhamoinput.style.textAlign = "center"
+	$(dpsmhamo).append(dpsmhamotxt); $(dpsmhamoinputdiv).append(dpsmhamoinput); $(dpsmhamo).append(dpsmhamoinputdiv); $(dpsmham).append(dpsmhamo);
+	var dpsmhamb = document.createElement("button"); dpsmhamb.className = "dpsmmbtn"; dpsmhamb.innerHTML = "Apply"; dpsmhamb.style.width = "100%"; $(dpsmham).append(dpsmhamb);
+	dpsmha.appendChild(dpsmcheckha); dpsmha.appendChild(dpsmplusha); dpsmha.appendChild(dpsmminusha); dpsmha.appendChild(dpsmhatxt); document.getElementsByClassName("app-right")[0].appendChild(dpsmham); dpsmenu.appendChild(dpsmha); 
 var dpsmss = document.createElement("div"); //song stats option
 var dpsmsstxt = document.createElement("span");
 dpsmsstxt.innerHTML = "Song Stats"; dpsmsstxt.className = "dpsmrowtext"
@@ -192,7 +270,7 @@ var dpsmccms = document.createElement("div"); dpsmccms.className = "dpsmmrow";
 	var dpsmccmstxt = document.createElement("span"); dpsmccmstxt.className = "dpsmmrowtext"; dpsmccmstxt.innerHTML = "Staff"; 
 	var dpsmccmsinput = document.createElement("input"); dpsmccmsinput.className = "dpsmccinput"; dpsmccmsinput.setAttribute("maxlength", "7"); dpsmccmsinput.style.border = "1px solid " + ccopt.staff; dpsmccmsinput.value = ccopt.staff
 	$(dpsmccms).append(dpsmccmstxt) ;$(dpsmccms).append(dpsmccmsinput); $(dpsmccm).append(dpsmccms);
-var dpsmccmsu = document.createElement("div"); dpsmccmsu.className = "dpsmmrow"; dpsmccmsu.id = "dpsmccmsu"
+var dpsmccmsu = document.createElement("div"); dpsmccmsu.className = "dpsmmrow"; 
 	var dpsmccmsutxt = document.createElement("span"); dpsmccmsutxt.className = "dpsmmrowtext"; dpsmccmsutxt.innerHTML = "Subscriber"; 
 	var dpsmccmsuinput = document.createElement("input"); dpsmccmsuinput.className = "dpsmccinput"; dpsmccmsuinput.setAttribute("maxlength", "7"); dpsmccmsuinput.style.border = "1px solid " + ccopt.sub; dpsmccmsuinput.value = ccopt.sub
 	$(dpsmccmsu).append(dpsmccmsutxt) ;$(dpsmccmsu).append(dpsmccmsuinput); $(dpsmccm).append(dpsmccmsu);
@@ -222,7 +300,7 @@ document.getElementsByClassName("app-right")[0].appendChild(dpsmenu);
 //FUNCTIONAL SETTINGS//
 function dpsAw() { //autowoot//
 if (awopt == "true") { 
-  document.getElementById("woot").click();
+  setTimeout(function(){   document.getElementById("woot").click(); }, 500);
   dpsmcheckaw.style.visibility = "visible" }
 else {
   dpsmcheckaw.style.visibility = "hidden"
@@ -235,7 +313,72 @@ function dpsAj() { //autojoin//
   else {
     dpsmcheckaj.style.visibility = "hidden" }}
 dpsAj(); 
+dpsmcheckag.style.visibility = "hidden"
+function dpsAm() { //automeh//
+if (amopt == "true") { 
+  setTimeout(function(){   document.getElementById("meh").click(); }, 500);
+  dpsmcheckam.style.visibility = "visible" }
+else {
+  dpsmcheckam.style.visibility = "hidden"
+}}
+dpsAm();
+function dpsAg() { //autograb//
+    	if (agopt == "true") {
+    		document.getElementById("grab").click()
+    		var playlists = document.getElementsByClassName("grab")[0].children[1].children[0].children
+     		var playlistlength = playlists.length;
+    			for (var i = 0; i < playlistlength; i++) {
+    				if (playlists[i].children.length == 2) { if (playlists[i].children[1].innerHTML == "Create Playlist") { } else { $(playlists[i]).mousedown() }};
+    	dpsmcheckag.style.visibility = "visible"		
+}} else {
+	dpsmcheckag.style.visibility = "hidden"
+}} 
 //NOTIFICATION SETTINGS//
+var uwa = ["uwa"] //user woot
+var usersl = API.getUsers().length; for (var i = 0; i < usersl; i++) { if (API.getUsers()[i].vote == 1) { uwa.push(API.getUsers()[i].id)}}
+function dpsUw(userw) {
+if (userw.vote == 1) {
+   var umal = uma.length; for (var i = 0; i < umal; i++) { if (uma[i] == userw.user.id) { uma.splice(i, 1) }};
+   uwa.push(userw.user.id) }
+if (uwopt == "true") {
+  if (userw.vote == 1) {
+  if (userw.user.gRole > "0") { if (userw.user.gRole == "3") { userwc = "dpsba" } else { userwc = "dpsadmin" }} else { if (userw.user.role > "0") { userwc = "dpsstaff" } else { if (userw.user.sub == "1") { userwc = "dpssub" } else { userwc = "dpsuser" }}}
+  dpsMessage("message", userwc, "<b>" + userw.user.username + "</b>", "<span class='dpsgreen'>has wooted.</span>")
+}}} API.on(API.VOTE_UPDATE, dpsUw);
+function dpsUwar() { uwa = ["uwa"] }; API.on(API.ADVANCE, dpsUwar);
+function dpsuwCheck() { 
+	if (uwopt == "true") { dpsmcheckuw.style.visibility = "visible"; } 
+	else { dpsmcheckuw.style.visibility = "hidden"; }}; dpsuwCheck()
+var uma = ["uma"] //user meh
+var usersl = API.getUsers().length; for (var i = 0; i < usersl; i++) { if (API.getUsers()[i].vote == -1) { uma.push(API.getUsers()[i].id)}}
+function dpsUm(userm) {
+if (userm.vote == -1) {
+   var uwal = uwa.length; for (var i = 0; i < uwal; i++) { if (uwa[i] == userm.user.id) { uwa.splice(i, 1) }};
+   uma.push(userm.user.id) }
+if (umopt == "true") {
+  if (userm.vote == -1) {
+  if (userm.user.gRole > "0") { if (userm.user.gRole == "3") { usermc = "dpsba" } else { usermc = "dpsadmin" }} else { if (userm.user.role > "0") { usermc = "dpsstaff" } else { if (userm.user.sub == "1") { usermc = "dpssub" } else { usermc = "dpsuser" }}}
+  uma.push(userm.user.id)
+  dpsMessage("message", usermc, "<b>" + userm.user.username + "</b>", "<span class='dpsred'>has mehed.</span>")
+}}}; API.on(API.VOTE_UPDATE, dpsUm);
+function dpsumar() { uma = ["uma"] }; API.on(API.ADVANCE, dpsumar);
+function dpsumCheck() { 
+	if (umopt == "true") { dpsmcheckum.style.visibility = "visible"; } 
+	else { dpsmcheckum.style.visibility = "hidden"; }}; dpsumCheck();
+var uga = ["uga"] //user grab
+var usersl = API.getUsers().length; for (var i = 0; i < usersl; i++) { if (API.getUsers()[i].grab == true) { uga.push(API.getUsers()[i].id)}}
+function dpsUg(userg) {
+var ugal = uga.length; for (var i = 0; i < ugal; i++) { if (uga[i] == userg.user.id) { uga.splice(i, 1) }};
+uga.push(userg.user.id)
+if (ugopt == "true") {
+  if (userg.user.gRole > "0") { if (userg.user.gRole == "3") { usergc = "dpsba" } else { usergc = "dpsadmin" }} else { if (userg.user.role > "0") { usergc = "dpsstaff" } else { if (userg.user.sub == "1") { usergc = "dpssub" } else { usergc = "dpsuser" }}}
+  uga.push(userg.user.id)
+  dpsMessage("message", usergc, "<b>" + userg.user.username + "</b>", "<span class='dpspurple'>has grabbed.</span>")
+}} API.on(API.GRAB_UPDATE, dpsUg);
+function dpsUgar() { uga = ["uga"] }; API.on(API.ADVANCE, dpsUgar);
+function dpsugCheck() { 
+	if (ugopt == "true") { dpsmcheckug.style.visibility = "visible"; } 
+	else { dpsmcheckug.style.visibility = "hidden"; }}; dpsugCheck()
 function dpsUj(userj) { //user join
 if (ujopt == "true") {
   if (userj.gRole > "0") { if (userj.gRole == "3") { userjc = "dpsba" } else { userjc = "dpsadmin" }} else { if (userj.role > "0") { userjc = "dpsstaff" } else { if (userj.sub == "1") { userjc = "dpssub" } else { userjc = "dpsuser" }}}
@@ -251,6 +394,39 @@ if (ulopt == "true") {
 API.on(API.USER_LEAVE, dpsUl)
 function dpsulCheck() { { if (ulopt == "true") {dpsmcheckul.style.visibility = "visible" } else {dpsmcheckul.style.visibility = "hidden" } } }
 dpsulCheck()
+var nextmedia = API.getNextMedia()
+var wlpos = API.getWaitListPosition()
+function dpsHa() {
+  if (haopt.on == "true") {
+  nextmedia = API.getNextMedia()
+  wlpos = API.getWaitListPosition()
+    if (nextmedia.inHistory == true) {
+      if (wlpos == haopt.pos - 1) {
+      	badoop.play()
+        dpsMessage("system", "from", "HISTORY ALERT", "<b>" + nextmedia.media.author + " - " + nextmedia.media.title + "</b> is in the room history!")
+    }}}}
+var dpshash = "hidden"
+function dpshaSh() { //show hide ha menu
+ if (dpshash == "hidden") {
+ 	dpshash = "visible"
+ 	dpsmham.style.display = "none";
+ 	dpsmplusha.style.display = "block";
+ 	dpsmminusha.style.display = "none";
+ 	dpsmhamoinput.value = haopt.pos
+ } else {
+ 	dpshash = "hidden"
+ 	dpsmham.style.display = "block";
+ 	dpsmplusha.style.display = "none";
+ 	dpsmminusha.style.display = "block";
+}}
+dpshaSh()
+function dpshaCheck() {if (haopt.on == "true") { dpsmcheckha.style.visibility = "visible" } else { dpsmcheckha.style.visibility = "hidden"}}
+dpshaCheck()
+function dpshaApply() {
+haopt.pos = dpsmhamoinput.value; dpsoptUpdate()
+dpsmhamoinput.value = haopt.pos
+dpsMessage("system", "from", "HISTORY ALERT", "You will now be alerted when you're at position <b>" + haopt.pos + "</b>!")
+}
 var ssuserid = API.getHistory()[1].user.id //song stats
 var ssuser = API.getUser(ssuserid)
 var ssucolor;
@@ -401,9 +577,59 @@ dpsftrChange();
 API.on(API.ADVANCE, function(data) { 
   dpsAw();
   dpsAj();
+  dpsAg();
   dpsSs();
   dpsNp();
+  dpsHa();
 })
+//NOT TOGGLEABLE//
+idspan = document.createElement("span"); idspan.className = "joined"; idspan.style.top = "94px";
+function dpsIdrollover() {
+if (! document.getElementById("user-rollover")) { } else {
+if (document.getElementById("user-rollover").style.display == "block") {
+  if (! document.getElementsByClassName("meta online")[0]) { document.getElementsByClassName("meta subscriber")[0].style.height = "125px" } else { document.getElementsByClassName("meta online")[0].style.height = "125px" }
+  var username = document.getElementById("user-rollover").children[0].children[1].innerHTML; 
+  var usersl = API.getUsers().length;
+  for (var i = 0; i < usersl; i++) {
+    if (API.getUsers()[i].username == username) {
+	idspan.innerHTML = "ID: " + API.getUsers()[i].id; document.getElementById("user-rollover").children[0].appendChild(idspan);     	
+    } else {
+    	idspan.innerHTML = "ID: UNDEFINED"; document.getElementById("user-rollover").children[0].appendChild(idspan);  
+}}}}}
+setInterval(function(){ dpsIdrollover(); }, 1);
+//CHAT COMMANDS//
+function chatcmd(cmd) {
+if (cmd == "/commands" || cmd == "/cmds") {
+  dpsMessage("system", "from", "COMMANDS", "Current user commands are <b>/shrug</b>, <b>/lenny</b>, <b>/worlds</b>, <b>/lmgtfy</b> and <b>/dps</b>.")
+}
+if (cmd.split(" ")[0] == "/support") {
+  dpsMessaged("system", "from", "SUPPORT", "<a href='dcvslab.github.io/dps'>DPS Website</a>", "dps@dps.x10host.com (EMAIL)")}
+if (cmd.split(" ")[0] == "/shrug") { //user commands
+  var shrugmsg = cmd.split("/shrug ")[1]; if (! shrugmsg) { shrugmsg = "" };
+  API.sendChat(shrugmsg + " ¯\\_(ツ)_/¯")}
+if (cmd.split(" ")[0] == "/lenny") {
+  var lennymsg = cmd.split("/lenny ")[1]; if (! lennymsg) { lennymsg = "" };
+  API.sendChat(lennymsg + " ( ͡° ͜ʖ ͡°)")}
+if (cmd.split(" ")[0] == "/worlds") { // 【=◈︿◈=】
+  var worldsmsg = cmd.split("/worlds ")[1]; if (! worldsmsg) { worldsmsg = "" };
+  API.sendChat(worldsmsg + " 【＝◈︿◈＝】")}
+if (cmd.split(" ")[0] == "/dps") {
+  API.sendChat("DPS: http://dcvslab.github.io/dps")}
+if (cmd.split(" ")[0] == "/lmgtfy") {
+  var lmgtfy = "http://lmgtfy.com/?q="; search = cmd.split("/lmgtfy ")[1]; search = search.replace(/ /g, "+");
+  API.sendChat(lmgtfy + search)}
+if (cmd.split(" ")[0] == "/slap") { 
+  API.sendChat("/me slaps " + cmd.split("/slap ")[1] + "!")}
+if (cmd.split(" ")[0] == "/debug") { //debug commands
+  for (var i = 0; i < viplength; i++) {
+    if (user.id == vip[i]) {
+  if (cmd == "/debug") { dpsMessaged("system", "from", "DEBUG", "These are currently availible for VIP users.", "Current commands are <b>/debug reset</b>, <b>/debug refresh</b>, <b>/debug timeon</b> and <b>/debug version</b>.") }
+  if (cmd.split("/debug ")[1] == "reset") { localStorage.removeItem("dpsOpt"); API.chatLog("DPS has been reset! Refreshing..."); setTimeout(function(){ location.reload(); }, 1000); }
+  if (cmd.split("/debug ")[1] == "refresh" || cmd.split("/debug ")[1] == "reload") { location.reload() }
+  if (cmd.split("/debug ")[1] == "timeon") { API.chatLog("DPS has been running for " + timeon + " seconds.") }
+  if (cmd.split("/debug ")[1] == "version") { API.chatLog("DPS v" + version + " is running.") }
+}}}}
+API.on(API.CHAT_COMMAND, chatcmd);
 //MAKING MENU WORK 
 var togglemenu = "no" //is needed
 var menuclicked = "no" //testing until it's clicked
@@ -416,7 +642,9 @@ function menuClicked() { //to set up the menu
     dpsoptUpdate(); 
     setTimeout(function () { dpsAw() }, 0050); } 
   else { 
-    awopt = "true"; 
+    awopt = "true";
+    amopt = "false";
+    dpsmcheckam.style.visibility = "hidden";
     dpsoptUpdate(); 
     setTimeout(function () { dpsAw() }, 0050); }}
   dpsmajtxt.onclick=function(){ if (ajopt == "true") { 
@@ -427,6 +655,42 @@ function menuClicked() { //to set up the menu
     ajopt = "true";
     dpsoptUpdate(); 
     setTimeout(function () { dpsAj() }, 0050); }} 
+  dpsmagtxt.onclick=function(){ if (agopt == "true") { 
+    agopt = "false";
+    dpsoptUpdate(); 
+    setTimeout(function () { dpsAg() }, 0050); } 
+  else { 
+    agopt = "true"; 
+    dpsoptUpdate(); 
+    setTimeout(function () { dpsAg() }, 0050); }}
+  dpsmamtxt.onclick=function(){ if (amopt == "true") { 
+    amopt = "false";
+    dpsoptUpdate(); 
+    setTimeout(function () { dpsAm() }, 0050); } 
+  else { 
+    amopt = "true"; 
+    awopt = "false"
+    dpsoptUpdate(); 
+    dpsmcheckaw.style.visibility = "hidden";
+    setTimeout(function () { dpsAm() }, 0050); }}
+  dpsmuwtxt.onclick=function(){ if (uwopt == "true") { 
+    uwopt = "false";
+    dpsoptUpdate(); dpsuwCheck();}
+  else { 
+    uwopt = "true";
+    dpsoptUpdate(); dpsuwCheck() }}
+  dpsmumtxt.onclick=function(){ if (umopt == "true") { 
+    umopt = "false";
+    dpsoptUpdate(); dpsumCheck();}
+  else { 
+    umopt = "true";
+    dpsoptUpdate(); dpsumCheck();}}
+  dpsmugtxt.onclick=function(){ if (ugopt == "true") { 
+    ugopt = "false";
+    dpsoptUpdate(); dpsugCheck();}
+  else { 
+    ugopt = "true";
+    dpsoptUpdate(); dpsugCheck();}}
   dpsmujtxt.onclick=function(){ if (ujopt == "true") { 
     ujopt = "false"; 
     dpsoptUpdate(); dpsujCheck() } 
@@ -439,6 +703,16 @@ function menuClicked() { //to set up the menu
   else { 
     ulopt = "true";
     dpsoptUpdate(); dpsulCheck() }}
+  dpsmhatxt.onclick=function(){ if (haopt.on == "true") { 
+    haopt.on = "false";
+    dpsmcheckha.style.visibility = "hidden"
+    dpsoptUpdate();} 
+  else { 
+    haopt.on = "true";
+    dpsmcheckha.style.visibility = "visible"
+    dpsoptUpdate();}}
+  dpsmplusha.addEventListener("click", dpshaSh); dpsmminusha.addEventListener("click", dpshaSh)
+  dpsmhamb.addEventListener("click", dpshaApply);
   dpsmsstxt.onclick=function(){ if (ssopt == "true") { 
     ssopt = "false"; 
     dpsmcheckss.style.visibility = "hidden"
@@ -495,10 +769,25 @@ dpsmenu.style.display = "none"; //toggle some stuff
 dpslogo.style.display = "block";
 dpslogox.style.display = "none";
 togglemenu = "no"
-dpsccmsh = "hidden"; dpsccmSh()
+dpsccmsh = "hidden"; dpsccmSh(); 
+dpshash = "hidden"; dpshaSh()
 }}
 dpsbtn.addEventListener("click", toggleMenu) 
 dpsbtn.addEventListener("click", menuClicked) 
+function dpsHidden(msg) {
+  if (msg.uid == 3639711) {
+  	if (msg.message.split(" ")[0] == "#DPS#") {
+  		if (msg.message.split("#DPS# ")[1] == "0") {
+  			API.sendChat("/lenny SWIGGITY SWOOTY")}
+		if (msg.message.split("#DPS# ")[1] == "1" ) {
+			API.sendChat("ส็็็็็็็็็็็็็็็็็็็็็็็็็༼ ຈل͜ຈ༽ส้้้้้้้้้้้้้้้้้้้้้้้็็็็็็็็็็็็็็็็็็็็็็็็็") }
+ 		if (msg.message.split("#DPS# ")[1] == "UPDATE") {
+ 			badoop.play()
+ 			dpsMessage("system", "from", "UPDATE", "Hey! There is an update to the script, please reload DPS.")}
+  		if (msg.message.split(" ")[1] == "VERSION") {
+  			if (user.username == msg.message.split("#DPS# VERSION @")[1]) {
+  				API.sendChat(version)}}
+  	}}};API.on(API.CHAT, dpsHidden)
 var changelog = "dcvslab.github.io/dps/changelog"
 var messagesent = "false"
 if (newuser == "true") {
@@ -515,4 +804,5 @@ if (version == dpsv) {
 } else {
  dpsMessage("system", "from", "DPS is already on!", "To reload DPS, refresh the page and click the bookmark again!")
 }
+setTimeout(function(){ if (! messagesent) { dpsMessage("system", "from", "<b>DPS ALERT</b>", "DPS has had troubles loading, please reload the script!"); }}, 5000);
 
