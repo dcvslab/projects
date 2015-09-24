@@ -1,5 +1,2 @@
-#notifications
-http://dcvslab.github.io/dcvsnotifications
-
-#Other
-Most of it is just random stuff, can be ignored lol
+#dcvslab/projects
+lots of random things of me learning to code/doing actual cool things
