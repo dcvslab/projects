@@ -107,6 +107,3 @@ server.onmessage = function(event) {
                 $("#chat-text").scrollTop($("#chat-text")[0].scrollHeight);
         }
     };
-
-    sidebarInit();
-}
