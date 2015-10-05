@@ -103,7 +103,13 @@ server.onmessage = function(event) {
             break;
             case "chat":
                 console.log(data);
+                if (data.message.indexOf("@" + display_name) > -1) { 
+                        console.log(data.sender + " has tagged you with the message" + data.message)
                 $("#chat-text").append('<span class="chat-message-wrapper"><span class="chat-message-sender">' + data.sender + '</span><span class="chat-message-text">' + data.message + '</span></span>');
                 $("#chat-text").scrollTop($("#chat-text")[0].scrollHeight);
+                } else {
+                                   $("#chat-text").append('<span class="chat-message-wrapper"><span class="chat-message-sender">' + data.sender + '</span><span class="chat-message-text">' + data.message + '</span></span>');
+                $("#chat-text").scrollTop($("#chat-text")[0].scrollHeight);     
+                }
         }
     };
