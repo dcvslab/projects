@@ -103,7 +103,7 @@ server.onmessage = function(event) {
             break;
             case "chat":
                 console.log(data);
-                if (data.message.indexOf("@" + display_name) > -1) { 
+                if (data.message.toLowerCase().indexOf("@" + display_name) > -1) { 
                 var audio = new Audio('https://rawgit.com/dcvslab/dcvslab.github.io/master/badoop.mp3'); audio.play();
                 var chatmessage = data.message.replace("@" + display_name, "<b>@" + display_name + "</b>")
                 $("#chat-text").append('<span class="chat-message-wrapper chat-tag"><span class="chat-message-sender">' + data.sender + '</span><span class="chat-message-text">' + chatmessage + '</span></span>');
