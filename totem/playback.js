@@ -16,8 +16,10 @@ duration = 60;
 room = window.location.pathname.replace("/room/", "");
 mode = 0;
 nothing_playing = true;
+my_vote = 0;
 
 songHistory = [];
+disconnect_timer = 3;
 
 last_title = "";
 last_artist = "";
@@ -25,6 +27,10 @@ last_url_fragment = "";
 started_at = 0;
 my_queue = [];
 in_queue = false;
+
+function onDisconnect() {
+
+}
 
 function togglePlayerVisibility() {
     if(player_is_visible) {
@@ -56,20 +62,6 @@ function togglePlayerVisibility() {
 function zeroPad(num, places) {
     var zero = places - num.toString().length + 1;
     return Array(+(zero > 0 && zero)).join("0") + num;
-}
-
-function updateSidebar() {
-    var sidebar_div = $("#sidebar-history");
-    sidebar_div.empty();
-    for(var i = 0; i < songHistory.length; i++) {
-        var data = songHistory[i];
-        sidebar_div.append(
-            '<div class="video-option">' +
-            '   <div class="video-image"><img src="' + data.image_url + '"></div>' +
-            '   <div class="video-title">' + data.title + '</div>' +
-            '   <div class="video-subtitle">' + data.author + ' · ' + data.room + '</div>' +
-            '</div>');
-    }
 }
 
 function switchMode(new_mode) {
@@ -243,6 +235,15 @@ function setScore(positive, negative) {
 }
 
 function vote(type) {
+    $(".activated").removeClass("activated");
+    switch(type) {
+        case -1:
+            $(".score-negative-wrapper").addClass("activated");
+        break;
+        case 1:
+            $(".score-positive-wrapper").addClass("activated");
+        break;
+    }
     server.send(JSON.stringify({
         event: "vote",
         key: authkey,
@@ -262,7 +263,16 @@ function finishInit() {
     };
 
     server.onclose = function() {
-        window.location.reload();
+        $("#disconnected").removeAttr("hidden");
+        $("#background_shader").css("z-index", "150");
+        $("#background_shader").css("background", 'radial-gradient(transparent, black), rgba(0, 0, 0, 0.6) no-repeat 100% center fixed');
+        setInterval(function() {
+            disconnect_timer--;
+            $("#disconnected-countdown").html(disconnect_timer);
+            if(disconnect_timer == 0) {
+                window.location.reload();
+            }
+        }, 1000);
     };
 
     server.onmessage = function(event) {
@@ -280,7 +290,7 @@ function finishInit() {
                 $("#room-description").html(data.description);
                 $(".room-title").html(data.display_name);
                 $("#room-users").html(data.user_counter);
-                $("#room-queue").html(0);
+                $("#room-queue").html(data.queue_counter);
                 if(data.song) {
                     started = data.song.started_at;
                     now = Math.floor(Date.now() / 1000);
@@ -313,7 +323,7 @@ function finishInit() {
                 $("#room-queue").html(data.queue_size);
             break;
             case "notification":
-                var n = noty({
+                noty({
                     text: data.text,
                     theme: 'relax',
                     dismissQueue: true,
@@ -328,13 +338,8 @@ function finishInit() {
             break;
             case "song_change":
                 updateMyQueue();
-                songHistory.push({
-                    image_url: data.song.picture_url,
-                    title: data.song.name,
-                    author: data.song.artist,
-                    url_fragment: data.song.url_fragment
-                });
-                updateSidebar();
+                $(".activated").removeAttr("activated");
+                $(".history-content").append('<li class="list-group-item playlist" onclick="loadVideo(\'' + data.song.url_fragment + '\', \'' + data.song.name.replace("'", "&quot;") + '\', \'' + data.song.artist.replace("'", "&quot;") + '\')"><img class="playlist-item-thumbnail" src="' + data.song.picture_url + '"><div class="playlist-item-metadata-container"><span class="playlist-item-title">' + data.song.name + '</span><span class="playlist-item-artist-container">by <span class="playlist-item-artist">' + data.song.artist.replace("'", "&quot;") + '</span></span></div></li>');
                 if(mode == 0) {
                     loadVideoById(data.song.url_fragment, 0);
 
@@ -369,14 +374,11 @@ function finishInit() {
             break;
             case "chat":
                 console.log(data);
-                console.log(data.sender.toString())
-                var messageclass = ""
-                var senderclass = ""
+                chatmessage = data.message
                 if(data.message.toLowerCase().indexOf("@" + display_name) > -1) {
-                    var messageclass = messageclass + " chat-tag "
                     var audio = new Audio('https://rawgit.com/dcvslab/dcvslab.github.io/master/badoop.mp3'); audio.play();
                     var chatmessage = data.message.replace("@" + display_name, "<b>@" + display_name + "</b>")
-                    var n = noty({
+                    noty({
                         text: data.sender + ": " + chatmessage,
                         theme: 'relax',
                         dismissQueue: true,
@@ -389,16 +391,17 @@ function finishInit() {
                         timeout: 5000
                     });
                 }
-                if (data.sender.toLowerCase().toString() == "dcv" || "williamtdr") {
-                        var senderclass = senderclass + " chat-dev "
+                var senderclass = "";
+                if(data.sender.toLowerCase().toString() == "dcv" || data.sender.toLowerCase().toString() == "williamtdr") {
+                    var senderclass = senderclass + " chat-dev "
                 }
-                if (data.sender.toLowerCase() == display_name) {
-                        var senderclass = senderclass + " chat-you "
+                if(data.sender.toLowerCase() == display_name) {
+                    var senderclass = senderclass + " chat-you "
                 }
-                    $("#chat-text").append('<span class="chat-message-wrapper' + messageclass + '"><span class="chat-message-sender' + senderclass + '">' + data.sender + '</span><span class="chat-message-text">' + data.message + '</span></span>');
+                    $("#chat-text").append('<span class="chat-message-wrapper"><span class="chat-message-sender' + senderclass + '">' + data.sender + '</span> <span class="chat-message-text">' + linkify(data.message, { callback: function( text, href ) { return href ? '<a target="_blank" href="' + href + '" title="' + href + '">' + text + '</a>' : text;}}) + '</span></span>');
                     $("#chat-text").scrollTop($("#chat-text")[0].scrollHeight);
                 }
-        } //END SERVER.ONMESSAGE
+        }
     };
 
     sidebarInit();
