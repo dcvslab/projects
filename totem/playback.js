@@ -369,6 +369,7 @@ function finishInit() {
             break;
             case "chat":
                 console.log(data);
+                console.log(data.sender.toString())
                 var messageclass = ""
                 var senderclass = ""
                 if(data.message.toLowerCase().indexOf("@" + display_name) > -1) {
@@ -389,15 +390,15 @@ function finishInit() {
                     });
                 }
                 if (data.sender.toLowerCase().toString() == "dcv" || "williamtdr") {
-                        var senderclass = " chat-dev "
+                        var senderclass = senderclass + " chat-dev "
                 }
                 if (data.sender.toLowerCase() == display_name) {
-                        var senderclass = " chat-you "
+                        var senderclass = senderclass + " chat-you "
                 }
                     $("#chat-text").append('<span class="chat-message-wrapper' + messageclass + '"><span class="chat-message-sender' + senderclass + '">' + data.sender + '</span><span class="chat-message-text">' + data.message + '</span></span>');
                     $("#chat-text").scrollTop($("#chat-text")[0].scrollHeight);
                 }
-        }
+        } //END SERVER.ONMESSAGE
     };
 
     sidebarInit();
