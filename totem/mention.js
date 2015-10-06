@@ -104,11 +104,24 @@ server.onmessage = function(event) {
             case "chat":
                 console.log(data);
                 if (data.message.indexOf("@" + display_name) > -1) { 
-                        console.log(data.sender + " has tagged you with the message" + data.message)
-                $("#chat-text").append('<span class="chat-message-wrapper"><span class="chat-message-sender">' + data.sender + '</span><span class="chat-message-text">' + data.message + '</span></span>');
+                var audio = new Audio('https://rawgit.com/dcvslab/dcvslab.github.io/master/badoop.mp3'); audio.play();
+                var chatmessage = data.message.replace("@" + display_name, "<b>@" + display_name + "</b>")
+                $("#chat-text").append('<span class="chat-message-wrapper chat-tag"><span class="chat-message-sender">' + data.sender + '</span><span class="chat-message-text">' + chatmessage + '</span></span>');
                 $("#chat-text").scrollTop($("#chat-text")[0].scrollHeight);
+                                    var n = noty({
+                        text: data.sender + ": " + chatmessage,
+                        theme: 'relax',
+                        dismissQueue: true,
+                        type: "information",
+                        layout: "topRight",
+                        animation: {
+                            open: {height: 'toggle'},
+                            close: {height: 'toggle'}
+                        },
+                        timeout: 5000
+                    });
                 } else {
-                                   $("#chat-text").append('<span class="chat-message-wrapper"><span class="chat-message-sender">' + data.sender + '</span><span class="chat-message-text">' + data.message + '</span></span>');
+                $("#chat-text").append('<span class="chat-message-wrapper"><span class="chat-message-sender">' + data.sender + '</span><span class="chat-message-text">' + data.message + '</span></span>');
                 $("#chat-text").scrollTop($("#chat-text")[0].scrollHeight);     
                 }
         }
