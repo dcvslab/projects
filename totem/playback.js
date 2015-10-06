@@ -388,13 +388,13 @@ function finishInit() {
                         timeout: 5000
                     });
                 }
-                if (data.sender.toLowerCase() == "dcv" || "williamtdr") {
+                if (data.sender.toLowerCase().toString() == "dcv" || "williamtdr") {
                         var senderclass = " chat-dev "
                 }
                 if (data.sender.toLowerCase() == display_name) {
                         var senderclass = " chat-you "
                 }
-                    $("#chat-text").append('<span class="chat-message-wrapper"' + messageclass + '"><span class="chat-message-sender' + senderclass + '">' + data.sender + '</span><span class="chat-message-text">' + data.message + '</span></span>');
+                    $("#chat-text").append('<span class="chat-message-wrapper' + messageclass + '"><span class="chat-message-sender' + senderclass + '">' + data.sender + '</span><span class="chat-message-text">' + data.message + '</span></span>');
                     $("#chat-text").scrollTop($("#chat-text")[0].scrollHeight);
                 }
         }
