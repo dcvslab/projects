@@ -391,6 +391,34 @@ function finishInit() {
                         timeout: 5000
                     });
                 }
+                if (chatmessage.indexOf("*") > -1) {
+                    var asterisktally = 0
+                    var msplit = chatmessage.split("")
+                    var msplitl = msplit.length;
+                        for (var i = 0; i < msplitl; i++) {
+                            if (msplit[i] == "*") {
+                                if (asterisktally == 0) {
+                                    chatmessage = chatmessage.replace("*", "<b>"); asterisktally = 1
+                                } else {
+                                    chatmessage = chatmessage.replace("*", "</b>"); asterisktally = 0
+                                }
+                            }
+                        }
+                }
+                if (chatmessage.indexOf("_") > -1) {
+                    var uscoretally = 0
+                    var msplit = chatmessage.split("")
+                    var msplitl = msplit.length;
+                        for (var i = 0; i < msplitl; i++) {
+                            if (msplit[i] == "_") {
+                                if (uscoretally == 0) {
+                                    chatmessage = chatmessage.replace("_", "<i>"); uscoretally = 1
+                                } else {
+                                    chatmessage = chatmessage.replace("_", "</i>"); uscoretally = 0
+                                }
+                            }
+                        }
+                }
                 var senderclass = "";
                 if(data.sender.toLowerCase().toString() == "dcv" || data.sender.toLowerCase().toString() == "williamtdr") {
                     var senderclass = senderclass + " chat-dev "
@@ -398,7 +426,7 @@ function finishInit() {
                 if(data.sender.toLowerCase() == display_name) {
                     var senderclass = senderclass + " chat-you "
                 }
-                    $("#chat-text").append('<span class="chat-message-wrapper"><span class="chat-message-sender' + senderclass + '">' + data.sender + '</span> <span class="chat-message-text">' + linkify(data.message, { callback: function( text, href ) { return href ? '<a target="_blank" href="' + href + '" title="' + href + '">' + text + '</a>' : text;}}) + '</span></span>');
+                    $("#chat-text").append('<span class="chat-message-wrapper"><span class="chat-message-sender' + senderclass + '">' + data.sender + '</span> <span class="chat-message-text">' + linkify(chatmessage, { callback: function( text, href ) { return href ? '<a target="_blank" href="' + href + '" title="' + href + '">' + text + '</a>' : text;}}) + '</span></span>');
                     $("#chat-text").scrollTop($("#chat-text")[0].scrollHeight);
                 }
         }
