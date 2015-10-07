@@ -14,6 +14,7 @@ last_author = "";
 ctime = 0;
 duration = 60;
 room = window.location.pathname.replace("/room/", "");
+force_room = false;
 mode = 0;
 nothing_playing = true;
 my_vote = 0;
@@ -66,6 +67,8 @@ function zeroPad(num, places) {
 
 function switchMode(new_mode) {
     mode = new_mode;
+    $("#now_playing_content").removeAttr("hidden");
+    $("#now_playing_placeholder").attr("hidden", "hidden");
     if(new_mode == 1) {
         $("#in-room").attr("hidden", "hidden");
         $("#manual").removeAttr("hidden");
@@ -87,6 +90,16 @@ function loadVideo(id, title, artist) {
     loadVideoById(id, 0);
     $("#main_content").removeAttr("hidden");
     $("#no_video").attr("hidden", "hidden");
+    $("#my_music").attr("hidden", "hidden");
+    $("#room_list").attr("hidden", "hidden");
+    $("#now_playing").removeAttr("hidden");
+    $("#now_playing_content").removeAttr("hidden");
+    $("#now_playing_placeholder").attr("hidden", "hidden");
+    $("#background_shader").animate({
+        opacity: 0.7
+    }, 1000, function() {
+        // Animation complete.
+    });
 
     advanceBackgroundImage();
 }
@@ -129,6 +142,34 @@ function onPlayerStateChange(event) {
     }
 
     updateMyQueue();
+}
+
+function addToQueueById(id, title, artist) {
+    in_queue = true;
+    $("#in-room").attr("hidden", "hidden");
+    $("#manual").attr("hidden", "hidden");
+    $("#queue-container").removeAttr("hidden");
+    my_queue.push({
+        id: id,
+        title: title,
+        artist: artist
+    });
+
+    server.send(JSON.stringify({
+        "event": "queue",
+        "song": {
+            url_fragment: id
+        },
+        "key": authkey
+    }));
+
+    updateMyQueue();
+    switchMode(0);
+    if(nothing_playing) {
+        $(".queue-status").removeAttr("hidden");
+    } else {
+        $(".queue-status").attr("hidden", "hidden");
+    }
 }
 
 function addCurrentSongToQueue() {
@@ -254,14 +295,6 @@ function vote(type) {
 function finishInit() {
     server = new WebSocket('ws://totem.fm:10000/', 'echo-protocol');
 
-    server.onopen = function() {
-        server.send(JSON.stringify({
-            event: "login",
-            key: authkey,
-            room: room
-        }));
-    };
-
     server.onclose = function() {
         $("#disconnected").removeAttr("hidden");
         $("#background_shader").css("z-index", "150");
@@ -274,6 +307,19 @@ function finishInit() {
             }
         }, 1000);
     };
+
+    if(force_room) {
+        server.onopen = function() {
+            server.send(JSON.stringify({
+                event: "login",
+                key: authkey,
+                room: room
+            }));
+
+            $("#now_playing").removeAttr("hidden");
+            $("#room_list").attr("hidden", "hidden");
+        }
+    }
 
     server.onmessage = function(event) {
         event_data = JSON.parse(event.data);
@@ -373,11 +419,12 @@ function finishInit() {
                 advanceBackgroundImage();
             break;
             case "chat":
-                console.log(data);
-                chatmessage = data.message
+                chatmessage = data.message;
+                messageclass = ""
                 if(data.message.toLowerCase().indexOf("@" + display_name) > -1) {
                     var audio = new Audio('https://rawgit.com/dcvslab/dcvslab.github.io/master/badoop.mp3'); audio.play();
                     var chatmessage = data.message.replace("@" + display_name, "<b>@" + display_name + "</b>")
+                    var messageclass = messageclass + " chat-tag "
                     noty({
                         text: data.sender + ": " + chatmessage,
                         theme: 'relax',
@@ -395,29 +442,39 @@ function finishInit() {
                     var asterisktally = 0
                     var msplit = chatmessage.split("")
                     var msplitl = msplit.length;
-                        for (var i = 0; i < msplitl; i++) {
-                            if (msplit[i] == "*") {
-                                if (asterisktally == 0) {
-                                    chatmessage = chatmessage.replace("*", "<b>"); asterisktally = 1
-                                } else {
-                                    chatmessage = chatmessage.replace("*", "</b>"); asterisktally = 0
-                                }
+                    for (var i = 0; i < msplitl; i++) {
+                        if (msplit[i] == "*") {
+                            if (asterisktally == 0) {
+                                cmp = chatmessage;
+                                chatmessage = chatmessage.replace("*", "<b>"); asterisktally = 1;
+                            } else {
+                                cmp = chatmessage;
+                                chatmessage = chatmessage.replace("*", "</b>"); asterisktally = 0;
                             }
                         }
+                    }
+                    if (asterisktally == 1) {
+                        chatmessage = cmp
+                    }
                 }
                 if (chatmessage.indexOf("_") > -1) {
                     var uscoretally = 0
                     var msplit = chatmessage.split("")
                     var msplitl = msplit.length;
-                        for (var i = 0; i < msplitl; i++) {
-                            if (msplit[i] == "_") {
-                                if (uscoretally == 0) {
-                                    chatmessage = chatmessage.replace("_", "<i>"); uscoretally = 1
-                                } else {
-                                    chatmessage = chatmessage.replace("_", "</i>"); uscoretally = 0
-                                }
+                    for (var i = 0; i < msplitl; i++) {
+                        if (msplit[i] == "_") {
+                            if (uscoretally == 0) {
+                                cmp = chatmessage;
+                                chatmessage = chatmessage.replace("_", "<i>"); uscoretally = 1
+                            } else {
+                                cmp = chatmessage;
+                                chatmessage = chatmessage.replace("_", "</i>"); uscoretally = 0
                             }
                         }
+                    }
+                    if (uscoretally == 1) {
+                        chatmessage = cmp
+                    }
                 }
                 var senderclass = "";
                 if(data.sender.toLowerCase().toString() == "dcv" || data.sender.toLowerCase().toString() == "williamtdr") {
@@ -426,9 +483,8 @@ function finishInit() {
                 if(data.sender.toLowerCase() == display_name) {
                     var senderclass = senderclass + " chat-you "
                 }
-                    $("#chat-text").append('<span class="chat-message-wrapper"><span class="chat-message-sender' + senderclass + '">' + data.sender + '</span> <span class="chat-message-text">' + linkify(chatmessage, { callback: function( text, href ) { return href ? '<a target="_blank" href="' + href + '" title="' + href + '">' + text + '</a>' : text;}}) + '</span></span>');
-                    $("#chat-text").scrollTop($("#chat-text")[0].scrollHeight);
-                }
+                $("#chat-text").append('<span class="chat-message-wrapper' + messageclass + '"><span class="chat-message-sender' + senderclass + '">' + data.sender + '</span> <span class="chat-message-text">' + linkify(chatmessage, { callback: function( text, href ) { return href ? '<a target="_blank" href="' + href + '" title="' + href + '">' + text + '</a>' : text;}}) + '</span></span>');
+                $("#chat-text").scrollTop($("#chat-text")[0].scrollHeight);
         }
     };
 
@@ -439,5 +495,9 @@ initDelayTimer = setInterval(function() {
     if(youtube_ready && authkey) {
         finishInit();
         clearTimeout(initDelayTimer);
+    }
+    if(force_room) {
+        $("#now_playing_content").removeAttr("hidden");
+        $("#now_playing_placeholder").attr("hidden", "hidden");
     }
 }, 100);
