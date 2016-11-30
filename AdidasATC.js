@@ -1,3 +1,14 @@
+// ==UserScript==
+// @name         Adidas ATC
+// @namespace    none
+// @include      *://adidas.com/*
+// @version      1
+// @description  self explaining
+// @author       dcvslab
+// @match        *://*/*
+// @grant        none
+// ==/UserScript==
+
 (function start() {
     'use strict';
     if (document.getElementsByClassName("price-holder")[0]) { location.reload() } else {
