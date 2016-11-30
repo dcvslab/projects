@@ -9,7 +9,7 @@
 // @grant        none
 // ==/UserScript==
 
-(function start() {
+function start() {
     'use strict';
     if (document.getElementsByClassName("price-holder")[0]) { location.reload() } else {
     var a = document.getElementsByClassName("size-dropdown-block")[0].children[0].children[0].children[1].children[1].children[0].children[0].children;
@@ -22,6 +22,5 @@
     var c = document.getElementsByClassName("size-dropdown-block")[0].children[0].children[0].children[0].children[0].innerHTML
     if (c == "Select size") { alert("Sold Out") } else {
         window.location.replace("https://www.adidas.com/us/delivery-start")};
-}
-})
-window.onload = start;
+}}
+window.onload = start();
