@@ -3,7 +3,7 @@
 // @name         Adidas ATC
 // @namespace    none
 // @include      *://adidas.com/*
-// @version      2.1
+// @version      2.2
 // @description  self explaining
 // @author       dcvslab
 // @match        *://*/*
@@ -30,7 +30,7 @@ function start() {
       else { if (a[i].children[0].innerHTML.includes("7")) { a[i].click() }
       else { if (a[i].children[0].innerHTML.includes("6")) { a[i].click() }
       else { if (a[i].children[0].innerHTML.includes("5")) { a[i].click() }
-    }
+     }}}}}}}}}}}}}
     document.getElementsByClassName("add-to-cart")[0].click()
     var c = document.getElementsByClassName("size-dropdown-block")[0].children[0].children[0].children[0].children[0].innerHTML
     if (c == "Select size") { alert("Sold Out"); } else {
