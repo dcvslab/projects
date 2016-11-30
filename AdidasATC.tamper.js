@@ -3,7 +3,7 @@
 // @name         Adidas ATC
 // @namespace    none
 // @include      *://adidas.com/*
-// @version      1.2
+// @version      2.1
 // @description  self explaining
 // @author       dcvslab
 // @match        *://*/*
