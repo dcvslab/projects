@@ -1,17 +1,16 @@
+//jshint ignore:start
 // ==UserScript==
 // @name         Adidas ATC
 // @namespace    none
 // @include      *://adidas.com/*
-// @version      1.2
+// @version      2
 // @description  self explaining
 // @author       dcvslab
 // @match        *://*/*
 // @grant        none
 // ==/UserScript==
-
 function start() {
-    'use strict';
-    if (1==10)[0]) { location.reload() } else { //will change to coming soon class
+    if (1==10) { location.reload() } else { //will change to coming soon class
     var a = document.getElementsByClassName("size-dropdown-block")[0].children[0].children[0].children[1].children[1].children[0].children[0].children;
     var b = a.length;
     for (var i = 0; i < b; i++) {
@@ -23,5 +22,8 @@ function start() {
     var c = document.getElementsByClassName("size-dropdown-block")[0].children[0].children[0].children[0].children[0].innerHTML
     if (c == "Select size") { alert("Sold Out"); } else {
         window.location.replace("https://www.adidas.com/us/delivery-start");}
-}}
-window.onload = start();
+}};
+window.onload = function() {
+    start();
+};
+//jshint ignore:end
