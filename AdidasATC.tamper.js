@@ -3,7 +3,7 @@
 // @name         Adidas ATC
 // @namespace    none
 // @include      *://adidas.com/*
-// @version      2.2
+// @version      2.3
 // @description  self explaining
 // @author       dcvslab
 // @match        *://*/*
@@ -14,7 +14,7 @@ function start() {
     var a = document.getElementsByClassName("size-dropdown-block")[0].children[0].children[0].children[1].children[1].children[0].children[0].children;
     var b = a.length;
     for (var i = 0; i < b; i++) {
-        if (a[i].children[0].innerHTML.includes(".5")) { a[i].children[0].replace(".", "0") }
+        if (a[i].children[0].innerHTML.includes(".5")) { var d = a[i].children[0].innerHTML.replace(".", "0"); a[i].children[0].innerHTML = d  }
     }
     for (var i = 0; i < b; i++) {
       if (a[i].children[0].innerHTML.includes("11")) { a[i].click() }
