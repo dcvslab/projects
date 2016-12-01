@@ -22,9 +22,7 @@ function start() {
         } //end dS()
 
         for (var i = 0; i < db; i++) { //FIND SIZES, ORDERED BEST TO WORST
-            var dfu = da[i].children[0].innerHTML
-            var df = dfu.replace(/\s+/g, '');
-                if (df == "11") { da[i].click(); de.click(); dS();}
+                if (da[i].children[0].innerHTML.replace(/\s+/g, '') == "11") { da[i].click(); de.click(); dS();}
                 else { console.log("11 sold out")}
         } //end fof
 
