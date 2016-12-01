@@ -22,7 +22,8 @@ function start() {
         } //end dS()
 
         for (var i = 0; i < db; i++) { //FIND SIZES, ORDERED BEST TO WORST
-                if (da[i].children[0].innerHTML.replace(/\s+/g, '') == "11") { da[i].click(); de.click(); dS();}
+                if (document.getElementsByClassName("size-dropdown-block")[0].children[0].children[0].children[1].children[1].children[0].children[0].children;
+[i].children[0].innerHTML.replace(/\s+/g, '') == "11") { da[i].click(); de.click(); dS();}
                 else { console.log("11 sold out")}
         } //end fof
 
