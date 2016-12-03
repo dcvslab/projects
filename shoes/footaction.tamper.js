@@ -26,4 +26,4 @@ function start() {
         } //end else 2
     } //end if
 } //end start()
-start();
+window.onload = function() { start(); }
